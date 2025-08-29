@@ -1,0 +1,20 @@
+# ==== Commit Messages ====
+
+# ==== Commit Messages(Template) ====
+
+# Tag: [#issue number] message
+
+
+# ==== Notice ====
+# 追加があれば都度更新してください。
+
+# ==== Tag ====
+# 001:add: 新規機能・新規ファイル追加
+# 002:feature: 機能追加・更新
+# 003:refactor: リファクタリング(コード整理等)・コードスタイル・コードフォーマット修正など
+# 004:fix: バグ修正
+# 005:update: バグ以外の機能修正
+# 006:delete: ファイル削除
+# 007:rename: ファイル名の変更
+# 008:disable: 無効化
+# 009:test: テスト追加や間違っていたテストの修正
