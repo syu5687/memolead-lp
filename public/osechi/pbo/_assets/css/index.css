@@ -31,7 +31,7 @@
   z-index:-1;
   width:768px;
   height:220vh;
-  background:url("../img/osechi/2023-bg.jpg?v=2") left top no-repeat,#000;
+  background:url("./_assets/img/2023-bg.jpg?v=2") left top no-repeat,#000;
   background-size: auto 100%;
 }
 .top_con{
@@ -57,7 +57,7 @@
 
 .top_con2 {
 	width: 100%;
-	background: url("../img/osechi/2023-bg.jpg") center top/cover no-repeat,#000;
+	background: url("./_assets/img/2023-bg.jpg") center top/cover no-repeat,#000;
 	position: relative;
 }
 
@@ -69,7 +69,7 @@
 	width: 50%;
 	margin-left: auto;
 	height: 23vh;
-	background: url("../img/osechi/bg6.jpg?v=4") center top/cover no-repeat,#000;
+	background: url("./_assets/img/bg6.jpg?v=4") center top/cover no-repeat,#000;
 	position: relative;
 }
 
@@ -295,7 +295,7 @@
 .btn_reserve  .fair_reserve a{
 	width: 100%;
 	display: block;
-	background: url("../img/osechi/bg2.png") center center repeat-x;
+	background: url("./_assets/img/btn.png") center center repeat-x;
 	color: #FFF;
 	font-size: 16px;
 	align-items: center;
