@@ -1053,6 +1053,7 @@
 		vertical-align: middle;
 		width: 40%;
 		padding: 20px 10px;
+		line-height: 20px;
 	}
 	.price p{
 		font-size: 12px;
