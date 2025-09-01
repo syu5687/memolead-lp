@@ -1093,6 +1093,17 @@
 	#contact a{
 	color: #000;
 	}
+	
+	.btn_reserve .fair_reserve {
+		display: flex;
+		justify-content: center;
+		height: 50px;
+		border-radius: 25px;
+		overflow: hidden;
+		width: 100%;
+		margin: 0 auto;
+	}
+
 
 
 }
