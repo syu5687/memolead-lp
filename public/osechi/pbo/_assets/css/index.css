@@ -285,6 +285,16 @@
 	z-index: 999;
 }
 
+.btn_reserve ul{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding-inline-start: 0;
+	z-index: 999;
+}
+
+
 .btn_reserve .fair_reserve {
 	display: flex;
 	justify-content: center;
