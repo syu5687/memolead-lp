@@ -295,7 +295,7 @@
 .btn_reserve  .fair_reserve a{
 	width: 100%;
 	display: block;
-	background: url("/_assets/img/btn.png") center center repeat-x;
+	background: url("/public/osechi/pbo/_assets/img/btn.png?v4") center center repeat-x;
 	color: #FFF;
 	font-size: 16px;
 	align-items: center;
