@@ -31,7 +31,7 @@
   z-index:-1;
   width:768px;
   height:220vh;
-  background:url("/_assets/img/2023-bg.jpg?v=2") left top no-repeat,#000;
+  background:url("/public/osechi/pbo/_assets/img/bg.jpg?v4")  center center repeat-x,#000;
   background-size: auto 100%;
 }
 .top_con{
@@ -57,7 +57,7 @@
 
 .top_con2 {
 	width: 100%;
-	background: url("/_assets/img/2023-bg.jpg") center top/cover no-repeat,#000;
+	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v4")  center center repeat-x,#000;
 	position: relative;
 }
 
@@ -281,7 +281,6 @@
 	width: 100%;
 	bottom: 0;
 	left: 0;
-	padding: 0 10px 10px;
 	z-index: 999;
 }
 
@@ -301,6 +300,8 @@
 	height: 50px;
 	border-radius: 25px;
 	overflow: hidden;
+	width: 70%;
+	margin: 0 auto;
 }
 .btn_reserve  .fair_reserve a{
 	width: 100%;
@@ -1052,6 +1053,7 @@
 		vertical-align: middle;
 		width: 40%;
 		padding: 20px 10px;
+		line-height: 20px;
 	}
 	.price p{
 		font-size: 12px;
@@ -1092,6 +1094,17 @@
 	#contact a{
 	color: #000;
 	}
+	
+	.btn_reserve .fair_reserve {
+		display: flex;
+		justify-content: center;
+		height: 50px;
+		border-radius: 25px;
+		overflow: hidden;
+		width: 100%;
+		margin: 0 auto;
+	}
+
 
 
 }
