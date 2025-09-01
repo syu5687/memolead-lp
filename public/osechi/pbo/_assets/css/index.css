@@ -434,8 +434,8 @@
 
 .osechi_info{
 	padding: 30px;
-	border: 1px solid #642323;
-	color: #642323;
+	border: 1px solid color: #ac0000;
+	color: #ac0000;
 	max-width: 750px;
 	margin: 0 auto;
 }
@@ -455,7 +455,7 @@
 }
 
 .osechi_info table th{
-	background: #F8F5F5;
+	background: #d0ca90;
 	text-align: center;
 	vertical-align: middle;
 	width: 30%;
