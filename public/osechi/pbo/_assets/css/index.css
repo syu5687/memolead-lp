@@ -31,7 +31,7 @@
   z-index:-1;
   width:768px;
   height:220vh;
-  background:url("/public/osechi/pbo/_assets/img/bg.jpg?v4") left top no-repeat,#000;
+  background:url("/public/osechi/pbo/_assets/img/bg.jpg?v4")  center center repeat-x,#000;
   background-size: auto 100%;
 }
 .top_con{
@@ -57,7 +57,7 @@
 
 .top_con2 {
 	width: 100%;
-	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v4") center top/cover no-repeat,#000;
+	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v4")  center center repeat-x,#000;
 	position: relative;
 }
 
