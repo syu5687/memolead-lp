@@ -520,3 +520,25 @@ a:hover {
 	}
 
 }
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider img.active {
+  display: block;
+  position: relative;
+}
