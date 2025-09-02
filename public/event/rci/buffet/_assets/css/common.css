@@ -542,3 +542,13 @@ a:hover {
   display: block;
   position: relative;
 }
+
+.slider img {
+  display: none;
+  width: 100%; /* 必要なら幅を調整 */
+  height: auto;
+}
+
+.slider img.active {
+  display: block;
+}
