@@ -48,3 +48,14 @@ $(document).ready(function(){
 		return false;
 	});
 });
+
+var $slides = $('.slider img');
+  var current = 0;
+
+  $slides.eq(current).addClass('active');
+
+  setInterval(function(){
+	$slides.eq(current).removeClass('active');
+	current = (current + 1) % $slides.length;
+	$slides.eq(current).addClass('active');
+  }, 3000); // 3秒ごとに切り替え
