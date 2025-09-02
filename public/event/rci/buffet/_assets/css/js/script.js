@@ -57,17 +57,7 @@ $(document).ready(function(){
 		$('body').toggleClass('lock');
 		return false;
 	});
-	$('.slides').slick({
-		dots: true,
-		infinite: true,
-		arrows: true,
-		autoplay: true,
-		speed: 1000,
-		autoplaySpeed: 3000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		// fade: true,
-	  });
+	
 	
 });
 
