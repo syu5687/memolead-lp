@@ -3,9 +3,9 @@
 <head>
 	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>おせち2025年｜パークベルズ大村</title>
-	<meta property="og:title" content="おせち2025年｜パークベルズ大村"/>
-	<meta property="og:description" content="おせち2025年｜パークベルズ大村"/>
+	<title>おせち2025年｜メモリード</title>
+	<meta property="og:title" content="おせち2025年｜メモリード"/>
+	<meta property="og:description" content="おせち2025年｜メモリード"/>
 	<meta property="og:image" content="./_assets/hfi-pbo/img/lp/ogp-hfi.jpg?1"/>
 	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v11">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v14">
@@ -14,44 +14,140 @@
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
-	<script type="text/javascript">
-	$(function(){
-		$('a[href^=#]').click(function(){
-			var speed = 500;
-			var href= $(this).attr("href");
-			var target = $(href == "#" || href == "" ? 'html' : href);
-			var position = target.offset().top;
-			$("html, body").animate({scrollTop:position}, speed, "swing");
-			return false;
-		});
-	});
 	
-	$('[data-fancybox]').fancybox({
-		vimeo : {
-			controls : 0,
-			showinfo : 0
+	<style>
+		/* --- スライダー全体のコンテナ --- */
+		.osechi-slider {
+			position: relative;
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #fff;
+			border: 2px solid #8B4513;
+			overflow: hidden;
+			color: #333;
 		}
-	});
-	
-	</script>
-
+		/* --- スライドを横に並べるラッパー --- */
+		.slides-container {
+			display: flex;
+			transition: transform 0.5s ease-in-out;
+		}
+		/* --- 各スライド --- */
+		.slide {
+			flex: 0 0 100%; /* 各スライドがコンテナの100%幅を持つ */
+			box-sizing: border-box;
+			padding: 0 40px;
+		}
+		.slide h3 {
+			text-align: center;
+			font-size: 2em;
+			color: #8B4513;
+			margin-bottom: 20px;
+		}
+		.slide ul {
+			list-style: none;
+			padding: 0;
+			text-align: center;
+			font-size: 1.1em;
+			line-height: 2;
+		}
+		/* --- 左右のナビゲーションボタン --- */
+		.slider-nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 40px;
+			height: 40px;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: white;
+			border: none;
+			border-radius: 50%;
+			font-size: 24px;
+			cursor: pointer;
+			z-index: 10;
+		}
+		.slider-prev {
+			left: 10px;
+		}
+		.slider-next {
+			right: 10px;
+		}
+		/* --- 下部のドットインジケーター --- */
+		.slider-dots {
+			text-align: center;
+			margin-top: 15px;
+		}
+		.dot {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			background-color: #ccc;
+			border-radius: 50%;
+			margin: 0 5px;
+			cursor: pointer;
+		}
+		.dot.active {
+			background-color: #8B4513;
+		}
+	</style>
 	</head>
 <body>
 	<div id="content">
-		<ul class="tab-nav">
-			<li class="tab-nav-item active" data-tab="osechi">おせち</li>
-			<li class="tab-nav-item" data-tab="bounenkai">忘年会</li>
-		</ul>
+
 		<div id="osechi" class="tab-content active">
 			<div class="top_con">
-				<div class="top_con1"><img class="wow fadeInUp" src="./_assets/rci_osechi/img/osechi/osechi23-01.png" style="width: 100%;" alt=""></div>
+				<div class="top_con1 wow fadeIn"><img src="./_assets/rci_osechi/img/osechi/osechi23-01.png" style="width: 100%;" alt=""></div>
+				
+				<ul class="tab-nav wow fadeIn">
+					<li class="tab-nav-item active" data-tab="osechi">おせち</li>
+					<li class="tab-nav-item" data-tab="bounenkai">忘年会</li>
+				</ul>
+				
 				<div class="menu">
-					<img src="./_assets/img/pbo_osechi2025_01.jpg?v4" width="100%" height="auto" alt="">
-					<img src="./_assets/img/pbo_osechi2025_02.jpg?v8" width="100%" height="auto" alt="">
-					<img src="./_assets/img/pbo_osechi2025_03.jpg?v8" width="100%" height="auto" alt="">
+					<img class="wow fadeIn" data-wow-delay="0.1s" src="./_assets/img/pbo_osechi2025_01.jpg?v4" width="100%" height="auto" alt="">
+					<img class="wow fadeIn" data-wow-delay="0.2s" src="./_assets/img/pbo_osechi2025_02.jpg?v8" width="100%" height="auto" alt="">
+					<img class="wow fadeIn" data-wow-delay="0.3s" src="./_assets/img/pbo_osechi2025_03.jpg?v8" width="100%" height="auto" alt="">
 				</div>
-				<div style="background: #fff;" class="osechi_info01">
-					<div class="osechi_info wow fadeInUp">
+
+				<div class="osechi-slider wow fadeIn">
+					<div class="slides-container">
+						<div class="slide">
+							<h3>一の重</h3>
+							<ul>
+								<li>壱岐産クエの西京焼き</li>
+								<li>長崎県産伊勢海老</li>
+								<li>数の子</li>
+								<li>黒豆金箔飾り</li>
+								<li>栗きんとん</li>
+							</ul>
+						</div>
+						<div class="slide">
+							<h3>二の重</h3>
+							<ul>
+								<li>ローストビーフ</li>
+								<li>鮑の柔らか煮</li>
+								<li>合鴨の燻製</li>
+								<li>帆立の照り焼き</li>
+								<li>紅白なます</li>
+							</ul>
+						</div>
+						<div class="slide">
+							<h3>三の重</h3>
+							<ul>
+								<li>海老のチリソース</li>
+								<li>角煮</li>
+								<li>中華くらげ</li>
+								<li>胡桃の飴炊き</li>
+								<li>杏仁豆腐</li>
+							</ul>
+						</div>
+					</div>
+					<button class="slider-nav slider-prev">&lt;</button>
+					<button class="slider-nav slider-next">&gt;</button>
+					<div class="slider-dots"></div>
+				</div>
+				<div style="background: #fff;" class="osechi_info01 wow fadeIn">
+					<div class="osechi_info">
 						<div>
 							<div class="osechi_info_ttl">
 								<p style="text-align: center"><span>4人前おせち</span></p>
@@ -104,10 +200,10 @@
 		</div>
 
 		<div id="bounenkai" class="tab-content">
-			<div class="menu">
+			<div class="menu wow fadeIn">
 				<img src="./_assets/img/bounenkai_main_img.jpg" width="100%" height="auto" alt="忘年会プラン">
 			</div>
-			<div style="background: #fff; padding: 30px;" class="bounenkai_info">
+			<div style="background: #fff; padding: 30px;" class="bounenkai_info wow fadeIn">
 				<div style="text-align: center;">
 					<h2 style="font-size: 2em; margin-bottom: 20px; font-weight: bold; color: #333;">2024年 忘年会プラン</h2>
 					<p style="font-size: 1.1em; line-height: 1.8;">
@@ -116,24 +212,24 @@
 						思い出に残るひとときを演出いたします。
 					</p>
 				</div>
-				<div style="border: 2px solid #8B4513; border-radius: 8px; padding: 20px; margin: 30px auto; max-width: 800px;">
+				<div class="wow fadeIn" data-wow-delay="0.1s" style="border: 2px solid #8B4513; border-radius: 8px; padding: 20px; margin: 30px auto; max-width: 800px;">
 					 <h3 style="font-size: 1.6em; color: #8B4513; text-align: center; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">【Aプラン】卓盛りコース</h3>
 					 <p style="font-size: 1.4em; text-align: center; font-weight: bold;">お一人様 <span>8,000</span>円（税込）</p>
 					 <p style="text-align: center; margin-top: 10px;">和洋折衷のお料理8品＋2時間飲み放題付き<br>（ご利用は4名様より承ります）</p>
 				</div>
-				 <div style="border: 2px solid #8B4513; border-radius: 8px; padding: 20px; margin: 30px auto; max-width: 800px;">
+				<div class="wow fadeIn" data-wow-delay="0.2s" style="border: 2px solid #8B4513; border-radius: 8px; padding: 20px; margin: 30px auto; max-width: 800px;">
 					<h3 style="font-size: 1.6em; color: #8B4513; text-align: center; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">【Bプラン】個人盛りコース</h3>
 					<p style="font-size: 1.4em; text-align: center; font-weight: bold;">お一人様 <span>10,000</span>円（税込）</p>
 					<p style="text-align: center; margin-top: 10px;">特選素材を使ったお料理9品＋2時間飲み放題（プレミアムドリンク含む）</p>
 				</div>
-				<p style="text-align: center; margin-top: 20px;">
+				<p class="wow fadeIn" data-wow-delay="0.3s" style="text-align: center; margin-top: 20px;">
 					※ご予算やご要望に応じたプランもご提案可能です。お気軽にご相談ください。<br>
 					<strong>ご予約期間: 2024年12月20日まで</strong>
 				</p>
 			</div>
 		</div>
 
-		<div id="contact" class="">
+		<div id="contact" class="wow fadeIn">
 			<div class="inner">
 				<p class="textContact times"><span>お問合せ</span></p>
 				<p class="timeContact">パークベルズ大村</p>
@@ -144,7 +240,7 @@
 		</div>
 	</div>
 
-	<div id="footer">
+	<div id="footer" class="wow fadeIn">
 		<div class="inner times">
 			<p class="textWeb"></p>
 			<p class="logo-footer">
@@ -166,12 +262,87 @@
 
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
 	<script type="text/javascript">
-		new WOW().init();
-		$(window).scroll(function(){
-			if( $(window).scrollTop() == 0) {
-				new WOW().init();
+	$(function(){
+		// スムーススクロール
+		$('a[href^=#]').click(function(){
+			var speed = 500;
+			var href= $(this).attr("href");
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			var position = target.offset().top;
+			$("html, body").animate({scrollTop:position}, speed, "swing");
+			return false;
+		});
+
+		// タブ切り替え
+		$('.tab-nav-item').on('click', function() {
+			var targetTab = $(this).data('tab');
+			$('.tab-nav-item').removeClass('active');
+			$(this).addClass('active');
+
+			// コンテンツの表示を切り替える前にwow.jsのクラスをリセット
+			$('.tab-content').removeClass('active animated fadeIn').css('visibility', 'hidden');
+			
+			// クリックされたタブに対応するコンテンツを表示
+			$('#' + targetTab).addClass('active animated fadeIn').css('visibility', 'visible');
+			
+			// WOWを再初期化して、新しいタブのアニメーションをトリガー
+			new WOW().sync();
+		});
+
+		$('[data-fancybox]').fancybox({
+			vimeo : {
+				controls : 0,
+				showinfo : 0
 			}
 		});
+
+		// ▼▼▼【追加】スライダーのJavaScript ▼▼▼
+		const slider = $('.osechi-slider');
+		const slidesContainer = slider.find('.slides-container');
+		const slides = slider.find('.slide');
+		const prevButton = slider.find('.slider-prev');
+		const nextButton = slider.find('.slider-next');
+		const dotsContainer = slider.find('.slider-dots');
+		let currentIndex = 0;
+		const slideCount = slides.length;
+
+		// ドットを動的に生成
+		for (let i = 0; i < slideCount; i++) {
+			dotsContainer.append('<span class="dot" data-index="' + i + '"></span>');
+		}
+		const dots = dotsContainer.find('.dot');
+
+		// スライドを移動させる関数
+		function goToSlide(index) {
+			slidesContainer.css('transform', 'translateX(' + (-index * 100) + '%)');
+			dots.removeClass('active');
+			dots.eq(index).addClass('active');
+			currentIndex = index;
+		}
+
+		// イベントリスナー
+		nextButton.on('click', function() {
+			const nextIndex = (currentIndex + 1) % slideCount;
+			goToSlide(nextIndex);
+		});
+
+		prevButton.on('click', function() {
+			const prevIndex = (currentIndex - 1 + slideCount) % slideCount;
+			goToSlide(prevIndex);
+		});
+
+		dots.on('click', function() {
+			const index = $(this).data('index');
+			goToSlide(index);
+		});
+
+		// 初期化
+		goToSlide(0);
+		// ▲▲▲ スライダーのJavaScriptここまで ▲▲▲
+	});
+
+	// WOW.jsの初期化
+	new WOW().init();
 	</script>
 </body>
 </html>
