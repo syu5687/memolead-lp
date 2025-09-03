@@ -211,6 +211,141 @@ a:hover {
 #contact .noteContact {
 	letter-spacing: -2px;
 }
+
+		/* --- スライダーのスタイル（変更なし） --- */
+.osechi-slider {
+	position: relative;
+	max-width: 800px;
+	margin: 40px auto;
+	padding: 20px;
+	background-color: #fff;
+	border: 2px solid #8B4513;
+	overflow: hidden;
+	color: #333;
+}
+.slides-container {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+.slide {
+	flex: 0 0 100%;
+	box-sizing: border-box;
+	padding: 0 40px;
+}
+.slide h3 {
+	text-align: center;
+	font-size: 2em;
+	color: #8B4513;
+	margin-bottom: 20px;
+}
+.slide ul {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+	font-size: 1.1em;
+	line-height: 2;
+	display: flex; /* 横並びにする */
+	flex-wrap: wrap; /* 折り返す */
+	justify-content: center; /* 中央揃え */
+}
+.slide li {
+	margin: 0 10px; /* アイテム間の余白 */
+}
+.slider-nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	font-size: 24px;
+	cursor: pointer;
+	z-index: 10;
+}
+.slider-prev { left: 10px; }
+.slider-next { right: 10px; }
+.slider-dots { text-align: center; margin-top: 15px; }
+.dot { display: inline-block; width: 12px; height: 12px; background-color: #ccc; border-radius: 50%; margin: 0 5px; cursor: pointer; }
+.dot.active { background-color: #8B4513; }
+
+/* ▼▼▼【追加】プレミアムおせち用の新しいスタイル ▼▼▼ */
+.premium-info-wrapper {
+	padding: 40px 20px;
+	background-color: #fff;
+	text-align: center;
+}
+.premium-title {
+	background-color: #c0392b;
+	color: white;
+	padding: 20px 10px;
+	margin-bottom: 30px;
+}
+.premium-title h2 {
+	font-size: 2.8em;
+	margin: 0;
+	font-weight: bold;
+}
+.premium-title p {
+	font-size: 1.2em;
+	margin: 10px 0 0;
+	font-weight: bold;
+}
+.price-box {
+	border: 2px solid #555;
+	padding: 20px;
+	display: inline-block;
+	margin-bottom: 30px;
+}
+.price-box .price-details {
+	font-size: 1.1em;
+	margin: 0;
+}
+.price-box .price-main {
+	font-size: 2.5em;
+	font-weight: bold;
+	margin: 5px 0;
+}
+.price-box .price-tax {
+	font-size: 1.1em;
+	margin: 0;
+}
+.early-bird {
+	background-color: #c0392b;
+	color: white;
+	padding: 20px;
+	max-width: 700px;
+	margin: 0 auto 30px auto;
+	border-radius: 8px;
+}
+.early-bird .early-bird-text {
+	font-size: 1.1em;
+	margin: 0;
+}
+.early-bird .early-bird-price {
+	font-size: 2.2em;
+	font-weight: bold;
+	margin: 10px 0;
+}
+.early-bird .early-bird-tax {
+	font-size: 1.1em;
+	margin: 0;
+}
+.description-box {
+	max-width: 650px;
+	margin: 0 auto;
+	line-height: 2;
+	font-size: 1.1em;
+}
+.description-box h3 {
+	font-size: 1.8em;
+	color: #8B4513;
+	margin-bottom: 15px;
+}
+
+
 #footer {
 	text-align: center;
 	padding-top: 40px;
@@ -230,6 +365,7 @@ a:hover {
 #footer .logo-footer a {
 	color: #000;
 }
+
 
 
 /* --- レスポンシブ (SP) --- */
