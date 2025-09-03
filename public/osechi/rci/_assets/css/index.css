@@ -3,11 +3,11 @@
 
 /* --- 基本スタイル --- */
 body {
-	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v4") center center repeat-x;
+	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v5") center center;
 	font-size: 13px;
 	line-height: 1.7;
 	color: #000000;
-	font-family: 'Noto Sans JP', 'Noto Serif JP', serif;
+	font-family: 'Noto Serif JP', serif;
 	text-align: center;
 }
 img {
