@@ -3,7 +3,7 @@
 
 /* --- 基本スタイル --- */
 body {
-	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v5") center center;
+	background: url("/public/osechi/rci/_assets/img/bg.jpg?v5") center center;
 	font-size: 13px;
 	line-height: 1.7;
 	color: #000000;
@@ -273,18 +273,22 @@ a:hover {
 /* --- プレミアムおせち用のスタイル --- */
 .premium-info-wrapper{
 	color: #880000;
+	background-color: #fff;
 	padding: 20px 10px;
 	margin-bottom: 30px;
 	background-color: ;
 }
 .premium-title { background-color: #c0392b; color: white; padding: 20px 10px; margin-bottom: 30px; }
 .premium-title h2 { font-size: 2.8em; margin: 0; font-weight: bold; }
-.premium-title p { font-size: 27px;
+.premium-title p { 
+	font-size: 27px;
 	margin: 10px auto;
 	font-weight: bold;
 	background-color: #642323;
 	color: #fff;
-	width: 220px; }
+	width: 220px;
+	text-align: center;
+}
 .price-box { border: 2px solid #555; padding: 20px; display: inline-block; margin-bottom: 30px; }
 .price-box .price-details { font-size: 1.1em; margin: 0; }
 .price-box .price-main { font-size: 2.5em; font-weight: bold; margin: 5px 0; }
