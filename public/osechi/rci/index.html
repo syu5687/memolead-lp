@@ -7,8 +7,8 @@
 	<meta property="og:title" content="おせち2025年｜メモリード"/>
 	<meta property="og:description" content="おせち2025年｜メモリード"/>
 	<meta property="og:image" content="./_assets/hfi-pbo/img/lp/ogp-hfi.jpg?1"/>
-	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v17">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v21">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v20">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v23">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
@@ -23,7 +23,7 @@
 		<div id="osechi" class="tab-content active">
 			<div class="top_con">
 				<div class="menu">
-					<img class="wow fadeIn" data-wow-delay="0.1s" src="./_assets/img/osechi2025_top.jpg?v4" width="100%" height="auto" alt="">
+					<img class="wow fadeIn" data-wow-delay="0.1s" src="./_assets/img/osechi2025_top.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
 				</div>
 				
 				<ul class="tab-nav wow fadeIn">
@@ -33,28 +33,26 @@
 				
 				<div class="premium-info-wrapper wow fadeIn">
 					<div class="premium-title">
-						<h2>プレミアムおせち</h2>
-						<p>限定170個</p>
+						<h2>プレミアムおせち [cite: 1]</h2>
+						<p>限定170個 [cite: 2]</p>
 					</div>
 					<div class="price-box">
-						<p class="price-details">三段重ね・4名様向き</p>
-						<p class="price-main">35,000円</p>
-						<p class="price-tax">(税込)</p>
+						<p class="price-details">3段重ね [cite: 4]・4名様向き [cite: 3]</p>
+						<p class="price-main">35,000円<span class="price-tax">(税込) [cite: 5]</span></p>
+						<p class="price-size">[21cm×21cm | 3段] </p>
 					</div>
 					<div class="early-bird">
-						<p class="early-bird-text">2025年10月末日までの早期お申し込みで</p>
-						<p class="early-bird-price">33,000円</p>
-						<p class="early-bird-tax">(税込)</p>
+						<p class="early-bird-text">2025年10月末までの早期お申し込みで [cite: 7]</p>
+						<p class="early-bird-price">35,000円(税込) [cite: 8]</p>
 					</div>
 					<div class="description-box">
-						<h3>匠が織りなす特選料理</h3>
+						<h3>匠が織りなす特選料理 [cite: 9]</h3>
 						<p>
-							お正月を華やかに演出する料理長こだわりのおせち料理。<br>
-							伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。
+							お正月を華やかに演出する料理長こだわりのおせち料理。 [cite: 10]<br>
+							伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。 [cite: 11]
 						</p>
 					</div>
 				</div>
-
 				<div class="osechi-slider wow fadeIn">
 					<div class="slides-container">
 						<div class="slide">
@@ -182,7 +180,7 @@
 						</div>
 					</div>
 				</div>
-				</div>
+			</div>
 		</div>
 
 		<div id="bounenkai" class="tab-content">
@@ -197,21 +195,21 @@
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		// (既存のスクリプトは変更なし)
 		$('a[href^=#]').click(function(){/* ... */});
-		$('.tab-nav-item').on('click', function() {/* ... */});
+		$('.tab-nav-item').on('click', function() {
+			var targetTab = $(this).data('tab');
+			$('.tab-nav-item').removeClass('active');
+			$(this).addClass('active');
+			$('.tab-content').removeClass('active');
+			$('#' + targetTab).addClass('active');
+		});
 		$('[data-fancybox]').fancybox({/* ... */});
 
-		// ▼▼▼ スライダーのJavaScript（調整機能付き） ▼▼▼
-
-		// ▼▼▼ スライダーの設定 ▼▼▼
-		// ここでスライダーの細かい挙動を調整できます
 		const sliderOptions = {
-			transitionSpeed: 1000,  // スライドの切り替え速度（ミリ秒）
-			autoplay: true,        // 自動再生を有効にするか (true / false)
-			autoplaySpeed: 1000    // 自動再生の間隔（ミリ秒）
+			transitionSpeed: 1000,
+			autoplay: true,
+			autoplaySpeed: 5000 
 		};
-		// ▲▲▲ 設定ここまで ▲▲▲
 
 		const slider = $('.osechi-slider');
 		const slidesContainer = slider.find('.slides-container');
@@ -223,10 +221,8 @@
 		const slideCount = slides.length;
 		let autoplayInterval = null;
 
-		// CSSに切り替え速度を適用
 		slidesContainer.css('transition', 'transform ' + sliderOptions.transitionSpeed + 'ms ease-in-out');
 
-		// ドットを動的に生成
 		for (let i = 0; i < slideCount; i++) {
 			dotsContainer.append('<span class="dot" data-index="' + i + '"></span>');
 		}
@@ -251,24 +247,14 @@
 			clearInterval(autoplayInterval);
 		}
 
-		nextButton.on('click', function() {
-			goToSlide((currentIndex + 1) % slideCount);
-		});
-		prevButton.on('click', function() {
-			goToSlide((currentIndex - 1 + slideCount) % slideCount);
-		});
-		dots.on('click', function() {
-			goToSlide($(this).data('index'));
-		});
-
-		// マウスが乗ったら自動再生を停止、離れたら再開
+		nextButton.on('click', function() { goToSlide((currentIndex + 1) % slideCount); });
+		prevButton.on('click', function() { goToSlide((currentIndex - 1 + slideCount) % slideCount); });
+		dots.on('click', function() { goToSlide($(this).data('index')); });
 		slider.on('mouseenter', stopAutoplay).on('mouseleave', startAutoplay);
 		
-		// 初期化
 		goToSlide(0);
 		startAutoplay();
 	});
-
 	new WOW().init();
 	</script>
 </body>
