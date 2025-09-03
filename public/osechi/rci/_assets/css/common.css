@@ -33,6 +33,10 @@ a:hover {
 	font-family: 'Times', sans-serif;
 }
 
+.sp{
+	display: none;
+}
+
 /* --- お問合せ (CONTACT) --- */
 #contact {
 	text-align: center;
@@ -91,6 +95,12 @@ a:hover {
 
 /* --- レスポンシブ (SP STYLE) --- */
 @media (max-width: 768px) {
+	.pc {
+		display: none;
+	}
+	.sp {
+		display: block;
+	}
 	.inner {
 		width: 100%;
 	}
