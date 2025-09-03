@@ -292,7 +292,7 @@ a:hover {
 
 /* --- プレミアムおせち用のスタイル --- */
 .premium-info-wrapper {
-	color: #880000;
+	color: #333;
 	background-color: #fff;
 	padding: 20px 10px;
 	margin-bottom: 30px;
@@ -304,6 +304,8 @@ a:hover {
 	margin-bottom: 30px;
 	border: 2px solid #990000;
 	text-align: center;
+	display: flex;
+	justify-content: center;
 }
 .premium-title h2 {
 	font-size: 2.8em;
@@ -312,7 +314,7 @@ a:hover {
 }
 .premium-title p {
 	font-size: 27px;
-	margin: 10px auto;
+	margin: 10px 0;
 	font-weight: bold;
 	background-color: #642323;
 	color: #fff;
@@ -320,7 +322,6 @@ a:hover {
 	text-align: center;
 }
 .price-box {
-	border: 2px solid #555;
 	padding: 20px;
 	display: inline-block;
 	margin-bottom: 30px;
@@ -328,6 +329,7 @@ a:hover {
 .price-box .price-details {
 	font-size: 1.1em;
 	margin: 0;
+	border: 2px solid #333;
 }
 .price-box .price-main {
 	font-size: 2.5em;
@@ -347,13 +349,18 @@ a:hover {
 	border-radius: 8px;
 }
 .early-bird .early-bird-text {
-	font-size: 1.1em;
-	margin: 0;
+	font-size: 20px;
+	margin: 0 auto;
+	background-color: #c0392b;
+	border-radius: 35px;
+	padding: 10px 0px;
+	width: 390px;
 }
 .early-bird .early-bird-price {
-	font-size: 2.2em;
+	font-size: 2.5em;
 	font-weight: bold;
 	margin: 10px 0;
+	color: #c0392b;
 }
 .early-bird .early-bird-tax {
 	font-size: 1.1em;
@@ -369,6 +376,7 @@ a:hover {
 	font-size: 1.8em;
 	color: #8B4513;
 	margin-bottom: 15px;
+	text-align: left;
 }
 
 /* --- フッター --- */
