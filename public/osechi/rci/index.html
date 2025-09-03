@@ -7,341 +7,367 @@
 	<meta property="og:title" content="おせち2025年｜メモリード"/>
 	<meta property="og:description" content="おせち2025年｜メモリード"/>
 	<meta property="og:image" content="./_assets/hfi-pbo/img/lp/ogp-hfi.jpg?1"/>
-	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v11">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v14">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v30">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v35">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
 	
-	<style>
-		/* --- スライダー全体のコンテナ --- */
-		.osechi-slider {
-			position: relative;
-			max-width: 800px;
-			margin: 40px auto;
-			padding: 20px;
-			background-color: #fff;
-			border: 2px solid #8B4513;
-			overflow: hidden;
-			color: #333;
-		}
-		/* --- スライドを横に並べるラッパー --- */
-		.slides-container {
-			display: flex;
-			transition: transform 0.5s ease-in-out;
-		}
-		/* --- 各スライド --- */
-		.slide {
-			flex: 0 0 100%; /* 各スライドがコンテナの100%幅を持つ */
-			box-sizing: border-box;
-			padding: 0 40px;
-		}
-		.slide h3 {
-			text-align: center;
-			font-size: 2em;
-			color: #8B4513;
-			margin-bottom: 20px;
-		}
-		.slide ul {
-			list-style: none;
-			padding: 0;
-			text-align: center;
-			font-size: 1.1em;
-			line-height: 2;
-		}
-		/* --- 左右のナビゲーションボタン --- */
-		.slider-nav {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 40px;
-			height: 40px;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-			border: none;
-			border-radius: 50%;
-			font-size: 24px;
-			cursor: pointer;
-			z-index: 10;
-		}
-		.slider-prev {
-			left: 10px;
-		}
-		.slider-next {
-			right: 10px;
-		}
-		/* --- 下部のドットインジケーター --- */
-		.slider-dots {
-			text-align: center;
-			margin-top: 15px;
-		}
-		.dot {
-			display: inline-block;
-			width: 12px;
-			height: 12px;
-			background-color: #ccc;
-			border-radius: 50%;
-			margin: 0 5px;
-			cursor: pointer;
-		}
-		.dot.active {
-			background-color: #8B4513;
-		}
-	</style>
-	</head>
+</head>
 <body>
 	<div id="content">
 
-		<div id="osechi" class="tab-content active">
-			<div class="top_con">
-				<div class="top_con1 wow fadeIn"><img src="./_assets/rci_osechi/img/osechi/osechi23-01.png" style="width: 100%;" alt=""></div>
-				
-				<ul class="tab-nav wow fadeIn">
-					<li class="tab-nav-item active" data-tab="osechi">おせち</li>
-					<li class="tab-nav-item" data-tab="bounenkai">忘年会</li>
-				</ul>
-				
-				<div class="menu">
-					<img class="wow fadeIn" data-wow-delay="0.1s" src="./_assets/img/pbo_osechi2025_01.jpg?v4" width="100%" height="auto" alt="">
-					<img class="wow fadeIn" data-wow-delay="0.2s" src="./_assets/img/pbo_osechi2025_02.jpg?v8" width="100%" height="auto" alt="">
-					<img class="wow fadeIn" data-wow-delay="0.3s" src="./_assets/img/pbo_osechi2025_03.jpg?v8" width="100%" height="auto" alt="">
-				</div>
+		<div class="top_con">
+			<div class="menu">
+				<img class="wow fadeIn" src="./_assets/img/osechi2025_top.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
+			</div>
+			
+			<ul class="tab-nav wow fadeIn">
+				<li class="tab-nav-item active" data-tab="osechi">おせち</li>
+				<li class="tab-nav-item" data-tab="christmas">クリスマス</li>
+			</ul>
+		</div>
 
-				<div class="osechi-slider wow fadeIn">
-					<div class="slides-container">
-						<div class="slide">
-							<h3>一の重</h3>
-							<ul>
-								<li>壱岐産クエの西京焼き</li>
-								<li>長崎県産伊勢海老</li>
-								<li>数の子</li>
-								<li>黒豆金箔飾り</li>
-								<li>栗きんとん</li>
-							</ul>
-						</div>
-						<div class="slide">
-							<h3>二の重</h3>
-							<ul>
-								<li>ローストビーフ</li>
-								<li>鮑の柔らか煮</li>
-								<li>合鴨の燻製</li>
-								<li>帆立の照り焼き</li>
-								<li>紅白なます</li>
-							</ul>
-						</div>
-						<div class="slide">
-							<h3>三の重</h3>
-							<ul>
-								<li>海老のチリソース</li>
-								<li>角煮</li>
-								<li>中華くらげ</li>
-								<li>胡桃の飴炊き</li>
-								<li>杏仁豆腐</li>
-							</ul>
-						</div>
-					</div>
-					<button class="slider-nav slider-prev">&lt;</button>
-					<button class="slider-nav slider-next">&gt;</button>
-					<div class="slider-dots"></div>
+		<div id="osechi" class="tab-content active">
+			<div class="premium-info-wrapper wow fadeIn">
+				<div class="premium-title">
+					<h2>プレミアムおせち</h2>
+					<p>限定170個</p>
 				</div>
-				<div style="background: #fff;" class="osechi_info01 wow fadeIn">
-					<div class="osechi_info">
-						<div>
-							<div class="osechi_info_ttl">
-								<p style="text-align: center"><span>4人前おせち</span></p>
-							</div>
-							<table>
-								<tbody>
-									<tr>
-										<th>9月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1" style="border-bottom: none;">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>30,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>ご予約<br>締切日</th>
-										<td>令和7年12月15日(月)<br>17:00まで</td>
-									</tr>
-									<tr>
-										<th>お受取り場所</th>
-										<td>パークベルズ大村</td>
-									</tr>
-									<tr>
-										<th>お受取日時</th>
-										<td>令和7年12月31日(水)<br>10:00〜15:00</td>
-									</tr>
-									<tr>
-										<th>備考<br>注意事項</th>
-										<td><p>※上記期間であっても、限定個数に達した場合は終了します。</p></td>
-									</tr>
-									<tr>
-										<th>配達希望の方</th>
-										<td><p>※長崎県内別途1,500円が必要です。※離島を除く<br>※大晦日（31日）は交通機関等の混雑が予想されます。<br>配達時間が遅れる場合がございますので予めご了承下さいませ。</p></td>
-									</tr>
-								</tbody>
-							</table>
+				<div class="menu">
+					<img class="wow fadeIn" src="./_assets/img/osechi2025_01.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
+				</div>
+				<div class="price-box">
+					<p class="price-details">3段重ね・4名様向き</p>
+					<p class="price-main">35,000円<span class="price-tax">(税込)</span></p>
+					<p class="price-size">[21cm×21cm | 3段]</p>
+				</div>
+				<div class="early-bird">
+					<p class="early-bird-text">2025年10月末までの早期お申し込みで</p>
+					<p class="early-bird-price">35,000円(税込)</p>
+				</div>
+				<div class="description-box">
+					<h3>匠が織りなす特選料理</h3>
+					<p>
+						お正月を華やかに演出する料理長こだわりのおせち料理。<br>
+						伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。
+					</p>
+				</div>
+			</div>
+			
+			<div class="osechi-slider wow fadeIn">
+				<div class="slides-container">
+					<div class="slide">
+						<h3>一の重</h3>
+						<ul>
+							<li>蟹爪</li><li>金柑蜜煮</li><li>羽二重奉書巻</li><li>ロブスター</li><li>鮑柔らか煮</li><li>海老芝煮</li><li>数の子</li><li>栄螺の葱味噌焼</li>
+						</ul>
+					</div>
+					<div class="slide">
+						<h3>二の重</h3>
+						<ul>
+							<li>海老手鞠</li><li>焼き冬筍</li><li>海老芋</li><li>梅人参</li><li>牛肉八幡巻</li><li>田作り</li><li>鰤照り焼き</li><li>黒豆金箔</li><li>鮭昆布巻き</li><li>伊達巻</li><li>蛸旨煮</li><li>つくね</li><li>大黒しめじ</li><li>菜の花</li>
+						</ul>
+					</div>
+					<div class="slide">
+						<h3>三の重</h3>
+						<ul>
+							<li>ローストビーフ</li><li>イクラ醤油漬</li><li>花蓮根</li><li>鴨特製味噌漬け</li><li>和キッシュ</li><li>蛸の酢の物</li><li>白身魚の南蛮漬け</li><li>鯛の雲丹焼</li><li>栗渋皮煮</li><li>きんとん</li><li>抹茶羊羹</li>
+						</ul>
+					</div>
+				</div>
+				<button class="slider-nav slider-prev">&lt;</button>
+				<button class="slider-nav slider-next">&gt;</button>
+				<div class="slider-dots"></div>
+			</div>
+			
+			<div class="premium-info-wrapper wow fadeIn">
+				<div class="premium-title">
+					<h2>特選おせち</h2>
+					<p>限定50個</p>
+				</div>
+				<div class="menu">
+					<img class="wow fadeIn" src="./_assets/img/osechi2025_02.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
+				</div>
+				<div class="price-box">
+					<p class="price-details">3段重ね・2名様向き</p>
+					<p class="price-main">22,000円<span class="price-tax">(税込)</span></p>
+					<p class="price-size">[21cm×21cm | 3段]</p>
+				</div>
+				<div class="description-box">
+					<h3>お正月を華やかに演出する<br>豪華なおせち料理</h3>
+					<p>
+						熟練の技が奏でる、贅を尽くした「味の宴」。料理人一同新年も幸多かれと願いを込めて、厳選した食材を用いた華やかなおせちをご用意いたしました。
+					</p>
+				</div>
+			</div>
+
+			<div class="osechi_info01 wow fadeIn">
+				<div class="osechi_info">
+					<div>
+						<div class="osechi_info_ttl">
+							<p style="text-align: center"><span>4人前おせち</span></p>
 						</div>
+						<table>
+							<tbody>
+								<tr>
+									<th>9月末日までのお申し込み</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>31,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1" style="border-bottom: none;">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>30,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>10月末日までのお申し込み</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>31,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>30,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>11月末日までのお申し込み</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>32,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>31,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>通常価格</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>33,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1" style="border-bottom: none;">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>32,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>ご予約<br>締切日</th>
+									<td>令和7年12月15日(月)<br>17:00まで</td>
+								</tr>
+								<tr>
+									<th>お受取り場所</th>
+									<td>パークベルズ大村</td>
+								</tr>
+								<tr>
+									<th>お受取日時</th>
+									<td>令和7年12月31日(水)<br>10:00〜15:00</td>
+								</tr>
+								<tr>
+									<th>備考<br>注意事項</th>
+									<td><p>※上記期間であっても、限定個数に達した場合は終了します。</p></td>
+								</tr>
+								<tr>
+									<th>配達希望の方</th>
+									<td><p>※長崎県内別途1,500円が必要です。※離島を除く<br>※大晦日（31日）は交通機関等の混雑が予想されます。<br>配達時間が遅れる場合がございますので予めご了承下さいませ。</p></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="bounenkai" class="tab-content">
-			<div class="menu wow fadeIn">
-				<img src="./_assets/img/bounenkai_main_img.jpg" width="100%" height="auto" alt="忘年会プラン">
-			</div>
-			<div style="background: #fff; padding: 30px;" class="bounenkai_info wow fadeIn">
-				<div style="text-align: center;">
-					<h2 style="font-size: 2em; margin-bottom: 20px; font-weight: bold; color: #333;">2024年 忘年会プラン</h2>
-					<p style="font-size: 1.1em; line-height: 1.8;">
-						一年の締めくくりに、パークベルズ大村の特別なお料理はいかがでしょうか。<br>
-						シェフが腕を振るう美味しいお料理と心温まるおもてなしで、<br>
-						思い出に残るひとときを演出いたします。
+		<div id="christmas" class="tab-content">
+			<div class="premium-info-wrapper wow fadeIn">
+				<div class="premium-title">
+					<h2>プレミアムおせち</h2>
+					<p>限定170個</p>
+				</div>
+				<div class="price-box">
+					<p class="price-details">3段重ね・4名様向き</p>
+					<p class="price-main">35,000円<span class="price-tax">(税込)</span></p>
+					<p class="price-size">[21cm×21cm | 3段]</p>
+				</div>
+				<div class="early-bird">
+					<p class="early-bird-text">2025年10月末までの早期お申し込みで</p>
+					<p class="early-bird-price">35,000円(税込)</p>
+				</div>
+				<div class="description-box">
+					<h3>匠が織りなす特選料理</h3>
+					<p>
+						お正月を華やかに演出する料理長こだわりのおせち料理。<br>
+						伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。
 					</p>
 				</div>
-				<div class="wow fadeIn" data-wow-delay="0.1s" style="border: 2px solid #8B4513; border-radius: 8px; padding: 20px; margin: 30px auto; max-width: 800px;">
-					 <h3 style="font-size: 1.6em; color: #8B4513; text-align: center; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">【Aプラン】卓盛りコース</h3>
-					 <p style="font-size: 1.4em; text-align: center; font-weight: bold;">お一人様 <span>8,000</span>円（税込）</p>
-					 <p style="text-align: center; margin-top: 10px;">和洋折衷のお料理8品＋2時間飲み放題付き<br>（ご利用は4名様より承ります）</p>
+			</div>
+			
+			
+			<div class="osechi_info01 wow fadeIn">
+				<div class="osechi_info">
+					<div>
+						<div class="osechi_info_ttl">
+							<p style="text-align: center"><span>2025-2026 メモリードのおせち</span></p>
+						</div>
+						<table>
+							<tbody>
+								<tr>
+									<th>プレミアムおせち4人前</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">早期申込価格<br>(10月末日まで)</div>
+												<div class="price1-2"><span>33,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1" style="border-bottom: none;">
+											<div>
+												<div class="price1-1">通常価格</div>
+												<div class="price1-2"><span>35,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>特選おせち2人前</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">通常価格</div>
+												<div class="price1-2"><span>22,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>お申込み/お支払い<br>締切日</th>
+									<td>令和7年12月14日(日)</td>
+								</tr>
+								<tr>
+									<th>お受取り場所</th>
+									<td>ロイヤルチェスター伊万里</td>
+									<td>うらり武雄</td>
+									<td>メモリードホール山本</td>
+									<td>ひぜん本社</td>
+								</tr>
+								<tr>
+									<th>お受取日時</th>
+									<td>令和7年12月31日(水)<br>10:00〜13:00</td>
+								</tr>
+								<tr>
+									<th>備考<br>注意事項</th>
+									<td><p>※時間内にご来館できない場合はお電話お願いいたします。<br>※配達はいたしかねますので、予めご了承ください。</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-				<div class="wow fadeIn" data-wow-delay="0.2s" style="border: 2px solid #8B4513; border-radius: 8px; padding: 20px; margin: 30px auto; max-width: 800px;">
-					<h3 style="font-size: 1.6em; color: #8B4513; text-align: center; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">【Bプラン】個人盛りコース</h3>
-					<p style="font-size: 1.4em; text-align: center; font-weight: bold;">お一人様 <span>10,000</span>円（税込）</p>
-					<p style="text-align: center; margin-top: 10px;">特選素材を使ったお料理9品＋2時間飲み放題（プレミアムドリンク含む）</p>
-				</div>
-				<p class="wow fadeIn" data-wow-delay="0.3s" style="text-align: center; margin-top: 20px;">
-					※ご予算やご要望に応じたプランもご提案可能です。お気軽にご相談ください。<br>
-					<strong>ご予約期間: 2024年12月20日まで</strong>
-				</p>
 			</div>
 		</div>
 
 		<div id="contact" class="wow fadeIn">
-			<div class="inner">
-				<p class="textContact times"><span>お問合せ</span></p>
-				<p class="timeContact">パークベルズ大村</p>
-				<p class="telContact times">TEL <span><a href="tel:0957543131">0957-54-3131</a></span></p>
-				<p class="timeContact">10:00 ～ 19:00</p>
-				<p class="noteContact">定休日:毎週火曜日・水曜日定休/祝日除</p>
 			</div>
-		</div>
-	</div>
-
-	<div id="footer" class="wow fadeIn">
-		<div class="inner times">
-			<p class="textWeb"></p>
-			<p class="logo-footer">
-				<a href="https://parkbells.net">
-					<img src="https://parkbells.net/wp-content/themes/pbo2024/assets/images/common/logo-footer.svg" width="150" height="auto" alt=""> <br>
-				</a>
-			</p>
-		</div>
-		<div class="btn_reserve wow fadeInUp">
-			<ul>
-				<li class="fair_reserve" >
-					<a href="https://business.form-mailer.jp/fms/15bf7bda306765">
-						<span class="" style="font-size: 18px;">ご予約はこちら</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+		<div id="footer" class="wow fadeIn">
+			</div>
 	</div>
 
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
+	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		// スムーススクロール
-		$('a[href^=#]').click(function(){
-			var speed = 500;
-			var href= $(this).attr("href");
-			var target = $(href == "#" || href == "" ? 'html' : href);
-			var position = target.offset().top;
-			$("html, body").animate({scrollTop:position}, speed, "swing");
-			return false;
-		});
-
-		// タブ切り替え
+		// タブ切り替え機能
 		$('.tab-nav-item').on('click', function() {
 			var targetTab = $(this).data('tab');
-			$('.tab-nav-item').removeClass('active');
-			$(this).addClass('active');
-
-			// コンテンツの表示を切り替える前にwow.jsのクラスをリセット
-			$('.tab-content').removeClass('active animated fadeIn').css('visibility', 'hidden');
-			
-			// クリックされたタブに対応するコンテンツを表示
-			$('#' + targetTab).addClass('active animated fadeIn').css('visibility', 'visible');
-			
-			// WOWを再初期化して、新しいタブのアニメーションをトリガー
-			new WOW().sync();
-		});
-
-		$('[data-fancybox]').fancybox({
-			vimeo : {
-				controls : 0,
-				showinfo : 0
+			if (!$(this).hasClass('active')) {
+				$('.tab-nav-item').removeClass('active');
+				$(this).addClass('active');
+				
+				$('.tab-content').hide().removeClass('active animated fadeIn');
+				$('#' + targetTab).show().addClass('active animated fadeIn');
 			}
 		});
 
-		// ▼▼▼【追加】スライダーのJavaScript ▼▼▼
+		// スライダー機能
+		const sliderOptions = {
+			autoplay: true,
+			autoplaySpeed: 3000,
+			transitionSpeed: 1000, // transitionSpeedを1000msに変更
+			slidesToShow: 1
+		};
+
 		const slider = $('.osechi-slider');
-		const slidesContainer = slider.find('.slides-container');
-		const slides = slider.find('.slide');
-		const prevButton = slider.find('.slider-prev');
-		const nextButton = slider.find('.slider-next');
-		const dotsContainer = slider.find('.slider-dots');
-		let currentIndex = 0;
-		const slideCount = slides.length;
+		if (slider.length) {
+			const slidesContainer = slider.find('.slides-container');
+			const slides = slider.find('.slide');
+			const prevButton = slider.find('.slider-prev');
+			const nextButton = slider.find('.slider-next');
+			const dotsContainer = slider.find('.slider-dots');
+			let currentIndex = 0;
+			const slideCount = slides.length;
+			let autoplayInterval = null;
 
-		// ドットを動的に生成
-		for (let i = 0; i < slideCount; i++) {
-			dotsContainer.append('<span class="dot" data-index="' + i + '"></span>');
+			slidesContainer.css('transition', 'transform ' + sliderOptions.transitionSpeed + 'ms ease-in-out');
+
+			for (let i = 0; i < slideCount; i++) {
+				dotsContainer.append('<span class="dot" data-index="' + i + '"></span>');
+			}
+			const dots = dotsContainer.find('.dot');
+
+			function goToSlide(index) {
+				slidesContainer.css('transform', 'translateX(' + (-index * 100) + '%)');
+				dots.removeClass('active');
+				dots.eq(index).addClass('active');
+				currentIndex = index;
+			}
+			function startAutoplay() {
+				if (sliderOptions.autoplay) {
+					autoplayInterval = setInterval(function() {
+						nextButton.click();
+					}, sliderOptions.autoplaySpeed);
+				}
+			}
+			function stopAutoplay() {
+				clearInterval(autoplayInterval);
+			}
+
+			nextButton.on('click', function() { goToSlide((currentIndex + 1) % slideCount); });
+			prevButton.on('click', function() { goToSlide((currentIndex - 1 + slideCount) % slideCount); });
+			dots.on('click', function() { goToSlide($(this).data('index')); });
+			slider.on('mouseenter', stopAutoplay).on('mouseleave', startAutoplay);
+			
+			goToSlide(0);
+			startAutoplay();
 		}
-		const dots = dotsContainer.find('.dot');
-
-		// スライドを移動させる関数
-		function goToSlide(index) {
-			slidesContainer.css('transform', 'translateX(' + (-index * 100) + '%)');
-			dots.removeClass('active');
-			dots.eq(index).addClass('active');
-			currentIndex = index;
-		}
-
-		// イベントリスナー
-		nextButton.on('click', function() {
-			const nextIndex = (currentIndex + 1) % slideCount;
-			goToSlide(nextIndex);
-		});
-
-		prevButton.on('click', function() {
-			const prevIndex = (currentIndex - 1 + slideCount) % slideCount;
-			goToSlide(prevIndex);
-		});
-
-		dots.on('click', function() {
-			const index = $(this).data('index');
-			goToSlide(index);
-		});
-
-		// 初期化
-		goToSlide(0);
-		// ▲▲▲ スライダーのJavaScriptここまで ▲▲▲
 	});
-
-	// WOW.jsの初期化
 	new WOW().init();
 	</script>
 </body>
