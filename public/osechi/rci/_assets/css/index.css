@@ -514,4 +514,19 @@ a:hover {
 	.btn_reserve .fair_reserve a {
 		padding-top: 12px;
 	}
+	.early-bird {
+		color: white;
+		padding: 0px;
+		max-width: 700px;
+		margin: 0 auto 30px auto;
+		border-radius: 8px;
+	}
+	.early-bird .early-bird-text {
+		font-size: 18px;
+		margin: 0 auto;
+		background-color: #c0392b;
+		border-radius: 35px;
+		padding: 10px 0px;
+		width: 100%;
+	}
 }
