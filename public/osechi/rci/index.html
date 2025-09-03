@@ -7,8 +7,8 @@
 	<meta property="og:title" content="おせち2025年｜メモリード"/>
 	<meta property="og:description" content="おせち2025年｜メモリード"/>
 	<meta property="og:image" content="./_assets/hfi-pbo/img/lp/ogp-hfi.jpg?1"/>
-	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v20">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v23">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v30">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v30">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
@@ -16,408 +16,431 @@
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
 	
 	<style>
+		@charset "utf-8";
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap');
+
+		/* --- 基本スタイル --- */
+		body {
+			background: #fff;
+			font-size: 13px;
+			line-height: 1.7;
+			color: #000000;
+			font-family: 'Noto Serif JP', serif;
+			text-align: center;
+		}
+		img { max-width: 100%; height: auto; vertical-align: top; }
+		ul { list-style: none; padding: 0; margin: 0; }
+		a { text-decoration: none; color: #000; }
+		a:hover { opacity: 0.7; transition: all 0.3s; }
+
+		/* --- レイアウト --- */
+		#content { max-width: 768px; margin: 0 auto; }
+		.top_con { text-align: center; }
+
+		/* --- タブ --- */
+		.tab-nav {
+			display: flex;
+			justify-content: center;
+			margin: 20px 0 0 0;
+			border-bottom: 2px solid #8B4513;
+		}
+		.tab-nav-item {
+			padding: 12px 10px;
+			cursor: pointer;
+			font-size: 26px;
+			background-color: #f2eadd;
+			border: 1px solid #ccc;
+			border-bottom: none;
+			border-radius: 8px 8px 0 0;
+			color: #5C4033;
+			font-weight: bold;
+			width: 50%;
+			text-align: center;
+			position: relative;
+		}
+		.tab-nav-item.active {
+			background-color: #fff;
+			color: #000;
+			border-color: #8B4513;
+			border-bottom: 2px solid #fff;
+			top: 2px;
+		}
+		.tab-content { display: none; }
+		.tab-content.active { display: block; }
+
+		/* --- プレミアムおせち --- */
+		.premium-info-wrapper {
+			background-color: #fff;
+			padding: 40px 20px;
+			text-align: center;
+			border: 2px solid #990000;
+		}
+		.premium-title h2 {
+			font-size: 2.8em;
+			color: #990000;
+			margin: 0;
+			font-weight: bold;
+		}
+		.premium-title p {
+			font-size: 27px;
+			margin: 15px auto 0;
+			font-weight: bold;
+			background-color: #642323;
+			color: #fff;
+			max-width: 220px;
+			padding: 5px 0;
+		}
+		.price-box {
+			padding: 20px;
+			display: inline-block;
+			margin: 30px 0;
+			border: 2px solid #555;
+		}
+		.price-box .price-details { font-size: 1.2em; margin: 0; }
+		.price-box .price-main { font-size: 2.8em; font-weight: bold; margin: 5px 0; }
+		.price-box .price-main .price-tax { font-size: 0.5em; font-weight: normal; }
+		.price-box .price-size { font-size: 1.1em; margin: 10px 0 0; }
+		
+		.early-bird {
+			background-color: #c0392b;
+			color: white;
+			padding: 20px;
+			max-width: 700px;
+			margin: 0 auto 30px auto;
+			border-radius: 8px;
+		}
+		.early-bird .early-bird-text { font-size: 1.2em; margin: 0; }
+		.early-bird .early-bird-price { font-size: 2.4em; font-weight: bold; margin: 10px 0 0; }
+		
+		.description-box {
+			max-width: 650px;
+			margin: 0 auto;
+			line-height: 2;
+			font-size: 1.1em;
+		}
+		.description-box h3 { font-size: 1.8em; color: #8B4513; margin-bottom: 15px; }
+
+		/* --- スライダー --- */
+		.osechi-slider {
+			position: relative;
+			max-width: 768px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #fff;
+			border: 2px solid #8B4513;
+			overflow: hidden;
+			color: #333;
+			box-sizing: border-box;
+		}
+		.slides-container { display: flex; }
+		.slide { flex: 0 0 100%; box-sizing: border-box; padding: 0 40px; }
+		.slide h3 { text-align: center; font-size: 2em; color: #8B4513; margin-bottom: 20px; }
+		.slide ul { list-style: none; padding: 0; text-align: center; font-size: 1.1em; line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; }
+		.slide li { margin: 0 10px; }
+		.slider-nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 40px;
+			height: 40px;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: white;
+			border: none;
+			border-radius: 50%;
+			font-size: 24px;
+			cursor: pointer;
+			z-index: 10;
+		}
+		.slider-prev { left: 10px; }
+		.slider-next { right: 10px; }
+		.slider-dots { text-align: center; margin-top: 15px; }
+		.dot { display: inline-block; width: 12px; height: 12px; background-color: #ccc; border-radius: 50%; margin: 0 5px; cursor: pointer; }
+		.dot.active { background-color: #8B4513; }
+
+		/* --- 4人前おせちテーブル --- */
+		.osechi_info01 { background: #fff; padding: 40px 0; }
+		.osechi_info {
+			padding: 30px;
+			border: 1px solid #ac0000;
+			color: #ac0000;
+			max-width: 750px;
+			margin: 0 auto;
+			box-sizing: border-box;
+		}
+		.osechi_info_ttl { font-size: 54px; line-height: 0.8; }
+		.osechi_info_ttl span { font-size: 28px; }
+		.osechi_info table { margin-top: 40px; font-size: 20px; text-align: left; border-spacing: 1em .5em; border-collapse: separate; width: 100%; }
+		.osechi_info table th { background: #d0ca90; text-align: center; vertical-align: middle; width: 30%; padding: 30px 10px; }
+		.price1 { border-bottom: 1px solid #D8C7C7; padding-bottom: 8px; }
+		.price1-1 { display: inline-block; margin-right: 30px; vertical-align: middle; margin-top: 10px; }
+		.price1-2 { display: inline-block; float: right; }
+		.price1-2 span { font-size: 40px; }
+		
+		/* --- レスポンシブ (SP) --- */
+		@media (max-width: 768px) {
+			#content { width: 100%; }
+			.tab-nav-item { font-size: 18px; }
+			.premium-info-wrapper { padding: 20px 10px; }
+			.premium-title h2 { font-size: 2em; }
+			.premium-title p { font-size: 18px; max-width: 150px; }
+			.price-box .price-main { font-size: 2em; }
+			.early-bird .early-bird-price { font-size: 1.8em; }
+			.osechi_info { padding: 15px; width: 95%; }
+			.osechi_info_ttl { font-size: 28px; }
+			.osechi_info_ttl span { font-size: 14px; }
+			.osechi_info table { font-size: 14px; }
+			.price1-2 span { font-size: 28px; }
+			.slide { padding: 0 10px; }
+			.slider-nav { width: 30px; height: 30px; font-size: 18px; }
+		}
 	</style>
 </head>
 <body>
 	<div id="content">
-		<div id="osechi" class="tab-content active">
-			<div class="top_con">
-				<div class="menu">
-					<img class="wow fadeIn" data-wow-delay="0.1s" src="./_assets/img/osechi2025_top.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
-				</div>
-				
-				<ul class="tab-nav wow fadeIn">
-					<li class="tab-nav-item active" data-tab="osechi">おせち</li>
-					<li class="tab-nav-item" data-tab="bounenkai">クリスマス</li>
-				</ul>
-				
-				<div class="premium-info-wrapper wow fadeIn">
-					<div class="premium-title">
-						<h2>プレミアムおせち</h2>
-						<p>限定170個</p>
-					</div>
-					<div class="price-box">
-						<p class="price-details">3段重ね・4名様向き</p>
-						<p class="price-main">35,000円<span class="price-tax">(税込)</span></p>
-						<p class="price-size">[21cm×21cm | 3段]</p>
-					</div>
-					<div class="early-bird">
-						<p class="early-bird-text">2025年10月末までの早期お申し込みで</p>
-						<p class="early-bird-price">35,000円(税込)</p>
-					</div>
-					<div class="description-box">
-						<h3>匠が織りなす特選料理</h3>
-						<p>
-							お正月を華やかに演出する料理長こだわりのおせち料理。<br>
-							伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。
-						</p>
-					</div>
-				</div>
-				
-				<div class="osechi-slider wow fadeIn">
-					<div class="slides-container">
-						<div class="slide">
-							<h3>一の重</h3>
-							<ul>
-								<li>蟹爪</li><li>金柑蜜煮</li><li>羽二重奉書巻</li><li>ロブスター</li><li>鮑柔らか煮</li><li>海老芝煮</li><li>数の子</li><li>栄螺の葱味噌焼</li>
-							</ul>
-						</div>
-						<div class="slide">
-							<h3>二の重</h3>
-							<ul>
-								<li>海老手鞠</li><li>焼き冬筍</li><li>海老芋</li><li>梅人参</li><li>牛肉八幡巻</li><li>田作り</li><li>鰤照り焼き</li><li>黒豆金箔</li><li>鮭昆布巻き</li><li>伊達巻</li><li>蛸旨煮</li><li>つくね</li><li>大黒しめじ</li><li>菜の花</li>
-							</ul>
-						</div>
-						<div class="slide">
-							<h3>三の重</h3>
-							<ul>
-								<li>ローストビーフ</li><li>イクラ醤油漬</li><li>花蓮根</li><li>鴨特製味噌漬け</li><li>和キッシュ</li><li>蛸の酢の物</li><li>白身魚の南蛮漬け</li><li>鯛の雲丹焼</li><li>栗渋皮煮</li><li>きんとん</li><li>抹茶羊羹</li>
-							</ul>
-						</div>
-					</div>
-					<button class="slider-nav slider-prev">&lt;</button>
-					<button class="slider-nav slider-next">&gt;</button>
-					<div class="slider-dots"></div>
-				</div>
 
-				<div style="background: #fff;" class="osechi_info01 wow fadeIn">
-					<div class="osechi_info">
-						<div>
-							<div class="osechi_info_ttl">
-								<p style="text-align: center"><span>4人前おせち</span></p>
-							</div>
-							<table>
-								<tbody>
-									<tr>
-										<th>9月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1" style="border-bottom: none;">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>30,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>10月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>30,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>11月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>32,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>通常価格</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>33,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1" style="border-bottom: none;">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>32,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>ご予約<br>締切日</th>
-										<td>令和7年12月15日(月)<br>17:00まで</td>
-									</tr>
-									<tr>
-										<th>お受取り場所</th>
-										<td>パークベルズ大村</td>
-									</tr>
-									<tr>
-										<th>お受取日時</th>
-										<td>令和7年12月31日(水)<br>10:00〜15:00</td>
-									</tr>
-									<tr>
-										<th>備考<br>注意事項</th>
-										<td><p>※上記期間であっても、限定個数に達した場合は終了します。</p></td>
-									</tr>
-									<tr>
-										<th>配達希望の方</th>
-										<td><p>※長崎県内別途1,500円が必要です。※離島を除く<br>※大晦日（31日）は交通機関等の混雑が予想されます。<br>配達時間が遅れる場合がございますので予めご了承下さいませ。</p></td>
-									</tr>
-								</tbody>
-							</table>
+		<div class="top_con">
+			<div class="menu">
+				<img class="wow fadeIn" src="./_assets/img/osechi2025_top.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
+			</div>
+			
+			<ul class="tab-nav wow fadeIn">
+				<li class="tab-nav-item active" data-tab="osechi">おせち</li>
+				<li class="tab-nav-item" data-tab="christmas">クリスマス</li>
+			</ul>
+		</div>
+
+		<div id="osechi" class="tab-content active">
+			<div class="premium-info-wrapper wow fadeIn">
+				<div class="premium-title">
+					[cite_start]<h2>プレミアムおせち [cite: 1]</h2>
+					[cite_start]<p>限定170個 [cite: 2]</p>
+				</div>
+				<div class="price-box">
+					[cite_start]<p class="price-details">3段重ね [cite: 4][cite_start]・4名様向き [cite: 3]</p>
+					[cite_start]<p class="price-main">35,000円<span class="price-tax">(税込) [cite: 5]</span></p>
+					<p class="price-size">[21cm×21cm | [cite_start]3段] [cite: 6]</p>
+				</div>
+				<div class="early-bird">
+					[cite_start]<p class="early-bird-text">2025年10月末までの早期お申し込みで [cite: 7]</p>
+					[cite_start]<p class="early-bird-price">35,000円(税込) [cite: 8]</p>
+				</div>
+				<div class="description-box">
+					[cite_start]<h3>匠が織りなす特選料理 [cite: 9]</h3>
+					<p>
+						[cite_start]お正月を華やかに演出する料理長こだわりのおせち料理。 [cite: 10]<br>
+						[cite_start]伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。 [cite: 11]
+					</p>
+				</div>
+			</div>
+			
+			<div class="osechi-slider wow fadeIn">
+				<div class="slides-container">
+					<div class="slide">
+						<h3>一の重</h3>
+						<ul>
+							<li>蟹爪</li><li>金柑蜜煮</li><li>羽二重奉書巻</li><li>ロブスター</li><li>鮑柔らか煮</li><li>海老芝煮</li><li>数の子</li><li>栄螺の葱味噌焼</li>
+						</ul>
+					</div>
+					<div class="slide">
+						<h3>二の重</h3>
+						<ul>
+							<li>海老手鞠</li><li>焼き冬筍</li><li>海老芋</li><li>梅人参</li><li>牛肉八幡巻</li><li>田作り</li><li>鰤照り焼き</li><li>黒豆金箔</li><li>鮭昆布巻き</li><li>伊達巻</li><li>蛸旨煮</li><li>つくね</li><li>大黒しめじ</li><li>菜の花</li>
+						</ul>
+					</div>
+					<div class="slide">
+						<h3>三の重</h3>
+						<ul>
+							<li>ローストビーフ</li><li>イクラ醤油漬</li><li>花蓮根</li><li>鴨特製味噌漬け</li><li>和キッシュ</li><li>蛸の酢の物</li><li>白身魚の南蛮漬け</li><li>鯛の雲丹焼</li><li>栗渋皮煮</li><li>きんとん</li><li>抹茶羊羹</li>
+						</ul>
+					</div>
+				</div>
+				<button class="slider-nav slider-prev">&lt;</button>
+				<button class="slider-nav slider-next">&gt;</button>
+				<div class="slider-dots"></div>
+			</div>
+
+			<div class="osechi_info01 wow fadeIn">
+				<div class="osechi_info">
+					<div>
+						<div class="osechi_info_ttl">
+							<p style="text-align: center"><span>4人前おせち</span></p>
 						</div>
+						<table>
+							<tbody>
+								<tr>
+									<th>9月末日までのお申し込み</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>31,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1" style="border-bottom: none;">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>30,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>10月末日までのお申し込み</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>31,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>30,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>11月末日までのお申し込み</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>32,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>31,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>通常価格</th>
+									<td>
+										<div class="price price1">
+											<div>
+												<div class="price1-1">一般</div>
+												<div class="price1-2"><span>33,000</span>円</div>
+											</div>
+										</div>
+										<div class="price price1" style="border-bottom: none;">
+											<div>
+												<div class="price1-1">会員</div>
+												<div class="price1-2"><span>32,000</span>円</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>ご予約<br>締切日</th>
+									<td>令和7年12月15日(月)<br>17:00まで</td>
+								</tr>
+								<tr>
+									<th>お受取り場所</th>
+									<td>パークベルズ大村</td>
+								</tr>
+								<tr>
+									<th>お受取日時</th>
+									<td>令和7年12月31日(水)<br>10:00〜15:00</td>
+								</tr>
+								<tr>
+									<th>備考<br>注意事項</th>
+									<td><p>※上記期間であっても、限定個数に達した場合は終了します。</p></td>
+								</tr>
+								<tr>
+									<th>配達希望の方</th>
+									<td><p>※長崎県内別途1,500円が必要です。※離島を除く<br>※大晦日（31日）は交通機関等の混雑が予想されます。<br>配達時間が遅れる場合がございますので予めご了承下さいませ。</p></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="bounenkai" class="tab-content">
-			<div class="top_con">
-				<div class="menu">
-					<img class="wow fadeIn" data-wow-delay="0.1s" src="./_assets/img/osechi2025_top.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
-				</div>
-				
-				<ul class="tab-nav wow fadeIn">
-					<li class="tab-nav-item active" data-tab="osechi">おせち</li>
-					<li class="tab-nav-item" data-tab="bounenkai">クリスマス</li>
-				</ul>
-				
-				<div class="premium-info-wrapper wow fadeIn">
-					<div class="premium-title">
-						<h2>プレミアムおせち [cite: 1]</h2>
-						<p>限定170個 [cite: 2]</p>
-					</div>
-					<div class="price-box">
-						<p class="price-details">3段重ね [cite: 4]・4名様向き [cite: 3]</p>
-						<p class="price-main">35,000円<span class="price-tax">(税込) [cite: 5]</span></p>
-						<p class="price-size">[21cm×21cm | 3段] </p>
-					</div>
-					<div class="early-bird">
-						<p class="early-bird-text">2025年10月末までの早期お申し込みで [cite: 7]</p>
-						<p class="early-bird-price">35,000円(税込) [cite: 8]</p>
-					</div>
-					<div class="description-box">
-						<h3>匠が織りなす特選料理 [cite: 9]</h3>
-						<p>
-							お正月を華やかに演出する料理長こだわりのおせち料理。 [cite: 10]<br>
-							伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。 [cite: 11]
-						</p>
-					</div>
-				</div>
-				<div class="osechi-slider wow fadeIn">
-					<div class="slides-container">
-						<div class="slide">
-							<h3>一の重</h3>
-							<ul>
-								<li>蟹爪</li><li>金柑蜜煮</li><li>羽二重奉書巻</li><li>ロブスター</li><li>鮑柔らか煮</li><li>海老芝煮</li><li>数の子</li><li>栄螺の葱味噌焼</li>
-							</ul>
-						</div>
-						<div class="slide">
-							<h3>二の重</h3>
-							<ul>
-								<li>海老手鞠</li><li>焼き冬筍</li><li>海老芋</li><li>梅人参</li><li>牛肉八幡巻</li><li>田作り</li><li>鰤照り焼き</li><li>黒豆金箔</li><li>鮭昆布巻き</li><li>伊達巻</li><li>蛸旨煮</li><li>つくね</li><li>大黒しめじ</li><li>菜の花</li>
-							</ul>
-						</div>
-						<div class="slide">
-							<h3>三の重</h3>
-							<ul>
-								<li>ローストビーフ</li><li>イクラ醤油漬</li><li>花蓮根</li><li>鴨特製味噌漬け</li><li>和キッシュ</li><li>蛸の酢の物</li><li>白身魚の南蛮漬け</li><li>鯛の雲丹焼</li><li>栗渋皮煮</li><li>きんとん</li><li>抹茶羊羹</li>
-							</ul>
-						</div>
-					</div>
-					<button class="slider-nav slider-prev">&lt;</button>
-					<button class="slider-nav slider-next">&gt;</button>
-					<div class="slider-dots"></div>
-				</div>
-			
-				<div style="background: #fff;" class="osechi_info01 wow fadeIn">
-					<div class="osechi_info">
-						<div>
-							<div class="osechi_info_ttl">
-								<p style="text-align: center"><span>4人前おせち</span></p>
-							</div>
-							<table>
-								<tbody>
-									<tr>
-										<th>9月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1" style="border-bottom: none;">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>30,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>10月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>30,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>11月末日までのお申し込み</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>32,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>31,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>通常価格</th>
-										<td>
-											<div class="price price1">
-												<div>
-													<div class="price1-1">一般</div>
-													<div class="price1-2"><span>33,000</span>円</div>
-												</div>
-											</div>
-											<div class="price price1" style="border-bottom: none;">
-												<div>
-													<div class="price1-1">会員</div>
-													<div class="price1-2"><span>32,000</span>円</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>ご予約<br>締切日</th>
-										<td>令和7年12月15日(月)<br>17:00まで</td>
-									</tr>
-									<tr>
-										<th>お受取り場所</th>
-										<td>パークベルズ大村</td>
-									</tr>
-									<tr>
-										<th>お受取日時</th>
-										<td>令和7年12月31日(水)<br>10:00〜15:00</td>
-									</tr>
-									<tr>
-										<th>備考<br>注意事項</th>
-										<td><p>※上記期間であっても、限定個数に達した場合は終了します。</p></td>
-									</tr>
-									<tr>
-										<th>配達希望の方</th>
-										<td><p>※長崎県内別途1,500円が必要です。※離島を除く<br>※大晦日（31日）は交通機関等の混雑が予想されます。<br>配達時間が遅れる場合がございますので予めご了承下さいませ。</p></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div id="christmas" class="tab-content">
+			<p style="padding: 50px; text-align: center; font-size: 1.2em;">クリスマスコンテンツは準備中です。</p>
 		</div>
 
 		<div id="contact" class="wow fadeIn">
 			</div>
+		<div id="footer" class="wow fadeIn">
+			</div>
 	</div>
-	<div id="footer" class="wow fadeIn">
-		</div>
 
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
+	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		$('a[href^=#]').click(function(){/* ... */});
+		// タブ切り替え機能
 		$('.tab-nav-item').on('click', function() {
 			var targetTab = $(this).data('tab');
-			$('.tab-nav-item').removeClass('active');
-			$(this).addClass('active');
-			$('.tab-content').removeClass('active');
-			$('#' + targetTab).addClass('active');
+			if (!$(this).hasClass('active')) {
+				$('.tab-nav-item').removeClass('active');
+				$(this).addClass('active');
+				
+				$('.tab-content').hide().removeClass('active animated fadeIn');
+				$('#' + targetTab).show().addClass('active animated fadeIn');
+			}
 		});
-		$('[data-fancybox]').fancybox({/* ... */});
 
+		// スライダー機能
 		const sliderOptions = {
 			autoplay: true,
+			dots: true,
 			speed: 1000,
 			centerMode: true,
 			centerPadding: "20px",
-			slidesToShow: 1,
-			dots: true
+			slidesToShow: 1
 		};
 
 		const slider = $('.osechi-slider');
-		const slidesContainer = slider.find('.slides-container');
-		const slides = slider.find('.slide');
-		const prevButton = slider.find('.slider-prev');
-		const nextButton = slider.find('.slider-next');
-		const dotsContainer = slider.find('.slider-dots');
-		let currentIndex = 0;
-		const slideCount = slides.length;
-		let autoplayInterval = null;
+		if (slider.length) {
+			const slidesContainer = slider.find('.slides-container');
+			const slides = slider.find('.slide');
+			const prevButton = slider.find('.slider-prev');
+			const nextButton = slider.find('.slider-next');
+			const dotsContainer = slider.find('.slider-dots');
+			let currentIndex = 0;
+			const slideCount = slides.length;
+			let autoplayInterval = null;
 
-		slidesContainer.css('transition', 'transform ' + sliderOptions.transitionSpeed + 'ms ease-in-out');
+			slidesContainer.css('transition', 'transform ' + sliderOptions.transitionSpeed + 'ms ease-in-out');
 
-		for (let i = 0; i < slideCount; i++) {
-			dotsContainer.append('<span class="dot" data-index="' + i + '"></span>');
-		}
-		const dots = dotsContainer.find('.dot');
-
-		function goToSlide(index) {
-			slidesContainer.css('transform', 'translateX(' + (-index * 100) + '%)');
-			dots.removeClass('active');
-			dots.eq(index).addClass('active');
-			currentIndex = index;
-		}
-
-		function startAutoplay() {
-			if (sliderOptions.autoplay) {
-				autoplayInterval = setInterval(function() {
-					nextButton.click();
-				}, sliderOptions.autoplaySpeed);
+			for (let i = 0; i < slideCount; i++) {
+				dotsContainer.append('<span class="dot" data-index="' + i + '"></span>');
 			}
-		}
+			const dots = dotsContainer.find('.dot');
 
-		function stopAutoplay() {
-			clearInterval(autoplayInterval);
-		}
+			function goToSlide(index) {
+				slidesContainer.css('transform', 'translateX(' + (-index * 100) + '%)');
+				dots.removeClass('active');
+				dots.eq(index).addClass('active');
+				currentIndex = index;
+			}
+			function startAutoplay() {
+				if (sliderOptions.autoplay) {
+					autoplayInterval = setInterval(function() {
+						nextButton.click();
+					}, sliderOptions.autoplaySpeed);
+				}
+			}
+			function stopAutoplay() {
+				clearInterval(autoplayInterval);
+			}
 
-		nextButton.on('click', function() { goToSlide((currentIndex + 1) % slideCount); });
-		prevButton.on('click', function() { goToSlide((currentIndex - 1 + slideCount) % slideCount); });
-		dots.on('click', function() { goToSlide($(this).data('index')); });
-		slider.on('mouseenter', stopAutoplay).on('mouseleave', startAutoplay);
-		
-		goToSlide(0);
-		startAutoplay();
+			nextButton.on('click', function() { goToSlide((currentIndex + 1) % slideCount); });
+			prevButton.on('click', function() { goToSlide((currentIndex - 1 + slideCount) % slideCount); });
+			dots.on('click', function() { goToSlide($(this).data('index')); });
+			slider.on('mouseenter', stopAutoplay).on('mouseleave', startAutoplay);
+			
+			goToSlide(0);
+			startAutoplay();
+		}
 	});
 	new WOW().init();
 	</script>
