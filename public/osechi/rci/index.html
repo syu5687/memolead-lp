@@ -8,192 +8,13 @@
 	<meta property="og:description" content="おせち2025年｜メモリード"/>
 	<meta property="og:image" content="./_assets/hfi-pbo/img/lp/ogp-hfi.jpg?1"/>
 	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v30">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v30">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v31">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
 	
-	<style>
-		@charset "utf-8";
-		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap');
-
-		/* --- 基本スタイル --- */
-		body {
-			background: #fff;
-			font-size: 13px;
-			line-height: 1.7;
-			color: #000000;
-			font-family: 'Noto Serif JP', serif;
-			text-align: center;
-		}
-		img { max-width: 100%; height: auto; vertical-align: top; }
-		ul { list-style: none; padding: 0; margin: 0; }
-		a { text-decoration: none; color: #000; }
-		a:hover { opacity: 0.7; transition: all 0.3s; }
-
-		/* --- レイアウト --- */
-		#content { max-width: 768px; margin: 0 auto; }
-		.top_con { text-align: center; }
-
-		/* --- タブ --- */
-		.tab-nav {
-			display: flex;
-			justify-content: center;
-			margin: 20px 0 0 0;
-			border-bottom: 2px solid #8B4513;
-		}
-		.tab-nav-item {
-			padding: 12px 10px;
-			cursor: pointer;
-			font-size: 26px;
-			background-color: #f2eadd;
-			border: 1px solid #ccc;
-			border-bottom: none;
-			border-radius: 8px 8px 0 0;
-			color: #5C4033;
-			font-weight: bold;
-			width: 50%;
-			text-align: center;
-			position: relative;
-		}
-		.tab-nav-item.active {
-			background-color: #fff;
-			color: #000;
-			border-color: #8B4513;
-			border-bottom: 2px solid #fff;
-			top: 2px;
-		}
-		.tab-content { display: none; }
-		.tab-content.active { display: block; }
-
-		/* --- プレミアムおせち --- */
-		.premium-info-wrapper {
-			background-color: #fff;
-			padding: 40px 20px;
-			text-align: center;
-			border: 2px solid #990000;
-		}
-		.premium-title h2 {
-			font-size: 2.8em;
-			color: #990000;
-			margin: 0;
-			font-weight: bold;
-		}
-		.premium-title p {
-			font-size: 27px;
-			margin: 15px auto 0;
-			font-weight: bold;
-			background-color: #642323;
-			color: #fff;
-			max-width: 220px;
-			padding: 5px 0;
-		}
-		.price-box {
-			padding: 20px;
-			display: inline-block;
-			margin: 30px 0;
-			border: 2px solid #555;
-		}
-		.price-box .price-details { font-size: 1.2em; margin: 0; }
-		.price-box .price-main { font-size: 2.8em; font-weight: bold; margin: 5px 0; }
-		.price-box .price-main .price-tax { font-size: 0.5em; font-weight: normal; }
-		.price-box .price-size { font-size: 1.1em; margin: 10px 0 0; }
-		
-		.early-bird {
-			background-color: #c0392b;
-			color: white;
-			padding: 20px;
-			max-width: 700px;
-			margin: 0 auto 30px auto;
-			border-radius: 8px;
-		}
-		.early-bird .early-bird-text { font-size: 1.2em; margin: 0; }
-		.early-bird .early-bird-price { font-size: 2.4em; font-weight: bold; margin: 10px 0 0; }
-		
-		.description-box {
-			max-width: 650px;
-			margin: 0 auto;
-			line-height: 2;
-			font-size: 1.1em;
-		}
-		.description-box h3 { font-size: 1.8em; color: #8B4513; margin-bottom: 15px; }
-
-		/* --- スライダー --- */
-		.osechi-slider {
-			position: relative;
-			max-width: 768px;
-			margin: 40px auto;
-			padding: 20px;
-			background-color: #fff;
-			border: 2px solid #8B4513;
-			overflow: hidden;
-			color: #333;
-			box-sizing: border-box;
-		}
-		.slides-container { display: flex; }
-		.slide { flex: 0 0 100%; box-sizing: border-box; padding: 0 40px; }
-		.slide h3 { text-align: center; font-size: 2em; color: #8B4513; margin-bottom: 20px; }
-		.slide ul { list-style: none; padding: 0; text-align: center; font-size: 1.1em; line-height: 2; display: flex; flex-wrap: wrap; justify-content: center; }
-		.slide li { margin: 0 10px; }
-		.slider-nav {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 40px;
-			height: 40px;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-			border: none;
-			border-radius: 50%;
-			font-size: 24px;
-			cursor: pointer;
-			z-index: 10;
-		}
-		.slider-prev { left: 10px; }
-		.slider-next { right: 10px; }
-		.slider-dots { text-align: center; margin-top: 15px; }
-		.dot { display: inline-block; width: 12px; height: 12px; background-color: #ccc; border-radius: 50%; margin: 0 5px; cursor: pointer; }
-		.dot.active { background-color: #8B4513; }
-
-		/* --- 4人前おせちテーブル --- */
-		.osechi_info01 { background: #fff; padding: 40px 0; }
-		.osechi_info {
-			padding: 30px;
-			border: 1px solid #ac0000;
-			color: #ac0000;
-			max-width: 750px;
-			margin: 0 auto;
-			box-sizing: border-box;
-		}
-		.osechi_info_ttl { font-size: 54px; line-height: 0.8; }
-		.osechi_info_ttl span { font-size: 28px; }
-		.osechi_info table { margin-top: 40px; font-size: 20px; text-align: left; border-spacing: 1em .5em; border-collapse: separate; width: 100%; }
-		.osechi_info table th { background: #d0ca90; text-align: center; vertical-align: middle; width: 30%; padding: 30px 10px; }
-		.price1 { border-bottom: 1px solid #D8C7C7; padding-bottom: 8px; }
-		.price1-1 { display: inline-block; margin-right: 30px; vertical-align: middle; margin-top: 10px; }
-		.price1-2 { display: inline-block; float: right; }
-		.price1-2 span { font-size: 40px; }
-		
-		/* --- レスポンシブ (SP) --- */
-		@media (max-width: 768px) {
-			#content { width: 100%; }
-			.tab-nav-item { font-size: 18px; }
-			.premium-info-wrapper { padding: 20px 10px; }
-			.premium-title h2 { font-size: 2em; }
-			.premium-title p { font-size: 18px; max-width: 150px; }
-			.price-box .price-main { font-size: 2em; }
-			.early-bird .early-bird-price { font-size: 1.8em; }
-			.osechi_info { padding: 15px; width: 95%; }
-			.osechi_info_ttl { font-size: 28px; }
-			.osechi_info_ttl span { font-size: 14px; }
-			.osechi_info table { font-size: 14px; }
-			.price1-2 span { font-size: 28px; }
-			.slide { padding: 0 10px; }
-			.slider-nav { width: 30px; height: 30px; font-size: 18px; }
-		}
-	</style>
 </head>
 <body>
 	<div id="content">
@@ -227,8 +48,8 @@
 				<div class="description-box">
 					<h3>匠が織りなす特選料理</h3>
 					<p>
-						[cite_start]お正月を華やかに演出する料理長こだわりのおせち料理。<br>
-						[cite_start]伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。
+						お正月を華やかに演出する料理長こだわりのおせち料理。<br>
+						伝統を守りつつ洗練された品々は、より深く冴えた味わいをご堪能いただけます。
 					</p>
 				</div>
 			</div>
@@ -392,7 +213,8 @@
 		const sliderOptions = {
 			autoplay: true,
 			dots: true,
-			speed: 1000,
+			autoplayspeed: 3000,
+			transitionSpeed: 3000,
 			slidesToShow: 1
 		};
 
