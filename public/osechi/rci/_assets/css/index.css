@@ -84,12 +84,10 @@ a:hover {
 }
 .tab-nav-item.active {
 	background-color: #fff;
-	border-bottom: 2px solid #fff;
 	color: #000;
-	position: relative;
+	border-color: #8B4513;
+	border-bottom: 2px solid #fff;
 	top: 2px;
-	width: 50%;
-	text-align: center;
 }
 .tab-content {
 	display: none;
