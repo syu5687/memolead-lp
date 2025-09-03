@@ -154,10 +154,11 @@ a:hover {
 .price1-2 span {
 	font-size: 40px;
 }
-.bounenkai_info p, .bounenkai_info h2, .bounenkai_info h3 {
-	color: #000; /* 文字色を黒に設定 */
+.bounenkai_info p,
+.bounenkai_info h2,
+.bounenkai_info h3 {
+	color: #000;
 }
-
 
 /* --- 予約ボタン --- */
 .btn_reserve {
@@ -182,7 +183,7 @@ a:hover {
 .btn_reserve .fair_reserve a {
 	width: 100%;
 	display: block;
-	background: url("/public/osechi/pbo/_assets/img/btn.png?v4") center center repeat-x;
+	background: url("/public/osechi/rci/_assets/img/btn.png?v4") center center repeat-x;
 	color: #FFF;
 	font-size: 16px;
 	text-align: center;
@@ -190,7 +191,7 @@ a:hover {
 	line-height: 1.5;
 }
 
-/* --- お問合せ & フッター --- */
+/* --- お問合せ --- */
 #contact {
 	text-align: center;
 	margin-top: 0;
@@ -216,7 +217,7 @@ a:hover {
 	letter-spacing: -2px;
 }
 
-		/* --- スライダーのスタイル --- */
+/* --- スライダーのスタイル --- */
 .osechi-slider {
 	position: relative;
 	max-width: 800px;
@@ -268,23 +269,50 @@ a:hover {
 	cursor: pointer;
 	z-index: 10;
 }
-.slider-prev { left: 10px; }
-.slider-next { right: 10px; }
-.slider-dots { text-align: center; margin-top: 15px; }
-.dot { display: inline-block; width: 12px; height: 12px; background-color: #ccc; border-radius: 50%; margin: 0 5px; cursor: pointer; }
-.dot.active { background-color: #8B4513; }
+.slider-prev {
+	left: 10px;
+}
+.slider-next {
+	right: 10px;
+}
+.slider-dots {
+	text-align: center;
+	margin-top: 15px;
+}
+.dot {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-color: #ccc;
+	border-radius: 50%;
+	margin: 0 5px;
+	cursor: pointer;
+}
+.dot.active {
+	background-color: #8B4513;
+}
 
 /* --- プレミアムおせち用のスタイル --- */
-.premium-info-wrapper{
+.premium-info-wrapper {
 	color: #880000;
 	background-color: #fff;
 	padding: 20px 10px;
 	margin-bottom: 30px;
-	background-color: ;
 }
-.premium-title { background-color: #c0392b; color: white; padding: 20px 10px; margin-bottom: 30px; }
-.premium-title h2 { font-size: 2.8em; margin: 0; font-weight: bold; }
-.premium-title p { 
+.premium-title {
+	background-color: #fff;
+	color: #990000;
+	padding: 20px 10px;
+	margin-bottom: 30px;
+	border: 2px solid #990000;
+	text-align: center;
+}
+.premium-title h2 {
+	font-size: 2.8em;
+	margin: 0;
+	font-weight: bold;
+}
+.premium-title p {
 	font-size: 27px;
 	margin: 10px auto;
 	font-weight: bold;
@@ -293,26 +321,66 @@ a:hover {
 	width: 220px;
 	text-align: center;
 }
-.price-box { border: 2px solid #555; padding: 20px; display: inline-block; margin-bottom: 30px; }
-.price-box .price-details { font-size: 1.1em; margin: 0; }
-.price-box .price-main { font-size: 2.5em; font-weight: bold; margin: 5px 0; }
-.price-box .price-tax { font-size: 1.1em; margin: 0; }
-.early-bird { background-color: #c0392b; color: white; padding: 20px; max-width: 700px; margin: 0 auto 30px auto; border-radius: 8px; }
-.early-bird .early-bird-text { font-size: 1.1em; margin: 0; }
-.early-bird .early-bird-price { font-size: 2.2em; font-weight: bold; margin: 10px 0; }
-.early-bird .early-bird-tax { font-size: 1.1em; margin: 0; }
-.description-box { max-width: 650px; margin: 0 auto; line-height: 2; font-size: 1.1em; }
-.description-box h3 { font-size: 1.8em; color: #8B4513; margin-bottom: 15px; }
+.price-box {
+	border: 2px solid #555;
+	padding: 20px;
+	display: inline-block;
+	margin-bottom: 30px;
+}
+.price-box .price-details {
+	font-size: 1.1em;
+	margin: 0;
+}
+.price-box .price-main {
+	font-size: 2.5em;
+	font-weight: bold;
+	margin: 5px 0;
+}
+.price-box .price-tax {
+	font-size: 1.1em;
+	margin: 0;
+}
+.early-bird {
+	background-color: #c0392b;
+	color: white;
+	padding: 20px;
+	max-width: 700px;
+	margin: 0 auto 30px auto;
+	border-radius: 8px;
+}
+.early-bird .early-bird-text {
+	font-size: 1.1em;
+	margin: 0;
+}
+.early-bird .early-bird-price {
+	font-size: 2.2em;
+	font-weight: bold;
+	margin: 10px 0;
+}
+.early-bird .early-bird-tax {
+	font-size: 1.1em;
+	margin: 0;
+}
+.description-box {
+	max-width: 650px;
+	margin: 0 auto;
+	line-height: 2;
+	font-size: 1.1em;
+}
+.description-box h3 {
+	font-size: 1.8em;
+	color: #8B4513;
+	margin-bottom: 15px;
+}
 
-
-
+/* --- フッター --- */
 #footer {
 	text-align: center;
 	padding-top: 40px;
 	height: 180px;
 	margin-top: 0;
 	font-family: 'Noto Serif JP', serif;
-	background: url("/public/osechi/pbo/_assets/img/bg.jpg?v4") center center repeat-x, #000;
+	background: url("/public/osechi/rci/_assets/img/bg.jpg?v4") center center repeat-x, #000;
 	color: #000;
 }
 #footer .textWeb {
@@ -325,8 +393,6 @@ a:hover {
 #footer .logo-footer a {
 	color: #000;
 }
-
-
 
 /* --- レスポンシブ (SP) --- */
 @media (max-width: 768px) {
@@ -393,6 +459,6 @@ a:hover {
 		height: 60px;
 	}
 	.btn_reserve .fair_reserve a {
-	   padding-top: 12px;
+		padding-top: 12px;
 	}
 }
