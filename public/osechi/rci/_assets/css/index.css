@@ -67,7 +67,7 @@ a:hover {
 .tab-nav-item {
 	padding: 12px 40px;
 	cursor: pointer;
-	font-size: 1.2em;
+	font-size: 26px;
 	background-color: #f2eadd;
 	border: 1px solid #ccc;
 	border-bottom: none;
@@ -76,6 +76,8 @@ a:hover {
 	color: #5C4033;
 	font-weight: bold;
 	transition: all 0.3s;
+	width: 50%;
+	text-align: center;
 }
 .tab-nav-item:hover {
 	opacity: 0.8;
@@ -86,6 +88,8 @@ a:hover {
 	color: #000;
 	position: relative;
 	top: 2px;
+	width: 50%;
+	text-align: center;
 }
 .tab-content {
 	display: none;
