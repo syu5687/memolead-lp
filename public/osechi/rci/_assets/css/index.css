@@ -112,6 +112,7 @@ a:hover {
 	color: #333;
 	max-width: 750px;
 	margin: 0 auto;
+	background-color: #fff;
 }
 .osechi_info_ttl {
 	font-size: 54px;
@@ -299,26 +300,29 @@ a:hover {
 .premium-title {
 	background-color: #fff;
 	color: #990000;
-	padding: 20px 10px;
-	margin-bottom: 30px;
+	padding: 10px 0px;
+	margin: 0 auto 40px;
 	border: 2px solid #990000;
 	text-align: center;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	width: 450px;
 }
 .premium-title h2 {
-	font-size: 2.8em;
+	font-size: 23px;
 	margin: 0;
 	font-weight: bold;
 }
 .premium-title p {
-	font-size: 27px;
-	margin: 10px 0;
+	font-size: 20px;
+	margin: 0 0 0 30px;
 	font-weight: bold;
 	background-color: #c0392b;
 	color: #fff;
-	width: 220px;
+	width: 130px;
 	text-align: center;
+	padding: 10px 0;
 }
 .price-box {
 	padding: 20px 0;
@@ -474,6 +478,18 @@ a:hover {
 		font-weight: bold;
 	}
 	
+	.premium-title p {
+	font-size: 20px;
+	margin: 0 0 0 16px;
+	font-weight: bold;
+	background-color: #c0392b;
+	color: #fff;
+	width: 130px;
+	text-align: center;
+	padding: 10px 0;
+	line-height: 25px;
+	}
+	
 	
 	.osechi_info01 {
 		padding-top: 40px;
@@ -487,7 +503,7 @@ a:hover {
 		font-size: 28px;
 	}
 	.osechi_info_ttl span {
-		font-size: 14px;
+		font-size: 21px;
 	}
 	.osechi_info table {
 		margin-top: 20px;
@@ -529,4 +545,5 @@ a:hover {
 		padding: 10px 0px;
 		width: 100%;
 	}
+	
 }
