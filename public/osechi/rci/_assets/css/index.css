@@ -98,9 +98,9 @@ a:hover {
 
 /* --- おせち & 忘年会コンテンツ --- */
 .menu {
-	width: 100%;
-	margin-left: auto;
+	width: 450px;
 	color: #FFF;
+	margin: 0 auto;
 }
 .osechi_info01 {
 	padding-top: 60px;
@@ -316,15 +316,14 @@ a:hover {
 	font-size: 27px;
 	margin: 10px 0;
 	font-weight: bold;
-	background-color: #642323;
+	background-color: #c0392b;
 	color: #fff;
 	width: 220px;
 	text-align: center;
 }
 .price-box {
-	padding: 20px;
+	padding: 20px 0;
 	display: inline-block;
-	margin-bottom: 30px;
 }
 .price-box .price-details {
 	font-size: 1.1em;
@@ -342,7 +341,7 @@ a:hover {
 }
 .early-bird {
 	color: white;
-	padding: 20px;
+	padding: 0 20px;
 	max-width: 700px;
 	margin: 0 auto 30px auto;
 	border-radius: 8px;
@@ -368,9 +367,16 @@ a:hover {
 .description-box {
 	max-width: 650px;
 	margin: 0 auto;
-	line-height: 2;
+	line-height: 35px;
 	font-size: 1.1em;
+	text-align: left;
 }
+
+.description-box p {
+	line-height: 20px;
+	text-align: left;
+}
+
 .description-box h3 {
 	font-size: 1.8em;
 	color: #8B4513;
