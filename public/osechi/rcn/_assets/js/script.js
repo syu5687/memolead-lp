@@ -46,9 +46,8 @@
        // 表示はカンマ付き
        totalDisplay.value = total.toLocaleString();
        // 送信は数値のみ
-       totalHidden.value = total;
-       totalHidden.value  = total;               // 数値
-       document.querySelector('input[name="field_5224912_comma"]').value = total.toLocaleString(); // カンマ付き
+       totalHidden.value = total;// 数値
+       document.querySelector('input[name="field_5231284"]').value = total.toLocaleString(); // カンマ付き
      }
    
      // 変更時に計算を走らせる
