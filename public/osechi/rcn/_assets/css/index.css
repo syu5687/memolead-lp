@@ -29,6 +29,12 @@ a:hover {
 	opacity: 0.5;
 	transition: all 0.3s;
 }
+.und-msg {
+	text-decoration: underline;
+}
+.bld-msg {
+	font-weight: bold;
+}
 .error-msg {
 	color: red;
 	font-size: 0.9em;
