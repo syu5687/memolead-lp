@@ -62,7 +62,6 @@ a:hover {
 .form-area input,
 .form-area select,
 .form-area textarea{
-	margin: 0 auto 8px;
 	background: #eee;
 	border: 1px solid #aaa;
 	padding: 7px;
@@ -86,18 +85,20 @@ a:hover {
 .itemText,
 .itemContent{
 	display: block;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	border-bottom:1px solid #999;
+	margin: 0 auto;
+	padding:14px 0 14px 10px;
   }
   .itemText{
 	  width: 25%;
 	  align-content: center;
 	  font-size: 0.9rem;
+	  text-align: left;
 	}
 	.itemContent{
 		width: 70%;
 		text-align: left;
-		padding:10px 0 0 10px;
 	}
 	.form-area input[type="submit"]{
 		width: 75%;
@@ -187,12 +188,16 @@ a:hover {
 	.itemText{
 		border-bottom:0;
 		text-align: left;
-		padding: 0;
+		padding: 0 0 15px 0;
 		margin:0;
 	}
 	.itemContent{
-		padding: 0;
+		padding: 0 0 20px 0;
 	}
+	.attention{
+		text-align: left;
+	}
+
 
 	#contact {
 		margin-top: 0;
