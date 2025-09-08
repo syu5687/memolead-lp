@@ -39,6 +39,11 @@ a:hover {
 	color: red;
 	font-size: 0.9em;
 }
+.end-msg{
+	color: red;
+	font-size: 1.2em;
+	padding: 15px 0;
+}
 .hissu{
 	display: inline;
 	background: #E35C33;
