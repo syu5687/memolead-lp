@@ -40,9 +40,10 @@ a:hover {
 	font-size: 0.9em;
 }
 .end-msg{
-	color: red;
-	font-size: 1.2em;
-	padding: 15px 0;
+	color: #fff;
+	font-size: 1.3rem;
+	margin:0 auto;
+	background: #C90000;
 }
 .hissu{
 	display: inline;
