@@ -19,7 +19,7 @@
 		<div class="top_con">
 			<img class="wow fadeIn" src="./_assets/img/osechi2025_top.jpg" width="100%" height="auto" alt="ロイヤルチェスター長崎 ホテル&リトリートのプレミアムおせち">
 		</div>
-		<div class="form-area">
+		<div class="form-area view_timer"  data-end-date="2025/9/8 16:08">
 			<form action="https://business.form-mailer.jp/fm/service/Forms/complete" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
 			  <input type="hidden" name="key" value="b7861368308176">
 			  <h1>おせちお申し込みフォーム</h1>
@@ -204,6 +204,28 @@
 	</div>
 
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
+	<script>
+	  $(document).ready(function() {
+		$(".view_timer").each(function(index, target) {
+		  var startDate = $(this).attr("data-start-date");
+		  var endDate = $(this).attr("data-end-date");
+		  var nowDate = new Date();
+		  if (startDate) {
+			startDate = new Date(startDate);
+		  } else {
+			startDate = nowDate;
+		  }
+		  if (endDate) {
+			endDate = new Date(endDate);
+		  }
+		  if (startDate <= nowDate && (!endDate || nowDate <= endDate)) {
+			$(this).show();
+		  } else {
+			$(this).hide();
+		  }
+		});
+	  });
+	  </script>
 
 </body>
 </html>
