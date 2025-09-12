@@ -178,6 +178,10 @@ a:hover {
 	color: #000;
 }
 
+#contact .container {
+	text-align: center;
+}
+
 /* --- レスポンシブ (SP) --- */
 @media (max-width: 768px) {
 	#content {
