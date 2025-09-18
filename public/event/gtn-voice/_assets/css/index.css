@@ -2,7 +2,7 @@
 
 /* --- 基本設定 --- */
 :root {
-	--main-color: #3498db;
+	--main-color: #39190F;
 	--text-color: #333;
 	--bg-color-light: #f9f9f9;
 }
@@ -43,8 +43,12 @@ body {
 	display: flex; justify-content: center; 
 }
 #sticky-nav li a { 
-	display: block; padding: 15px 20px; text-decoration: none; 
-	color: var(--text-color); font-weight: bold; transition: color 0.3s; 
+	display: block;
+	padding: 15px 20px;
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: bold;
+	transition: color 0.3s;
 }
 #sticky-nav li a:hover { color: var(--main-color); }
 
@@ -53,10 +57,16 @@ body {
 .content-section:first-of-type { padding-top: 20px; } /* 最初のセクションだけ上の余白を詰める */
 .container { max-width: 700px; margin: 0 auto; text-align: center; }
 h1 { font-size: 2.2rem; color: var(--main-color); margin-bottom: 10px; }
-h2 { font-size: 1.8rem; border-bottom: 2px solid var(--main-color); display: inline-block; padding-bottom: 10px; margin-bottom: 40px; }
+h2 {
+	font-size: 1.8rem;
+	border-bottom: 1px solid #39190f;
+	display: inline-block;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+}
 p { line-height: 1.8; text-align: left; margin-top: 20px;}
 ul { text-align: left; padding-left: 20px; }
-img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
 /* --- Swiper スライダー --- */
 .swiper { width: 100%; height: 400px; margin-bottom: 40px; border-radius: 8px; }
@@ -92,7 +102,11 @@ img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px 
 
 /* --- フェードインアニメーション --- */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+	margin-top: 0;
+}
 
 /* --- その他 --- */
 .trainer-profile { display: flex; align-items: center; gap: 30px; text-align: left; }
@@ -101,9 +115,27 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 
 /* --- レスポンシブ対応 --- */
 @media (max-width: 768px) {
-	h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; }
-	#sticky-nav li a { padding: 15px 10px; font-size: 0.8rem; }
-	.content-section { padding: 50px 15px; }
-	.trainer-profile { flex-direction: column; }
-	.swiper { height: 250px; }
+	h1 {
+		font-size: 1rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+	#sticky-nav li a {
+		padding: 15px 10px;
+		font-size: 0.8rem;
+	}
+	.content-section {
+		padding: 50px 30px;
+	}
+	.trainer-profile {
+		flex-direction: column;
+	}
+	.swiper {
+		height: 250px;
+	}
+	.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+		content: 'prev';
+		font-size: 20px;
+	}
 }
