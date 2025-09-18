@@ -142,7 +142,7 @@ img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 footer { background-color: #333; color: #fff; text-align: center; padding: 20px; }
 
 .swiper-button-next:after, .swiper-button-prev:after {
-	font-size: 20px;
+	font-size: 20px!important;
 	color: #333!important;
 }
 
@@ -167,8 +167,21 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 	.swiper {
 		height: 250px;
 	}
+	
+	.swiper02 {
+		width: 100%;
+		height: 100％;
+		margin-bottom: 40px;
+		border-radius: 8px;
+	}
+	
 	.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
 		content: 'prev';
 		font-size: 20px;
+	}
+	
+	.swiper-button-next:after, .swiper-button-prev:after {
+		font-size: 15px!important;
+		color: #333!important;
 	}
 }
