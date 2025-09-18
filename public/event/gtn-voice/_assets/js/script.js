@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		pagination: { el: '.swiper-pagination', clickable: true },
 		navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
 	});
+	
+	// Hotelスライダー
+	const hotelSwiper = new Swiper('.hotel-content-swiper', {
+		loop: true,
+		autoplay: { delay: 3000, disableOnInteraction: false },
+		pagination: { el: '.swiper-pagination', clickable: true },
+		navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+	});
 
 	// Restaurantスライダー
 	const restaurantSwiper = new Swiper('.restaurant-swiper', {
