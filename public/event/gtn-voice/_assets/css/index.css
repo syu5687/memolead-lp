@@ -1,0 +1,125 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap');
+
+/* --- 基本設定 --- */
+:root {
+	--main-color: #3498db; /* メインカラー */
+	--text-color: #333;   /* テキストカラー */
+	--bg-color-light: #f9f9f9; /* 明るい背景色 */
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	margin: 0;
+	padding-top: 60px; /* 固定ヘッダー分の余白 */
+	color: var(--text-color);
+	background-color: #fff;
+}
+
+/* --- ヘッダー --- */
+header {
+	background-color: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(5px);
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+nav li a {
+	display: block;
+	padding: 20px 25px;
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: bold;
+	transition: color 0.3s;
+}
+
+nav li a:hover {
+	color: var(--main-color);
+}
+
+/* --- コンテンツ共通 --- */
+.content-section {
+	padding: 80px 20px;
+}
+
+.content-section:nth-child(even) {
+	background-color: var(--bg-color-light);
+}
+
+/* ★ PC版でコンテンツをSP幅で中央揃えにするための設定 */
+.container {
+	max-width: 700px; /* PCでの最大幅（この数値を変更すると幅が変わります） */
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1 { font-size: 2.2rem; color: var(--main-color); margin-bottom: 10px; }
+h2 { font-size: 1.8rem; border-bottom: 2px solid var(--main-color); display: inline-block; padding-bottom: 10px; margin-bottom: 40px; }
+p { line-height: 1.8; text-align: left; }
+ul { text-align: left; padding-left: 20px; }
+
+img {
+	max-width: 100%;
+	height: auto;
+	margin-top: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.trainer-profile {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	text-align: left;
+	margin-top: 30px;
+}
+.trainer-profile img { border-radius: 50%; width: 150px; height: 150px; }
+
+/* ★ JSで制御するフェードインアニメーションのスタイル */
+.fade-in {
+	opacity: 0; /* 最初は透明 */
+	transform: translateY(20px); /* 少し下に配置 */
+	transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 変化を滑らかに */
+}
+.fade-in.visible {
+	opacity: 1; /* 表示する */
+	transform: translateY(0); /* 元の位置に戻す */
+}
+
+
+/* --- フッター --- */
+footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+}
+
+/* --- レスポンシブ対応 (スマートフォン向け) --- */
+@media (max-width: 768px) {
+	body { padding-top: 50px; }
+	h1 { font-size: 1.8rem; }
+	h2 { font-size: 1.5rem; }
+	nav li a { padding: 15px 10px; font-size: 0.9rem; }
+	.content-section { padding: 50px 15px; }
+	.trainer-profile { flex-direction: column; text-align: center; }
+	.trainer-profile div { text-align: center; }
+	.trainer-profile p { text-align: left; }
+}
