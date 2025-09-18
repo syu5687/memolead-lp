@@ -92,13 +92,22 @@ img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
 /* --- リンクボタン --- */
 .cta-button {
-	display: inline-block; margin-top: 20px; padding: 15px 40px;
-	background-color: var(--main-color); color: #fff;
-	text-decoration: none; font-weight: bold; border-radius: 50px;
+	display: inline-block;
+	margin-top: 20px;
+	padding: 15px 40px;
+	background-color: var(--main-color);
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
 	box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 	transition: background-color 0.3s, transform 0.3s;
+	font-size: 16px;
+	width: 230px;
 }
-.cta-button:hover { background-color: #2980b9; transform: translateY(-2px); }
+.cta-button:hover {
+	background-color: #000F41;
+	transform: translateY(-2px);
+}
 
 /* --- フェードインアニメーション --- */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
