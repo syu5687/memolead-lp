@@ -7,14 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// 1. スクロールで追従ナビゲーションを表示
 	const stickyNav = document.getElementById('sticky-nav');
-	// 最初のセクションの高さを取得し、それを超えたらnavを表示
-	const firstSection = document.querySelector('.content-section');
+	const mainElement = document.querySelector('main');
 	
+	// mainタグの上端からナビゲーションまでの距離を計算
+	const navOffsetTop = stickyNav.offsetTop;
+
 	window.addEventListener('scroll', () => {
-		if (window.scrollY > firstSection.offsetTop) {
-			stickyNav.classList.add('visible');
+		// mainタグが画面の上端をどれだけ通り過ぎたか
+		const mainScrollTop = mainElement.getBoundingClientRect().top * -1;
+
+		if (mainScrollTop >= navOffsetTop) {
+			stickyNav.classList.add('fixed');
 		} else {
-			stickyNav.classList.remove('visible');
+			stickyNav.classList.remove('fixed');
 		}
 	});
 
@@ -22,27 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Hotelスライダー
 	const hotelSwiper = new Swiper('.hotel-swiper', {
 		loop: true,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
+		autoplay: { delay: 3000, disableOnInteraction: false },
+		pagination: { el: '.swiper-pagination', clickable: true },
+		navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
 	});
 
 	// Restaurantスライダー
 	const restaurantSwiper = new Swiper('.restaurant-swiper', {
 		loop: true,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
+		autoplay: { delay: 3500, disableOnInteraction: false },
+		pagination: { el: '.swiper-pagination', clickable: true },
+		navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
 	});
 
 	// 3. 要素をフェードインさせる
