@@ -141,6 +141,11 @@ img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 .trainer-profile img { border-radius: 50%; width: 150px; height: 150px; }
 footer { background-color: #333; color: #fff; text-align: center; padding: 20px; }
 
+.swiper-button-next:after, .swiper-button-prev:after {
+	font-size: 20px;
+	color: #333!important;
+}
+
 /* --- レスポンシブ対応 --- */
 @media (max-width: 768px) {
 	h1 {
