@@ -3,38 +3,62 @@
 * SCRIPT JS
 *
 ***************************************************************************/
-$(document).ready(function(){
+document.addEventListener('DOMContentLoaded', () => {
+
+	// 1. スクロールで追従ナビゲーションを表示
+	const stickyNav = document.getElementById('sticky-nav');
+	// 最初のセクションの高さを取得し、それを超えたらnavを表示
+	const firstSection = document.querySelector('.content-section');
 	
-	// フェードインさせたい要素をすべて取得
-	const fadeinTargets = document.querySelectorAll('.fade-in');
-	
-	// Intersection Observer のオプション設定
-	const options = {
-  	root: null, // ビューポートを基準にする
-  	rootMargin: '0px',
-  	threshold: 0.1 // 要素が10%見えたらトリガー
-	};
-	
-	// 要素が画面内に入ったときの処理
-	const callback = (entries, observer) => {
-  	entries.forEach(entry => {
-		// isIntersectingがtrue = 画面内に入った
-		if (entry.isIntersecting) {
-	  	// 'visible'クラスを追加してアニメーションを発火
-	  	entry.target.classList.add('visible');
-	  	
-	  	// 一度表示されたら、もう監視する必要はないので監視を停止
-	  	observer.unobserve(entry.target);
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > firstSection.offsetTop) {
+			stickyNav.classList.add('visible');
+		} else {
+			stickyNav.classList.remove('visible');
 		}
-  	});
-	};
-	
-	// Intersection Observer のインスタンスを作成
-	const observer = new IntersectionObserver(callback, options);
-	
-	// 各要素を監視対象に追加
-	fadeinTargets.forEach(target => {
-  	observer.observe(target);
 	});
+
+	// 2. Swiper.jsでスライダーを初期化
+	// Hotelスライダー
+	const hotelSwiper = new Swiper('.hotel-swiper', {
+		loop: true,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+
+	// Restaurantスライダー
+	const restaurantSwiper = new Swiper('.restaurant-swiper', {
+		loop: true,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+
+	// 3. 要素をフェードインさせる
+	const fadeinTargets = document.querySelectorAll('.fade-in');
+	const observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.1 });
+
+	fadeinTargets.forEach(target => {
+		observer.observe(target);
+	});
+
 });
 
