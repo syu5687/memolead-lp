@@ -74,6 +74,7 @@ img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 	height: 400px;
 	margin-bottom: 40px;
 	border-radius: 8px;
+	overflow: hidden;
 }
 
 .swiper02 {
@@ -81,6 +82,7 @@ img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 	height: 500px;
 	margin-bottom: 40px;
 	border-radius: 8px;
+	overflow: hidden;
 }
 
 .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
@@ -166,6 +168,7 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 	}
 	.swiper {
 		height: 250px;
+		overflow: hidden;
 	}
 	
 	.swiper02 {
@@ -173,6 +176,7 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 		height: 300px;
 		margin-bottom: 40px;
 		border-radius: 8px;
+		overflow: hidden;
 	}
 	
 	.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
