@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	
 	// Hotelスライダー
-	const hotelSwiper = new Swiper('.hotel-content-swiper', {
+	const hotelcontentSwiper = new Swiper('.hotel-content-swiper', {
 		loop: true,
 		autoplay: { delay: 3000, disableOnInteraction: false },
 		pagination: { el: '.swiper-pagination', clickable: true },
