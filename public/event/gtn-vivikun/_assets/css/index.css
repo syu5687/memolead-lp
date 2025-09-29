@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+/* --- 基本設定 --- */
+:root {
+	--main-color: #39190F;
+	--text-color: #333;
+	--bg-color-light: #f9f9f9;
+}
+html { 
+	scroll-behavior: smooth; 
+}
+body {
+	/* サイト全体のフォント（Adobe Fontsの指定に合わせてください） */
+	font-family: "fot-tsukuardgothic-pr6n", "游明朝", YuMincho, "Hiragino Mincho ProN", serif;
+	margin: 0;
+	color: var(--text-color);
+	background-color: #fff;
+}
+
+/* --- スクロール追従ナビゲーション --- */
+#sticky-nav {
+	background-color: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(5px);
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+	/* 通常時は非表示。fixedクラスが付いたら表示される */
+	opacity: 0; 
+	visibility: hidden;
+	transition: opacity 0.4s, visibility 0.4s;
+	position: absolute; /* JavaScriptでfixedに変更 */
+	top: 0; 
+	left: 0; 
+	width: 100%;
+	z-index: 1000;
+}
+#sticky-nav.fixed {
+	position: fixed;
+	opacity: 1; 
+	visibility: visible;
+}
+#sticky-nav ul { 
+	margin: 0; padding: 0; list-style: none; 
+	display: flex; justify-content: center; 
+}
+#sticky-nav li a { 
+	display: block;
+	padding: 15px 20px;
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: bold;
+	transition: color 0.3s;
+}
+#sticky-nav li a:hover { color: var(--main-color); }
+
+/* --- コンテンツ共通設定 --- */
+.content-section { padding: 80px 20px; }
+.content-section:first-of-type { padding-top: 20px; } /* 最初のセクションだけ上の余白を詰める */
+.container { max-width: 700px; margin: 0 auto; text-align: center; }
+h1 { font-size: 2.2rem; color: var(--main-color); margin-bottom: 10px; }
+h2 {
+	font-size: 1.8rem;
+	border-bottom: 1px solid #39190f;
+	display: inline-block;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+}
+p { line-height: 1.8; text-align: left; margin-top: 20px;}
+ul { text-align: left; padding-left: 20px; }
+img { max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+/* --- Swiper スライダー --- */
+.swiper {
+	width: 100%;
+	height: 400px;
+	margin-bottom: 40px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.swiper02 {
+	width: 450px;
+	height: auto; /* 高さを自動調整に */
+	margin-bottom: 40px;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+/* --- 各スライドのスタイル --- */
+.swiper02 .swiper-slide {
+	/* 重要：Swiperが内部で高さを計算しやすくなるように設定 */
+	height: auto; 
+}
+
+/* --- スライド内の画像スタイル --- */
+.swiper02 .swiper-slide img {
+	display: block; /* 画像下の余白をなくす */
+	width: 450px;
+	height: auto; /* PCでの画像の高さを指定 */
+	object-fit: cover;
+	box-shadow: none;
+}
+
+/* --- スライド内のテキストコンテンツ --- */
+.slide-text-content {
+	padding: 20px;
+	text-align: left;
+	border-top: 1px solid #eee;
+}
+
+.slide-text-content h3 {
+	font-size: 1.2rem;
+	margin: 0 0 10px 0;
+	color: var(--main-color);
+}
+
+.slide-text-content p {
+	font-size: 0.9rem;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+	color: #39190F; /* お好みの色に変更 */
+	font-size: 24px;  /* お好みのサイズに変更 */
+}
+
+/* 矢印の背景円 */
+.swiper-button-next,
+.swiper-button-prev {
+	background-color: rgba(255, 255, 255, 0.7); /* 半透明の白 */
+	width: 44px;  /* 円の幅 */
+	height: 44px; /* 円の高さ */
+	border-radius: 50%; /* 円形にする */
+	box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* 背景に影を追加 */
+	transition: background-color 0.3s; /* ホバー時のアニメーション */
+}
+
+/* 矢印にマウスが乗った時のスタイル */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+	background-color: rgba(255, 255, 255, 1); /* 少し濃い白に */
+}
+
+
+/* --- ドット (ページネーション) のスタイル --- */
+
+/* 通常時のドットの色 */
+.swiper-pagination-bullet {
+	background-color: #ffffff; /* お好みの色に変更 */
+	opacity: 0.7; /* 少し透明に */
+	width: 10px;  /* ドットの幅 */
+	height: 10px; /* ドットの高さ */
+}
+
+/* 現在表示されているスライドに対応するドットの色 */
+.swiper-pagination-bullet-active {
+	background-color: #39190F; /* お好みの色に変更 */
+	opacity: 1; /* 不透明に */
+}
+
+.swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+.swiper-button-next, .swiper-button-prev { color: #fff; }
+.swiper-pagination-bullet-active { background: #fff; }
+
+/* --- 画像バナー --- */
+.image-banner {
+	width: 100%; height: 250px; margin-bottom: 20px; border-radius: 8px;
+	display: flex; justify-content: center; align-items: center;
+	color: #fff; font-size: 2.5rem; font-weight: bold; text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+	background-size: cover; background-position: center;
+	/* 背景文字のフォント（Adobe Fontsの指定に合わせてください） */
+	font-family: "trajan-pro-3", serif;
+}
+.image-banner.stay { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/600x250/5D6D7E/ffffff?text='); }
+.image-banner.view-terrace { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/600x250/85929E/ffffff?text='); }
+
+/* --- 施設グリッド --- */
+.amenities-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 40px 0; text-align: center; }
+.amenity-item { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-weight: bold; }
+
+/* --- リンクボタン --- */
+.cta-button {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 15px 0px;
+	background-color: #1e3b96;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+	transition: background-color 0.3s, transform 0.3s;
+	font-size: 16px;
+	width: 460px;
+	border-radius: 45px;
+	line-height: 17px;
+}
+.cta-button:hover {
+	background-color: #2c4cb3;
+	transform: translateY(-2px);
+}
+
+/* --- フェードインアニメーション --- */
+.fade-in { 
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+	margin-top: 0;
+	border-radius: 0;
+}
+
+/* --- その他 --- */
+.trainer-profile { display: flex; align-items: center; gap: 30px; text-align: left; }
+.trainer-profile img { border-radius: 50%; width: 150px; height: 150px; }
+footer { background-color: #333; color: #fff; text-align: center; padding: 20px; }
+
+.swiper-button-next:after, .swiper-button-prev:after {
+	font-size: 20px!important;
+	color: #333!important;
+}
+
+/* --- レスポンシブ対応 --- */
+@media (max-width: 768px) {
+	h1 {
+		font-size: 1rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+	#sticky-nav li a {
+		padding: 15px 10px;
+		font-size: 0.8rem;
+	}
+	.content-section {
+		padding: 50px 30px;
+	}
+	.trainer-profile {
+		flex-direction: column;
+	}
+	.swiper {
+		height: 250px;
+		overflow: hidden;
+	}
+	
+	.swiper02 .swiper-slide img {
+		height: 220px; /* スマートフォンでは画像の高さを少し抑える */
+	}
+	
+	.slide-text-content {
+		padding: 15px; /* テキストエリアの余白を少し詰める */
+	}
+	
+	.slide-text-content h3 {
+		font-size: 1.1rem; /* 見出しを少し小さく */
+	}
+	
+	.slide-text-content p {
+		font-size: 0.85rem; /* 本文を少し小さく */
+	}
+	
+	.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+		content: 'prev';
+		font-size: 20px;
+	}
+	
+	.swiper-button-next:after, .swiper-button-prev:after {
+		font-size: 15px!important;
+		color: #333!important;
+	}
+}
