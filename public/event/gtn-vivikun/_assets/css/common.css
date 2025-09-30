@@ -93,6 +93,11 @@ a:hover {
 	text-decoration: none;
 }
 
+.center-message {
+  text-align: center;
+  margin-top: 40px; /* 任意。上下に余白つけたい場合 */
+}
+
 /* --- レスポンシブ (SP STYLE) --- */
 @media (max-width: 768px) {
 	.pc {
