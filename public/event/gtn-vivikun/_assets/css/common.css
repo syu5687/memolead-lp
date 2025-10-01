@@ -98,6 +98,22 @@ a:hover {
   margin-top: 40px; /* 任意。上下に余白つけたい場合 */
 }
 
+.submit-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+  margin-top: 40px;
+}
+
+.submit-button {
+  background-color: orange;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 /* --- レスポンシブ (SP STYLE) --- */
 @media (max-width: 768px) {
 	.pc {

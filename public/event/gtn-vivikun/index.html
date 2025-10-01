@@ -14,6 +14,38 @@
 	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
 </head>
+<style>
+  /* お知らせ文を中央寄せにする */
+  .center-message {
+	text-align: center;
+	margin: 30px auto;
+	font-size: 16px;
+	line-height: 1.6;
+	max-width: 90%;
+  }
+
+  /* フォーム全体に余白を追加して見やすくする */
+  form {
+	padding: 20px;
+  }
+
+  /* 送信ボタン中央揃え + 余白 */
+  input[type="submit"] {
+	display: block;
+	margin: 30px auto;
+	padding: 12px 24px;
+	font-size: 16px;
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+	background-color: #0056b3;
+  }
+</style>
 
 <body>
 	<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
@@ -182,13 +214,15 @@
 	  </span>
 	  
 	  <div class="center-message">
-	   <p>お申し込み確認後式場よりご連絡がございましたらご予約確定となります。<br>3営業日以内に連絡がない場合はガーデンテラス長崎までお問い合わせください。
+	   <p style="margin-bottom: 1px;">お申し込み確認後式場よりご連絡がございましたらご予約確定となります。<br>3営業日以内に連絡がない場合はガーデンテラス長崎までお問い合わせください。
 	   </p>
 	  </div>
 
-	 <p><input name="submit" type="submit" value="送信する"></p>
-	  <input type="hidden" name="code" value="utf8">
-	</form>
+
+	 <div class="submit-wrapper" style="display: flex; justify-content: center; align-items: center; margin-top: 8px;">
+	   <input name="submit" type="submit" value="送信する" class="submit-button">
+	   <input type="hidden" name="code" value="utf8">
+	 </div>
 
 <!--div class="form">
 	<div class="formmailer-embed" data-form-hash="2e3a9e99311802" data-form-host="business.form-mailer.jp"></div>
