@@ -552,3 +552,29 @@ a:hover {
 .slider img.active {
   display: block;
 }
+
+/* PC用：画面が大きいときに中央寄せして幅を固定 */
+@media screen and (min-width: 1025px) {
+  body {
+	max-width: 700px;
+	margin: 0 auto;      /* 中央寄せ */
+	background-color: #dddcd6; /* 背景を白に（任意） */
+  }
+}
+/* --- タブレットサイズ（768px〜1024px） --- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+	width: 95%;         /* 画面いっぱいに広がらないように少し余白を取る */
+	max-width: 700px;   /* 最大幅を制限 */
+	margin: 0 auto;     /* 中央寄せ */
+	background-color: #dddcd6;
+  }
+}
+
+/* --- スマホ（767px以下） --- */
+@media screen and (max-width: 767px) {
+  body {
+	width: 100%;
+	margin: 0;
+  }
+}
