@@ -558,6 +558,6 @@ a:hover {
   body {
 	max-width: 700px;
 	margin: 0 auto;      /* 中央寄せ */
-	background-color: #fff; /* 背景を白に（任意） */
+	background-color: #dddcd6; /* 背景を白に（任意） */
   }
 }
