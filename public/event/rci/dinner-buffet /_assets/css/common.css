@@ -556,6 +556,7 @@ a:hover {
 /* PC用：画面が大きいときに中央寄せして幅を固定 */
 @media screen and (min-width: 1025px) {
   body {
+	width:700px;
 	max-width: 700px;
 	margin: 0 auto;      /* 中央寄せ */
 	background-color: #dddcd6; /* 背景を白に（任意） */
