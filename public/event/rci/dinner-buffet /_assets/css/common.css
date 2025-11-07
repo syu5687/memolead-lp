@@ -574,7 +574,7 @@ a:hover {
 /* --- スマホ（767px以下） --- */
 @media screen and (max-width: 767px) {
   body {
-	width: 100%;
+	width: auto;
 	margin: 0 auto;
 	overflow-x: hidden;
 	text-align: center;
