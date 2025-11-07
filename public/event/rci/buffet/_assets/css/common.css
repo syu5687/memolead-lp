@@ -564,7 +564,7 @@ a:hover {
 /* --- タブレットサイズ（768px〜1024px） --- */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   body {
-	width: 95%;         /* 画面いっぱいに広がらないように少し余白を取る */
+	width: 700px;         /* 画面いっぱいに広がらないように少し余白を取る */
 	max-width: 700px;   /* 最大幅を制限 */
 	margin: 0 auto;     /* 中央寄せ */
 	background-color: #dddcd6;
