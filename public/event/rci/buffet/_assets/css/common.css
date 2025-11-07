@@ -579,3 +579,12 @@ a:hover {
   }
 }
 
+/* --- 横スクロール対策 --- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
