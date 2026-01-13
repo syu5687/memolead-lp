@@ -7,21 +7,39 @@
 	<meta property="og:image" content="https://www.gt-nagasaki.jp/wp-content/uploads/2026/01/ogp.png">
 	<meta property="og:title" content="恵方巻き予約ホーム｜ガーデンテラス長崎ホテル&リゾート"/>
 	<meta property="og:description" content="恵方巻き予約ホーム｜ガーデンテラス長崎ホテル&リゾート"/>
-	<link rel="stylesheet" type="text/css" href="https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/rcn/_assets/css/common.css">
-	<link rel="stylesheet" href="https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/rcn/_assets/js/wow/css/libs/animate.css">
 	<script type="text/javascript" src="https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/rcn/_assets/js/jquery-3.7.1.min.js"></script>
+	<link rel="stylesheet" href="https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/rcn/_assets/js/wow/css/libs/animate.css">
 	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 	<script src="https://business.form-mailer.jp/formfiles/js/embed.js"></script>
 </head>
 <style>
-	.flyer{text-align: center;}
+	body{width: 100%;margin: 0;padding:0;}
+	.flyer{text-align: center;margin: 0;padding: 40px 0;}
 	.flyer img{text-align: center;max-width: 90%;}
 </style>
 <body>
 	<div class="form" style="background-color: #f5f5f5;">
-	<p class="flyer"><img class="wow fadeIn" src="https://www.gt-nagasaki.jp/wp-content/uploads/2026/01/2026eho.png" alt="2026年恵方巻"</p>
+	<div class="wow fadeIn"><p class="flyer"><img class="" src="https://www.gt-nagasaki.jp/wp-content/uploads/2026/01/2026eho.png" alt="2026年恵方巻"</p></div>
 	<div class="formmailer-embed" data-form-hash="f597d7db325072" data-form-host="business.form-mailer.jp"></div>
 </div>
+
 <script src="https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/rcn/_assets/js/wow/dist/wow.min.js"></script>
+<script>
+	wow = new WOW(
+	  {
+		animateClass: 'animated',
+		offset:       100,
+		callback:     function(box) {
+		  console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+		}
+	  }
+	);
+	wow.init();
+	document.getElementById('moar').onclick = function() {
+	  var section = document.createElement('section');
+	  section.className = 'section--purple wow fadeInDown';
+	  this.parentNode.insertBefore(section, this);
+	};
+  </script>
 </body>
 </html>
