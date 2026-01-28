@@ -1,31 +1,579 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="description" content="">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap" rel="stylesheet">
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="./css/common.css?<?php echo date('Ymd-His'); ?>">
-	<link rel="stylesheet" type="text/css" href="./css/rci.css?<?php echo date('Ymd-His'); ?>">
-	<link rel="stylesheet" href="./js/slick/slick-theme.css?<?php echo date('Ymd-His'); ?>">
-	<link rel="stylesheet" href="./js/slick/slick.css?<?php echo date('Ymd-His'); ?>">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css?<?php echo date('Ymd-His'); ?>">
-	<link rel="stylesheet" href="./js/wow/css/libs/animate.css?<?php echo date('Ymd-His'); ?>">
-	<link rel="stylesheet" type="text/css" href="./css/layerBoard.css?v=2" media="all" />
-
-	
-	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="./js/script.js"></script>
-	<script type="text/javascript" src="./js/slick/slick.js"></script>
-	<script src="./js/jquery.cookie.js"></script>
-	<script src="./js/jquery.layerBoard.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Wedding PLAN | tiara boutique IMARI</title>
+    <meta name="description" content="伊万里で叶えるフォトウェディング。tiara boutique IMARIのスペシャルプラン。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
-
 <body>
-	<p>ただいま公開に向け準備中です。</p>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="logo">photo wedding SAGA</h1>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="#plans">PLAN</a></li>
+                    <li><a href="#concept">CONCEPT</a></li>
+                    <li><a href="#dress">DRESS</a></li>
+                    <li><a href="#contact" class="nav-btn">ご相談</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-image-container">
+                <img src="/assets/img/top_01_1.jpg" alt="tiara boutique IMARI Main Visual" class="hero-img">
+                <div class="hero-text">
+                    <h2 class="hero-title">SAGA</h2>
+                    <p class="hero-subtitle">memolead group</p>
+                    <div class="hero-lines">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="plans-section">
+            <div class="section-header">
+                <span class="en-title">SPECIAL PHOTO WEDDING PLAN</span>
+            </div>
+            
+            <div class="container">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide">
+                            <a href="#" class="plan-card-beige plan-simple" data-modal-target="#modal-plan-simple">
+                                <div class="card-header-beige">
+                                    <div class="badge-limited">
+                                        <span class="v-text">平日</span><span class="num">限定</span>
+                                    </div>
+                                    <h3 class="plan-title-beige">PLAN "Simple"</h3>
+                                    <p class="plan-sub-beige">洋装1点プラン</p>
+                                    <div class="plan-img-area">
+                                        <img src="/assets/img/plan_01_1.jpg" alt="Simple Plan Image">
+                                    </div>
+                                </div>
+                                <hr class="card-divider">
+                                <div class="card-body-beige">
+                                    <p class="plan-desc-beige">
+                                        各式場毎月5組限定<br>
+                                        ＆日程(平日限定)
+                                    </p>
+                                    <div class="plan-price-beige">
+                                        <div class="price-main">
+                                            <span class="yen">¥</span>90,000<span class="tax">+税</span>
+                                        </div>
+                                        <p class="price-sub">税込 ¥99,000</p>
+                                    </div>
+                                    <div class="card-cta">詳細はこちら ></div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="#" class="plan-card-beige plan-silver" data-modal-target="#modal-plan-silver">
+                                <div class="card-header-beige">
+                                    <h3 class="plan-title-beige">PLAN "SILVER"</h3>
+                                    <p class="plan-sub-beige">洋装2点プラン</p>
+                                    <div class="plan-img-area">
+                                        <img src="/assets/img/plan_02_1.jpg" alt="Silver Plan Image">
+                                    </div>
+                                </div>
+                                <hr class="card-divider">
+                                <div class="card-body-beige">
+                                    <p class="plan-desc-beige">
+                                        定番のウェディングドレスと<br>
+                                        カラードレスが入ったプラン!!
+                                    </p>
+                                    <div class="plan-price-beige">
+                                        <div class="price-main">
+                                            <span class="yen">¥</span>170,000<span class="tax">+税</span>
+                                        </div>
+                                        <p class="price-sub">税込 ¥187,000</p>
+                                    </div>
+                                    <div class="card-cta">詳細はこちら ></div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="#" class="plan-card-beige plan-gold" data-modal-target="#modal-plan-gold">
+                                <div class="card-header-beige">
+                                    <h3 class="plan-title-beige">PLAN "GOLD"</h3>
+                                    <p class="plan-sub-beige">和装洋装2点プラン</p>
+                                    <div class="plan-img-area">
+                                        <img src="/assets/img/plan_03_1.jpg" alt="Gold Plan Image">
+                                    </div>
+                                </div>
+                                <hr class="card-divider">
+                                <div class="card-body-beige">
+                                    <p class="plan-desc-beige">
+                                        やっぱり和装もかかせない!!<br>
+                                        ドレスも和装も楽しめるプラン!!
+                                    </p>
+                                    <div class="plan-price-beige">
+                                        <div class="price-main">
+                                            <span class="yen">¥</span>180,000<span class="tax">+税</span>
+                                        </div>
+                                        <p class="price-sub">税込 ¥198,000</p>
+                                    </div>
+                                    <div class="card-cta">詳細はこちら ></div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="#" class="plan-card-beige plan-diamond" data-modal-target="#modal-plan-diamond">
+                                <div class="card-header-beige">
+                                    <h3 class="plan-title-beige">PLAN "Diamond"</h3>
+                                    <p class="plan-sub-beige">和装洋装3点プラン</p>
+                                    <div class="plan-img-area">
+                                        <img src="/assets/img/plan_04_1.jpg" alt="Diamond Plan Image">
+                                    </div>
+                                </div>
+                                <hr class="card-divider">
+                                <div class="card-body-beige">
+                                    <p class="plan-desc-beige">
+                                        ウェディングもカクテルも!!<br>
+                                        和装も!! 組み合わせ自由!!
+                                    </p>
+                                    <div class="plan-price-beige">
+                                        <div class="price-main">
+                                            <span class="yen">¥</span>280,000<span class="tax">+税</span>
+                                        </div>
+                                        <p class="price-sub">税込 ¥308,000</p>
+                                    </div>
+                                    <div class="card-cta">詳細はこちら ></div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="#" class="plan-card-beige plan-premium" data-modal-target="#modal-plan-premium">
+                                <div class="card-header-beige">
+                                    <div class="badge-premium">
+                                        <span>最上級</span>
+                                    </div>
+                                    <h3 class="plan-title-beige">PLAN "Premium"</h3>
+                                    <p class="plan-sub-beige">和装洋装4点プラン</p>
+                                    <div class="plan-img-area">
+                                        <img src="/assets/img/plan_05_1.jpg" alt="Premium Plan Image">
+                                    </div>
+                                </div>
+                                <hr class="card-divider">
+                                <div class="card-body-beige">
+                                    <p class="plan-desc-beige">
+                                        新郎新婦様合計7着の衣装が<br>
+                                        選べる最上級スペシャルプラン!
+                                    </p>
+                                    <div class="plan-price-beige">
+                                        <div class="price-main">
+                                            <span class="yen">¥</span>350,000<span class="tax">+税</span>
+                                        </div>
+                                        <p class="price-sub">税込 ¥385,000</p>
+                                    </div>
+                                    <div class="card-cta">詳細はこちら ></div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="cta-container">
+                    <a href="#contact" class="cta-button">フォトウェディングのご相談</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="concept" class="concept-section">
+            <h2 class="section-title">CONCEPT</h2>
+            <div class="container concept-inner">
+                <div class="concept-image">
+                    <a href="#" style="display:block; cursor:pointer;" data-modal-target="#modal-concept">
+                        <img src="/assets/img/concept_01_1.jpg" alt="Concept Image">
+                    </a>
+                </div>
+                <div class="concept-text">
+                    <p>
+                        憧れの結婚式場・ホテルで上質な衣装やチャペルや神殿で<br>
+                        あくまで自然に、ふたりらしく。<br>
+                        結婚の証としての大切な一日。
+                    </p>
+                    <p>二人らしく残す結婚のカタチ。<br>ワンランク上のフォトウェディングで最幸の一日を創り上げます。</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="place" class="place-section">
+            <h2 class="section-title">PLACE</h2>
+            <div class="container">
+                <p class="section-intro">
+                    異なる5つの式場・ホテルで二人らしく残す結婚のカタチ。<br>ワンランク上のフォトウェディングで最幸の一日を創り上げます。
+                </p>
+        
+                <div class="place-grid-wrapper">
+                    
+                    <div class="place-grid-item">
+                        <div class="swiper placeItemSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="/assets/img/place_01_1.jpg" alt="Garden Terrace 1"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_01_2.jpg" alt="Garden Terrace 2"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_01_3.jpg" alt="Garden Terrace 3"></div>
+                            </div>
+                        </div>
+                        <div class="place-name-overlay">
+                            <h3>ガーデンテラス佐賀<br>ホテル＆リゾート</h3>
+                        </div>
+                    </div>
+        
+                    <div class="place-grid-item">
+                        <div class="swiper placeItemSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="/assets/img/place_02_1.jpg" alt="Royal Chester Saga 1"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_02_2.jpg" alt="Royal Chester Saga 2"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_02_3.jpg" alt="Royal Chester Saga 3"></div>
+                            </div>
+                        </div>
+                        <div class="place-name-overlay">
+                            <h3>ロイヤルチェスター佐賀</h3>
+                        </div>
+                    </div>
+        
+                    <div class="place-grid-item">
+                        <div class="swiper placeItemSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="/assets/img/place_03_1.jpg" alt="Island Hills 1"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_03_2.jpg" alt="Island Hills 2"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_03_3.jpg" alt="Island Hills 3"></div>
+                            </div>
+                        </div>
+                        <div class="place-name-overlay">
+                            <h3>アイランドヒルズ迎賓館</h3>
+                        </div>
+                    </div>
+        
+                    <div class="place-grid-item">
+                        <div class="swiper placeItemSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="/assets/img/place_04_1.jpg" alt="Chester Imari 1"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_04_2.jpg" alt="Chester Imari 2"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_04_3.jpg" alt="Chester Imari 3"></div>
+                            </div>
+                        </div>
+                        <div class="place-name-overlay">
+                            <h3>ロイヤルチェスター伊万里</h3>
+                        </div>
+                    </div>
+        
+                    <div class="place-grid-item">
+                        <div class="swiper placeItemSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="/assets/img/place_05_1.jpg" alt="White House 1"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_05_2.jpg" alt="White House 2"></div>
+                                <div class="swiper-slide"><img src="/assets/img/place_05_3.jpg" alt="White House 3"></div>
+                            </div>
+                        </div>
+                        <div class="place-name-overlay">
+                            <h3>ホワイトハウス伊万里</h3>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </section>
+
+        <section id="dress" class="dress-section">
+            <h2 class="section-title">DRESS</h2>
+            <div class="container">
+                <p class="section-intro">
+                    時を経ても決して色あせない<br>
+                    本物の美しさを身にまとう花嫁<br>
+                    一生に一度の特別なその日がはじまる
+                </p>
+                <div class="dress-gallery">
+                    <div class="dress-item"><img src="https://placehold.co/373x528" alt="Dress 1"></div>
+                    <div class="dress-item"><img src="https://placehold.co/373x528" alt="Dress 2"></div>
+                    <div class="dress-item"><img src="https://placehold.co/373x528" alt="Dress 3"></div>
+                </div>
+                <div class="cta-container">
+                    <a href="#contact" class="cta-button">ドレスへのご相談</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <div class="footer-logo">memolead SAGA</div>
+            <p class="footer-address"></p>
+            <!--
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">Access</a>
+            </div>
+        -->
+            <p class="copyright">&copy; memolead SAGA All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="modal-plan-simple" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <div class="modal-content modal-simple-design">
+                <button class="modal-close-btn">&times;</button>
+                <div class="simple-header">
+                    <div class="badge-popular"><span class="vertical-text">当式場</span><div class="rank"><span class="num">1</span>番<br>人気<span class="excl">!</span></div></div>
+                    <div class="title-area"><h3 class="plan-title-main">PLAN "Simple"</h3></div>
+                    <div class="badge-campaign"><span class="line1">最新作</span><span class="line2">ブランド</span><span class="line3">追加料</span><span class="line4">プレゼント</span></div>
+                </div>
+                <hr class="simple-divider">
+                <p class="simple-catch">写真だけでも！写真だからこそ！<br>と残したいという方へオススメ！</p>
+                
+                <div class="simple-price-container">
+                    <div class="price-block original">
+                        <span class="label">通常価格（税抜）</span>
+                        <div class="price-strike">¥120,000</div>
+                        <span class="note-tax">税込 ¥132,000</span>
+                    </div>
+                    <div class="price-arrow"><span class="arrow-icon">→</span></div>
+                    
+                    <div class="price-group-special">
+                        <div class="price-block special">
+                            <span class="yen">¥</span><span class="amount">90,000</span><span class="tax">+税</span>
+                        </div>
+                        <div class="price-block tax-info">
+                            <span class="label-tax">税込価格</span><span class="amount-tax">99,000円</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="simple-note">各式場毎月5組限定 ＆ 日程(平日限定)<br>※タキシード→紋付袴　ドレス→和装　変更可能です。</p>
+                <div class="simple-items-grid">
+                    <div class="item-card"><div class="item-icon icon-dress"></div><span class="item-name">ドレス</span></div>
+                    <div class="item-card"><div class="item-icon icon-tuxedo"></div><span class="item-name">タキシード</span></div>
+                    <div class="item-card"><div class="item-icon icon-hairmake"></div><span class="item-name">ヘアメイク</span></div>
+                    <div class="item-card"><div class="item-icon icon-kitsuke"></div><span class="item-name">着付</span></div>
+                    <div class="item-card"><div class="item-icon icon-accessory"></div><span class="item-name">ヘア<br>アクセサリー</span></div>
+                    <div class="item-card"><div class="item-icon icon-bouquet"></div><span class="item-name">レンタル<br>ブーケ</span></div>
+                    <div class="item-card"><div class="item-icon icon-photo"></div><span class="item-name">撮影</span></div>
+                    <div class="item-card"><div class="item-icon icon-data"></div><span class="item-name">撮影データ<br>約30カット</span></div>
+                    <div class="item-card"><div class="item-icon icon-chapel"></div><span class="item-name">チャペル<br>使用料</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-plan-silver" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <div class="modal-content modal-simple-design">
+                <button class="modal-close-btn">&times;</button>
+                <div class="simple-header">
+                    <div class="title-area"><h3 class="plan-title-main">PLAN "SILVER"</h3></div>
+                    <div class="badge-campaign"><span class="line1">最新作</span><span class="line2">ブランド</span><span class="line3">追加料</span><span class="line4">プレゼント</span></div>
+                </div>
+                <hr class="simple-divider">
+                <p class="simple-catch">定番のウェディングドレスと<br>カラードレスが入ったプラン!!</p>
+                
+                <div class="simple-price-container">
+                    <div class="price-block original">
+                        <span class="label">通常価格（税抜）</span>
+                        <div class="price-strike">¥220,000</div>
+                        <span class="note-tax">税込 ¥242,000</span>
+                    </div>
+                    <div class="price-arrow"><span class="arrow-icon">→</span></div>
+                    
+                    <div class="price-group-special">
+                        <div class="price-block special">
+                            <span class="yen">¥</span><span class="amount">170,000</span><span class="tax">+税</span>
+                        </div>
+                        <div class="price-block tax-info">
+                            <span class="label-tax">税込価格</span><span class="amount-tax">187,000円</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-items-grid">
+                    <div class="item-card"><div class="item-icon icon-dress"><span class="icon-badge">×2</span></div><span class="item-name">ドレス</span></div>
+                    <div class="item-card"><div class="item-icon icon-tuxedo"></div><span class="item-name">タキシード</span></div>
+                    <div class="item-card"><div class="item-icon icon-hairmake"></div><span class="item-name">ヘアメイク</span></div>
+                    <div class="item-card"><div class="item-icon icon-kitsuke"></div><span class="item-name">着付</span></div>
+                    <div class="item-card"><div class="item-icon icon-accessory"></div><span class="item-name">ヘア<br>アクセサリー</span></div>
+                    <div class="item-card"><div class="item-icon icon-bouquet"></div><span class="item-name">レンタル<br>ブーケ</span></div>
+                    <div class="item-card"><div class="item-icon icon-photo"></div><span class="item-name">撮影</span></div>
+                    <div class="item-card"><div class="item-icon icon-data"></div><span class="item-name">撮影データ<br>約60カット</span></div>
+                    <div class="item-card"><div class="item-icon icon-cleaning"></div><span class="item-name">クリーニング</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-plan-gold" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <div class="modal-content modal-simple-design">
+                <button class="modal-close-btn">&times;</button>
+                <div class="simple-header">
+                    <div class="title-area"><h3 class="plan-title-main">PLAN "GOLD"</h3></div>
+                    <div class="badge-campaign"><span class="line1">最新作</span><span class="line2">ブランド</span><span class="line3">追加料</span><span class="line4">プレゼント</span></div>
+                </div>
+                <hr class="simple-divider">
+                <p class="simple-catch">やっぱり和装もかかせない!!<br>ドレスも和装も楽しめるプラン!!</p>
+                
+                <div class="simple-price-container">
+                    <div class="price-block original">
+                        <span class="label">通常価格（税抜）</span>
+                        <div class="price-strike">¥230,000</div>
+                        <span class="note-tax">税込 ¥253,000</span>
+                    </div>
+                    <div class="price-arrow"><span class="arrow-icon">→</span></div>
+                    
+                    <div class="price-group-special">
+                        <div class="price-block special">
+                            <span class="yen">¥</span><span class="amount">180,000</span><span class="tax">+税</span>
+                        </div>
+                        <div class="price-block tax-info">
+                            <span class="label-tax">税込価格</span><span class="amount-tax">198,000円</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-items-grid">
+                    <div class="item-card"><div class="item-icon icon-dress"></div><span class="item-name">ドレス</span></div>
+                    <div class="item-card"><div class="item-icon icon-wasou"></div><span class="item-name">和装</span></div>
+                    <div class="item-card"><div class="item-icon icon-tuxedo"></div><span class="item-name">タキシード</span></div>
+                    <div class="item-card"><div class="item-icon icon-montsuki"></div><span class="item-name">紋付袴</span></div>
+                    <div class="item-card"><div class="item-icon icon-hairmake"></div><span class="item-name">ヘアメイク</span></div>
+                    <div class="item-card"><div class="item-icon icon-kitsuke"></div><span class="item-name">着付</span></div>
+                    <div class="item-card"><div class="item-icon icon-photo"></div><span class="item-name">撮影</span></div>
+                    <div class="item-card"><div class="item-icon icon-data"></div><span class="item-name">撮影データ<br>約60カット</span></div>
+                    <div class="item-card"><div class="item-icon icon-cleaning"></div><span class="item-name">クリーニング</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-plan-diamond" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <div class="modal-content modal-simple-design">
+                <button class="modal-close-btn">&times;</button>
+                <div class="simple-header">
+                    <div class="title-area"><h3 class="plan-title-main">PLAN "Diamond"</h3></div>
+                    <div class="badge-campaign"><span class="line1">最新作</span><span class="line2">ブランド</span><span class="line3">追加料</span><span class="line4">プレゼント</span></div>
+                </div>
+                <hr class="simple-divider">
+                <p class="simple-catch">ウェディングもカクテルも!!<br>和装も!! 組み合わせ自由!!</p>
+                
+                <div class="simple-price-container">
+                    <div class="price-block original">
+                        <span class="label">通常価格（税抜）</span>
+                        <div class="price-strike">¥350,000</div>
+                        <span class="note-tax">税込 ¥385,000</span>
+                    </div>
+                    <div class="price-arrow"><span class="arrow-icon">→</span></div>
+                    
+                    <div class="price-group-special">
+                        <div class="price-block special">
+                            <span class="yen">¥</span><span class="amount">280,000</span><span class="tax">+税</span>
+                        </div>
+                        <div class="price-block tax-info">
+                            <span class="label-tax">税込価格</span><span class="amount-tax">308,000円</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-items-grid">
+                    <div class="item-card"><div class="item-icon icon-dress"></div><span class="item-name">ドレス</span></div>
+                    <div class="item-card"><div class="item-icon icon-dress"></div><span class="item-name">ドレス</span></div>
+                    <div class="item-card"><div class="item-icon icon-wasou"></div><span class="item-name">和装</span></div>
+                    <div class="item-card"><div class="item-icon icon-tuxedo"></div><span class="item-name">タキシード</span></div>
+                    <div class="item-card"><div class="item-icon icon-montsuki"></div><span class="item-name">紋付袴</span></div>
+                    <div class="item-card"><div class="item-icon icon-hairmake"></div><span class="item-name">ヘアメイク</span></div>
+                    <div class="item-card"><div class="item-icon icon-photo"></div><span class="item-name">撮影</span></div>
+                    <div class="item-card"><div class="item-icon icon-data"></div><span class="item-name">撮影データ<br>約90カット</span></div>
+                    <div class="item-card"><div class="item-icon icon-cleaning"></div><span class="item-name">クリーニング</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-plan-premium" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <div class="modal-content modal-simple-design">
+                <button class="modal-close-btn">&times;</button>
+                <div class="simple-header">
+                    <div class="badge-popular"><span class="vertical-text">最上級</span><div class="rank"><span class="num">Plan</span></div></div>
+                    <div class="title-area"><h3 class="plan-title-main">PLAN "Premium"</h3></div>
+                    <div class="badge-campaign"><span class="line1">最新作</span><span class="line2">ブランド</span><span class="line3">追加料</span><span class="line4">プレゼント</span></div>
+                </div>
+                <hr class="simple-divider">
+                <p class="simple-catch">新郎新婦様合計7着の衣装が選べる<br>最上級スペシャルプラン!</p>
+                
+                <div class="simple-price-container">
+                    <div class="price-block original">
+                        <span class="label">通常価格（税抜）</span>
+                        <div class="price-strike">¥450,000</div>
+                        <span class="note-tax">税込 ¥495,000</span>
+                    </div>
+                    <div class="price-arrow"><span class="arrow-icon">→</span></div>
+                    
+                    <div class="price-group-special">
+                        <div class="price-block special">
+                            <span class="yen">¥</span><span class="amount">350,000</span><span class="tax">+税</span>
+                        </div>
+                        <div class="price-block tax-info">
+                            <span class="label-tax">税込価格</span><span class="amount-tax">385,000円</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-items-grid">
+                    <div class="item-card"><div class="item-icon icon-dress"><span class="icon-badge">×2</span></div><span class="item-name">ドレス</span></div>
+                    <div class="item-card"><div class="item-icon icon-wasou"><span class="icon-badge">×2</span></div><span class="item-name">和装</span></div>
+                    <div class="item-card"><div class="item-icon icon-tuxedo"></div><span class="item-name">タキシード</span></div>
+                    <div class="item-card"><div class="item-icon icon-montsuki"></div><span class="item-name">紋付袴</span></div>
+                    <div class="item-card"><div class="item-icon icon-hairmake"></div><span class="item-name">ヘアメイク</span></div>
+                    <div class="item-card"><div class="item-icon icon-photo"></div><span class="item-name">撮影</span></div>
+                    <div class="item-card"><div class="item-icon icon-data"></div><span class="item-name">撮影データ<br>約120カット</span></div>
+                    <div class="item-card"><div class="item-icon icon-cleaning"></div><span class="item-name">クリーニング</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-concept" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <div class="modal-content">
+                <button class="modal-close-btn">&times;</button>
+                <h3 class="modal-title">CONCEPT MOVIE / DETAIL</h3>
+                <div class="modal-body">
+                    <p>コンセプトの詳細や、拡大画像などをここに表示します。</p>
+                    <img src="/assets/img/concept_01_1.jpg" alt="Concept Big Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
