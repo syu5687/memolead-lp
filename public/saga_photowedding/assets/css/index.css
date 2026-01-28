@@ -584,18 +584,18 @@
 }
 
 /* アイコン画像指定 (SVG用) */
-.icon-dress { background-image: url('/assets/img/dress.svg'); }
-.icon-tuxedo { background-image: url('/assets/img/tuxedo.svg'); }
-.icon-wasou { background-image: url('/assets/img/wasou.svg'); }
-.icon-montsuki { background-image: url('/assets/img/montsuki.svg'); }
-.icon-hairmake { background-image: url('/assets/img/hairmake.svg'); }
-.icon-kitsuke { background-image: url('/assets/img/kitsuke.svg'); }
-.icon-accessory { background-image: url('/assets/img/accessory.svg'); }
-.icon-bouquet { background-image: url('/assets/img/bouquet.svg'); }
-.icon-photo { background-image: url('/assets/img/photo.svg'); }
-.icon-data { background-image: url('/assets/img/data.svg'); }
-.icon-cleaning { background-image: url('/assets/img/cleaning.svg'); }
-.icon-chapel { background-image: url('/assets/img/chapel.svg'); }
+.icon-dress { background-image: url('./assets/img/dress.svg'); }
+.icon-tuxedo { background-image: url('./assets/img/tuxedo.svg'); }
+.icon-wasou { background-image: url('./assets/img/wasou.svg'); }
+.icon-montsuki { background-image: url('./assets/img/montsuki.svg'); }
+.icon-hairmake { background-image: url('./assets/img/hairmake.svg'); }
+.icon-kitsuke { background-image: url('./assets/img/kitsuke.svg'); }
+.icon-accessory { background-image: url('./assets/img/accessory.svg'); }
+.icon-bouquet { background-image: url('./assets/img/bouquet.svg'); }
+.icon-photo { background-image: url('./assets/img/photo.svg'); }
+.icon-data { background-image: url('./assets/img/data.svg'); }
+.icon-cleaning { background-image: url('./assets/img/cleaning.svg'); }
+.icon-chapel { background-image: url('./assets/img/chapel.svg'); }
 
 .item-name { font-size: 11px; line-height: 1.3; color: #333; font-weight: 600; }
 
