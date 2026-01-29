@@ -46,26 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	/* =========================================
 	   2. ヘッダーリンクのスムーススクロール
 	   ========================================= */
-	// data-modal-target属性を持たないページ内リンクのみ対象にする
 	const smoothScrollTriggers = document.querySelectorAll('a[href^="#"]:not([data-modal-target])');
 
 	smoothScrollTriggers.forEach(anchor => {
 		anchor.addEventListener('click', function (e) {
 			e.preventDefault();
-
 			const href = this.getAttribute('href');
 			if (href === '#' || href === '') return;
-
 			const targetElement = document.querySelector(href);
-			
 			if (targetElement) {
-				// 固定ヘッダーの高さを取得
 				const headerHeight = document.querySelector('.site-header').offsetHeight;
-				
-				// 要素の位置 - ヘッダーの高さ = 停止位置
 				const elementPosition = targetElement.getBoundingClientRect().top;
 				const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
 				window.scrollTo({
 					top: offsetPosition,
 					behavior: "smooth"
@@ -79,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	   3. Main Plan Swiper（プランのスライダー）
 	   ========================================= */
 	const swiper = new Swiper(".mySwiper", {
-		slidesPerView: 1.2,      // スマホ: 端が見えるように
+		slidesPerView: 1.2,
 		spaceBetween: 20,
 		centeredSlides: true,
 		loop: true,
@@ -93,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			clickable: true,
 		},
 		breakpoints: {
-			768: {               // PC以上
+			768: {
 				slidesPerView: 3,
 				spaceBetween: 40,
 				centeredSlides: false,
@@ -105,17 +97,69 @@ document.addEventListener('DOMContentLoaded', () => {
 	/* =========================================
 	   4. Place Section (Grid Slideshows)
 	   ========================================= */
-	// グリッド内の各カード画像をフェード切り替えする設定
 	const placeItemSwipers = new Swiper(".placeItemSwiper", {
 		loop: true,
-		effect: "fade",          // フェード切り替え
+		effect: "fade",
 		fadeEffect: { crossFade: true },
-		speed: 2000,             // ゆっくりフェード
+		speed: 2000,
 		autoplay: {
-			delay: 4000,         // 4秒ごとに切り替え
+			delay: 4000,
 			disableOnInteraction: false,
 		},
-		allowTouchMove: false,   // ユーザーのスワイプ操作を無効化（自動再生のみ）
+		allowTouchMove: false,
+	});
+
+
+	/* =========================================
+	   5. Dress Section Swiper (Auto Carousel)
+	   ========================================= */
+	const dressSwiper = new Swiper(".dressSwiper", {
+		slidesPerView: 1.5,
+		spaceBetween: 20,
+		centeredSlides: true,
+		loop: true,
+		speed: 1000,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+		},
+		breakpoints: {
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 30,
+			},
+			1024: {
+				slidesPerView: 5, // PC: 5枚表示
+				spaceBetween: 40,
+			}
+		}
+	});
+
+	/* =========================================
+	   6. Dress Modal Swiper (Linked)
+	   ========================================= */
+	// Initialize Modal Swiper
+	const dressModalSwiper = new Swiper(".dressModalSwiper", {
+		slidesPerView: 1,
+		spaceBetween: 20,
+		loop: true,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+	});
+
+	// Link Main Dress Slides to Modal Swiper
+	const dressSlides = document.querySelectorAll('.dress-slide');
+	dressSlides.forEach(slide => {
+		slide.addEventListener('click', () => {
+			const index = slide.getAttribute('data-slide-index');
+			// Wait for modal to open, then slide to specific index
+			setTimeout(() => {
+				dressModalSwiper.slideToLoop(parseInt(index), 0);
+				dressModalSwiper.update();
+			}, 50);
+		});
 	});
 
 });
