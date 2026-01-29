@@ -205,9 +205,9 @@ margin-bottom: 250px;
   .slideshow-container {
       position: relative;
       width: 100%;
+      height: 600px; /* ここでお好みの高さ（600pxや800pxなど）を指定 */
       overflow: hidden;
-      /* 画像の高さがバラバラな場合は、ここで高さを固定するか aspect-ratio を指定 */
-      aspect-ratio: 16 / 9; 
+      z-index: 10;
   }
   
   /* 各スライドの基本設定 */
