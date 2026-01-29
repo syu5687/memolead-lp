@@ -201,7 +201,47 @@ margin-bottom: 250px;
 	width: calc(50% - 20px);
   }
 
-
+/* スライドの外枠 */
+  .slideshow-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      /* 画像の高さがバラバラな場合は、ここで高さを固定するか aspect-ratio を指定 */
+      aspect-ratio: 16 / 9; 
+  }
+  
+  /* 各スライドの基本設定 */
+  .slide-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0; /* 基本は消しておく */
+      animation: fadeAnimation 15s infinite; /* 15秒かけて1周 */
+  }
+  
+  .slide-item img {
+      width: 100%;
+      display: block;
+  }
+  
+  /* 各スライドの開始タイミング 
+     3枚の場合、全体の1/3（5秒）ずつずらします
+  */
+  .slide-item:nth-child(1) { animation-delay: 0s; }
+  .slide-item:nth-child(2) { animation-delay: 5s; }
+  .slide-item:nth-child(3) { animation-delay: 10s; }
+  
+  /* じわっと切り替わるアニメーション
+     0%〜10%でじわっと出て、しばらく表示、40%〜50%でじわっと消える
+  */
+  @keyframes fadeAnimation {
+      0% { opacity: 0; }
+      10% { opacity: 1; }  /* ここで「じわっ」と表示完了 */
+      35% { opacity: 1; }  /* 表示を維持 */
+      45% { opacity: 0; }  /* ここで「じわっ」と消える */
+      100% { opacity: 0; }
+  }
 
 
 
