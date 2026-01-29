@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/* =========================================
+   Contact Page Specific Styles
+   ========================================= */
+
+/* Hero Section (Simple Text Header) */
+.contact-hero {
+	padding: 80px 0 40px;
+	text-align: center;
+	background-color: #fafafa;
+}
+
+.contact-hero .section-title {
+	margin-bottom: 20px;
+	font-size: 32px;
+}
+
+.contact-intro {
+	font-family: "Hiragino Mincho ProN", serif;
+	font-size: 14px;
+	line-height: 2;
+	color: #333;
+}
+
+/* Form Section */
+.form-section {
+	padding: 60px 0 100px;
+	background-color: #fff;
+}
+
+.form-wrapper {
+	width: 100%;
+	max-width: 800px; /* フォームの最大幅 */
+	margin: 0 auto;
+	background: #fff;
+	/* 必要であれば枠線などを追加 */
+	/* border: 1px solid #eee; */
+	/* border-radius: 8px; */
+	/* padding: 20px; */
+}
+
+/* Iframe Responsive Adjustment */
+@media (max-width: 768px) {
+	.contact-hero {
+		padding: 60px 0 30px;
+	}
+	
+	.contact-hero .section-title {
+		font-size: 24px;
+	}
+	
+	.contact-intro {
+		font-size: 13px;
+		padding: 0 20px;
+	}
+
+	.form-wrapper {
+		padding: 0 10px;
+	}
+	
+	/* スマホでiframeが高すぎるとスクロールしづらい場合の調整 */
+	#form-iframe {
+		height: 1000px; /* 内容に応じて高さを調整してください */
+	}
+}
