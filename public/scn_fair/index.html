@@ -124,49 +124,6 @@
 
 <style>a:visited{color: #fff;}a:hover{color: #fff;text-decoration: none;opacity: 0.5;transition: all 0.3s;}
 	
-		/* 既存のスタイル */
-		a:visited{color: #fff;}
-		a:hover{color: #fff;text-decoration: none;opacity: 0.5;transition: all 0.3s;}
-	
-		/* ▼ここから追加：スライドショーの「じわっと」設定 */
-		.slideshow-container {
-			position: relative;
-			width: 100%;
-			height: auto;
-			aspect-ratio: 16 / 9; /* 画像の比率に合わせて調整（例 4/3 など） */
-			overflow: hidden;
-			background: #eee; /* 読み込み中の背景色 */
-		}
-	
-		.slide-item {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			animation: fadeAnimation 15s infinite;
-		}
-	
-		.slide-item img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover; /* 画像を枠いっぱいに収める */
-		}
-	
-		/* タイミング設定 */
-		.slide-item:nth-child(1) { animation-delay: 0s; }
-		.slide-item:nth-child(2) { animation-delay: 5s; }
-		.slide-item:nth-child(3) { animation-delay: 10s; }
-	
-		@keyframes fadeAnimation {
-			0% { opacity: 0; }
-			10% { opacity: 1; }  /* じわっと表示 */
-			33% { opacity: 1; }  /* 表示維持 */
-			43% { opacity: 0; }  /* じわっと消える */
-			100% { opacity: 0; }
-		}
-		/* ▲ここまで追加 */
 	</style>
 
 
