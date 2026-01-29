@@ -243,7 +243,21 @@ margin-bottom: 250px;
       100% { opacity: 0; }
   }
 
-
+/* LP画像コンテンツエリア */
+  .lp-image-wrap {
+      width: 100%;
+      line-height: 0;   /* 画像下のわずかな隙間を解消 */
+      font-size: 0;      /* インライン要素の隙間対策 */
+      margin: 0 auto;
+  }
+  
+  .lp-image-wrap img {
+      width: 100%;       /* 横幅いっぱいに広げる */
+      height: auto;      /* 比率を維持 */
+      display: block;    /* 画像をブロック要素化して隙間を防止 */
+      margin: 0;         /* 余白をリセット */
+      padding: 0;
+  }
 
   
 

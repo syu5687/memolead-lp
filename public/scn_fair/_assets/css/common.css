@@ -14,6 +14,12 @@
 .hanna {
 	font-family: 'Hannari', sans-serif;
 }
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	background: url("/public/osechi/pbo/_assets/img/bg.png?v4") center center repeat-x;
 	font-size: 13px;
