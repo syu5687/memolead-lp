@@ -1,5 +1,23 @@
 @charset "UTF-8";
 
+/* --- 横スクロール（横揺れ）の防止 --- */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Swiperを包むセクションにも念のため設定 */
+.plans-section {
+    overflow: hidden; /* セクション単位で横方向をカット */
+}
+
+/* Swiper自体の設定を微調整 */
+.swiper.mySwiper {
+    /* clip-pathを削除（一部ブラウザでバグの原因になるため）し、overflowを調整 */
+    overflow: visible !important;
+}
+
 /* =========================================
    Hero Section
    ========================================= */
@@ -213,14 +231,58 @@
 }
 .plan-card-beige:hover .card-cta { opacity: 0.7; }
 
+
+/* --- Swiper全体の表示エリアを拡張 --- */
+.swiper.mySwiper {
+    /* 上下のバッジとホバー用のスペースを強制的に確保 */
+    padding-top: 60px !important;
+    padding-bottom: 30px !important;
+    margin-top: -60px;
+    margin-bottom: -30px;
+    
+    /* 枠外を隠さない設定（重要） */
+    overflow: visible !important;
+    
+    /* 左右は隠したいが上下は見せたい場合、以下のプロパティが有効 */
+    clip-path: inset(-100px 0 -100px 0);
+}
+
+/* --- カード自体の重なり順を整理 --- */
+.swiper-slide {
+    /* ホバーしたスライドが他のスライドのバッジより上にくるように設定 */
+    transition: z-index 0.3s;
+    z-index: 1;
+}
+
+.swiper-slide:hover {
+    z-index: 10;
+}
+
 /* Badges */
 .badge-limited {
-    position: absolute; top: -45px; left: -20px;
-    background-color: #A81D26; color: white; width: 60px; height: 60px;
-    border-radius: 50%; display: flex; flex-direction: column;
-    justify-content: center; align-items: center; font-size: 10px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); transform: rotate(-10deg); z-index: 10;
+    position: absolute;
+    top: -45px;
+    right: -20px;
+    background-color: #A81D26;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transform: rotate(20deg);
+    z-index: 10;
 }
+
+.badge-limited, 
+.badge-premium {
+    z-index: 20 !important;
+}
+
 .badge-limited .num { font-size: 12px; font-weight: bold; }
 
 .badge-premium {
@@ -259,11 +321,22 @@
     border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px;
 }
 .place-link-btn {
-    display: inline-block; padding: 8px 24px; border: 1px solid #333;
-    color: #333; font-size: 13px; text-decoration: none; transition: all 0.3s ease;
-    background-color: #fff; letter-spacing: 0.05em; border-radius: 2px;
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid #D4AF37;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: #D4AF37;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
 }
-.place-link-btn:hover { background-color: #333; color: #fff; }
+.place-link-btn:hover {
+   border: 1px solid #D4AF37;
+   background-color: #fff;
+   color: #D4AF37;
+}
 .placeItemSwiper, .placeItemSwiper .swiper-wrapper, .placeItemSwiper .swiper-slide {
     height: 100%; width: 100%; padding-bottom: 0;
 }
@@ -277,8 +350,7 @@
     z-index: 10; background: rgba(0, 0, 0, 0.3); pointer-events: none;
 }
 .place-name-overlay h3 {
-    color: white; font-family: var(--font-main); font-size: 20px;
-    font-weight: 600; text-align: center; letter-spacing: 0.05em;
+    color: white; font-size: 20px; text-align: center; letter-spacing: 0.05em;
     line-height: 1.5; text-shadow: 0 2px 5px rgba(0,0,0,0.6); padding: 0 10px;
 }
 
@@ -380,7 +452,7 @@
     display: flex; justify-content: center; align-items: center; gap: 20px;
     margin-bottom: 50px; flex-wrap: wrap; font-family: var(--font-main);
 }
-.price-block.original { color: #666; align-items: flex-start; }
+.price-block.original { color: #666; font-size: 14px; align-items: flex-start; }
 .price-block.original .price-strike { font-size: 24px; text-decoration: line-through; color: #888; }
 .price-arrow { color: var(--theme-text); font-size: 30px; font-weight: 300; }
 .price-block.special { flex-direction: row; align-items: baseline; color: var(--theme-text); font-weight: bold; line-height: 1; }
@@ -455,14 +527,60 @@
     .plan-desc-beige { font-size: 12px; margin-bottom: 10px; line-height: 1.5; }
     .plan-price-beige { margin-bottom: 10px; }
     .plan-price-beige .price-main { font-size: 28px; }
+    .plans-section {
+         padding-top: 100px;
+     }
+    
+     .swiper.mySwiper {
+         padding-top: 50px !important;
+         margin-top: -50px;
+     }
     .card-divider { margin: 5px 0 10px 0; }
 
     /* Place Grid: Top 2, Bottom 3 */
-    .place-grid-wrapper { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-    .place-grid-item { grid-column: span 6; width: 100%; }
-    .place-grid-item:nth-child(1), .place-grid-item:nth-child(2) { grid-column: span 3; /* 2 up (6/3=2 items) */ }
-    .place-grid-item:nth-child(3), .place-grid-item:nth-child(4), .place-grid-item:nth-child(5) { grid-column: span 2; /* 3 down (6/2=3 items) */ }
-    .place-name-overlay h3 { font-size: 12px; }
+    .place-grid-wrapper {
+        display: flex;
+        flex-wrap: wrap; /* Gridをやめ、柔軟なFlexboxに変更 */
+        justify-content: center; /* 5枚目を中央に寄せる */
+        gap: 30px 15px;
+        padding: 0 10px;
+    }
+    
+    .place-grid-item {
+        /* 画面幅から余白(15px)を引いた「半分」の幅に固定 */
+        /* これで1〜4枚目はきれいに2列になります */
+        width: calc(50% - 7.5px) !important; 
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* 5番目のアイテム固有の設定 */
+    .place-grid-item:nth-child(5) {
+        /* 他の4つと同じwidthを継承しているため、
+           justify-content: centerによって自動的に中央配置されます */
+    }
+    
+    .place-card-inner {
+        width: 100%; /* 親(place-grid-item)の幅に合わせる */
+        aspect-ratio: 3 / 2;
+        margin-bottom: 10px;
+    }
+    
+    .place-link-btn {
+        width: 100%; /* ボタンも画像と同じ幅に */
+        padding: 8px 5px;
+        font-size: 11px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
+    /* テキストの重なり防止 */
+    .place-name-overlay h3 {
+        font-size: clamp(10px, 3vw, 13px);
+        padding: 0 5px;
+    }
     .place-link-btn { padding: 4px 10px; font-size: 10px; }
 
     /* Modal Mobile (No Scroll, Grayscale, Centered, Large Badges) */
@@ -478,6 +596,19 @@
     .simple-header { flex-direction: column; padding-top: 25px; margin-bottom: 5px; min-height: auto; }
     
     /* Badges: Larger, Same Size, Text Inside */
+    .badge-limited {
+         top: -30px;
+         left: -5px;
+         width: 55px;   /* 少し小さく */
+         height: 55px;
+     }
+     
+     .badge-premium {
+         top: -30px;
+         right: -5px;
+         width: 60px;   /* 少し小さく */
+         height: 60px;
+     }
     .badge-popular, .badge-campaign {
         width: 80px; height: 80px; top: -10px; z-index: 10;
         font-size: 11px; line-height: 1.2;
@@ -505,9 +636,18 @@
     /* SVG Grid 4 cols */
     .simple-items-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
     .item-card { width: 100%; padding: 3px; min-height: 50px; }
-    .item-icon { width: 25px; height: 25px; margin-bottom: 2px; }
+    .item-icon {
+       width: 50px; 
+       height: 50px; 
+       margin-bottom: 2px;
+    }
     .item-name { font-size: 8px; line-height: 1.1; }
-    .icon-badge { font-size: 8px; padding: 1px 3px; top: -3px; right: -5px; }
+    .icon-badge { 
+       font-size: 10px;
+       padding: 1px 4px;
+       top: -3px;
+       right: -5px;
+    }
 
     /* Flow Mobile */
     .flow-wrapper { flex-direction: column; align-items: center; gap: 30px; }
