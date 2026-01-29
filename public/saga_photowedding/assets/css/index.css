@@ -699,7 +699,7 @@ html, body {
     /* Hero: 80% height */
     .hero { padding: 0; height: 80vh; align-items: center; }
     .hero-image-container { height: 100%; }
-    .hero-img { height: 100%; }
+    .hero-img { height: 100%; object-position: 24% center;}
     .hero-text { left: 50%; transform: translate(-50%, -50%); width: 100%; padding: 0 10px; }
     .hero-lines { gap: 80px; }
 
