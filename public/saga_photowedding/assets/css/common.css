@@ -14,6 +14,20 @@
     --font-main: "Optima", "Yu Mincho Pr6N", "YuMincho", "HgMinchoE", "Hiragino Mincho ProN", "Shippori Mincho", serif;
 }
 
+/* =========================================
+   改行コントロール用クラス
+   ========================================= */
+
+/* PCのみで改行（スマホでは非表示） */
+.pc {
+    display: block;
+}
+
+/* スマホのみで改行（PCでは非表示） */
+.sp {
+    display: none;
+}
+
 /* 横スクロール（横揺れ）の防止 */
 html, body {
     overflow-x: hidden;
@@ -132,6 +146,14 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
    Responsive Settings (Mobile)
    ========================================= */
 @media (max-width: 768px) {
+   
+   .pc {
+        display: none;
+    }
+    .sp {
+        display: block;
+    }
+   
     body {
         padding-top: 60px; /* スマホ用ヘッダー高さ */
         padding-bottom: 60px; /* スマホ用フッター固定ボタン分 */
@@ -152,7 +174,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
     .header-inner { flex-direction: row; gap: 0; }
     .site-nav ul { gap: 15px; }
-    .logo { font-size: 18px; }
+    .logo { font-size: 14px; }
 
     /* --- SP版フッター固定ナビ --- */
     .sp-fixed-nav {
@@ -184,6 +206,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     .sp-nav-btn.btn-dress {
         background: var(--gold-color);
     }
+    
+    .footer-logo { font-family: var(--font-main); font-size: 28px; margin-bottom: 20px; }
+
 }
 
 /* =========================================
