@@ -115,7 +115,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px; /* 横幅を同じに固定 */
+    width: 220px; /* 横幅を同じに固定 */
     height: 45px;
     color: #fff;
     border-radius: 2px;

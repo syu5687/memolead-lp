@@ -19,13 +19,14 @@
 
 	<header class="site-header">
 		<div class="header-inner">
-			<h1 class="logo"><span class="pc">Photo Wedding</span> memolead SAGA</h1>
+			<h1 class="logo">memolead SAGA</h1>
 			<nav class="site-nav">
 				<ul>
 					<li><a href="#plans">PLAN</a></li>
 					<li><a href="#concept">CONCEPT</a></li>
 					<li><a href="#dress">DRESS</a></li>
-					<li class="nav-btn-item"><a href="contact.html?type=plan" class="nav-btn btn-plan">プランのご相談</a></li>
+					<li><a href="#place">PLACE</a></li>
+					<li class="nav-btn-item"><a href="contact.html?type=plan" class="nav-btn btn-plan">フォトウェディングのご相談</a></li>
 					<li class="nav-btn-item"><a href="contact.html?type=dress" class="nav-btn btn-dress">ドレスへのご相談</a></li>
 				</ul>
 			</nav>
@@ -33,7 +34,7 @@
 	</header>
 	
 	<div class="sp-fixed-nav">
-		<a href="contact.html?type=plan" class="sp-nav-btn btn-plan">プランのご相談</a>
+		<a href="contact.html?type=plan" class="sp-nav-btn btn-plan">フォトウェディングのご相談</a>
 		<a href="contact.html?type=dress" class="sp-nav-btn btn-dress">ドレスへのご相談</a>
 	</div>
 
@@ -52,7 +53,8 @@
 				<div class="form-wrapper">
 					<iframe 
 						id="form-iframe"
-						src="https://business.form-mailer.jp/fms/65d5cd12330943" 
+						src=""
+						data-src="https://business.form-mailer.jp/fms/65d5cd12330943"
 						frameborder="0" 
 						scrolling="yes" 
 						style="width:100%; height:800px; border:none;"
@@ -85,41 +87,66 @@
 
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
-			// 1. URLパラメータを取得 (?type=plan 等)
+			/* ========================================================
+			   設定エリア：フォームのHTML解析結果に基づく設定
+			   ======================================================== */
+			
+			// 1. 「お問い合わせ内容」のフィールドコード
+			const typeFieldName = 'field_5639465'; 
+			// フォームのHTMLでは value="0" がフォト、value="1" がドレス となっています
+			const typeMapping = {
+				'plan':  '0', 
+				'dress': '1'
+			};
+	
+			// 2. 「お問い合わせ先」のフィールドコード
+			const placeFieldName = 'field_5640025'; 
+			// フォームのHTMLの value="0", value="1"... に対応させます
+			const placeMapping = {
+				'garden-terrace':      '0', // ガーデンテラス佐賀
+				'royal-chester-saga':  '1', // ロイヤルチェスター佐賀
+				'island-hills':        '2', // アイランドヒルズ迎賓館
+				'royal-chester-imari': '3', // ロイヤルチェスター伊万里
+				'white-house-imari':   '4'  // ホワイトハウス伊万里
+			};
+	
+			/* ========================================================
+			   処理エリア
+			   ======================================================== */
+	
+			// URLパラメータを取得
 			const urlParams = new URLSearchParams(window.location.search);
-			const type = urlParams.get('type');
-
-			// 2. iframe要素を取得
+			const typeParam = urlParams.get('type');
+			const placeParam = urlParams.get('place');
+	
+			// iframe要素を取得
 			const iframe = document.getElementById('form-iframe');
 			
-			if (iframe && type) {
-				// 3. フォームメーラーのURLベース (src属性から取得)
-				let src = iframe.getAttribute('src');
+			if (iframe) {
+				// HTML側で設定した data-src からURLを取得
+				let src = iframe.getAttribute('data-src');
 				
-				// ★★★ ここを設定してください ★★★
-				// フォームメーラーの「お問い合わせ項目」などのフィールドコード（name属性）
-				// 調べ方: フォームのプレビュー画面で検証ツールを使い、該当のselectやinputのnameを見る
-				// 例: name="field_12345" の場合 ↓
-				const fieldName = 'field_5639465'; 
-
-				// 渡したい値（value）の定義
-				// type=plan の時に選択させたい項目の value値 または テキスト
-				let value = '';
-				if (type === 'plan') {
-					value = 'プランについて'; // フォームの選択肢と完全一致させる
-				} else if (type === 'dress') {
-					value = 'ドレスについて'; // フォームの選択肢と完全一致させる
+				// もしHTML修正漏れで data-src がない場合は src を使う（保険）
+				if (!src) src = iframe.getAttribute('src');
+	
+				let newParams = [];
+	
+				// A. お問い合わせ内容 (数値で渡す)
+				if (typeParam && typeMapping[typeParam] !== undefined) {
+					newParams.push(`${typeFieldName}=${typeMapping[typeParam]}`);
 				}
-
-				// 4. URLにパラメータを結合してiframeを再読み込み
-				// すでに?があるかチェックして結合文字を変える
+	
+				// B. 会場選択 (数値で渡す)
+				if (placeParam && placeMapping[placeParam] !== undefined) {
+					newParams.push(`${placeFieldName}=${placeMapping[placeParam]}`);
+				}
+	
+				// C. URLを生成してiframeにセット
 				const separator = src.includes('?') ? '&' : '?';
+				const finalParams = newParams.length > 0 ? separator + newParams.join('&') : '';
 				
-				if (value) {
-					// 日本語はエンコードする
-					const newSrc = `${src}${separator}${fieldName}=${encodeURIComponent(value)}`;
-					iframe.setAttribute('src', newSrc);
-				}
+				// ここで初めてiframeにURLをセットすることで、パラメータ付きで読み込ませる
+				iframe.setAttribute('src', src + finalParams);
 			}
 		});
 	</script>
