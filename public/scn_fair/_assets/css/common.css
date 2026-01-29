@@ -567,13 +567,21 @@ a:hover {
 	display: block !important; /* 強制的に表示 */
 }
 
+.view_timer {
+	display: block !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	line-height: 0 !important; /* 文字としての高さをゼロにする */
+	font-size: 0 !important;   /* 改行などの隙間を消す */
+}
+
 /* PC用：画面が大きいときに中央寄せして幅を固定 */
 @media screen and (min-width: 1025px) {
   body {
-	width:700px;
-	max-width: 700px;
-	margin: 0 auto;      /* 中央寄せ */
-	background-color: #dddcd6; /* 背景を白に（任意） */
+	width: 750px;
+	max-width: 750px;
+	margin: -40px auto 0;      /* 中央寄せ */
+	background-color: #a25768; /* 背景を白に（任意） */
   }
 }
 /* --- タブレットサイズ（768px〜1024px） --- */
@@ -582,7 +590,25 @@ a:hover {
 	width: 95%;         /* 画面いっぱいに広がらないように少し余白を取る */
 	max-width: 700px;   /* 最大幅を制限 */
 	margin: 0 auto;     /* 中央寄せ */
-	background-color: #dddcd6;
+	background-color: #a25768;
+	display: block;
+	margin: -40px auto 0 ; /* 上の隙間を消しつつ中央寄せ */
+	padding-top: 0 ;
+	}
+	
+	/* view_timerによる謎の空白を消去 */
+	.view_timer {
+		margin: 0 ;
+		padding: 0 ;
+		display: block ;
+		line-height: 0 ;
+		font-size: 0 ;
+	}
+	
+	/* スライドショー自体の余白もゼロに固定 */
+	  .slideshow-container {
+		margin-top: 0;
+		padding-top: 0;
   }
 }
 
@@ -619,3 +645,4 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
