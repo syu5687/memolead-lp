@@ -316,10 +316,65 @@ html, body {
     width: calc(33.333% - 20px); display: flex; flex-direction: column; align-items: center;
 }
 /* Place Image Card (3:2 Ratio) */
-.place-card-inner {
-    position: relative; width: 100%; aspect-ratio: 3 / 2;
-    border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px;
+.place-card-link-wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    text-decoration: none; /* 下線を消す */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* ホバー時の動き（少し浮き上がる） */
+.place-card-link-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* 画像の拡大エフェクト（既存のCSSを引き継ぎ） */
+.place-card-link-wrapper:hover .swiper-slide img {
+    transform: scale(1.1);
+}
+/* --------------------------------------
+   三角バッジ（公式サイト）の設定
+   -------------------------------------- */
+.badge-triangle {
+       position: absolute;
+       top: -40px;
+       left: -57px;
+       width: 80px;
+       height: 80px;
+       z-index: 20;
+       pointer-events: none;
+   }
+   
+   /* 正方形を回転させて配置 */
+   .badge-triangle span {
+       position: absolute;
+       top: -58%;
+       left: -38%;
+       width: 200%;
+       height: 200%;
+       background-color: #D4AF37;
+       display: flex;
+       justify-content: center;
+       align-items: flex-end;
+       padding-bottom: 2px;
+       letter-spacing: -2px;
+       text-align: center;
+       line-height: 13px;
+       color: #fff;
+       font-size: 11px;
+       font-weight: bold;
+       transform: rotate(-45deg);
+       transform-origin: center;
+       box-shadow: -2px 2px 5px rgba(0,0,0,0.2);
+   }
+   
 .place-link-btn {
     display: inline-block;
     padding: 8px 24px;
@@ -352,6 +407,39 @@ html, body {
 .place-name-overlay h3 {
     color: white; font-size: 20px; text-align: center; letter-spacing: 0.05em;
     line-height: 1.5; text-shadow: 0 2px 5px rgba(0,0,0,0.6); padding: 0 10px;
+}
+
+/* =========================================
+   Place Section Custom Button (Top)
+   ========================================= */
+
+/* 画像の上部に配置するボタン */
+.place-contact-btn-top {
+    /* --- 公式サイトボタン(.place-link-btn)と同じスタイルを継承 --- */
+    display: inline-block;
+    padding: 8px 24px;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    
+    /* --- 配置調整 --- */
+    margin-bottom: 10px; /* 画像との隙間 */
+    
+    /* --- 配色設定 (#94D3C8) --- */
+    background-color: #94D3C8;
+    border: 1px solid #94D3C8;
+    color: #fff;
+    box-sizing: border-box; /* 枠線を含めたサイズ計算 */
+}
+
+/* ホバー時 */
+.place-contact-btn-top:hover {
+    background-color: #fff;
+    color: #94D3C8;
+    border: 1px solid #94D3C8;
 }
 
 /* =========================================
@@ -786,7 +874,24 @@ html, body {
          top: -25%;
          left: -10%;
      }
-}
+     .place-contact-btn-top {
+          width: 100%; 
+          padding: 4px 10px;
+          font-size: 10px;
+          box-sizing: border-box;
+      }
+      /* 必要に応じてバッジを小さくする */
+       /* スマホでのサイズ調整 */
+        .badge-triangle {
+            width: 95px;
+            height: 65px;
+        }
+        .badge-triangle span {
+            font-size: 9px;
+            padding-bottom: 8px;
+            top: -41%;
+            left: -42%;
+        }
 
 @media (max-width: 480px) {
     /* Place Grid Adjustment for very small screens if needed, otherwise CSS Grid handles it */
