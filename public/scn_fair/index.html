@@ -137,13 +137,18 @@
 </div>
 
 <div class="lp-image-wrap">
-<img src="./_assets/img/lp-01.jpg" alt="コンセプト">
-<img src="./_assets/img/lp-02.jpg" alt="プラン紹介">
-<img src="./_assets/img/lp-03.jpg" alt="アクセス">
+<img src="./_assets/img/lp-01.jpg" alt="スペシャルフェア特別ご招待">
+<img src="./_assets/img/lp-02.jpg" alt="特別な時間が叶う場所">
 </div>
+
+<div class="second-slider">
+	<div><img src="./_assets/img/slide01.jpg" alt="スライド1"></div>
+	<div><img src="./_assets/img/slide02.jpg" alt="スライド2"></div>
+	<div><img src="./_assets/img/slide03.jpg" alt="スライド3"></div>
+</div> 
 			
 			<!-- スライド画像 -->
-				<!-- <div class="slides">
+				<!-- <div class="slides">sy
 					<div class="unit">
 						<img src="./_assets/img/12-december.jpg" alt="12月">
 					</div>
@@ -163,7 +168,7 @@
 				<!-- <iframe src="https://business.form-mailer.jp/fms/d8926667316194" width="100%" height="1500" frameborder="0" marginheight="0" marginwidth="0">
 				</iframe> -->
 				<script src="https://business.form-mailer.jp/formfiles/js/embed.js"></script>
-				<div class="formmailer-embed" data-form-hash="d8926667316194" data-form-host="business.form-mailer.jp"></div>
+				<div class="formmailer-embed" data-form-hash="46cee03b330755" data-form-host="business.form-mailer.jp"></div>
 			  </div>
 			  <!-- ▲ここまで▲ -->
 			</div>
@@ -431,15 +436,39 @@
 	$('.slides').slick({
 		dots: true,
 		infinite: true,
-		arrows: true,
 		autoplay: true,
 		speed: 1000,
 		autoplaySpeed: 3000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
 		// fade: true,
+		$('.second-slider').slick({
+		dots: false,        // 枚数の表示（◯◯）を消す
+		arrows: false,      // 左右の矢印を消す
+		infinite: true,     // ループさせる
+		autoplay: true,     // 自動再生
+		autoplaySpeed: 2500, // 次へ動くまでの時間
+		speed: 800,         // スライドするスピード
+		fade: false,        // じわっとではなく「スライド」させる
+		pauseOnHover: false // マウスを乗せても止めない
 	  });
 	 
+</script>
+
+<script type="text/javascript">
+$(function() {
+	// 2つ目のスライダーの設定
+	$('.second-slider').slick({
+		infinite: true,      // 無限ループ
+		slidesToShow: 1,     // 1画面に表示する枚数
+		slidesToScroll: 1,   // 1回で動く枚数
+		autoplay: true,      // 自動再生
+		autoplaySpeed: 3000, // 次の画像へ切り替わる時間（3秒）
+		speed: 800,          // スライド自体の速さ
+		fade: false,         // 「スライド」させる（trueだとじわっと切り替え）
+		dots: false,         // ◯◯（ナビゲーション）を非表示
+		arrows: false,       // 前後矢印を非表示
+		pauseOnHover: false  // マウスを乗せても止めない
+	});
+});
 </script>
 
 </body>

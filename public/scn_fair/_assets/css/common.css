@@ -555,6 +555,18 @@ a:hover {
   display: block;
 }
 
+.second-slider {
+	width: 100%;
+	overflow: hidden;
+	line-height: 0;
+}
+
+.second-slider img {
+	width: 100%;
+	height: auto;
+	display: block !important; /* 強制的に表示 */
+}
+
 /* PC用：画面が大きいときに中央寄せして幅を固定 */
 @media screen and (min-width: 1025px) {
   body {
