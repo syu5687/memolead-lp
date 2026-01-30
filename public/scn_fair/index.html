@@ -167,8 +167,8 @@
 	</div>
 
 	
-	<div class="lp-image-wrap">
-		<img src="./_assets/img/lp-11.jpg" alt="スタジアムシティホテル長崎の魅力">
+	<div class="lp-image-wrap" id="target-img">
+		<img src="./_assets/img/lp-11.jpg" alt="フェアに申し込む">
 		</div>
 		
 	
@@ -177,9 +177,7 @@
 				
 
 			<!-- フォームメーラー -->
-			  <div class="form-area">
-				<!-- <iframe src="https://business.form-mailer.jp/fms/d8926667316194" width="100%" height="1500" frameborder="0" marginheight="0" marginwidth="0">
-				</iframe> -->
+			  <div class="form-area" id="form-top">
 				<script src="https://business.form-mailer.jp/formfiles/js/embed.js"></script>
 				<div class="formmailer-embed" data-form-hash="46cee03b330755" data-form-host="business.form-mailer.jp"></div>
 			  </div>
@@ -215,7 +213,7 @@
 		$('a[href^="#"]').click(function() {
 			var href = $(this).attr("href");
 			// フォーム（#form-top）へのジャンプなら 100ms(爆速)、それ以外は 500ms
-			var speed = (href == "#form-top") ? 100 : 500;
+			var speed = (href == "#target-img") ? 100 : 500;
 			
 			var target = $(href == "#" || href == "" ? 'html' : href);
 			if (target.length) {
@@ -284,7 +282,8 @@ $(function() {
 </script>
 
 <div class="btn_reserve_fixed">
-	<a href="#form-top"> <img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
+	<a href="#target-img">
+		<img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
 	</a>
 </div>
 
