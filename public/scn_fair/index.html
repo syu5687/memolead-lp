@@ -17,8 +17,31 @@
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/slick/slick.min.js"></script>
-	<script src="./_assets/js/wow/dist/wow.min.js"></script>
-
+	<!-- <script type="text/javascript" src="./_assets/js/script.js"></script> -->
+	<script type="text/javascript">
+	$(function(){
+		$('a[href^=#]').click(function(){
+			var speed = 500;
+			var href= $(this).attr("href");
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			var position = target.offset().top;
+			$("html, body").animate({scrollTop:position}, speed, "swing");
+			return false;
+		});
+	});
+	
+	$('[data-fancybox]').fancybox({
+		vimeo : {
+			controls : 0,
+			showinfo : 0
+		}
+	});
+	
+	</script>
+	
+	
+	
+<!-- Meta Pixel Code -->
 	<script>
 	!function(f,b,e,v,n,t,s)
 	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -30,175 +53,239 @@
 	'https://connect.facebook.net/en_US/fbevents.js');
 	fbq('init', '1035343433193207');
 	fbq('track', 'PageView');
+	
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=515454021627489&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code --><!-- Global site tag (gtag.js) - Google Ads: 610456413 -->
+	<!-- Twitter conversion tracking base code -->
+	<script>
+	!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+	},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+	a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+	twq('config','ojrns');
+	</script>
+	<!-- End Twitter conversion tracking base code -->
+	<!-- Twitter conversion tracking event code -->
+	<script type="text/javascript">
+	  // Insert Twitter Event ID
+	  twq('event', 'tw-ojrns-ojrnu', {
+		conversion_id: null, // use this to pass a unique ID for the conversion event for deduplication (e.g. order id '1a2b3c')
+		email_address: null, // use this to pass a user’s email address
+		phone_number: null // phone number in E164 standard
+	  });
+	</script>
+	<!-- End Twitter conversion tracking event code -->
+	<!-- Twitter conversion tracking event code -->
+	<script type="text/javascript">
+	  // Insert Twitter Event ID
+	  twq('event', 'tw-ojrns-ojrnv', {
+		conversion_id: null, // use this to pass a unique ID for the conversion event for deduplication (e.g. order id '1a2b3c')
+		email_address: null, // use this to pass a user’s email address
+		phone_number: null // phone number in E164 standard
+	  });
+	</script>
+	<!-- End Twitter conversion tracking event code -->
+	
+	<!-- LINE Tag Base Code -->
+	<!-- Do Not Modify -->
+	<script>
+	(function(g,d,o){
+	  g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
+	  var h=location.protocol==='https:'?'https://d.line-scdn.net':'http://d.line-cdn.net';
+	  var s=d.createElement('script');s.async=1;
+	  s.src=o||h+'/n/line_tag/public/release/v1/lt.js';
+	  var t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
+		})(window, document);
+	_lt('init', {
+	  customerType: 'lap',
+	  tagId: 'a959f3b5-6b80-434c-b21e-9a4eb6721574'
+	});
+	_lt('send', 'pv', ['a959f3b5-6b80-434c-b21e-9a4eb6721574']);
+	</script>
+	<noscript>
+	  <img height="1" width="1" style="display:none"
+		   src="https://tr.line.me/tag.gif?c_t=lap&t_id=a959f3b5-6b80-434c-b21e-9a4eb6721574&e=pv&noscript=1" />
+	</noscript>
+	<!-- End LINE Tag Base Code -->
+<script>
+	_lt('send', 'cv', {
+	  type: 'Conversion'
+	},['a959f3b5-6b80-434c-b21e-9a4eb6721574']);
+	</script>
+	
+	<script>
+	_lt('send', 'cv', {
+	  type: 'FtkAmu'
+	},['a959f3b5-6b80-434c-b21e-9a4eb6721574']);
 	</script>
 </head>
 
-<style>
-	a:visited{color: #fff;}
-	a:hover{color: #fff;text-decoration: none;opacity: 0.5;transition: all 0.3s;}
-	/* WebP対応用の追加スタイル */
-	picture, picture img { display: block; width: 100%; height: auto; }
-	.lp-image-wrap { line-height: 0; }
-</style>
+<style>a:visited{color: #fff;}a:hover{color: #fff;text-decoration: none;opacity: 0.5;transition: all 0.3s;}
+	
+	</style>
+<body><span class="view_timer" data-start-date=""><p class="end-msg"></p></span><div class="view_timer" data-end-date=""><div class="slideshow-container">
+		<div class="slide-item"><img src="./_assets/img/top-1.jpg" alt="1枚目"></div>
+		<div class="slide-item"><img src="./_assets/img/top-2.jpg" alt="2枚目"></div>
+		<div class="slide-item"><img src="./_assets/img/top-3.jpg" alt="3枚目"></div>
+	</div>
 
-<body>
-	<span class="view_timer" data-start-date=""><p class="end-msg"></p></span>
-	<div class="view_timer" data-end-date="">
-		
-		<div class="slideshow-container">
-			<div class="slide-item">
-				<picture>
-					<source type="image/webp" srcset="./_assets/webp/top-1.webp" >
-					<source type="image/jpg" srcset="./_assets/img/top-1.jpg?" >
-					<img src="./_assets/img/top-1.jpg" alt="1枚目">
-				</picture>
-			</div>
-			<div class="slide-item">
-				<picture>
-					<source srcset="./_assets/webp/top-2.webp" type="image/webp">
-					<img src="./_assets/img/top-2.jpg" alt="2枚目">
-				</picture>
-			</div>
-			<div class="slide-item">
-				<picture>
-					<source srcset="./_assets/webp/top-3.webp" type="image/webp">
-					<img src="./_assets/img/top-3.jpg" alt="3枚目">
-				</picture>
-			</div>
-		</div>
+<div class="lp-image-wrap">
+　　 <img src="./_assets/img/lp-01.jpg" alt="スペシャルフェア特別ご招待">
+　 　<img src="./_assets/img/lp-02.jpg" alt="特別な時間が叶う場所">
+</div>
 
-		<div class="lp-image-wrap">
-			<picture>
-				<source srcset="./_assets/webp/lp-01.webp" type="image/webp">
-				<img src="./_assets/img/lp-01.jpg" alt="スペシャルフェア特別ご招待">
-			</picture>
-			<picture>
-				<source srcset="./_assets/webp/lp-02.webp" type="image/webp">
-				<img src="./_assets/img/lp-02.jpg" alt="特別な時間が叶う場所">
-			</picture>
-		</div>
-
-		<div class="second-slider">
-			<div>
-				<picture>
-					<source srcset="./_assets/webp/slide01.webp" type="image/webp">
-					<img src="./_assets/img/slide01.jpg" alt="スライド1">
-				</picture>
-			</div>
-			<div>
-				<picture>
-					<source srcset="./_assets/webp/slide02.webp" type="image/webp">
-					<img src="./_assets/img/slide02.jpg" alt="スライド2">
-				</picture>
-			</div>
-			<div>
-				<picture>
-					<source srcset="./_assets/webp/slide03.webp" type="image/webp">
-					<img src="./_assets/img/slide03.jpg" alt="スライド3">
-				</picture>
-			</div>
-		</div>
-				
-		<div class="lp-image-wrap">
-			<picture><source srcset="./_assets/webp/lp-03.webp" type="image/webp"><img src="./_assets/img/lp-03.jpg" alt="おもてなし"></picture>
-			<picture><source srcset="./_assets/webp/lp-04.webp" type="image/webp"><img src="./_assets/img/lp-04.jpg" alt="特別特典"></picture>
-			<picture><source srcset="./_assets/webp/lp-05.webp" type="image/webp"><img src="./_assets/img/lp-05.jpg" alt="豪華特典"></picture>
-			<picture><source srcset="./_assets/webp/lp-06.webp" type="image/webp"><img src="./_assets/img/lp-06.jpg" alt="ホテルの魅力"></picture>
-			<picture><source srcset="./_assets/webp/lp-07.webp" type="image/webp"><img src="./_assets/img/lp-07.jpg" alt="セレモニー"></picture>
-			<picture><source srcset="./_assets/webp/lp-08.webp" type="image/webp"><img src="./_assets/img/lp-08.jpg" alt="会場"></picture>
-			<picture><source srcset="./_assets/webp/lp-09.webp" type="image/webp"><img src="./_assets/img/lp-09.jpg" alt="料理"></picture>
-			<picture><source srcset="./_assets/webp/lp-10.webp" type="image/webp"><img src="./_assets/img/lp-10.jpg" alt="ケーキ"></picture>
-		</div>
-		
-		<div class="map-wrapper">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4878.420195113352!2d129.86156189809472!3d32.75947934163075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35155355b689d919%3A0x1141bcfa9a5af035!2z44K544K_44K444Ki44Og44K344OG44Kj44Ob44OG44Or6ZW35bSO!5e0!3m2!1sja!2sjp!4v1769735495677!5m2!1sja!2sjp" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-		</div>
-		
-		<div class="lp-image-wrap">
-			<div class="map-link-container">
-				<picture>
-					<source srcset="./_assets/webp/lp-12.webp" type="image/webp">
-					<img src="./_assets/img/lp-12.jpg" alt="所在地">
-				</picture>
-				<a href="https://maps.app.goo.gl/8gveNNcqDjERSAme7" target="_blank" class="yellow-text-btn">
-					<picture>
-						<source srcset="./_assets/webp/googlemaps-btn.webp" type="image/webp">
-						<img src="./_assets/img/googlemaps-btn.png" alt="地図を見る">
-					</picture>
-				</a>
-			</div>
-		</div>
-
-		<div class="lp-image-wrap" id="target-img">
-			<picture>
-				<source srcset="./_assets/webp/lp-11.webp" type="image/webp">
-				<img src="./_assets/img/lp-11.jpg" alt="フェアに申し込む">
-			</picture>
-		</div>
-
-		<div class="form-area" id="form-top">
-			<script src="https://business.form-mailer.jp/formfiles/js/embed.js"></script>
-			<div class="formmailer-embed" data-form-hash="46cee03b330755" data-form-host="business.form-mailer.jp"></div>
+<div class="second-slider">
+	<div><img src="./_assets/img/slide01.jpg" alt="スライド1"></div>
+	<div><img src="./_assets/img/slide02.jpg" alt="スライド2"></div>
+	<div><img src="./_assets/img/slide03.jpg" alt="スライド3"></div>
+</div> 
+			
+<div class="lp-image-wrap">
+	<img src="./_assets/img/lp-03.jpg" alt="ゲストの心に残る上質なおもてなしが叶います">
+	<img src="./_assets/img/lp-04.jpg" alt="このページを見られた方に特別特典プレゼント！">
+	<img src="./_assets/img/lp-05.jpg" alt="ご成約いただくと豪華特典プレゼント">
+	<img src="./_assets/img/lp-06.jpg" alt="スタジアムシティホテル長崎の魅力">
+	<img src="./_assets/img/lp-07.jpg" alt="独立型のセレモニー空間">
+	<img src="./_assets/img/lp-08.jpg" alt="スタジアムシティホテル長崎の会場">
+	<img src="./_assets/img/lp-09.jpg" alt="料理で伝えるおもてなし">
+	<img src="./_assets/img/lp-10.jpg" alt="想いを形にするウェディングケーキ">
+	</div>
+	
+	<div class="map-wrapper">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4878.420195113352!2d129.86156189809472!3d32.75947934163075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35155355b689d919%3A0x1141bcfa9a5af035!2z44K544K_44K444Ki44Og44K344OG44Kj44Ob44OG44Or6ZW35bSO!5e0!3m2!1sja!2sjp!4v1769735495677!5m2!1sja!2sjp" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+	
+	<div class="lp-image-wrap">
+		<div class="map-link-container">
+			<img src="./_assets/img/lp-12.jpg" alt="所在地">
+			<a href="https://maps.app.goo.gl/8gveNNcqDjERSAme7" target="_blank" class="yellow-text-btn">
+				<img src="./_assets/img/googlemaps-btn.png" alt="地図を見る">
+			</a>
 		</div>
 	</div>
 
+	
+	<div class="lp-image-wrap" id="target-img">
+		<img src="./_assets/img/lp-11.jpg" alt="フェアに申し込む">
+		</div>
+		
+	
+	
+	
+				
+
+			<!-- フォームメーラー -->
+			  <div class="form-area" id="form-top">
+				<script src="https://business.form-mailer.jp/formfiles/js/embed.js"></script>
+				<div class="formmailer-embed" data-form-hash="46cee03b330755" data-form-host="business.form-mailer.jp"></div>
+			  </div>
+			  <!-- ▲ここまで▲ -->
+			</div>
+			
+		
+		
+
+<script src="./_assets/js/wow/dist/wow.min.js"></script>
+<script type="text/javascript">
+	new WOW().init();
+	$(window).scroll(function(){
+		if( $(window).scrollTop() == 0) {
+			new WOW().init();
+		}
+	});
+	</script>
+	
+<script src="./_assets/js/wow/dist/wow.min.js"></script>
 	<script type="text/javascript">
-	$(function() {
-		// 1. スムーススクロール (target-imgへの爆速移動含む)
-		$('a[href^="#"]').on('click', function(e) {
-			var href = $(this).attr("href");
-			var target = $(href === "#" || href === "" ? 'html' : href);
-			if (target.length) {
-				e.preventDefault();
-				var speed = (href === "#target-img") ? 10 : 500;
-				var position = target.offset().top;
-				$("html, body").stop().animate({scrollTop: position}, speed, "swing");
+		new WOW().init();
+		$(window).scroll(function(){
+			if( $(window).scrollTop() == 0) {
+				new WOW().init();
 			}
 		});
-
-		// 2. スライダー初期化 (重複を削除)
-		$('.slideshow-container, .second-slider').slick({
+	</script>
+	
+	<script type="text/javascript">
+	$(function() {
+		// --- 1. スムーススクロールの設定 ---
+		$('a[href^="#"]').click(function() {
+			var href = $(this).attr("href");
+			// フォーム（#form-top）へのジャンプなら 100ms(爆速)、それ以外は 500ms
+			var speed = (href == "#target-img") ? 100 : 500;
+			
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			if (target.length) {
+				var position = target.offset().top;
+				$("html, body").animate({scrollTop: position}, speed, "swing");
+			}
+			return false;
+		});
+	
+		// --- 2. スライダーの設定（1つに集約） ---
+		$('.second-slider').slick({
 			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
 			autoplay: true,
 			autoplaySpeed: 3000,
 			speed: 800,
-			arrows: false,
+			fade: false,
 			dots: false,
+			arrows: false,
 			pauseOnHover: false
 		});
-
-		// 3. 追従ボタン表示制御
-		$(window).on('scroll', function() {
+	
+		// --- 3. 追従ボタンの表示制御 ---
+		$(window).scroll(function() {
 			var scrollPos = $(this).scrollTop();
 			var windowHeight = $(window).height();
 			var scrollHeight = $(document).height();
-
+	
+			// 100px以上スクロールしたら表示
 			if (scrollPos > 100) {
 				$('.btn_reserve_fixed').addClass('is-show');
 			} else {
 				$('.btn_reserve_fixed').removeClass('is-show');
 			}
 			
+			// 最下部（ページ末尾から150px）に来たらクラスを付与
 			if (scrollPos > scrollHeight - windowHeight - 150) {
 				$('.btn_reserve_fixed').addClass('is-bottom');
 			} else {
 				$('.btn_reserve_fixed').removeClass('is-bottom');
 			}
 		});
-
-		// 4. アニメーション初期化
-		if (typeof WOW !== 'undefined') { new WOW().init(); }
+	
+		// --- 4. WOW.js の初期化 ---
+		new WOW().init();
 	});
 	</script>
 
-	<div class="btn_reserve_fixed">
-		<a href="#target-img">
-			<picture>
-				<source srcset="./_assets/webp/btn-fair.webp" type="image/webp">
-				<img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
-			</picture>
-		</a>
-	</div>
+<script type="text/javascript">
+$(function() {
+	// 2つ目のスライダーの設定
+	$('.second-slider').slick({
+		infinite: true,      // 無限ループ
+		slidesToShow: 1,     // 1画面に表示する枚数
+		slidesToScroll: 1,   // 1回で動く枚数
+		autoplay: true,      // 自動再生
+		autoplaySpeed: 3000, // 次の画像へ切り替わる時間（3秒）
+		speed: 800,          // スライド自体の速さ
+		fade: false,         // 「スライド」させる（trueだとじわっと切り替え）
+		dots: false,         // ◯◯（ナビゲーション）を非表示
+		arrows: false,       // 前後矢印を非表示
+		pauseOnHover: false  // マウスを乗せても止めない
+	});
+});
+</script>
+
+<div class="btn_reserve_fixed">
+	<a href="#target-img">
+		<img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
+	</a>
+</div>
 
 </body>
 </html>
