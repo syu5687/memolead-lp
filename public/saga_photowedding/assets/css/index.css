@@ -416,6 +416,7 @@ html, body {
 /* 画像の上部に配置するボタン */
 .place-contact-btn-top {
     /* --- 公式サイトボタン(.place-link-btn)と同じスタイルを継承 --- */
+    border-radius: 22px;
     display: inline-block;
     padding: 8px 24px;
     font-size: 13px;
@@ -881,7 +882,7 @@ html, body {
      .place-contact-btn-top {
           width: 100%; 
           padding: 4px 10px;
-          font-size: 10px;
+          font-size: 14px;
           box-sizing: border-box;
       }
       /* 必要に応じてバッジを小さくする */
@@ -897,6 +898,11 @@ html, body {
             top: -50%;
             left: -50%;
         }
+        
+        .footer-logo-item img {
+            height: 27px;
+        }  
+     }
 
 @media (max-width: 480px) {
     /* Place Grid Adjustment for very small screens if needed, otherwise CSS Grid handles it */
