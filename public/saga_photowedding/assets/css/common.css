@@ -174,7 +174,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
     .header-inner { flex-direction: row; gap: 0; }
     .site-nav ul { gap: 15px; }
-    .logo { font-size: 14px; }
+    .logo {         
+       font-size: 12px;
+       line-height: 15px; }
 
     /* --- SP版フッター固定ナビ --- */
     .sp-fixed-nav {

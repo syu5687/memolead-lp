@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Photo Wedding PLAN | tiara boutique IMARI</title>
-	<meta name="description" content="伊万里で叶えるフォトウェディング。tiara boutique IMARIのスペシャルプラン。">
-	
+	<title>memolead SAGA | Photo Wedding</title>
+	<meta name="description" content="佐賀県内メモリードグループ式場・ホテル フォトウェディングプラン">
+	<meta name="keywords" content="佐賀,武雄,伊万里,唐津,鳥栖,多久,小城,嬉野,神埼,鹿島,写真,フォトウェディング,">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
@@ -19,13 +19,13 @@
 
 	<header class="site-header">
 		<div class="header-inner">
-			<h1 class="logo">memolead SAGA</h1>
+			<a href="index.html" class="logo">memolead <br class="sp">SAGA</a>
 			<nav class="site-nav">
 				<ul>
-					<li><a href="#plans">PLAN</a></li>
-					<li><a href="#concept">CONCEPT</a></li>
-					<li><a href="#dress">DRESS</a></li>
-					<li><a href="#place">PLACE</a></li>
+					<li><a href="index.html#plans">PLAN</a></li>
+					<li><a href="index.html#concept">CONCEPT</a></li>
+					<li><a href="index.html#dress">DRESS</a></li>
+					<li><a href="index.html#place">PLACE</a></li>
 					<li class="nav-btn-item"><a href="contact.html?field_5639465=0" class="nav-btn btn-plan">フォトウェディングのご相談</a></li>
 					<li class="nav-btn-item"><a href="contact.html?field_5639465=1" class="nav-btn btn-dress">ドレスへのご相談</a></li>
 				</ul>
@@ -48,12 +48,15 @@
 			</p>
 		</section>
 
-		<section class="form-section">
-			<div class="container">
-				<div class="form-wrapper">
-					
-			</div>
-		</section>
+		<div class="form-wrapper">
+		  <iframe 
+			id="form-iframe"
+			data-src="https://business.form-mailer.jp/fms/65d5cd12330943"
+			frameborder="0"
+			scrolling="yes"
+			style="width:100%; height:900px; border:none;">
+		  </iframe>
+		</div>
 	</main>
 
 	<footer id="contact" class="site-footer">
@@ -75,8 +78,20 @@
 			<p class="copyright">&copy; memolead SAGA All Rights Reserved.</p>
 		</div>
 	</footer>
-
 	
-	<script src="https://business.form-mailer.jp/fms/65d5cd12330943.js"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	  const params = new URLSearchParams(window.location.search);
+	
+	  const iframe = document.getElementById('form-iframe');
+	  const baseSrc = iframe.getAttribute('data-src');
+	
+	  if (params.toString()) {
+		iframe.src = baseSrc + '?' + params.toString();
+	  } else {
+		iframe.src = baseSrc;
+	  }
+	});
+	</script>
 </body>
 </html>
