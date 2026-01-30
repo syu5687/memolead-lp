@@ -368,7 +368,7 @@ html, body {
        left: -38%;
        width: 200%;
        height: 200%;
-       background-color: #D4AF37;
+       background-color: #b19d64;
        display: flex;
        justify-content: center;
        align-items: flex-end;
@@ -387,19 +387,19 @@ html, body {
 .place-link-btn {
     display: inline-block;
     padding: 8px 24px;
-    border: 1px solid #D4AF37;
+    border: 1px solid #b19d64;
     color: #fff;
     font-size: 13px;
     text-decoration: none;
     transition: all 0.3s ease;
-    background-color: #D4AF37;
+    background-color: #b19d64;
     letter-spacing: 0.05em;
     border-radius: 2px;
 }
 .place-link-btn:hover {
-   border: 1px solid #D4AF37;
+   border: 1px solid #b19d64;
    background-color: #fff;
-   color: #D4AF37;
+   color: #b19d64;
 }
 .placeItemSwiper, .placeItemSwiper .swiper-wrapper, .placeItemSwiper .swiper-slide {
     height: 100%; width: 100%; padding-bottom: 0;
@@ -439,8 +439,8 @@ html, body {
     margin-bottom: 10px; /* 画像との隙間 */
     
     /* --- 配色設定 (#94D3C8) --- */
-    background-color: #94D3C8;
-    border: 1px solid #94D3C8;
+    background-color: #b19d64;
+    border: 1px solid #b19d64;
     color: #fff;
     box-sizing: border-box; /* 枠線を含めたサイズ計算 */
 }
@@ -448,8 +448,8 @@ html, body {
 /* ホバー時 */
 .place-contact-btn-top:hover {
     background-color: #fff;
-    color: #94D3C8;
-    border: 1px solid #94D3C8;
+    color: #b19d64;
+    border: 1px solid #b19d64;
 }
 
 /* =========================================
