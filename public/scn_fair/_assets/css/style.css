@@ -374,21 +374,21 @@ margin-bottom: 250px;
 /* 1. 地図を表示したいエリアの設定 */
 .map-wrapper {
     width: 100%;
-    height: 450px;    /* 実際に画面で見せたい高さ */
-    overflow: hidden; /* はみ出した住所ボックスを隠す */
+    height: 450px;   
+    overflow: hidden; 
     position: relative;
-    /* 地図を灰色にする設定も維持する場合 */
+   
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
 }
 
-/* 2. 中の地図（iframe）をずらす設定 */
-.map-wrapper iframe {
-    position: absolute;
-    top: -120px;     /* 住所ボックスの高さ分（約120px）上に追い出す */
-    left: 0;
-    width: 100%;
-    height: 570px;   /* 「表示したい高さ450px」＋「ずらした分120px」 */
+.lp-image-wrap iframe {
+    width: 100% ;
+    display: block ;
+    margin: 0 ;
+    padding: 0 ;
+    height: 450px; /* お好みの高さに戻してください */
+    filter: grayscale(100%); /* 灰色の設定だけ残す場合はこちら */
 }
 
 @media only screen and (max-width: 767px) {
