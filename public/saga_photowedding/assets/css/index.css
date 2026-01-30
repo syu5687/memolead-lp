@@ -416,6 +416,7 @@ html, body {
 /* 画像の上部に配置するボタン */
 .place-contact-btn-top {
     /* --- 公式サイトボタン(.place-link-btn)と同じスタイルを継承 --- */
+    border-radius: 22px;
     display: inline-block;
     padding: 8px 24px;
     font-size: 13px;
@@ -725,11 +726,11 @@ html, body {
 
     /* Place Grid: Top 2, Bottom 3 */
     .place-grid-wrapper {
-        display: flex;
-        flex-wrap: wrap; /* Gridをやめ、柔軟なFlexboxに変更 */
-        justify-content: center; /* 5枚目を中央に寄せる */
-        gap: 30px 15px;
-        padding: 0 10px;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 20px 11px;
+         padding: 0px;
     }
     
     .place-grid-item {
@@ -740,6 +741,10 @@ html, body {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    
+    .place-card-link-wrapper {
+       border-radius: 6px;
     }
     
     /* 5番目のアイテム固有の設定 */
@@ -877,21 +882,31 @@ html, body {
      .place-contact-btn-top {
           width: 100%; 
           padding: 4px 10px;
-          font-size: 10px;
+          font-size: 14px;
           box-sizing: border-box;
       }
       /* 必要に応じてバッジを小さくする */
        /* スマホでのサイズ調整 */
         .badge-triangle {
-            width: 95px;
-            height: 65px;
+            width: 83px;
+            height: 62px;
+            top: -50px;
+            left: -50px;
         }
         .badge-triangle span {
-            font-size: 9px;
-            padding-bottom: 8px;
-            top: -41%;
-            left: -42%;
+            font-size: 8px;
+            padding-bottom: 0px;
+            top: -50%;
+            left: -50%;
+            transform: rotate(-39deg);
+            line-height: 10px;
+            letter-spacing: 2px;
         }
+        
+        .footer-logo-item img {
+            height: 27px;
+        }  
+     }
 
 @media (max-width: 480px) {
     /* Place Grid Adjustment for very small screens if needed, otherwise CSS Grid handles it */
