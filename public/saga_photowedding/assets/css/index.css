@@ -725,11 +725,11 @@ html, body {
 
     /* Place Grid: Top 2, Bottom 3 */
     .place-grid-wrapper {
-        display: flex;
-        flex-wrap: wrap; /* Gridをやめ、柔軟なFlexboxに変更 */
-        justify-content: center; /* 5枚目を中央に寄せる */
-        gap: 30px 15px;
-        padding: 0 10px;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 20px 11px;
+         padding: 0px;
     }
     
     .place-grid-item {
@@ -740,6 +740,10 @@ html, body {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    
+    .place-card-link-wrapper {
+       border-radius: 6px;
     }
     
     /* 5番目のアイテム固有の設定 */
