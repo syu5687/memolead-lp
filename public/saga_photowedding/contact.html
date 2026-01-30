@@ -26,16 +26,16 @@
 					<li><a href="#concept">CONCEPT</a></li>
 					<li><a href="#dress">DRESS</a></li>
 					<li><a href="#place">PLACE</a></li>
-					<li class="nav-btn-item"><a href="contact.html?type=plan" class="nav-btn btn-plan">フォトウェディングのご相談</a></li>
-					<li class="nav-btn-item"><a href="contact.html?type=dress" class="nav-btn btn-dress">ドレスへのご相談</a></li>
+					<li class="nav-btn-item"><a href="contact.html?field_5639465=0" class="nav-btn btn-plan">フォトウェディングのご相談</a></li>
+					<li class="nav-btn-item"><a href="contact.html?field_5639465=1" class="nav-btn btn-dress">ドレスへのご相談</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 	
 	<div class="sp-fixed-nav">
-		<a href="contact.html?type=plan" class="sp-nav-btn btn-plan">フォトウェディングのご相談</a>
-		<a href="contact.html?type=dress" class="sp-nav-btn btn-dress">ドレスへのご相談</a>
+		<a href="contact.html?field_5639465=0" class="sp-nav-btn btn-plan">フォトウェディングのご相談</a>
+		<a href="contact.html?field_5639465=1" class="sp-nav-btn btn-dress">ドレスへのご相談</a>
 	</div>
 
 
@@ -51,16 +51,7 @@
 		<section class="form-section">
 			<div class="container">
 				<div class="form-wrapper">
-					<iframe 
-						id="form-iframe"
-						src=""
-						data-src="https://business.form-mailer.jp/fms/65d5cd12330943"
-						frameborder="0" 
-						scrolling="yes" 
-						style="width:100%; height:800px; border:none;"
-						allow="payment">
-					</iframe>
-					</div>
+					
 			</div>
 		</section>
 	</main>
@@ -85,70 +76,7 @@
 		</div>
 	</footer>
 
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			/* ========================================================
-			   設定エリア：フォームのHTML解析結果に基づく設定
-			   ======================================================== */
-			
-			// 1. 「お問い合わせ内容」のフィールドコード
-			const typeFieldName = 'field_5639465'; 
-			// フォームのHTMLでは value="0" がフォト、value="1" がドレス となっています
-			const typeMapping = {
-				'plan':  '0', 
-				'dress': '1'
-			};
 	
-			// 2. 「お問い合わせ先」のフィールドコード
-			const placeFieldName = 'field_5640025'; 
-			// フォームのHTMLの value="0", value="1"... に対応させます
-			const placeMapping = {
-				'garden-terrace':      '0', // ガーデンテラス佐賀
-				'royal-chester-saga':  '1', // ロイヤルチェスター佐賀
-				'island-hills':        '2', // アイランドヒルズ迎賓館
-				'royal-chester-imari': '3', // ロイヤルチェスター伊万里
-				'white-house-imari':   '4'  // ホワイトハウス伊万里
-			};
-	
-			/* ========================================================
-			   処理エリア
-			   ======================================================== */
-	
-			// URLパラメータを取得
-			const urlParams = new URLSearchParams(window.location.search);
-			const typeParam = urlParams.get('type');
-			const placeParam = urlParams.get('place');
-	
-			// iframe要素を取得
-			const iframe = document.getElementById('form-iframe');
-			
-			if (iframe) {
-				// HTML側で設定した data-src からURLを取得
-				let src = iframe.getAttribute('data-src');
-				
-				// もしHTML修正漏れで data-src がない場合は src を使う（保険）
-				if (!src) src = iframe.getAttribute('src');
-	
-				let newParams = [];
-	
-				// A. お問い合わせ内容 (数値で渡す)
-				if (typeParam && typeMapping[typeParam] !== undefined) {
-					newParams.push(`${typeFieldName}=${typeMapping[typeParam]}`);
-				}
-	
-				// B. 会場選択 (数値で渡す)
-				if (placeParam && placeMapping[placeParam] !== undefined) {
-					newParams.push(`${placeFieldName}=${placeMapping[placeParam]}`);
-				}
-	
-				// C. URLを生成してiframeにセット
-				const separator = src.includes('?') ? '&' : '?';
-				const finalParams = newParams.length > 0 ? separator + newParams.join('&') : '';
-				
-				// ここで初めてiframeにURLをセットすることで、パラメータ付きで読み込ませる
-				iframe.setAttribute('src', src + finalParams);
-			}
-		});
-	</script>
+	<script src="https://business.form-mailer.jp/fms/65d5cd12330943.js"></script>
 </body>
 </html>

@@ -364,11 +364,11 @@ html, body {
        justify-content: center;
        align-items: flex-end;
        padding-bottom: 2px;
-       letter-spacing: -2px;
+       letter-spacing: 1px;
        text-align: center;
-       line-height: 13px;
+       line-height: 16px;
        color: #fff;
-       font-size: 11px;
+       font-size: 16px;
        font-weight: bold;
        transform: rotate(-45deg);
        transform-origin: center;
@@ -854,7 +854,7 @@ html, body {
     
      .recommend-wrapper {
          flex-direction: column;
-         padding: 40px 20px;
+         padding: 40px 20px 0px;
          text-align: left;
      }
     
@@ -865,7 +865,7 @@ html, body {
     
      .recommend-content {
          width: 100%;
-         margin-bottom: 60px; /* 画像との間隔 */
+         margin-bottom: 0px; /* 画像との間隔 */
      }
     
      .recommend-image-area {
@@ -876,7 +876,7 @@ html, body {
     
      .recommend-point-png {
          width: 50%;
-         top: -25%;
+         top: 5%;
          left: -10%;
      }
      .place-contact-btn-top {
