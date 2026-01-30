@@ -888,15 +888,19 @@ html, body {
       /* 必要に応じてバッジを小さくする */
        /* スマホでのサイズ調整 */
         .badge-triangle {
-            width: 51px;
-            height: 54px;
-            line-height: 8px;
+            width: 83px;
+            height: 62px;
+            top: -50px;
+            left: -50px;
         }
         .badge-triangle span {
-            font-size: 9px;
-            padding-bottom: 8px;
+            font-size: 8px;
+            padding-bottom: 0px;
             top: -50%;
             left: -50%;
+            transform: rotate(-39deg);
+            line-height: 10px;
+            letter-spacing: 2px;
         }
         
         .footer-logo-item img {
