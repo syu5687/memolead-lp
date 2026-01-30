@@ -49,8 +49,9 @@
 		</section>
 
 		<div class="form-wrapper">
-		  <iframe
-			src="https://business.form-mailer.jp/fms/65d5cd12330943"
+		  <iframe 
+			id="form-iframe"
+			data-src="https://business.form-mailer.jp/fms/65d5cd12330943"
 			frameborder="0"
 			scrolling="yes"
 			style="width:100%; height:900px; border:none;">
@@ -77,6 +78,20 @@
 			<p class="copyright">&copy; memolead SAGA All Rights Reserved.</p>
 		</div>
 	</footer>
-
+	
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	  const params = new URLSearchParams(window.location.search);
+	
+	  const iframe = document.getElementById('form-iframe');
+	  const baseSrc = iframe.getAttribute('data-src');
+	
+	  if (params.toString()) {
+		iframe.src = baseSrc + '?' + params.toString();
+	  } else {
+		iframe.src = baseSrc;
+	  }
+	});
+	</script>
 </body>
 </html>
