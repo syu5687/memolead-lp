@@ -4,9 +4,9 @@
    Base & Variables
    ========================================= */
 :root {
-    --primary-color: #333333;
-    --accent-color: #94D3C8; /* プラン相談用 */
-    --gold-color: #D4AF37;   /* ドレス相談用 */
+    --primary-color: #231815;
+    --accent-color: #a48b78; /* プラン相談用 */
+    --gold-color: #b19d64;   /* ドレス相談用 */
     --bg-color: #ffffff;
     --border-color: #D3D3D3;
     
