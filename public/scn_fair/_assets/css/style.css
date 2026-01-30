@@ -469,6 +469,19 @@ margin-bottom: 250px;
     display: block !important;
 }
 
+/* pictureタグをブロック要素にして画像サイズを維持する */
+picture {
+    display: block;
+    width: 100%;
+}
+
+.lp-image-wrap picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
 
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-top {
