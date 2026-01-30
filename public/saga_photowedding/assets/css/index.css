@@ -129,11 +129,11 @@ html, body {
 }
 
 /* --- Plan Color Themes (New Colors) --- */
-.plan-simple { --theme-text: #b19d64; --theme-border: #b19d64; --theme-bg: #F9FCFC; }
-.plan-silver { --theme-text: #d7d7dd; --theme-border: #d7d7dd; --theme-bg: #FEFFFE; }
+.plan-simple { --theme-text: #79D6D0; --theme-border: #79D6D0; --theme-bg: #F9FCFC; }
+.plan-silver { --theme-text: #968CC8; --theme-border: #968CC8; --theme-bg: #F9F9FA; }
 .plan-gold { --theme-text: #C9B880; --theme-border: #C9B880; --theme-bg: #FFFEFB; }
-.plan-diamond { --theme-text: #dfddc3; --theme-border: #dfddc3; --theme-bg: #FEFFFE; }
-.plan-premium { --theme-text: #d7d7dd; --theme-border: #d7d7dd; --theme-bg: #FAFAFA; }
+.plan-diamond { --theme-text: #B5DEBA; --theme-border: #B5DEBA; --theme-bg: #FEFFFE; }
+.plan-premium { --theme-text: #E4C9E4; --theme-border: #E4C9E4; --theme-bg: #FAFAFA; }
 
 /* --- Card Base Styles (PC: 2:3 Ratio) --- */
 .plan-card-beige {
