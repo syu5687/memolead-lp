@@ -312,33 +312,34 @@ margin-bottom: 250px;
   }
 }
 
-/* 追従ボタンの外枠 */
 .btn_reserve_fixed {
     position: fixed;
-    bottom: 20px;   /* 画面下からの位置 */
-    right: 20px;    /* 画面右からの位置（真ん中なら下記参照） */
-    z-index: 10000;
+    bottom: 30px;      /* 画面下からの距離を少し広げました */
+    left: 50%;         /* 左から50%の位置へ */
+    transform: translateX(-50%) translateY(20px); /* 中央寄せにしつつ、初期位置を少し下に */
+    z-index: 99999 !important;
+    width: 80%;        /* ボタンの横幅（500pxのコンテンツに対しての割合） */
+    max-width: 400px;  /* 大きくなりすぎないための最大幅 */
     opacity: 0;
     visibility: hidden;
     transition: all 0.6s ease;
-    transform: translateY(20px);
-    width: 250px;   /* 画像のサイズに合わせて調整 */
 }
 
-/* スクロールした時に現れる状態 */
+/* 通常の表示状態（is-showがついている時） */
 .btn_reserve_fixed.is-show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    opacity: 1 !important;
+    visibility: visible !important;
+    bottom: 30px; /* 通常時の高さ */
+    transform: translateX(-50%) translateY(0);
 }
 
-/* 画像自体の設定 */
-.btn_reserve_fixed img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* 影をつけて目立たせたい場合 */
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+/* 最下部（フォームボタン付近）に到達した時 */
+.btn_reserve_fixed.is-bottom {
+    /* 消さずに、表示したまま位置を下げます。
+       数値を 0 や 5px などに小さくすると、より画面の底に張り付きます。
+    */
+    bottom: 5px !important; 
+    transition: bottom 0.3s ease; /* 位置移動をスムーズに */
 }
 
 .food-content .content-title {
@@ -346,6 +347,50 @@ margin-bottom: 250px;
   line-height: 32px;
   margin-bottom: 70px;
 }
+
+
+.form-area {
+    background: #fff;       /* 背景を白に固定 */
+    padding-bottom: 120px;  /* 下側に120pxの余白を作って背景を伸ばす */
+    margin-bottom: 0;       /* 外側の余白をリセット */
+}
+
+.lp-image-wrap iframe {
+    width: 100%;
+    display: block; /* 下の隙間を消す */
+    margin: 0;
+    padding: 0;
+}
+
+/* 地図全体を灰色（モノクロ）にする */
+.lp-image-wrap iframe {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); /* Safari用 */
+    
+    /* 少し明るさやコントラストを調整して見やすくする場合 */
+    /* filter: grayscale(100%) brightness(1.1) contrast(0.9); */
+}
+
+/* 1. 地図を表示したいエリアの設定 */
+.map-wrapper {
+    width: 100%;
+    height: 450px;    /* 実際に画面で見せたい高さ */
+    overflow: hidden; /* はみ出した住所ボックスを隠す */
+    position: relative;
+    /* 地図を灰色にする設定も維持する場合 */
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+/* 2. 中の地図（iframe）をずらす設定 */
+.map-wrapper iframe {
+    position: absolute;
+    top: -120px;     /* 住所ボックスの高さ分（約120px）上に追い出す */
+    left: 0;
+    width: 100%;
+    height: 570px;   /* 「表示したい高さ450px」＋「ずらした分120px」 */
+}
+
 @media only screen and (max-width: 767px) {
   .food-content .content-title {
 	margin-bottom: 40px;
