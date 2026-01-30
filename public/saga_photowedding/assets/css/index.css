@@ -46,23 +46,23 @@ html, body {
 
 .hero-text {
     position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
+    top: 0%;
+    right: 10%;
+    transform: translateY(0%);
     color: white;
     text-align: center;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    width: 80%;
+    width: 400px;
 }
 .hero-text2 { 
    position: absolute;
-    bottom: 0%;
-    left: 10%;
+    bottom: 20%;
+    right: 10%;
     transform: translateY(-50%);
     color: white;
     text-align: center;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    width: 80%; }
+    width: 430px; }
 
 .hero-title {
     font-family: var(--font-main);
@@ -94,7 +94,7 @@ html, body {
    Plans Section (Card Designs)
    ========================================= */
 .plans-section {
-    padding: 80px 0;
+    padding: 0;
     background-color: #fff;
 }
 
