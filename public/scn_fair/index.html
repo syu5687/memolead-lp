@@ -147,21 +147,33 @@
 	<img src="./_assets/img/lp-04.jpg" alt="このページを見られた方に特別特典プレゼント！">
 	<img src="./_assets/img/lp-05.jpg" alt="ご成約いただくと豪華特典プレゼント">
 	<img src="./_assets/img/lp-06.jpg" alt="スタジアムシティホテル長崎の魅力">
-	<img src="./_assets/img/lp-07.jpg" alt="スタジアムシティホテル長崎の魅力">
-	<img src="./_assets/img/lp-08.jpg" alt="スタジアムシティホテル長崎の魅力">
-	<img src="./_assets/img/lp-09.jpg" alt="スタジアムシティホテル長崎の魅力">
-	<img src="./_assets/img/lp-10.jpg" alt="スタジアムシティホテル長崎の魅力">
-	<img src="./_assets/img/lp-11.jpg" alt="スタジアムシティホテル長崎の魅力">
+	<img src="./_assets/img/lp-07.jpg" alt="独立型のセレモニー空間">
+	<img src="./_assets/img/lp-08.jpg" alt="スタジアムシティホテル長崎の会場">
+	<img src="./_assets/img/lp-09.jpg" alt="料理で伝えるおもてなし">
+	<img src="./_assets/img/lp-10.jpg" alt="想いを形にするウェディングケーキ">
 	</div>
-		
+	
 	<div class="map-wrapper">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4878.420195113352!2d129.86156189809472!3d32.75947934163075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35155355b689d919%3A0x1141bcfa9a5af035!2z44K544K_44K444Ki44Og44K344OG44Kj44Ob44OG44Or6ZW35bSO!5e0!3m2!1sja!2sjp!4v1769735495677!5m2!1sja!2sjp" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 	
 	<div class="lp-image-wrap">
-	<img src="./_assets/img/lp-12.jpg" alt="ゲストの心に残る上質なおもてなしが叶います">
+		<div class="map-link-container">
+			<img src="./_assets/img/lp-12.jpg" alt="所在地">
+			<a href="https://maps.app.goo.gl/8gveNNcqDjERSAme7" target="_blank" class="yellow-text-btn">
+				<img src="./_assets/img/googlemaps-btn.png" alt="地図を見る">
+			</a>
+		</div>
 	</div>
 
+	
+	<div class="lp-image-wrap">
+		<img src="./_assets/img/lp-11.jpg" alt="スタジアムシティホテル長崎の魅力">
+		</div>
+		
+	
+	
+	
 				
 
 			<!-- フォームメーラー -->
@@ -199,37 +211,57 @@
 	
 	<script type="text/javascript">
 	$(function() {
-		// 1. スライダーの設定（重複を整理して1つにまとめました）
+		// --- 1. スムーススクロールの設定 ---
+		$('a[href^="#"]').click(function() {
+			var href = $(this).attr("href");
+			// フォーム（#form-top）へのジャンプなら 100ms(爆速)、それ以外は 500ms
+			var speed = (href == "#form-top") ? 100 : 500;
+			
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			if (target.length) {
+				var position = target.offset().top;
+				$("html, body").animate({scrollTop: position}, speed, "swing");
+			}
+			return false;
+		});
+	
+		// --- 2. スライダーの設定（1つに集約） ---
 		$('.second-slider').slick({
-			dots: false,
-			arrows: false,
 			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
 			autoplay: true,
 			autoplaySpeed: 3000,
 			speed: 800,
 			fade: false,
-			pauseOnHover: false,
-			slidesToShow: 1,
-			slidesToScroll: 1
+			dots: false,
+			arrows: false,
+			pauseOnHover: false
 		});
 	
-		// 2. 追従ボタンをスクロールでじわっと出す命令（追加分）
+		// --- 3. 追従ボタンの表示制御 ---
 		$(window).scroll(function() {
-			// 500px以上スクロールしたら「is-show」クラスをつける
-			if ($(this).scrollTop() > 100) {
+			var scrollPos = $(this).scrollTop();
+			var windowHeight = $(window).height();
+			var scrollHeight = $(document).height();
+	
+			// 100px以上スクロールしたら表示
+			if (scrollPos > 100) {
 				$('.btn_reserve_fixed').addClass('is-show');
 			} else {
 				$('.btn_reserve_fixed').removeClass('is-show');
 			}
 			
-			// 2. 最下部（フォーム付近）での判定
-			// ページ末尾から150pxの位置に来たら「is-bottom」を付与
+			// 最下部（ページ末尾から150px）に来たらクラスを付与
 			if (scrollPos > scrollHeight - windowHeight - 150) {
 				$('.btn_reserve_fixed').addClass('is-bottom');
 			} else {
 				$('.btn_reserve_fixed').removeClass('is-bottom');
 			}
 		});
+	
+		// --- 4. WOW.js の初期化 ---
+		new WOW().init();
 	});
 	</script>
 
@@ -252,8 +284,7 @@ $(function() {
 </script>
 
 <div class="btn_reserve_fixed">
-	<a href="https://lp1.wedding-campaign.jp/contact-form-rci-osechi/">
-		<img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
+	<a href="#form-top"> <img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
 	</a>
 </div>
 

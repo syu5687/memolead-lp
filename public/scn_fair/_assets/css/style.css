@@ -440,6 +440,34 @@ margin-bottom: 250px;
 	padding: 15px 40px;
 }
 
+/* 1. 親要素：必ず relative を指定してボタンの基準にする */
+.map-link-container {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+    line-height: 0 !important;
+}
+
+/* 2. 黄色の文字ボタン：絶対位置で画像の上に浮かせる */
+.yellow-text-btn {
+    position: absolute !important;
+    z-index: 100 !important; /* 数字を大きくして最前面に */
+    display: block !important;
+    
+    /* --- 位置の調整 --- */
+    bottom: 140px !important;  /* 【ここを増やすと上へ動く】 */
+    left: 48.5px !important;    /* 【ここを増やすと右へ動く】 */
+    
+    /* --- サイズの調整 --- */
+    width: 120px !important;  /* ボタンを小さく固定 */
+}
+
+/* 3. ボタン画像そのものの設定 */
+.yellow-text-btn img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
 
 
 @media only screen and (max-width: 767px) {
