@@ -725,7 +725,7 @@ html, body {
     .plan-price-beige { margin-bottom: 10px; }
     .plan-price-beige .price-main { font-size: 28px; }
     .plans-section {
-         padding-top: 100px;
+         /* padding-top: 100px; */
      }
     
      .swiper.mySwiper {
