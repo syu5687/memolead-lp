@@ -701,7 +701,7 @@ html, body {
     .hero { padding: 0; height: 80vh; align-items: center; }
     .hero-image-container { height: 100%; }
     .hero-img { height: 100%; object-position: 24% center;}
-    .hero-text { right: 0%; transform: translate(0%, 0%); width: 100%; padding: 0 10px;top:60px; }
+    .hero-text { right: 0%; transform: translate(0%, 0%); width: 250px; padding: 0 0px;top:0px;left:auto; }
     .hero-lines { gap: 80px; }
 
     .concept-inner { flex-direction: column; text-align: left; padding: 0 20px; }
