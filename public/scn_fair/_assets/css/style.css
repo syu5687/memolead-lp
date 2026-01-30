@@ -312,7 +312,34 @@ margin-bottom: 250px;
   }
 }
 
+/* 追従ボタンの外枠 */
+.btn_reserve_fixed {
+    position: fixed;
+    bottom: 20px;   /* 画面下からの位置 */
+    right: 20px;    /* 画面右からの位置（真ん中なら下記参照） */
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    transform: translateY(20px);
+    width: 250px;   /* 画像のサイズに合わせて調整 */
+}
 
+/* スクロールした時に現れる状態 */
+.btn_reserve_fixed.is-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 画像自体の設定 */
+.btn_reserve_fixed img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* 影をつけて目立たせたい場合 */
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
 
 .food-content .content-title {
   font-size: 24px;

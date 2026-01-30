@@ -425,26 +425,43 @@
 	});
 	</script>
 	
-<script>
-	$('.slides').slick({
-		dots: true,
-		infinite: true,
-		autoplay: true,
-		speed: 1000,
-		autoplaySpeed: 3000,
-		// fade: true,
+<script src="./_assets/js/wow/dist/wow.min.js"></script>
+	<script type="text/javascript">
+		new WOW().init();
+		$(window).scroll(function(){
+			if( $(window).scrollTop() == 0) {
+				new WOW().init();
+			}
+		});
+	</script>
+	
+	<script type="text/javascript">
+	$(function() {
+		// 1. スライダーの設定（重複を整理して1つにまとめました）
 		$('.second-slider').slick({
-		dots: false,        // 枚数の表示（◯◯）を消す
-		arrows: false,      // 左右の矢印を消す
-		infinite: true,     // ループさせる
-		autoplay: true,     // 自動再生
-		autoplaySpeed: 2500, // 次へ動くまでの時間
-		speed: 800,         // スライドするスピード
-		fade: false,        // じわっとではなく「スライド」させる
-		pauseOnHover: false // マウスを乗せても止めない
-	  });
-	 
-</script>
+			dots: false,
+			arrows: false,
+			infinite: true,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			speed: 800,
+			fade: false,
+			pauseOnHover: false,
+			slidesToShow: 1,
+			slidesToScroll: 1
+		});
+	
+		// 2. 追従ボタンをスクロールでじわっと出す命令（追加分）
+		$(window).scroll(function() {
+			// 500px以上スクロールしたら「is-show」クラスをつける
+			if ($(this).scrollTop() > 500) {
+				$('.btn_reserve_fixed').addClass('is-show');
+			} else {
+				$('.btn_reserve_fixed').removeClass('is-show');
+			}
+		});
+	});
+	</script>
 
 <script type="text/javascript">
 $(function() {
@@ -463,6 +480,12 @@ $(function() {
 	});
 });
 </script>
+
+<div class="btn_reserve_fixed">
+	<a href="https://lp1.wedding-campaign.jp/contact-form-rci-osechi/">
+		<img src="./_assets/img/btn-fair.png" alt="ご予約はこちら">
+	</a>
+</div>
 
 </body>
 </html>
