@@ -887,14 +887,15 @@ html, body {
       /* 必要に応じてバッジを小さくする */
        /* スマホでのサイズ調整 */
         .badge-triangle {
-            width: 95px;
-            height: 65px;
+            width: 51px;
+            height: 54px;
+            line-height: 8px;
         }
         .badge-triangle span {
             font-size: 9px;
             padding-bottom: 8px;
-            top: -41%;
-            left: -42%;
+            top: -50%;
+            left: -50%;
         }
 
 @media (max-width: 480px) {
