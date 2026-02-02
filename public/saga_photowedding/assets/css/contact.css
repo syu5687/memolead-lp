@@ -40,6 +40,114 @@
 	/* padding: 20px; */
 }
 
+/* =========================================
+   7. FormMailer Embedded Custom Styles
+   ========================================= */
+
+/* フォーム全体のフォントと余白 */
+#contact-form {
+	font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+	color: #333;
+	line-height: 1.6;
+}
+
+/* 各入力ブロックのコンテナ */
+#contact-form p {
+	margin-bottom: 25px;
+}
+
+/* ラベル（項目名）のスタイル */
+#contact-form p:nth-child(odd) {
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 8px;
+	display: block;
+	color: #444;
+}
+
+/* 必須項目の「*」を赤色にする */
+#contact-form p:contains("*"), 
+#contact-form p {
+	/* テキスト内の*を強調したい場合 */
+}
+
+/* 入力フィールド共通（テキスト、セレクト、テキストエリア） */
+#contact-form input[type="text"],
+#contact-form select,
+#contact-form textarea {
+	width: 100%;
+	padding: 12px 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px; /* モバイルでのズーム防止に16px推奨 */
+	background-color: #fafafa;
+	transition: border-color 0.3s, box-shadow 0.3s;
+	box-sizing: border-box; /* 幅にパディングを含める */
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+	outline: none;
+	border-color: #c1ab86; /* ウェディングらしいゴールド/ベージュ系 */
+	box-shadow: 0 0 5px rgba(193, 171, 134, 0.3);
+}
+
+/* ラジオボタンのレイアウト */
+#contact-form input[type="radio"] {
+	margin-right: 8px;
+	margin-left: 0;
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+#contact-form label, 
+#contact-form p:nth-child(even) {
+	font-size: 15px;
+	margin-right: 20px;
+}
+
+/* お名前（姓名ならべる）と住所（郵便番号など）の調整 */
+#contact-form input[name*="_sei"],
+#contact-form input[name*="_mei"] {
+	width: calc(50% - 10px);
+	display: inline-block;
+}
+
+#contact-form input[name*="_sei"] {
+	margin-right: 15px;
+}
+
+#contact-form input[name*="_zip"] {
+	width: 150px;
+	margin-bottom: 10px;
+}
+
+/* 確認画面へボタン */
+#contact-form input[type="submit"] {
+	display: block;
+	width: 100%;
+	max-width: 300px;
+	margin: 40px auto 0;
+	padding: 18px;
+	background-color: #333; /* またはサイトのアクセントカラー */
+	color: #fff;
+	border: none;
+	border-radius: 0;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	transition: background-color 0.3s, opacity 0.3s;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+#contact-form input[type="submit"]:hover {
+	background-color: #555;
+	opacity: 0.9;
+}
+
 /* Iframe Responsive Adjustment */
 @media (max-width: 768px) {
 	.contact-hero {
@@ -62,5 +170,22 @@
 	/* スマホでiframeが高すぎるとスクロールしづらい場合の調整 */
 	#form-iframe {
 		height: 1000px; /* 内容に応じて高さを調整してください */
+	}
+	
+	#contact-form input[name*="_sei"],
+	#contact-form input[name*="_mei"] {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+	
+	#contact-form p:nth-child(even) {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	
+	#contact-form input[type="radio"] {
+		margin-bottom: 5px;
 	}
 }
