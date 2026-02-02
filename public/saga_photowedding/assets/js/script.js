@@ -161,5 +161,25 @@ document.addEventListener('DOMContentLoaded', () => {
 			}, 50);
 		});
 	});
+	
+	/* =========================================
+	   7. FormMailer + GAS Notification (埋め込み用)
+	   ========================================= */
+	// フォームメーラーから書き出したHTMLの<form>に id="contact-form" を付けてください
+	const contactForm = document.querySelector('#contact-form'); 
+	const gasUrl = "https://script.google.com/macros/s/AKfycbz5C8nT3RGv_dtHcO2zDKwuwA-A7fxUC4wRKcoLHBYLo-iE3p7Tc4J9yXpySOrSD9ss/exec"; // /execで終わるURL
+	
+	if (contactForm) {
+		contactForm.addEventListener('submit', function() {
+			const formData = new FormData(this);
+			
+			fetch(gasUrl, {
+				method: "POST",
+				body: new URLSearchParams(formData),
+				mode: "no-cors" 
+			});
+			// フォームメーラーへの送信はそのまま継続されます
+		});
+	}
 
 });
