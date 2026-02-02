@@ -228,12 +228,21 @@
 		   1. URLパラメータからラジオボタンを自動選択
 		   ========================================= */
 		const params = new URLSearchParams(window.location.search);
-		const typeValue = params.get('field_5639465'); // URLの ?field_5639465=0 等を取得
-	
-		if (typeValue !== null) {
-			const radio = document.querySelector(`input[name="field_5639465"][value="${typeValue}"]`);
-			if (radio) radio.checked = true;
-		}
+		
+		// 汎用的な自動チェック処理
+		const autoCheck = (fieldName) => {
+			const value = params.get(fieldName);
+			if (value !== null) {
+				const radio = document.querySelector(`input[name="${fieldName}"][value="${value}"]`);
+				if (radio) radio.checked = true;
+			}
+		};
+		
+		// 「お問い合わせ内容」の自動選択を実行
+		autoCheck('field_5639465');
+		
+		// 「お問い合わせ先」の自動選択を実行
+		autoCheck('field_5640025');
 	
 		/* =========================================
 		   2. GAS（5名以上へのメール転送）の処理
