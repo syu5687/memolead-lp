@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	   ========================================= */
 	// フォームメーラーから書き出したHTMLの<form>に id="contact-form" を付けてください
 	const contactForm = document.querySelector('#contact-form'); 
-	const gasUrl = "https://script.google.com/macros/s/AKfycbz5C8nT3RGv_dtHcO2zDKwuwA-A7fxUC4wRKcoLHBYLo-iE3p7Tc4J9yXpySOrSD9ss/exec"; // /execで終わるURL
+	const gasUrl = "https://script.google.com/macros/s/AKfycbyfetEKkeAL7laE8FDwntWca8evpKF-z19G0rOhZaZ8f8oazZZ47Sr7PU9lyhL-s00/exec"; // /execで終わるURL
 	
 	if (contactForm) {
 		contactForm.addEventListener('submit', function() {
