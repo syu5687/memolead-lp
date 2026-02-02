@@ -248,22 +248,15 @@
 		   2. GAS（5名以上へのメール転送）の処理
 		   ========================================= */
 		const contactForm = document.querySelector('#contact-form');
-		// ↓ここにデプロイしたウェブアプリURL（/exec）を貼り付け
-		const gasUrl = "https://script.google.com/macros/s/AKfycbyfetEKkeAL7laE8FDwntWca8evpKF-z19G0rOhZaZ8f8oazZZ47Sr7PU9lyhL-s00/exec";
-	
-		if (contactForm) {
-			contactForm.addEventListener('submit', function() {
-				const formData = new FormData(this);
-				
-				// GASへデータを送信（no-corsでエラー回避）
-				fetch(gasUrl, {
-					method: "POST",
-					body: new URLSearchParams(formData),
-					mode: "no-cors"
-				})
-				.then(() => console.log("GAS sent"))
-				.catch((err) => console.error("GAS error", err));
-				
+		  const gasUrl = "https://script.google.com/macros/s/AKfycbyfetEKkeAL7laE8FDwntWca8evpKF-z19G0rOhZaZ8f8oazZZ47Sr7PU9lyhL-s00/exec";
+		
+		  if (contactForm) {
+			contactForm.addEventListener('submit', function () {
+			  const formData = new FormData(this);
+			  const params = new URLSearchParams(formData);
+		
+			  // ページ遷移しても送信される
+			  navigator.sendBeacon(gasUrl, params);
 				// そのままフォームメーラーへ送信されます
 			});
 		}
