@@ -15,6 +15,38 @@
 	<link rel="stylesheet" href="assets/css/common.css">
 	<link rel="stylesheet" href="assets/css/index.css">
 </head>
+<style>
+	/* ===== FormMailer LP Form Reset ===== */
+	.lp-form p {
+	  display: block;
+	  margin-bottom: 1.2em;
+	}
+	
+	.lp-form input,
+	.lp-form select,
+	.lp-form textarea {
+	  width: auto;
+	  display: inline-block;
+	  box-sizing: border-box;
+	  font-family: inherit;
+	}
+	
+	/* テキスト系だけ幅を持たせる */
+	.lp-form input[type="text"],
+	.lp-form input[type="email"],
+	.lp-form textarea,
+	.lp-form select {
+	  width: 100%;
+	  max-width: 420px;
+	}
+	
+	/* radio専用 */
+	.lp-form input[type="radio"] {
+	  width: auto;
+	  margin-right: 6px;
+	}
+
+</style>
 <body>
 
 	<header class="site-header">
