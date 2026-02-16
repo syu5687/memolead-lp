@@ -80,9 +80,21 @@ a:hover {
 .ad5{
 	animation-delay: 0.5s;
 }
-
+.wrap_harf{
+	display: block;
+	width: 50%;
+	margin: 50px auto;
+}
+.wrap{
+	display: block;
+	width: 80%;
+	margin: 15px auto;
+}
 .wrap_osusume{
 	background-image: url("../img/osusume-bg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 /* --- お問合せ --- */
