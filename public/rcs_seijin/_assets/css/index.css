@@ -77,9 +77,9 @@ a:hover {
 	z-index: 10;
 }
 
-.ad5{
+/* .ad5{
 	animation-delay: 0.5s;
-}
+} */
 .wrap_harf{
 	display: block;
 	width: 50%;
@@ -96,6 +96,17 @@ a:hover {
 	background-repeat: no-repeat;
 	background-position: center;
 	padding: 20px 0 50px;
+}
+/* 初期状態：アニメーション名を指定しない */
+.move {
+  opacity: 0;
+}
+
+/* JSでクラスがついたら、animate.cssのクラスを動かす */
+.move.is-show {
+  opacity: 1;
+  animation-name: fadeInUp; /* animate.css内の名前を指定 */
+  animation-duration: 1s;
 }
 
 /* --- お問合せ --- */
