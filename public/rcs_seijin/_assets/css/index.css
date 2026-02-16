@@ -81,6 +81,10 @@ a:hover {
 	animation-delay: 0.5s;
 }
 
+.wrap_osusume{
+	background-image: url("../img/osusume-bg.png");
+}
+
 /* --- お問合せ --- */
 #contact {
 	text-align: center;
