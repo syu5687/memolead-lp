@@ -1,0 +1,118 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap');
+
+/* --- 基本スタイル --- */
+body {
+	background: #eee;
+	font-size: 13px;
+	line-height: 1.7;
+	color: #000000;
+	font-family: 'Noto Serif JP', serif;
+	text-align: center;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: none;
+	opacity: 0.5;
+	transition: all 0.3s;
+}
+.form-area{
+	width: 80%;
+	margin: 15px auto;
+	background: #fff;
+	padding: 20px;
+	border-radius: 3px;
+}
+
+/* --- レイアウト & コンポーネント --- */
+#content {
+	width: 70%;
+	margin: 0 auto;
+	background-image: url("../img/bg.png");
+	background-color: #fff;
+	background-repeat: repeat;
+	border: 1px solid red;
+}
+
+.abWrap{
+	width: 100%;
+	height: 100vh;
+	margin: 0 auto;
+	position: relative;
+	border: 1px solid blue;
+}
+
+.abItem{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top:0;
+	left: 0;
+}
+.abItem img{
+	max-width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 9/16;
+}
+.abItemTitle{
+	width: 30%;
+	height: auto;
+	position: absolute;
+	top:0;
+	right: 5%;
+	z-index: 10;
+}
+
+.ad5{
+	animation-delay: 0.5s;
+}
+
+/* --- お問合せ --- */
+#contact {
+	text-align: center;
+	margin-top: 0;
+	font-family: 'Noto Serif JP', serif;
+	background: #fff;
+	padding-top: 65px;
+}
+
+
+/* --- フッター --- */
+#footer {
+	text-align: center;
+	padding-top: 40px;
+}
+  
+
+/* --- レスポンシブ (SP) --- */
+@media (max-width: 768px) {
+	#content {
+		width: 100%;
+	}
+	.form-area{
+			width:90%;
+			padding: 20px 10px;
+		}
+	#contact {
+		margin-top: 0;
+		padding: 43px 0px;
+		color: #000;
+	}
+	#contact a {
+		color: #000;
+	}
+}
