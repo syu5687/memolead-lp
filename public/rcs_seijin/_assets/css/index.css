@@ -2,17 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap');
 
 :root {
-  --bg-color: #f5f1ed;
+  --bg-color: #ffffff;
   --bgP-color: #f08984;
 }
 
 .pink{
 	background-color: var(--bgP-color);
 }
+.white{
+	background-color: var(--bg-color);
+}
 
 /* --- 基本スタイル --- */
 body {
-	background: #eee;
+	background-color:var(--bg-color);
 	font-size: 13px;
 	line-height: 1.7;
 	color: #000000;
@@ -55,17 +58,22 @@ a:hover {
 	background-repeat: repeat;
 }
 
+.top{
+	width: 100%;
+	height: 100%;
+}
+.abWrap:before{
+	content: "";
+	display: block;
+	padding-top: 177%;
+}
 .abWrap{
 	width: 100%;
-	height: 100vh;
 	margin: 0 auto;
 	position: relative;
-	border: 1px solid blue;
 }
-
 .abItem{
 	width: 100%;
-	height: 100vh;
 	position: absolute;
 	top:0;
 	left: 0;
@@ -124,6 +132,12 @@ a:hover {
   animation-duration: 1s;
 }
 
+.thum{
+	width: 80%;
+	margin: 15px auto;
+	padding: 15px 0 30px;
+}
+
 /* --- お問合せ --- */
 #contact {
 	text-align: center;
@@ -145,17 +159,5 @@ a:hover {
 @media (max-width: 768px) {
 	#content {
 		width: 100%;
-	}
-	.form-area{
-			width:90%;
-			padding: 20px 10px;
-		}
-	#contact {
-		margin-top: 0;
-		padding: 43px 0px;
-		color: #000;
-	}
-	#contact a {
-		color: #000;
 	}
 }
