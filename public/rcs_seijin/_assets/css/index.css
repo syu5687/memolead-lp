@@ -82,7 +82,7 @@ a:hover {
 	max-width: 100%;
 	height: 100%;
 	object-fit: cover;
-	aspect-ratio: 9/16;
+	aspect-ratio: 9/15;
 }
 .abItemTitle{
 	width: 30%;
