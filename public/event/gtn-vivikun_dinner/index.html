@@ -15,7 +15,6 @@
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
 </head>
 <style>
-  /* お知らせ文を中央寄せにする */
   .center-message {
 	text-align: center;
 	margin: 30px auto;
@@ -23,13 +22,9 @@
 	line-height: 1.6;
 	max-width: 90%;
   }
-
-  /* フォーム全体に余白を追加して見やすくする */
   form {
 	padding: 20px;
   }
-
-  /* 送信ボタン中央揃え + 余白 */
   input[type="submit"] {
 	display: block;
 	margin: 30px auto;
@@ -41,228 +36,206 @@
 	border-radius: 5px;
 	cursor: pointer;
   }
-
   input[type="submit"]:hover {
 	background-color: #0056b3;
   }
 </style>
 
-
-
 <body>
 	<div id="content">
-	<!-- <span class="view_timer" data-start-date="2026/4/26 18:59"><p class="end-msg">コラボランチのご予約は終了しました</p></span> -->
-	
-	<!-- 応募開始前メッセージ（3/28 12:00まで表示） -->
-	<div class="view_timer" data-end-date="2026/3/23 17:30">
-	  <p class="center-message">3月28日(土)昼12時から応募スタート！</p>
-	</div>
-	
-	<div class="view_timer" data-start-date="2026/3/23 17:30" data-end-date="">
+
+		<!-- チラシ画像：常に表示 -->
 		<div class="top_con wow fadeIn">
 			<picture>
-				<!--source src="./_assets/img/#.webp" type="image/webp"/>-->
 				<img src="./_assets/img/gtn_vivikun_dinner-buffet.jpg?v=2" width="100%" height="auto" alt="ガーデンテラス長崎ホテル&リゾート×V•ファーレン長崎　ディナービュッフェにヴィヴィくんがやってくる!">
+			</picture>
 		</div>
-	<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
-	  <input type="hidden" name="key" value="72d8d082339109">
-	  <h1>ガーデンテラス長崎×V•ファーレン長崎 <br>コラボディナービュッフェ応募フォーム</h1>
-	
-	<div class="form-area view_timer" data-end-date="">
-	  <span class="formItem">
-	  <p class="itemText">
-		代表者名<span class="hissu">必須</span>
-	  </p>
-	  <p class="itemContent">
-		<input name="field_5793285" type="text" value="" size="30"  placeholder="山田 花子" style="margin-bottom: 10px;"><br>
-		</p>
-	</span>
-	  <!-- text -->
-	  <span class="formItem">
-	  <p class="itemText">
-		  フリガナ<span class="hissu">必須</span>
-		</p>
-	  <p class="itemContent">
-		<input name="field_5793286" type="text" value="" size="30"  placeholder="ヤマダ　ハナコ" >
-	  </p>
-	</span>
-	  <!-- email -->
-	  <span class="formItem">
-	  <p class="itemText">
-		メールアドレス<span class="hissu">必須</span>
-	  </p>
-	  <p class="itemContent">
-		<input name="field_5793287" type="text" size="30" placeholder="info@example.com">
-	  </p>
-	</span>
-	  <!-- text -->
-	  <span class="formItem">
-	  <p class="itemText">
-		年齢<span class="hissu">必須</span>
-	  </p>
-	  <p class="itemContent">
-		<input name="field_5793288" type="text" value="" size="30"   >
-	  </p>
-	</span>
-	  <!-- phone -->
-	  <span class="formItem">
-	 <p class="itemText">
-		 電話番号<span class="hissu">必須</span>
-	   </p>
-	  <p class="itemContent">
-		ホテルスタッフから以下よりご連絡させていただきます<br>
-		<span style="font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(34, 34, 34); color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(255, 255, 255); float: none; display: inline !important;" id="isPasted">TEL:0570-014-173</span><br>
-		<input name="field_5793289" type="text" placeholder="090-0000-0000">
-	  </p>
-	</span>
-	  <!-- address -->
-	  <span class="formItem">
-	  <p class="itemText">
-		   住所<span class="hissu">必須</span>
-		 </p>
-	  <p class="itemContent">
-		〒<input name="field_5793290_zip" type="text" maxlength="7"><br>
-		都道府県<br>
-		<select name="field_5793290_pref">
-		  <option value="">----</option>
-		  <option value="北海道">北海道</option>
-		  <option value="青森県">青森県</option>
-		  <option value="岩手県">岩手県</option>
-		  <option value="宮城県">宮城県</option>
-		  <option value="秋田県">秋田県</option>
-		  <option value="山形県">山形県</option>
-		  <option value="福島県">福島県</option>
-		  <option value="茨城県">茨城県</option>
-		  <option value="栃木県">栃木県</option>
-		  <option value="群馬県">群馬県</option>
-		  <option value="埼玉県">埼玉県</option>
-		  <option value="千葉県">千葉県</option>
-		  <option value="東京都">東京都</option>
-		  <option value="神奈川県">神奈川県</option>
-		  <option value="新潟県">新潟県</option>
-		  <option value="富山県">富山県</option>
-		  <option value="石川県">石川県</option>
-		  <option value="福井県">福井県</option>
-		  <option value="山梨県">山梨県</option>
-		  <option value="長野県">長野県</option>
-		  <option value="岐阜県">岐阜県</option>
-		  <option value="静岡県">静岡県</option>
-		  <option value="愛知県">愛知県</option>
-		  <option value="三重県">三重県</option>
-		  <option value="滋賀県">滋賀県</option>
-		  <option value="京都府">京都府</option>
-		  <option value="大阪府">大阪府</option>
-		  <option value="兵庫県">兵庫県</option>
-		  <option value="奈良県">奈良県</option>
-		  <option value="和歌山県">和歌山県</option>
-		  <option value="鳥取県">鳥取県</option>
-		  <option value="島根県">島根県</option>
-		  <option value="岡山県">岡山県</option>
-		  <option value="広島県">広島県</option>
-		  <option value="山口県">山口県</option>
-		  <option value="徳島県">徳島県</option>
-		  <option value="香川県">香川県</option>
-		  <option value="愛媛県">愛媛県</option>
-		  <option value="高知県">高知県</option>
-		  <option value="福岡県">福岡県</option>
-		  <option value="佐賀県">佐賀県</option>
-		  <option value="長崎県">長崎県</option>
-		  <option value="熊本県">熊本県</option>
-		  <option value="大分県">大分県</option>
-		  <option value="宮崎県">宮崎県</option>
-		  <option value="鹿児島県">鹿児島県</option>
-		  <option value="沖縄県">沖縄県</option>
-		  <option value="その他">その他</option>
-		</select><br>
-		市区町村<br>
-		<input name="field_5793290_city" type="text"><br>
-		番地<br>
-		<input name="field_5793290_block" type="text"><br>
-		マンション・ビル名<br>
-		<input name="field_5793290_building" type="text">
-	  </p>
-	</span>
-	  <!-- border -->
-	  
-	 <span class="formItem">
-	   <p class="itemText">
-		 大人<br>
-		 7,000円(税込) <span class="hissu">必須</span>
-	   </p>
-	   <p class="itemContent">
-		 <input name="field_5793292" type="text" value="" size="30" placeholder="0人">
-	   </p>
-	   
-	   <span class="formItem">
-		  <p class="itemText">
-			小学生以下<br>
-			2,000円(税込)<span class="hissu">必須</span>
-		  </p>
-		  <p class="itemContent">
-			<input name="field_5793294" type="text" value="" size="30" placeholder="0人">
-		  </p>
-	
-<span class="formItem">
-	 <p class="itemText">
-	   同伴者名<br>
-	   <span style="color: red; font-size: smaller;">※ご一緒に参加される同伴者名を<br>フルネームでご記入ください。<br>
-	  </span>
-	 </p>
-	 
-	 <div class="itemContent">
-	   <div class="entry">
-		 <span class="entry-number">1.</span><br>
-		 <input name="field_5793296_sei" type="text" placeholder="名前"><br>
-		 <input name="field_5793296_mei" type="text" placeholder="カタカナ"><br>
-	   </div>
-	   <div class="entry">
-		 <span class="entry-number">2.</span><br>
-		 <input name="field_5793297_sei" type="text" placeholder="名前"><br>
-		 <input name="field_5793297_mei" type="text" placeholder="カタカナ"><br>
-	   </div>
-	   <div class="entry">
-		 <span class="entry-number">3.</span><br>
-		 <input name="field_5793298_sei" type="text" placeholder="名前"><br>
-		 <input name="field_5793298_mei" type="text" placeholder="カタカナ"><br>
-	   </div>
-	   <div class="entry">
-		 <span class="entry-number">4.</span><br>
-		 <input name="field_5793299_sei" type="text" placeholder="名前"><br>
-		 <input name="field_5793299_mei" type="text" placeholder="カタカナ"><br>
-	   </div>
-	   <div class="entry">
-		 <span class="entry-number">5.</span><br>
-		 <input name="field_5793300_sei" type="text" placeholder="名前"><br>
-		 <input name="field_5793300_mei" type="text" placeholder="カタカナ"><br>
-	   </div>
-	 </div>
-	
-	  <!-- textarea -->
-	  <span class="formItem">
-	 <p class="itemText">
-		ご質問・ご要望など</span>
-	   </p>
-	  <p class="itemContent">
-		※事前に伝えておきたいことがあればご記入ください。
-		<textarea name="field_5793301" cols="30" rows="5"   ></textarea><br>
-	  </p>
-	  </span>
-	  
-	  <div class="center-message">
-	   <p style="margin-bottom: 1px; font-size: 0.9rem;">お申し込み確認後式場よりご連絡がございましたらご予約確定となります。<br>3営業日以内に連絡がない場合はガーデンテラス長崎までお問い合わせください。
-	   </p>
-	  </div>
 
+		<!-- 応募開始前メッセージ（3/28 12:00まで表示） -->
+		<div class="view_timer" data-end-date="2026/3/23 17:40">
+			<p class="center-message">3月28日(土)昼12時から応募スタート！</p>
+		</div>
 
-	 <div class="submit-wrapper" style="display: flex; justify-content: center; align-items: center; margin-top: 8px;">
-	   <input name="submit" type="submit" value="送信する" class="submit-button">
-	   <input type="hidden" name="code" value="utf8">
-	 </div>
+		<!-- フォーム本体（3/28 12:00から表示） -->
+		<div class="view_timer" data-start-date="2026/3/23 17:40" data-end-date="">
+			<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
+			  <input type="hidden" name="key" value="72d8d082339109">
+			  <h1>ガーデンテラス長崎×V•ファーレン長崎 <br>コラボディナービュッフェ応募フォーム</h1>
 
-<!--div class="form">
-	<div class="formmailer-embed" data-form-hash="72d8d082339109" data-form-host="business.form-mailer.jp"></div>
-</div>-->
-<!-- <script src="./_assets/js/wow/dist/wow.min.js"></script> -->
+			<div class="form-area">
+			  <span class="formItem">
+				<p class="itemText">代表者名<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					<input name="field_5793285" type="text" value="" size="30" placeholder="山田 花子" style="margin-bottom: 10px;"><br>
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">フリガナ<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					<input name="field_5793286" type="text" value="" size="30" placeholder="ヤマダ　ハナコ">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">メールアドレス<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					<input name="field_5793287" type="text" size="30" placeholder="info@example.com">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">年齢<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					<input name="field_5793288" type="text" value="" size="30">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">電話番号<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					ホテルスタッフから以下よりご連絡させていただきます<br>
+					TEL:0570-014-173<br>
+					<input name="field_5793289" type="text" placeholder="090-0000-0000">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">住所<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					〒<input name="field_5793290_zip" type="text" maxlength="7"><br>
+					都道府県<br>
+					<select name="field_5793290_pref">
+					  <option value="">----</option>
+					  <option value="北海道">北海道</option>
+					  <option value="青森県">青森県</option>
+					  <option value="岩手県">岩手県</option>
+					  <option value="宮城県">宮城県</option>
+					  <option value="秋田県">秋田県</option>
+					  <option value="山形県">山形県</option>
+					  <option value="福島県">福島県</option>
+					  <option value="茨城県">茨城県</option>
+					  <option value="栃木県">栃木県</option>
+					  <option value="群馬県">群馬県</option>
+					  <option value="埼玉県">埼玉県</option>
+					  <option value="千葉県">千葉県</option>
+					  <option value="東京都">東京都</option>
+					  <option value="神奈川県">神奈川県</option>
+					  <option value="新潟県">新潟県</option>
+					  <option value="富山県">富山県</option>
+					  <option value="石川県">石川県</option>
+					  <option value="福井県">福井県</option>
+					  <option value="山梨県">山梨県</option>
+					  <option value="長野県">長野県</option>
+					  <option value="岐阜県">岐阜県</option>
+					  <option value="静岡県">静岡県</option>
+					  <option value="愛知県">愛知県</option>
+					  <option value="三重県">三重県</option>
+					  <option value="滋賀県">滋賀県</option>
+					  <option value="京都府">京都府</option>
+					  <option value="大阪府">大阪府</option>
+					  <option value="兵庫県">兵庫県</option>
+					  <option value="奈良県">奈良県</option>
+					  <option value="和歌山県">和歌山県</option>
+					  <option value="鳥取県">鳥取県</option>
+					  <option value="島根県">島根県</option>
+					  <option value="岡山県">岡山県</option>
+					  <option value="広島県">広島県</option>
+					  <option value="山口県">山口県</option>
+					  <option value="徳島県">徳島県</option>
+					  <option value="香川県">香川県</option>
+					  <option value="愛媛県">愛媛県</option>
+					  <option value="高知県">高知県</option>
+					  <option value="福岡県">福岡県</option>
+					  <option value="佐賀県">佐賀県</option>
+					  <option value="長崎県">長崎県</option>
+					  <option value="熊本県">熊本県</option>
+					  <option value="大分県">大分県</option>
+					  <option value="宮崎県">宮崎県</option>
+					  <option value="鹿児島県">鹿児島県</option>
+					  <option value="沖縄県">沖縄県</option>
+					  <option value="その他">その他</option>
+					</select><br>
+					市区町村<br>
+					<input name="field_5793290_city" type="text"><br>
+					番地<br>
+					<input name="field_5793290_block" type="text"><br>
+					マンション・ビル名<br>
+					<input name="field_5793290_building" type="text">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">大人<br>7,000円(税込) <span class="hissu">必須</span></p>
+				<p class="itemContent">
+					<input name="field_5793292" type="text" value="" size="30" placeholder="0人">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">小学生以下<br>2,000円(税込)<span class="hissu">必須</span></p>
+				<p class="itemContent">
+					<input name="field_5793294" type="text" value="" size="30" placeholder="0人">
+				</p>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">
+					同伴者名<br>
+					<span style="color: red; font-size: smaller;">※ご一緒に参加される同伴者名を<br>フルネームでご記入ください。</span>
+				</p>
+				<div class="itemContent">
+				  <div class="entry">
+					<span class="entry-number">1.</span><br>
+					<input name="field_5793296_sei" type="text" placeholder="名前"><br>
+					<input name="field_5793296_mei" type="text" placeholder="カタカナ"><br>
+				  </div>
+				  <div class="entry">
+					<span class="entry-number">2.</span><br>
+					<input name="field_5793297_sei" type="text" placeholder="名前"><br>
+					<input name="field_5793297_mei" type="text" placeholder="カタカナ"><br>
+				  </div>
+				  <div class="entry">
+					<span class="entry-number">3.</span><br>
+					<input name="field_5793298_sei" type="text" placeholder="名前"><br>
+					<input name="field_5793298_mei" type="text" placeholder="カタカナ"><br>
+				  </div>
+				  <div class="entry">
+					<span class="entry-number">4.</span><br>
+					<input name="field_5793299_sei" type="text" placeholder="名前"><br>
+					<input name="field_5793299_mei" type="text" placeholder="カタカナ"><br>
+				  </div>
+				  <div class="entry">
+					<span class="entry-number">5.</span><br>
+					<input name="field_5793300_sei" type="text" placeholder="名前"><br>
+					<input name="field_5793300_mei" type="text" placeholder="カタカナ"><br>
+				  </div>
+				</div>
+			  </span>
+
+			  <span class="formItem">
+				<p class="itemText">ご質問・ご要望など</p>
+				<p class="itemContent">
+					※事前に伝えておきたいことがあればご記入ください。
+					<textarea name="field_5793301" cols="30" rows="5"></textarea><br>
+				</p>
+			  </span>
+
+			  <div class="center-message">
+				<p style="margin-bottom: 1px; font-size: 0.9rem;">お申し込み確認後式場よりご連絡がございましたらご予約確定となります。<br>3営業日以内に連絡がない場合はガーデンテラス長崎までお問い合わせください。</p>
+			  </div>
+
+			  <div class="submit-wrapper" style="display: flex; justify-content: center; align-items: center; margin-top: 8px;">
+				<input name="submit" type="submit" value="送信する" class="submit-button">
+				<input type="hidden" name="code" value="utf8">
+			  </div>
+
+			</div>
+			</form>
+		</div><!-- /view_timer フォーム -->
+
+	</div><!-- /content -->
+
 <script>
   $(document).ready(function() {
 	$(".view_timer").each(function(index, target) {
@@ -284,7 +257,6 @@
 	  }
 	});
   });
-  </script>
-  </div>
+</script>
 </body>
 </html>
