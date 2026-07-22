@@ -5,15 +5,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "/api/**",
-        "run": {
-          "serviceId": "shokai-form",
-          "region": "asia-northeast1"
-        }
-      }
     ]
   }
 }
