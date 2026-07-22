@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 特別ご招待カード｜結婚式で、ありがとうを伝えよう。｜メモリード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --gold:#b3924c; --gold-d:#94763a; --navy:#1d3f8f; --ink:#3c3a35;
+    --paper:#f8f6f1; --line:#ddd5c4; --sky:#dcebf3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Serif JP",serif;color:var(--ink);background:#fff;line-height:1.9;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  .en{font-family:"Cormorant Garamond","Noto Serif JP",serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+  /* ===== hero (SPメイン: PDFの面をそのまま縦画面いっぱいに) ===== */
+  .hero{position:relative;background:#d7e7f1;display:flex;justify-content:center;overflow:hidden}
+  .hero img.mv{width:100%;height:100svh;min-height:560px;object-fit:cover;object-position:center top}
+  @media(min-width:761px){
+    .hero img.mv{width:auto;max-width:100%;height:100svh}
+  }
+  .hero .cta{position:absolute;left:50%;transform:translateX(-50%);bottom:max(26px,env(safe-area-inset-bottom))}
+  .cta{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;letter-spacing:.22em;font-size:15px;padding:15px 46px;border-radius:999px;box-shadow:0 3px 12px rgba(60,50,30,.35);transition:.25s;white-space:nowrap}
+  .cta:hover{background:var(--gold-d)}
+
+  /* ===== section common ===== */
+  section{padding:64px 0}
+  .sec-head{text-align:center;margin-bottom:38px}
+  .sec-head .en-t{font-size:clamp(21px,3.2vw,28px);letter-spacing:.3em;color:var(--gold-d)}
+  .sec-head .ja-t{font-size:13.5px;letter-spacing:.2em;margin-top:6px;color:#7c7466}
+
+  /* ===== gift (PDFの表記をそのまま再現) ===== */
+  .gift{background:var(--paper)}
+  .gift-box{background:#a39058;border-radius:14px;max-width:400px;margin:0 auto;padding:26px 28px 22px;color:#fff;text-align:left;box-shadow:0 4px 14px rgba(120,100,50,.25)}
+  .gift-box .l1{font-size:clamp(17px,4.6vw,21px);letter-spacing:.12em;font-weight:500}
+  .gift-box .l2{line-height:1.15;margin-top:2px;white-space:nowrap}
+  .gift-box .l2 .num{font-size:clamp(46px,13vw,62px);font-weight:400;letter-spacing:.02em}
+  .gift-box .l2 .unit{font-size:clamp(20px,5.6vw,26px);letter-spacing:.08em;margin-left:2px}
+  .gift-box .l3{font-size:clamp(10.5px,2.9vw,12.5px);letter-spacing:.04em;margin-top:8px}
+  /* ===== campaign (内容面) ===== */
+  .camp-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;max-width:900px;margin:0 auto}
+  @media(max-width:760px){.camp-grid{grid-template-columns:1fr;gap:36px}}
+  .camp-sub{font-size:clamp(14px,3.8vw,17px);letter-spacing:.14em;color:var(--gold-d);font-weight:600}
+  .camp-title{font-size:clamp(34px,9vw,46px);letter-spacing:.08em;font-weight:600;color:#a08a52;line-height:1.4;border-top:1px solid #a08a52;border-bottom:1px solid #a08a52;padding:10px 0;margin:12px 0 18px}
+  .camp-lead{font-size:clamp(14px,3.9vw,15.5px);font-weight:500;margin-bottom:20px}
+  .tokuten-pill{background:#a39058;color:#fff;text-align:center;font-size:clamp(15px,4.2vw,17px);letter-spacing:.2em;font-weight:600;border-radius:999px;padding:8px 10px;margin-bottom:18px}
+  .tk-head{font-size:clamp(15px,4.2vw,16.5px);font-weight:600;letter-spacing:.04em;margin-top:10px}
+  .tk-list{list-style:none;margin:4px 0 10px}
+  .tk-list li{font-size:clamp(14.5px,4vw,16px);font-weight:500;padding:4px 0;display:flex;align-items:baseline;gap:6px}
+  .tk-list li::before{content:"●";color:#a39058;font-size:12px;flex:none}
+  .tk-list .tk-val{margin-left:auto;white-space:nowrap;padding-left:10px}
+  .tk-notes{font-size:clamp(12.5px,3.4vw,13.5px);line-height:2;margin-top:14px}
+
+  /* ===== venues ===== */
+  .venue-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 44px;border-top:1px solid var(--line)}
+  @media(max-width:700px){.venue-grid{grid-template-columns:1fr}}
+  .venue{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:13px 4px;border-bottom:1px solid var(--line);font-size:14.5px}
+  .venue .nm::before{content:"□";color:var(--gold);margin-right:10px;font-size:13px}
+  .venue a{color:var(--ink);text-decoration:none;letter-spacing:.04em;white-space:nowrap;font-size:13.5px}
+  .venue a:hover{color:var(--gold-d)}
+  .venues-photo{margin-top:44px}
+  .venues-photo img{width:100%;max-height:420px;object-fit:cover;object-position:center 30%}
+
+  /* ===== form ===== */
+  .entry{background:linear-gradient(180deg,#fff 0%,var(--paper) 100%)}
+  .form-card{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--line);padding:38px 34px;box-shadow:0 2px 14px rgba(60,50,30,.06)}
+  @media(max-width:640px){.form-card{padding:28px 18px}}
+  label{display:block;font-size:14px;font-weight:600;letter-spacing:.08em;margin:18px 0 8px}
+  label .req{background:#c0392b;color:#fff;font-size:10.5px;padding:1px 7px;border-radius:3px;margin-left:8px;vertical-align:2px;font-weight:400}
+  select,input,textarea{width:100%;padding:12px 14px;font-size:15px;border:1px solid #cfc8b8;border-radius:6px;background:#fdfdfb;font-family:inherit}
+  textarea{min-height:120px;resize:vertical}
+  .submit{margin-top:28px;width:100%;padding:16px;font-size:16px;letter-spacing:.25em;font-weight:600;color:#fff;background:var(--gold);border:0;border-radius:999px;cursor:pointer;transition:.25s}
+  .submit:hover{background:var(--gold-d)}
+  .submit:disabled{opacity:.6;cursor:default}
+  .msg{margin-top:18px;padding:13px;border-radius:8px;font-size:14px;display:none}
+  .msg.ok{background:#eef7ee;color:#2e5d34;display:block}
+  .msg.ng{background:#fdf0ef;color:#a33;display:block}
+  .hint{font-size:12px;color:#8b8577;margin-top:5px}
+
+  footer{background:var(--paper);border-top:1px solid var(--line);text-align:center;padding:30px 10px}
+  footer img{height:40px;width:auto;margin:0 auto 8px;mix-blend-mode:multiply}
+  footer .url{font-size:12.5px;letter-spacing:.1em;color:#7c7466}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO (PDFの面をそのまま使用) ============ -->
+<header class="hero">
+  <img class="mv" src="img/mv.jpg" alt="結婚式でありがとうを伝えよう — ブーケを持つ花嫁 memolead" />
+  <a class="cta" href="#entry">紹介フォームへ</a>
+</header>
+
+<!-- ============ CAMPAIGN (カード内容面をそのまま反映) ============ -->
+<section class="gift">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="en-t en">INTRODUCTION CARD</div>
+      <div class="ja-t">2026 特別ご招待カード</div>
+    </div>
+    <div class="camp-grid">
+
+      <div class="camp-left">
+        <p class="camp-sub">メモリード新社ロゴ記念</p>
+        <h2 class="camp-title">ご結婚紹介<br />キャンペーン</h2>
+        <p class="camp-lead">これからもたくさんの幸せなカップルのお手伝いをさせていただきたく、ご紹介キャンペーンを開催中です。<br />ご紹介者（紹介してくれた方）には</p>
+        <div class="gift-box">
+          <p class="l1">ご来館でギフトカード</p>
+          <p class="l2"><span class="num en">5,000</span><span class="unit">円分進呈</span></p>
+          <p class="l3">※今後結婚式のご予定があるお客様に限ります</p>
+        </div>
+      </div>
+
+      <div class="camp-right">
+        <p class="tokuten-pill">特別ご優待特典</p>
+        <p class="tk-head">【相談会ご優待特典】</p>
+        <ul class="tk-list">
+          <li>相談会時、コース料理無料試食（2名分）</li>
+        </ul>
+        <p class="tk-head">【ご成約ご優待特典】</p>
+        <ul class="tk-list">
+          <li>ウエディングドレス特典<span class="tk-val">20万相当割引</span></li>
+          <li>タキシード特典<span class="tk-val">10万相当割引</span></li>
+          <li>宿泊特典（1泊2日朝食付き）</li>
+        </ul>
+        <div class="tk-notes">
+          ※時期・人数により条件がございますので担当者までお問い合わせください。<br />
+          ※このカードを必ずご持参ください。<br />
+          ※特典は未予約にてのご来館、ご成約に限らせていただきます。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ VENUES ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="en-t en">VENUES</div>
+      <div class="ja-t">対象式場一覧</div>
+    </div>
+    <div class="venue-grid" id="venues">
+      <!-- JSで生成(サーバー停止時は下のnoscript的フォールバックを表示) -->
+    </div>
+    <div class="venues-photo"><img src="img/chapel.jpg" alt="チャペルの前に立つ花嫁" /></div>
+  </div>
+</section>
+
+<!-- ============ ENTRY FORM ============ -->
+<section class="entry" id="entry">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="en-t en">ENTRY FORM</div>
+      <div class="ja-t">紹介フォーム</div>
+    </div>
+    <div class="form-card">
+      <form id="form">
+        <label for="category">ご希望の式場<span class="req">必須</span></label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="gt-nagasaki">ガーデンテラス長崎ホテル＆リゾート</option>
+          <option value="flags-isahaya">ホテルフラッグス諫早</option>
+          <option value="flags-sasebo">ホテルフラッグス佐世保九十九島</option>
+          <option value="gt-saga">ガーデンテラス佐賀ホテル＆リゾート</option>
+          <option value="rc-imari">ロイヤルチェスター伊万里</option>
+          <option value="gt-fukuoka">ガーデンテラス福岡ホテル＆リゾート</option>
+          <option value="rc-fukuoka">ロイヤルチェスター福岡</option>
+          <option value="grandbells-iizuka">グランドベルズ飯塚</option>
+        </select>
+        <p class="hint">選んだ式場の担当窓口へ自動的に通知されます。</p>
+
+        <label for="name">お名前<span class="req">必須</span></label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">メールアドレス<span class="req">必須</span></label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="phone">連絡先（携帯電話番号）<span class="req">必須</span></label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09012345678" required />
+
+        <label for="message">お問い合わせ内容</label>
+        <textarea id="message" name="message" placeholder="ご希望の日程、人数、ご質問など"></textarea>
+
+        <button id="submit" class="submit" type="submit">申し込む</button>
+      </form>
+      <div id="result" class="msg"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="img/logo.png" alt="memolead メモリード" />
+  <div class="url en">www.memolead.co.jp</div>
+</footer>
+
+<script>
+  // ============================================================
+  // APIの接続先
+  //  ・server.js と同じドメインで配信する場合 → "" のままでOK
+  //  ・LPをFirebase Hosting等の静的配信に置き、APIを別のCloud Run
+  //    サービスにした場合 → そのURLを設定
+  //    例: const API_BASE = "https://shokai-form-xxxxx-an.a.run.app";
+  //  ・firebase.json で /api/** をCloud Runにリライトする場合も "" のままでOK
+  // ============================================================
+  const API_BASE = "";
+
+  // ===== 式場一覧(電話番号付き)。categories.jsと同じ内容の表示用データ =====
+  const VENUES = [
+    ["ロイヤルチェスター長崎 ホテル＆リトリート", "095-856-1101"],
+    ["ガーデンテラス長崎 ホテル＆リゾート", "095-864-7777"],
+    ["ホテルフラッグス諫早", "0957-22-3360"],
+    ["パークベルズ大村", "0957-54-3131"],
+    ["ホテルフラッグス佐世保九十九島", "0956-28-2111"],
+    ["ロイヤルチェスター佐賀", "0952-24-0001"],
+    ["アイランドヒルズ迎賓館", "0120-162-821"],
+    ["ガーデンテラス佐賀 ホテル＆リゾート", "0952-23-0111"],
+    ["ロイヤルチェスター伊万里", "0955-22-2021"],
+    ["ホワイトハウス伊万里", "0955-22-2021"],
+    ["ロイヤルチェスター福岡", "092-588-6688"],
+    ["アルカーサル・アヴィオ", "092-665-0077"],
+    ["ガーデンテラス福岡 ホテル＆リゾート", "092-881-0007"],
+    ["グランドベルズ飯塚", "0948-22-3543"],
+  ];
+  const vg = document.getElementById("venues");
+  for (const [nm, tel] of VENUES) {
+    const d = document.createElement("div");
+    d.className = "venue";
+    d.innerHTML = '<span class="nm">' + nm + '</span><a href="tel:' + tel.replaceAll("-", "") + '">TEL ' + tel + "</a>";
+    vg.appendChild(d);
+  }
+
+  // ===== フォーム =====
+  const sel = document.getElementById("category");
+  const form = document.getElementById("form");
+  const result = document.getElementById("result");
+  const submitBtn = document.getElementById("submit");
+
+  // サーバー起動中は対応表(categories.js)の内容でドロップダウンを置き換える。
+  // ファイルを直接開いた場合は上の静的な式場リストをそのまま使う。
+  fetch(API_BASE + "/api/categories")
+    .then((r) => r.json())
+    .then((items) => {
+      if (!Array.isArray(items) || items.length === 0) return;
+      sel.innerHTML = '<option value="" disabled selected>選択してください</option>';
+      for (const it of items) {
+        const opt = document.createElement("option");
+        opt.value = it.key;
+        opt.textContent = it.label;
+        sel.appendChild(opt);
+      }
+    })
+    .catch(() => {});
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    result.className = "msg";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "送信中...";
+
+    const payload = {
+      category: sel.value,
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      message: document.getElementById("message").value || "（本文なし）",
+    };
+
+    try {
+      const r = await fetch(API_BASE + "/api/notify", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await r.json();
+      if (data.ok) {
+        result.className = "msg ok";
+        result.textContent = "お申し込みありがとうございました。担当（" + data.sentTo + "）に通知されました。";
+        form.reset();
+      } else {
+        result.className = "msg ng";
+        result.textContent = data.error || "送信に失敗しました。";
+      }
+    } catch (err) {
+      result.className = "msg ng";
+      result.textContent = "通信エラーが発生しました。";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "申し込む";
+    }
+  });
+</script>
+</body>
+</html>
