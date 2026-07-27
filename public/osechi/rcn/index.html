@@ -117,11 +117,11 @@
 				受け取り方法<span class="hissu">必須</span>
 			  </p>
 			  <p class="itemContent">
-				<select name="field_5226308">
+				<select name="field_5226308" id="receiveMethod">
 				  <option value="">------</option>
 				  <option value="0" >店舗受取(ロイヤルチェスター長崎ホテル&リトリート)</option>
 				  <option value="1" >配送希望（+2,000円）</option>
-				  <option value="2" >配送希望（0円）9月迄</option>
+				  <option value="2" id="freeDelivery" >配送希望（0円）9月迄</option>
 				</select>
 			  </p>
 			  </span>
@@ -274,5 +274,16 @@
 	  });
 	  </script>
 
+<script>
+	  
+	  document.addEventListener("DOMContentLoaded", function () {
+		const endDate = new Date("2026-07-27T17:59:59");
+		const option = document.getElementById("freeDelivery");
+		if (new Date() > endDate) {
+		  option.remove();
+		}
+	  });
+	  
+	  </script>
 </body>
 </html>
