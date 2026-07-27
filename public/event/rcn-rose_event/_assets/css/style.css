@@ -201,12 +201,151 @@ margin-bottom: 250px;
 	width: calc(50% - 20px);
   }
 
-
-
-
-
+/* ▼追加：サイト全体のフォント指定（洋風） */
   
+  body {
+      font-family: "EB Garamond", "Times New Roman", "游明朝体", "Yu Mincho", "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", serif;
+    }
+    
+    /* ▼追加：お名前以降のみ背景を白に */
+    
+    .form-area .form-fields {
+      background-color: #ffffff;
+      padding: 50px 40px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    
+    /* ▼追加：フォームメーラー風スタイル */
+    
+    .form-area form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* ラベル（*お名前 などの見出し文字）を左寄せに */
+    .form-area form p {
+      text-align: left;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      margin-top: 25px;
+      margin-bottom: 8px;
+      margin-top: 20px;    /* labelなしの p (姓・名など) にも余白を追加 */
+      margin-bottom: 10px;
+    }
+    
+    .form-area .form-label {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    
+    .form-area .required-badge {
+      background-color: #e53935;
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    
+    .form-area .optional-badge {
+      background-color: #e0e0e0;
+      color: #666;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    
+    .form-area input[type="text"],
+    .form-area textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .form-area textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* 姓・名を横並びに */
+    .form-area p:has(+ p input[name$="_sei"]) {
+      margin-bottom: 5px;
+    }
+    
+    /* ボタン */
+    .form-area input[type="submit"] {
+      display: block;
+      width: 100%;
+      background-color: #1f3a5f;
+      color: #fff;
+      border: none;
+      padding: 18px;
+      font-size: 17px;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+      cursor: pointer;
+      margin-top: 30px;
+      font-family: inherit;
+    }
+    
+    .form-area input[type="submit"]:hover {
+      background-color: #1565c0;
+    }
+    
+    .form-area hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
 
+
+  /* ▼追加：必須バッジ */
+  
+  .form-area .required-badge {
+    display: inline-block;
+    background-color: #c0603a;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 14px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+  
+ /* ▼修正：項目間の余白を広げる */
+ 
+ .form-area form p:has(> .required-badge),
+ .form-area form p:has(> .optional-badge) {
+   padding-bottom: 10px;
+   border-bottom: 1px solid #e0e0e0;
+   margin-top: 45px;   /* 40px→45pxに拡大 */
+ }
+
+/* ▼追加：参加人数の入力欄を狭く、「名」を横に */
+ 
+ .form-area input[name="field_6209478"] {
+   width: 250px !important;
+   display: inline-block;
+   margin-right: 10px;
+   margin-bottom: 0;
+ }
+ 
+ .form-area p:has(> input[name="field_6209478"]) {
+   display: flex;
+   align-items: center;
+ }
 
 @media only screen and (max-width: 767px) {
   .food-content {
