@@ -183,6 +183,14 @@
         <label for="phone">連絡先（携帯電話番号）<span class="req">必須</span></label>
         <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09012345678" required />
 
+        <label for="referrer">紹介者<span class="req">必須</span></label>
+        <input id="referrer" name="referrer" type="text" required />
+        <p class="hint">無い場合は「無し」とご記入ください。</p>
+
+        <label for="staff">担当<span class="req">必須</span></label>
+        <input id="staff" name="staff" type="text" required />
+        <p class="hint">無い場合は「無し」とご記入ください。</p>
+
         <label for="message">お問い合わせ内容</label>
         <textarea id="message" name="message" placeholder="ご希望の日程、人数、ご質問など"></textarea>
 
@@ -267,6 +275,8 @@
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       phone: document.getElementById("phone").value,
+      referrer: document.getElementById("referrer").value,
+      staff: document.getElementById("staff").value,
       message: document.getElementById("message").value || "（本文なし）",
     };
 
