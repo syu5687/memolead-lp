@@ -1,0 +1,634 @@
+.sub_mv {
+  margin-bottom: 50px;
+}
+
+.food-content {
+  padding-top: 175px;
+  text-align: center;
+  padding-bottom: 150px;
+}
+
+.extra {
+margin-top: 55px;
+margin-bottom: 250px;
+}
+.extra .extra-title {
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 85px;
+}
+
+.extra .extra-list {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+}
+
+.extra .extra-list .extra-content {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  position: relative;
+}
+.extra .extra-list .extra-content .extra-left {
+  width: 120px;
+  font-size: 16px;
+  line-height: 30px;
+}
+.extra .extra-list .extra-content .extra-right {
+  font-size: 18px;
+  line-height: 30px;
+}
+.extra .extra-list .extra-content .extra-right span {
+  font-size: 12px;
+}
+.extra .extra-list .extra-content:after {
+  position: absolute;
+  content: "";
+  display: block;
+  max-width: 440px;
+  width: 100%;
+  bottom: 0;
+  height: 1px;
+  background-color: #707070;
+}
+.extra .extra-body {
+  font-size: 12px;
+  line-height: 20px;
+  list-style-type: disc;
+  list-style-position: outside;
+  -webkit-padding-start: 10rem;
+		  padding-inline-start: 10rem;
+  margin-top: 60px;
+  margin-bottom: 85px;
+}
+
+.extra .extra-btn {
+  max-width: 1024px;
+  margin: auto;
+  padding: 50px 0;
+  width: 100%;
+  border: 1px #707070 solid;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+}
+
+  .extra .extra-btn .btn-content {
+	padding: 20px 2rem;
+	margin-top: 30px;
+  }
+  
+  .extra .extra-btn .btn-red {
+	display: inline-block;
+	color: white;
+	background-color: #C56D72;
+  }
+  .extra .extra-btn > div {
+	width: 50%;
+	height: 155px;
+  }
+  .extra .extra-btn:after {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 0.5px;
+	height: 195px;
+	background-color: #707070;
+	right: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  }
+
+
+.plan .plan-title {
+	font-size: 24px;
+	line-height: 32px;
+	margin-top: 135px;
+	margin-bottom: 55px;
+	text-align: center;
+  }
+  .plan .plan-content {
+	display: flex;
+	margin-bottom: 25px;
+	justify-content: space-between;
+  }
+  
+  .plan .plan-content .plan-right .right-title {
+	font-size: 16px;
+	line-height: 21px;
+	text-align: center;
+	margin-bottom: 25px;
+  }
+  .plan .plan-content .plan-right .right-mid {
+	font-size: 18px;
+	line-height: 30px;
+  }
+  .plan .plan-content .plan-right .right-mid span {
+	font-size: 12px;
+  }
+  .plan .plan-content .plan-right hr {
+	width: 100%;
+	height: 1px;
+	background-color: #707070;
+	margin-top: 0;
+  }
+  
+  
+  
+  .plan .plan-content .plan-right .right-content {
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom: 15px;
+	width: 20%;
+  }
+  
+  .plan .plan-content .plan-right .right-content2 {
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom: 15px;
+  }
+
+  
+  .plan .plan-content .plan-right .plan-wrap {
+	display: flex;
+	margin-bottom: 20px;
+  }
+  
+  .plan .plan-content .plan-right .right-body {
+	font-size: 14px;
+	line-height: 30px;
+	width: 80%;
+  }
+  
+  .plan .plan-content .plan-right .right-body .cuisineTitle::before {
+	display: inline-block;
+	margin: 0 3px 0 8px;
+	width: 10px;
+	height: 10px;
+	content: '';
+	border-radius: 100%;
+	background:#c0c0c0;
+  }
+  
+  .plan .plan-content .plan-right .right-body .cuisineImage {
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 11px;
+  }
+  
+  .plan .plan-content .plan-right .right-body2 {
+	font-size: 14px;
+	line-height: 30px;
+  }
+  
+  .plan .plan-content .plan-right .right-sub {
+	  font-size: 13px;
+	  line-height: 25px;
+	  margin-top: 26px;
+  }
+  
+  .plan .plan-content .plan-right {
+	width: calc(50% - 20px);
+  }
+  
+  .plan .plan-content .plan-left {
+	width: calc(50% - 20px);
+  }
+
+/* ▼追加：サイト全体のフォント指定（洋風） */
+  
+  body {
+      font-family: "EB Garamond", "Times New Roman", "游明朝体", "Yu Mincho", "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", serif;
+    }
+    
+    /* ▼追加：お名前以降のみ背景を白に */
+    
+    .form-area .form-fields {
+      background-color: #ffffff;
+      padding: 50px 40px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    
+    /* ▼追加：フォームメーラー風スタイル */
+    
+    .form-area form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* ラベル（*お名前 などの見出し文字）を左寄せに */
+    .form-area form p {
+      text-align: left;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      margin-top: 25px;
+      margin-bottom: 8px;
+      margin-top: 20px;    /* labelなしの p (姓・名など) にも余白を追加 */
+      margin-bottom: 10px;
+    }
+    
+    .form-area .form-label {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    
+    .form-area .required-badge {
+      background-color: #e53935;
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    
+    .form-area .optional-badge {
+      background-color: #e0e0e0;
+      color: #666;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    
+    .form-area input[type="text"],
+    .form-area textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .form-area textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* 姓・名を横並びに */
+    .form-area p:has(+ p input[name$="_sei"]) {
+      margin-bottom: 5px;
+    }
+    
+    /* ボタン */
+    .form-area input[type="submit"] {
+      display: block;
+      width: 100%;
+      background-color: #1f3a5f;
+      color: #fff;
+      border: none;
+      padding: 18px;
+      font-size: 17px;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+      cursor: pointer;
+      margin-top: 30px;
+      font-family: inherit;
+    }
+    
+    .form-area input[type="submit"]:hover {
+      background-color: #1565c0;
+    }
+    
+    .form-area hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
+
+
+  /* ▼追加：必須バッジ */
+  
+  .form-area .required-badge {
+    display: inline-block;
+    background-color: #c0603a;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 14px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+  
+ /* ▼修正：項目間の余白を広げる */
+ 
+ .form-area form p:has(> .required-badge),
+ .form-area form p:has(> .optional-badge) {
+   padding-bottom: 10px;
+   border-bottom: 1px solid #e0e0e0;
+   margin-top: 45px;   /* 40px→45pxに拡大 */
+ }
+
+/* ▼追加：参加人数の入力欄を狭く、「名」を横に */
+ 
+ .form-area input[name="field_6209478"] {
+   width: 250px !important;
+   display: inline-block;
+   margin-right: 10px;
+   margin-bottom: 0;
+ }
+ 
+ .form-area p:has(> input[name="field_6209478"]) {
+   display: flex;
+   align-items: center;
+ }
+
+@media only screen and (max-width: 767px) {
+  .food-content {
+	padding-top: 75px;
+	padding-bottom: 50px;
+  }
+  .extra {
+  margin: 30px 0 150px;
+}
+  .extra .extra-title {
+	margin-bottom: 40px;
+  }
+  .extra .extra-list {
+  grid-template-columns: 100%;
+  max-width: 405px;
+  margin: auto;
+}
+  .extra .extra-body {
+  width: 80%;
+  margin: auto;
+  -webkit-padding-start: 0;
+		  padding-inline-start: 0;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+  .extra .extra-btn {
+  flex-direction: column;
+  max-width: 450px;
+  width: 100%;
+  padding: 30px 0;
+  font-size: 22px;
+  height: 350px;
+}
+  .extra .extra-btn .btn-content {
+	padding: 10px 2rem;
+	margin-top: 15px;
+  }
+  
+  .extra .extra-btn > div {
+	width: 100%;
+	height: auto;
+	height: 100px;
+  }
+  .extra .extra-btn:after {
+	max-width: 350px;
+	width: 95%;
+	height: 1px;
+  }
+}
+
+
+
+.food-content .content-title {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 70px;
+}
+@media only screen and (max-width: 767px) {
+  .food-content .content-title {
+	margin-bottom: 40px;
+  }
+}
+
+.food-detail {
+  margin-bottom: 150px;
+}
+@media only screen and (max-width: 767px) {
+  .food-detail {
+	margin-bottom: 50px;
+  }
+  
+  .food-detail .detail-content .restaurant-menu {
+	margin: 0 auto;
+	text-align: center;
+  }
+  
+  .food-detail .detail-content .restaurant-menu a{
+	background-color: #0D3246;
+	line-height: 30px;
+	text-align: center;
+	color: white;
+	padding: 15px 30px;
+  }
+  
+  
+}
+.food-detail .detail-content .detail-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.food-detail .detail-content .restaurant-menu {
+	margin: 50px auto 50px;
+	text-align: center;
+}
+
+.food-detail .detail-content .restaurant-menu a {
+	background-color: #0D3246;
+	line-height: 30px;
+	text-align: center;
+	color: white;
+	padding: 15px 40px;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-top {
+	flex-direction: column-reverse;
+  }
+}
+.food-detail .detail-content .detail-top .left {
+  width: calc(50% - 30px);
+}
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-top .left {
+	width: 100%;
+  }
+}
+.food-detail .detail-content .detail-top .left .left-title {
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+}
+.food-detail .detail-content .detail-top .left .left-content {
+  font-size: 14px;
+  line-height: 30px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-top .left .left-content {
+	margin-top: 25px;
+	margin-bottom: 30px;
+  }
+}
+.food-detail .detail-content .detail-top .right {
+  width: calc(50% - 30px);
+}
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-top .right {
+	width: 100%;
+	margin-bottom: 30px;
+  }
+}
+.food-detail .detail-content .detail-bottom {
+  max-width: 940px;
+  width: 95%;
+  margin: auto;
+}
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-bottom {
+	width: 100%;
+  }
+}
+.food-detail .detail-content .detail-bottom .bottom-content {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+}
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-bottom .bottom-content {
+	grid-template-columns: 100%;
+	margin: auto;
+	max-width: 405px;
+	margin-bottom: 20px;
+  }
+}
+.food-detail .detail-content .detail-bottom .bottom-content > div {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.food-detail .detail-content .detail-bottom .bottom-content > div .left {
+  width: 100px;
+  background-color: #0D3246;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+}
+.food-detail .detail-content .detail-bottom .bottom-content > div .right {
+  width: calc(100% - 100px);
+  padding-left: 25px;
+  line-height: 20px;
+}
+.food-detail .detail-content .detail-bottom .bottom-list {
+  font-size: 12px;
+  line-height: 20px;
+  list-style-position: outside;
+  list-style: disc;
+}
+@media only screen and (max-width: 767px) {
+  .food-detail .detail-content .detail-bottom .bottom-list {
+	width: 80%;
+	margin: auto;
+  }
+}
+
+.food-map {
+  padding: 90px 0;
+}
+.food-map .map-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 767px) {
+  .food-map .map-content {
+	flex-direction: column-reverse;
+  }
+}
+.food-map .map-content .map-left {
+  width: calc(50% - 20px);
+}
+@media only screen and (max-width: 767px) {
+  .food-map .map-content .map-left {
+	width: 100%;
+  }
+}
+.food-map .map-content .map-left .left-title {
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+}
+.food-map .map-content .map-left .left-content {
+  font-size: 14px;
+  line-height: 30px;
+  margin-top: 30px;
+}
+.food-map .map-content .map-right {
+  width: calc(50% - 20px);
+}
+@media only screen and (max-width: 767px) {
+  .food-map .map-content .map-right {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .plan .plan-content {
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .plan .plan-content .plan-left {
+	width: 90%;
+	text-align: center;
+	margin-bottom: 20px;
+  }
+	
+  .plan .plan-content .plan-left {
+	  width: 90%;
+	  text-align: center;
+	  margin-bottom: 20px;
+  }
+  .plan .plan-content .plan-right {
+	  width: 90%;
+  }
+  .plan .plan-content .plan-right .right-sub {
+	  font-size: 13px;
+	  line-height: 18px;
+	  margin-top: 20px;
+  }
+  
+  .plan .plan-content .plan-right .right-content {
+	  font-size: 16px;
+	  line-height: 30px;
+	  margin-bottom: 15px;
+	  width: 40%;
+  }
+  
+  .plan .plan-content .plan-right .right-body {
+	  font-size: 14px;
+	  line-height: 30px;
+	  width: 60%;
+  }
+
+}
+/*# sourceMappingURL=style.css.map */
