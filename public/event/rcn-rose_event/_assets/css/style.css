@@ -456,6 +456,37 @@ margin-bottom: 250px;
    line-height: 1.6;
    color: #333;
  }
+ 
+ /* ==========================================
+    イベントタイトル部分
+    ========================================== */
+ /* メインタイトル（ザ・ロウズ） */
+ .form-area h1 {
+   font-size: 36px;       /* お好みでサイズを調整してください（例: 36px 〜 42px） */
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+ 
+ /* サブタイトル（ビールメーカーズ夕食会...） */
+ .event-title-sub .large-text {
+   font-size: 38px;       /* 元の30pxから38pxに拡大 */
+   font-weight: bold;     /* 太字にしてインパクトを出す */
+   line-height: 1.3;      /* 改行時の行間をきれいに調整 */
+ }
+ 
+ .main-title {
+   font-size: 32px;
+   text-align: center;
+   margin-bottom: 10px;
+ }
+ 
+ .event-title-sub {
+   font-size: 40px;       /* 大きく目立たせるサイズ */
+   font-weight: bold;
+   text-align: center;
+   line-height: 1.3;
+   margin-bottom: 20px;
+ }
 
 @media only screen and (max-width: 767px) {
   .food-content {
