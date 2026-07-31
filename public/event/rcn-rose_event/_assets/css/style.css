@@ -771,5 +771,78 @@ margin-bottom: 250px;
 	  width: 60%;
   }
 
+ /* --- 1. タイトルをスマホ1行に収める調整 --- */
+  .main-title {
+    font-size: 20px; /* スマホで1行に収まるサイズ */
+    text-align: center;
+    white-space: nowrap;        /* 1行で折り返さない設定 */
+  }
+  
+  .event-title-sub h2,
+  h2.event-title-sub {
+    font-size: 18px; /* スマホで1行に収まるサイズ */
+    text-align: center;
+    white-space: nowrap;        /* 1行で折り返さない設定 */
+    line-height: 1.4;
+  }
+  
+  /* --- 2. イベント概要（日時・会場・料金・定員）の余白と中央揃え --- */
+  .event-details {
+    text-align: center; /* 左寄りを解除して見やすく中央寄せ */
+    margin: 8px 0;
+  }
+  
+  .event-date-strong,
+  .event-time {
+    font-size: 18px;
+  }
+  
+  .event-venue,
+  .event-price-label,
+  .event-price-tax,
+  .event-capacity-unit {
+    font-size: 16px;
+  }
+  
+  .event-price-value,
+  .event-capacity-num {
+    font-size: 20px;
+  }
+  
+  /* --- 3. フォームエリア全体のパディング（左寄り防止） --- */
+  .form-area {
+    padding: 0 16px; /* 全体に左右の適度な余白を作る */
+    box-sizing: border-box;
+  }
+  
+  .form-area .form-fields {
+    padding: 25px 20px; /* スマホでの内側余白を最適化 */
+  }
+  
+  /* フォーム入力欄の幅100%化 */
+  .form-area input[type="text"],
+  .form-area textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* 参加人数の入力欄（スマホでも崩れないよう調整） */
+  .form-area input[name="field_6209478"] {
+    width: 120px;
+  }
+/* 1. ページ全体・フォームエリアの背景色を白に統一 */
+  body,
+  .form-area {
+    background-color: #ffffff;
+  }
+  
+  /* 2. 入力エリアの境界線をなくし、一体化させる */
+  .form-area .form-fields {
+    background-color: #ffffff;
+    box-shadow: none; /* 枠線の影がある場合は消去 */
+    border: none;
+    padding: 20px 0 ;   /* 横幅いっぱいに自然になじませる */
+  }
+
 }
 /*# sourceMappingURL=style.css.map */
