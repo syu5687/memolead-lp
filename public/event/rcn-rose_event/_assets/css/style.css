@@ -833,15 +833,26 @@ margin-bottom: 250px;
 /* 1. ページ全体・フォームエリアの背景色を白に統一 */
   body,
   .form-area {
-    background-color: #ffffff;
+    background-color:  #FAF8F5;
   }
   
   /* 2. 入力エリアの境界線をなくし、一体化させる */
   .form-area .form-fields {
-    background-color: #ffffff;
-    box-shadow: none; /* 枠線の影がある場合は消去 */
+    .form-area .form-fields {
+    background-color: #ffffff; /* フォーム部分の背景を白に */
+    width: 100vw;              /* 画面の横幅いっぱいに広げる */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);          /* 左右の親要素の余白を無視して全画面幅へ */
+    
+    /* カードに見える要素（角丸・枠線・影）を完全に削除 */
+    border-radius: 0;
     border: none;
-    padding: 20px 0 ;   /* 横幅いっぱいに自然になじませる */
+    box-shadow: none;
+    
+    /* 内側の余白調整 */
+    padding: 30px 20px 60px;
+    box-sizing: border-box;
   }
   
   .event-intro-title {
@@ -850,6 +861,18 @@ margin-bottom: 250px;
      color: #111111;         /* 薄い黒（#333など）から「より深い濃い黒」に変更 */
      margin-bottom: 10px;
      letter-spacing: 0.05em; /* 文字と文字の間隔をわずかに広げて存在感を強調 */
+   }
+   
+   /* スマホでも全体のクリーム色背景を維持 */
+   body, 
+   .form-area {
+     background-color: #FAF8F5;
+   }
+   
+   /* 白いフォームカードの横幅・角丸を綺麗に保つ */
+   .form-area .form-fields {
+     background-color: #ffffff;
+     border-radius: 8px;
    }
 
 }
