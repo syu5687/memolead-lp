@@ -846,6 +846,10 @@ margin-bottom: 250px;
   
   .event-intro-title {
      font-size: 18px;
+     font-weight: 900;       /* より太く濃く設定（boldより上位の極太値） */
+     color: #111111;         /* 薄い黒（#333など）から「より深い濃い黒」に変更 */
+     margin-bottom: 10px;
+     letter-spacing: 0.05em; /* 文字と文字の間隔をわずかに広げて存在感を強調 */
    }
 
 }
