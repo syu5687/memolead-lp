@@ -843,6 +843,10 @@ margin-bottom: 250px;
     border: none;
     padding: 20px 0 ;   /* 横幅いっぱいに自然になじませる */
   }
+  
+  .event-intro-title {
+     font-size: 18px;
+   }
 
 }
 /*# sourceMappingURL=style.css.map */
