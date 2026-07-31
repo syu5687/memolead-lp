@@ -773,14 +773,14 @@ margin-bottom: 250px;
 
  /* --- 1. タイトルをスマホ1行に収める調整 --- */
   .main-title {
-    font-size: 20px; /* スマホで1行に収まるサイズ */
+    font-size: 26px; /* スマホで1行に収まるサイズ */
     text-align: center;
     white-space: nowrap;        /* 1行で折り返さない設定 */
   }
   
   .event-title-sub h2,
   h2.event-title-sub {
-    font-size: 18px; /* スマホで1行に収まるサイズ */
+    font-size: 26px; /* スマホで1行に収まるサイズ */
     text-align: center;
     white-space: nowrap;        /* 1行で折り返さない設定 */
     line-height: 1.4;
