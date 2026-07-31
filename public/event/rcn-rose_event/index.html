@@ -14,6 +14,9 @@
 	<link rel="stylesheet" type="text/css" href="./_assets/js/slick/slick.css?1">
 	<link rel="stylesheet" type="text/css" href="./_assets/js/slick/slick-theme.css?1">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/style.css">
+	<!-- 切り離したカスタムCSSの読み込み -->
+	<link rel="stylesheet" type="text/css" href="./_assets/css/custom.css">
+
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/slick/slick.min.js"></script>
@@ -36,77 +39,100 @@
 			showinfo : 0
 		}
 	});
-	
 	</script>
-
-
 </head>
-<style>a:visited{color: #fff;}a:hover{color: #fff;text-decoration: none;opacity: 0.5;transition: all 0.3s;}</style>
 <body>
-			<!-- フォームメーラー -->
-			 <div class="form-area">
-			   <form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
-				 <input type="hidden" name="key" value="1113f41f360499">
-				 <h1>ザ・ロウズ</h1>
-				 <div style="text-align: center;"><span style="font-size: 30px;">ビールメーカーズ夕食会<br>〜アイランドブルワリー〜</span></div>
-				 <p>
-				   <img src="https://d39d67oza418w4.cloudfront.net/41/13468/c355981c-c7af-4a66-a47e-c48f85ad6807" class="fr-fic fr-dib">
-				 </p>
-				 <div style="text-align: left;"><span style="font-size: 24px;"><strong>2026&nbsp;</strong><strong>9月18日</strong><strong>（金）</strong>/19:00</span></div><div style="text-align: left;" data-pasted="true"><span style="font-size: 18px; color: rgb(38, 50, 56);" data-pasted="true">会場：ロイヤルチェスター長崎ホテル&amp;リトリート ザ・ロウズ</span></div><div style="text-align: left;"><span style="color: rgb(38, 50, 56); font-size: 18px;">おひとり様</span><span style="color: rgb(38, 50, 56); font-size: 24px;">&nbsp;</span><span style="color: rgb(38, 50, 56); font-size: 18px;">:</span><span style="color: rgb(38, 50, 56); font-size: 30px;">&nbsp;</span><span style="color: rgb(191, 54, 12); font-size: 24px;">¥11,000</span><span style="color: rgb(191, 54, 12); font-size: 18px;">(税込)</span></div><div style="text-align: left;"><span style="color: rgb(211, 47, 47); font-size: 24px;">36</span><span style="color: rgb(211, 47, 47); font-size: 18px;">名様限定</span></div>
-				 <hr>
-			 
-				 <!-- ▼ここから白背景にしたい範囲 -->
-				 <div class="form-fields">
-				 <p>お名前 <span class="required-badge">必須</span></p>
-				 <p>
-				   姓 <input name="field_6209485_sei" type="text" placeholder="山田">
-				   名 <input name="field_6209485_mei" type="text" placeholder="花子">
-				 </p>
-				 <p>フリガナ <span class="required-badge">必須</span></p>
-				 <p>
-				   姓 <input name="field_6209486_sei" type="text" placeholder="ヤマダ">
-				   名 <input name="field_6209486_mei" type="text" placeholder="ハナコ">
-				 </p>
-				 <p>参加人数 <span class="required-badge">必須</span></p>
-				 <p><input name="field_6209478" type="text" value="" size="2">名</p>
-				 <p>電話番号 <span class="required-badge">必須</span></p>
-				 <p><input name="field_6209489" type="text" placeholder="090-0000-0000"></p>
-				 <p>メールアドレス <span class="required-badge">必須</span></p>
-				 <p><input name="field_6209488" type="text" size="30" placeholder="info@example.com"></p>
-				 <p>ご質問・ご要望など</p>
-				 <p><textarea name="field_6209492" cols="30" rows="5" placeholder="※事前に伝えておきたいことがあればご記入ください。"></textarea></p>
-				   <p><input name="submit" type="submit" value="確認画面へ"></p>
-				 </div>
-				 <!-- ▲ここまで白背景にしたい範囲 -->
-			 
-				 <input type="hidden" name="code" value="utf8">
-			   </form>
-			 </div>
+	<!-- フォームメーラー -->
+	<div class="form-area">
+		<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
+			<input type="hidden" name="key" value="1113f41f360499">
+			<h1>ザ・ロウズ</h1>
+			
+			<div class="event-title-sub">
+				<span class="large-text">ビールメーカーズ夕食会<br>〜アイランドブルワリー〜</span>
+			</div>
+			
+			<p>
+				<img src="https://d39d67oza418w4.cloudfront.net/41/13468/c355981c-c7af-4a66-a47e-c48f85ad6807" class="fr-fic fr-dib">
+			</p>
+			
+			<div class="event-intro">
+				<h2 class="event-intro-title">ビールメーカーズ-アイランドブルワリー</h2>
+				<p class="event-intro-text">
+					壱岐生まれのクラフトブルワリー「ISLAND BREWERY」の世界をご体感ください。<br>
+					定番・季節限定を含む５種類のクラフトビールと７品の特別ディナーをご用意しております。
+				</p>
+			</div>
+			<!-- ▲ ここまで追加部分 -->
+			
+			<div class="event-details">
+				<span class="event-date-strong">2026年 9月18日（金）</span>
+				<span class="event-date-strong">/ 19:00</span>
+			</div>
+			<div class="event-details">
+				<span class="event-venue">会場：ロイヤルチェスター長崎 ザ・ロウズ</span>
+			</div>
+			<div class="event-details">
+				<span class="event-price-label">お一人様 : </span>
+				<span class="event-price-value">¥11,000</span>
+				<span class="event-price-tax">(税込)</span>
+			</div>
+			<div class="event-details">
+				<span class="event-capacity-num">限定36</span>
+				<span class="event-capacity-num">組様</span>
+			</div>
+			
+			<hr>
+		 
+			<!-- ▼白背景エリア -->
+			<div class="form-fields">
+				<p>お名前 <span class="required-badge">必須</span></p>
+				<p>
+					姓 <input name="field_6209485_sei" type="text" placeholder="山田">
+					名 <input name="field_6209485_mei" type="text" placeholder="花子">
+				</p>
+				<p>フリガナ <span class="required-badge">必須</span></p>
+				<p>
+					姓 <input name="field_6209486_sei" type="text" placeholder="ヤマダ">
+					名 <input name="field_6209486_mei" type="text" placeholder="ハナコ">
+				</p>
+				<p>参加人数 <span class="required-badge">必須</span></p>
+				<p><input name="field_6209478" type="text" value="" size="2">名</p>
+				<p>電話番号 <span class="required-badge">必須</span></p>
+				<p><input name="field_6209489" type="text" placeholder="090-0000-0000"></p>
+				<p>メールアドレス <span class="required-badge">必須</span></p>
+				<p><input name="field_6209488" type="text" size="30" placeholder="info@example.com"></p>
+				<p>ご質問・ご要望など</p>
+				<p><textarea name="field_6209492" cols="30" rows="5" placeholder="※事前に伝えておきたいことがあればご記入ください。"></textarea></p>
+				<p><input name="submit" type="submit" value="確認画面へ"></p>
+			</div>
+			<!-- ▲白背景エリア -->
+		 
+			<input type="hidden" name="code" value="utf8">
+		</form>
+	</div>
 		
-		
-<script src="./_assets/js/wow/dist/wow.min.js"></script>
-<script type="text/javascript">
-	new WOW().init();
-	$(window).scroll(function(){
-		if( $(window).scrollTop() == 0) {
-			new WOW().init();
-		}
-	});
+	<script src="./_assets/js/wow/dist/wow.min.js"></script>
+	<script type="text/javascript">
+		new WOW().init();
+		$(window).scroll(function(){
+			if( $(window).scrollTop() == 0) {
+				new WOW().init();
+			}
+		});
 	</script>
-	
-<script>
-	$('.slides').slick({
-		dots: true,
-		infinite: true,
-		arrows: true,
-		autoplay: true,
-		speed: 1000,
-		autoplaySpeed: 3000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		// fade: true,
-	  });
-	 
-</script>
+		
+	<script>
+		$('.slides').slick({
+			dots: true,
+			infinite: true,
+			arrows: true,
+			autoplay: true,
+			speed: 1000,
+			autoplaySpeed: 3000,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+		});
+	</script>
 </body>
 </html>
