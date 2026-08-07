@@ -1,5 +1,5 @@
 /**
- * @version v0002 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0004 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -55,7 +55,12 @@ export default {
       }
 
       const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
+      const escUrl = (u) => String(u ?? "").replace(/&/g, "&amp;").replace(/"/g, "%22");
+      const yen = (n) => "¥" + Number(n || 0).toLocaleString("ja-JP");
+      // 申込データ（明細）から整形。受取場所の住所テキスト自体をGoogleマップのリンクにする
       const summaryHtml = esc(d.summary || "").replace(/\n/g, "<br>");
+      const orderBlock = renderOrders(d, esc, escUrl, yen)
+        || `<div style="background:#f6f2ea;border:1px solid #d8cdb9;border-radius:8px;padding:14px;font-size:14px;white-space:pre-wrap;">${summaryHtml}</div>`;
       const sender = { name: CONFIG.FROM_NAME, email: CONFIG.FROM_EMAIL };
 
       // 担当者宛
@@ -70,7 +75,7 @@ export default {
             <tr><th style="text-align:left;padding:6px 12px;color:#888;">メール</th><td style="padding:6px 12px;">${esc(d.email)}</td></tr>
           </table>
           <h3 style="margin-top:20px;color:#7c1f2a;">ご注文内容</h3>
-          <div style="background:#f6f2ea;border:1px solid #d8cdb9;border-radius:8px;padding:14px;font-size:14px;white-space:pre-wrap;">${summaryHtml}</div>
+          ${orderBlock}
           ${d.note ? `<h3 style="margin-top:18px;color:#7c1f2a;">ご要望・備考</h3><div style="font-size:14px;">${esc(d.note).replace(/\n/g, "<br>")}</div>` : ""}
           <p style="margin-top:20px;font-size:12px;color:#aaa;">送信元：おせち・クリスマス2026 ご注文フォーム</p>
         </div>`;
@@ -98,7 +103,7 @@ export default {
           <div style="font-family:sans-serif;max-width:640px;margin:0 auto;padding:20px;color:#222;line-height:1.8;">
             <p>${esc(d.name)} 様</p>
             <p>この度はご注文いただきありがとうございます。<br>以下の内容でお申し込みを承りました。担当者より改めてご連絡いたします。</p>
-            <div style="background:#f6f2ea;border:1px solid #d8cdb9;border-radius:8px;padding:14px;font-size:14px;white-space:pre-wrap;">${summaryHtml}</div>
+            ${orderBlock}
             <p style="margin-top:16px;font-size:13px;color:#777;">※本メールは送信専用です。ご不明点は各施設までお問い合わせください。<br>株式会社メモリード ／ 福岡</p>
           </div>`;
         const crRes = await fetch(BREVO_EMAIL, {
@@ -129,3 +134,33 @@ export default {
     }
   }
 };
+
+// 申込データ(d.orders)から注文明細HTMLを生成。受取場所の住所を地図リンクにする。
+// d.orders が無い場合は null を返す（呼び出し側で summary テキストにフォールバック）。
+function renderOrders(d, esc, escUrl, yen) {
+  if (!Array.isArray(d.orders) || !d.orders.length) return null;
+  let h = `<div style="font-size:13px;color:#666;margin:0 0 10px;">価格区分：${esc(d.tierLabel || "")}</div>`;
+  d.orders.forEach((o) => {
+    h += `<div style="margin:0 0 14px;padding:12px 14px;background:#f6f2ea;border:1px solid #d8cdb9;border-radius:8px;">`;
+    h += `<div style="font-weight:bold;color:#7c1f2a;margin-bottom:6px;">■ ${esc(o.category)}</div>`;
+    (o.items || []).forEach((it) => {
+      h += `<div style="font-size:14px;padding:2px 0;">${esc(it.no)}. ${esc(it.name)} … ${it.qty}個 × ${yen(it.unit)} = <b>${yen(it.line)}</b> <span style="color:#999;font-size:12px;">（内消費税 ${yen(it.lineTax)}）</span></div>`;
+    });
+    h += `<div style="font-size:13px;margin-top:8px;">受け取り方法：${esc(o.method || "")}</div>`;
+    const isDelivery = o.method === "福岡県内配達" || o.pickup === "（ご住所へ配達）";
+    if (isDelivery) {
+      h += `<div style="font-size:13px;">受取場所：ご住所へ配達</div>`;
+    } else {
+      const label = `${esc(o.pickup)}${o.pickupAddr ? `（${esc(o.pickupAddr)}）` : ""}`;
+      h += o.pickupMap
+        ? `<div style="font-size:13px;">受取場所：<a href="${escUrl(o.pickupMap)}" target="_blank" rel="noopener" style="color:#7c1f2a;font-weight:bold;text-decoration:underline;">${label}</a></div>`
+        : `<div style="font-size:13px;">受取場所：${label}</div>`;
+    }
+    h += `<div style="font-size:13px;">受取希望日：${esc(o.pickdate || "")}</div>`;
+    if (o.fee > 0) h += `<div style="font-size:13px;">配達料：${yen(o.fee)}</div>`;
+    h += `<div style="font-size:13px;margin-top:4px;">小計：<b>${yen((o.subtotal || 0) + (o.fee || 0))}</b> <span style="color:#999;font-size:12px;">（内消費税 ${yen(o.subtax || 0)}）</span></div>`;
+    h += `</div>`;
+  });
+  h += `<div style="text-align:right;font-size:16px;font-weight:bold;color:#7c1f2a;margin-top:8px;">合計金額（税込）：${yen(d.total)} <span style="font-size:12px;color:#999;font-weight:normal;">（内消費税 ${yen(d.totalTax)}）</span></div>`;
+  return h;
+}
