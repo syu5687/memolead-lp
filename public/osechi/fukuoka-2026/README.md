@@ -27,27 +27,32 @@ osechi/fukuoka-2026/
 - 送信 → Brevoで①担当者へ注文メール ②お客様へ受付確認 ③（任意）コンタクト登録
 - noindex・バージョンコメント付き（標準運用に準拠）
 
-## セットアップ手順
+## セットアップ手順（既存フォームWorkerと同じ流れ）
 
-### 1. Worker をデプロイ
+### 1. 通知先・送信元を設定（worker.js 冒頭の CONFIG）
+- `TO`：注文通知の宛先（担当者）
+- `CC`：管理者（複数可・不要なら空）
+- `FROM_EMAIL`：**Brevoで認証済みのドメイン**のアドレス（既存と同じ `noreply@nfz33.com` を既定にしています）
+- `AUTO_REPLY`：お客様への受付確認メール（既定 true）
+- `BREVO_LIST_ID`：コンタクト登録する場合のみリストIDを指定
+
+### 2. Worker をデプロイ
 ```bash
-cd osechi/fukuoka-2026
+cd public/osechi/fukuoka-2026
 npx wrangler deploy
 # APIキーはシークレットで登録（コードに直書きしない）
 npx wrangler secret put BREVO_API_KEY
 ```
-`wrangler.toml` の `FROM_EMAIL`（Brevo認証済ドメイン）・`TO_EMAILS`（担当者）を確認・修正してください。
-コンタクト登録も行う場合は `BREVO_LIST_ID` のコメントを外して設定します。
+※ BREVO_API_KEY は既存フォームWorkerと同じキーでOK（Workerごとに登録が必要）。
 
-### 2. フォームの送信先を合わせる
-`index.html` 先頭の `CONFIG.ENDPOINT` を、デプロイした Worker の URL に合わせます。
-```js
-const CONFIG = { ENDPOINT: "https://memolead-fukuoka-osechi.mk-cbe.workers.dev/submit" };
-```
-（Workerはパスを問わずPOSTを受けるため、末尾 `/submit` はそのままで動作します）
+### 3. フォームの送信先を確認
+`index.html` 先頭の `CONFIG.ENDPOINT` はデプロイ後のURLです（既定 `https://memolead-fukuoka-osechi.mk-cbe.workers.dev/submit`）。サブドメインが異なる場合のみ修正してください。Workerはパスを問わずPOSTを受けます。
 
-### 3. Cloud Run へ配置
-`index.html` と `images/` を `/public/osechi/fukuoka-2026/` に置き、GitHub Desktop → Cloud Build で反映。
+### 4. Cloud Run へ配置
+`index.html` と `_assets/img/` を `/public/osechi/fukuoka-2026/` に置き、GitHub Desktop → Cloud Build で反映。
+
+### 5. テスト送信
+フォームから1件送信し、担当者宛メールとお客様への自動返信が届くことを確認してください（迷惑メールフォルダも確認）。
 
 ## 価格について（リーフレットPDFより反映済み）
 `2607福岡事業部おせちリーフA4折6PfinOL.pdf` から各商品の税込価格を読み取り、フォームに反映しました。
