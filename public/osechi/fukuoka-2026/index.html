@@ -153,8 +153,19 @@
   .btn-submit:hover{background:#651822}
   .btn-submit:disabled{opacity:.55;cursor:default}
   .form-msg{margin:14px 0 0;font-size:13.5px;text-align:center;min-height:1.2em}
-  .form-msg.err{color:var(--accent)}
-  .form-msg.ok{color:var(--ok)}
+  .form-msg.err{
+    color:#fff;font-weight:700;font-size:15px;background:var(--accent);
+    border-radius:10px;padding:14px 16px;box-shadow:0 4px 16px rgba(124,31,42,.28);
+    animation:errshake .5s ease;
+  }
+  .form-msg.err::before{content:"⚠ ";}
+  .form-msg.ok{color:var(--ok);font-weight:600}
+  @keyframes errshake{
+    0%,100%{transform:translateX(0)}
+    15%{transform:translateX(-8px)} 30%{transform:translateX(8px)}
+    45%{transform:translateX(-6px)} 60%{transform:translateX(6px)}
+    75%{transform:translateX(-3px)} 90%{transform:translateX(3px)}
+  }
   /* ── 完了画面 ─────────────────── */
   #done{display:none;text-align:center;padding:70px 0 90px}
   #done .mk{font-family:"Yu Mincho",serif;font-size:40px;color:var(--accent-2)}
@@ -542,7 +553,15 @@ zip.addEventListener("input",()=>{ if(zip.value.replace(/[^0-9]/g,"").length===7
 const form=document.getElementById("orderForm");
 const msg=document.getElementById("formMsg");
 const submitBtn=document.getElementById("submitBtn");
-function setMsg(t,cls){msg.textContent=t;msg.className="form-msg"+(cls?" "+cls:"");}
+function setMsg(t,cls){
+  msg.textContent=t;
+  msg.className="form-msg"+(cls?" "+cls:"");
+  if(cls==="err"){
+    // アニメーションを毎回リスタート＋画面内に表示
+    msg.style.animation="none"; void msg.offsetWidth; msg.style.animation="";
+    msg.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+}
 
 form.addEventListener("submit",async e=>{
   e.preventDefault();
