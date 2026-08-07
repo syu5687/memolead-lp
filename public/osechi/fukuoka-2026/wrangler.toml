@@ -6,3 +6,7 @@ compatibility_date = "2026-08-01"
 # 通知先・送信元は worker.js 冒頭の CONFIG で管理します（vars 不要）。
 # 秘密情報は必ずシークレットで登録：
 #   npx wrangler secret put BREVO_API_KEY
+
+# 毎日の稼働確認メール（UTC 00:00 = 日本時間 09:00 に1回）
+[triggers]
+crons = ["0 0 * * *"]

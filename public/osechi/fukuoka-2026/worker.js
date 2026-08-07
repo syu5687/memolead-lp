@@ -1,5 +1,5 @@
 /**
- * @version v0006 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0007 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -27,7 +27,10 @@ var CONFIG = {
   AUTO_REPLY: true,
   AUTO_REPLY_SUBJECT: "【メモリード福岡】ご注文を承りました",
   // Brevoコンタクトへ登録する場合はリストIDを指定（不要なら null）
-  BREVO_LIST_ID: null
+  BREVO_LIST_ID: null,
+  // 毎日の稼働確認メール（Cron Trigger）の宛先・件名
+  MONITOR_TO: "mk@emanet.jp",
+  MONITOR_SUBJECT: "【自動稼働確認】おせち申込フォーム 正常稼働中"
 };
 
 var BREVO_EMAIL = "https://api.brevo.com/v3/smtp/email";
@@ -135,6 +138,29 @@ export default {
     } catch (e) {
       return json({ ok: false, error: e.message }, 500);
     }
+  },
+
+  // 毎日の稼働確認（Cloudflare Cron Trigger から実行）。
+  // このメールが毎日届いていれば Worker＋Brevo送信は正常＝フォーム稼働中。
+  async scheduled(event, env, ctx) {
+    if (!env.BREVO_API_KEY) return;
+    const now = new Date().toISOString();
+    const body = {
+      sender: { name: CONFIG.FROM_NAME, email: CONFIG.FROM_EMAIL },
+      to: [{ email: CONFIG.MONITOR_TO }],
+      subject: CONFIG.MONITOR_SUBJECT,
+      htmlContent:
+        `<div style="font-family:sans-serif;line-height:1.8;color:#222;">` +
+        `<p>おせち・クリスマス2026 申込フォームの<b>メール送信機能は正常に稼働しています</b>。</p>` +
+        `<p>この自動確認メールが毎日届いていれば、Worker＋Brevo送信は正常です。<br>` +
+        `もし届かない日があれば、フォームまたは送信機能に問題がある可能性があります。</p>` +
+        `<p style="font-size:12px;color:#888;">自動送信（稼働確認）／送信時刻 ${now} UTC</p></div>`
+    };
+    ctx.waitUntil(fetch(BREVO_EMAIL, {
+      method: "POST",
+      headers: { "api-key": env.BREVO_API_KEY, "Content-Type": "application/json", "accept": "application/json" },
+      body: JSON.stringify(body)
+    }));
   }
 };
 
