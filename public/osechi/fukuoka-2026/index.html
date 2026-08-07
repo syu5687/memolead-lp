@@ -109,6 +109,15 @@
   .tier .lb{font-size:12.5px;font-weight:600;margin:0 0 8px}
   .tier .tier-opt{display:inline-flex;align-items:center;gap:6px;margin-right:20px;font-size:14px;cursor:pointer}
   .tier .tier-opt input{width:16px;height:16px;accent-color:var(--accent)}
+  /* STEP2 価格区分（独立・強調） */
+  .tier-static{border:1.5px solid var(--accent);border-radius:var(--radius);background:#fff;padding:18px 20px;box-shadow:0 2px 14px rgba(124,31,42,.06)}
+  .tier-static .tier-opts{display:flex;gap:14px;flex-wrap:wrap}
+  .tier-static .tier-opt{flex:1 1 220px;display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;background:#fffdf9;font-size:16px;font-weight:600;transition:.15s;line-height:1.35}
+  .tier-static .tier-opt:hover{border-color:var(--accent-2)}
+  .tier-static .tier-opt input{width:22px;height:22px;accent-color:var(--accent);flex:none}
+  .tier-static .tier-opt em{font-style:normal;font-size:12px;color:var(--ink-soft);font-weight:400;display:block;margin-top:1px}
+  .tier-static .tier-opt:has(input:checked){border-color:var(--accent);background:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
+  .tier-static .hint{margin-top:12px}
   .subtotal{text-align:right;font-size:13px;color:var(--ink-soft);padding:12px 0 4px;border-top:1px solid var(--line);margin-top:8px}
   .subtotal b{color:var(--ink);font-size:15px;margin-left:6px;font-variant-numeric:tabular-nums}
   .totalbar{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border-radius:var(--radius);padding:16px 20px;margin:6px 0 4px}
@@ -204,16 +213,28 @@
       </div>
     </section>
 
-    <!-- STEP 2 施設選択 -->
+    <!-- STEP 2 価格区分 -->
     <section class="step">
-      <div class="step-head"><span class="step-no">STEP 2</span><h2>お申し込み施設</h2><span class="sub">1施設をお選びください</span></div>
+      <div class="step-head"><span class="step-no">STEP 2</span><h2>価格区分</h2><span class="sub">会員・一般をお選びください</span></div>
+      <div class="tier-static">
+        <div class="tier-opts">
+          <label class="tier-opt"><input type="radio" name="ptier" value="general" checked><span>一般価格</span></label>
+          <label class="tier-opt"><input type="radio" name="ptier" value="special"><span>特別価格<em>（メモリード会員）</em></span></label>
+        </div>
+        <p class="hint">メモリード会員のお客様は<b>特別価格</b>でご注文いただけます。おせち・鍋セットは価格区分により金額が異なります（クリスマス商品は共通価格）。</p>
+      </div>
+    </section>
+
+    <!-- STEP 3 施設選択 -->
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 3</span><h2>お申し込み施設</h2><span class="sub">1施設をお選びください</span></div>
       <div class="facilities" id="facilities"></div>
       <div id="menuArea"></div>
     </section>
 
-    <!-- STEP 3 送信 -->
+    <!-- STEP 4 送信 -->
     <section class="step">
-      <div class="step-head"><span class="step-no">STEP 3</span><h2>ご要望・送信</h2></div>
+      <div class="step-head"><span class="step-no">STEP 4</span><h2>ご要望・送信</h2></div>
       <label class="field">
         <span class="lb">ご要望・備考 <span class="opt">任意</span></span>
         <textarea name="note" placeholder="アレルギー、お受け取り時間のご希望など"></textarea>
@@ -354,26 +375,22 @@ facWrap.addEventListener("change",e=>{
   renderMenu(e.target.value);
 });
 
+// 価格区分（STEP2・常時表示）— 選択で全金額を即時切替
+document.querySelectorAll('input[name="ptier"]').forEach(r=>r.addEventListener("change",e=>{
+  PRICE_TIER=e.target.value;
+  menuArea.classList.toggle("tier-special",PRICE_TIER==="special");
+  menuArea.classList.toggle("tier-general",PRICE_TIER==="general");
+  recalc();
+}));
+
 let PRICE_TIER = "general"; // 'general'（一般価格）| 'special'（特別価格）
 const yen = n => "¥" + Number(n).toLocaleString("ja-JP");
 
 function renderMenu(id){
   const f=FACILITIES[id];
-  PRICE_TIER="general";
-  menuArea.className="menu tier-general";
+  PRICE_TIER=(document.querySelector('input[name="ptier"]:checked')||{}).value||"general";
+  menuArea.className="menu tier-"+PRICE_TIER;
   menuArea.innerHTML="";
-  const hasTier=f.categories.some(c=>c.items.some(it=>it.s!=null));
-
-  // 価格区分トグル（おせち・鍋がある施設のみ）
-  if(hasTier){
-    const t=document.createElement("div");
-    t.className="tier";
-    t.innerHTML=`<div class="lb">価格区分</div>
-      <label class="tier-opt"><input type="radio" name="ptier" value="general" checked>一般価格</label>
-      <label class="tier-opt"><input type="radio" name="ptier" value="special">特別価格（メモリード会員）</label>
-      <p class="hint">メモリード会員のお客様は特別価格でご注文いただけます。おせち・鍋セットは価格区分により金額が異なります（クリスマス商品は共通価格）。</p>`;
-    menuArea.appendChild(t);
-  }
 
   // カテゴリごとの注文欄
   f.categories.forEach(c=>{
@@ -441,12 +458,6 @@ function itemTax(s){
 const DELIVERY_FEE=1000;
 function bindRecalc(){
   menuArea.querySelectorAll('select[data-item]').forEach(s=>s.addEventListener("change",recalc));
-  menuArea.querySelectorAll('input[name="ptier"]').forEach(r=>r.addEventListener("change",e=>{
-    PRICE_TIER=e.target.value;
-    menuArea.classList.toggle("tier-special",PRICE_TIER==="special");
-    menuArea.classList.toggle("tier-general",PRICE_TIER==="general");
-    recalc();
-  }));
   menuArea.querySelectorAll('.pickmethod').forEach(m=>m.addEventListener("change",()=>{
     const box=m.closest(".cat");
     const del=m.value==="delivery";
