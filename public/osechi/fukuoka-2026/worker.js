@@ -1,5 +1,5 @@
 /**
- * @version v0004 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0006 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -11,6 +11,8 @@ var CONFIG = {
   TO: "mk@emanet.jp",
   // CC（管理者・複数可）
   CC: [],
+  // BCC（他の受信者に知られず通知・複数可）
+  BCC: ["hashiguchi-ken@memolead.co.jp", "emaweb@emanet.jp"],
   // 送信元（★ Brevoで nfz33.com を認証済み。他ドメインを使う場合は認証してから）
   FROM_NAME: "メモリード福岡",
   FROM_EMAIL: "noreply@nfz33.com",
@@ -88,6 +90,7 @@ export default {
         replyTo: { email: d.email, name: d.name }
       };
       if (CONFIG.CC.length) adminBody.cc = CONFIG.CC.map((e) => ({ email: e }));
+      if (CONFIG.BCC.length) adminBody.bcc = CONFIG.BCC.map((e) => ({ email: e }));
 
       const adminRes = await fetch(BREVO_EMAIL, {
         method: "POST",
@@ -104,7 +107,7 @@ export default {
             <p>${esc(d.name)} 様</p>
             <p>この度はご注文いただきありがとうございます。<br>以下の内容でお申し込みを承りました。担当者より改めてご連絡いたします。</p>
             ${orderBlock}
-            <p style="margin-top:16px;font-size:13px;color:#777;">※本メールは送信専用です。ご不明点は各施設までお問い合わせください。<br>株式会社メモリード ／ 福岡</p>
+            <p style="margin-top:16px;font-size:13px;color:#777;">※このメールは自動送信用メールアドレスです。返信はできません。<br>ご不明点は各施設までお問い合わせください。<br>株式会社メモリード ／ 福岡</p>
           </div>`;
         const crRes = await fetch(BREVO_EMAIL, {
           method: "POST",
