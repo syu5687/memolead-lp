@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="version" content="v0001">
 <meta name="robots" content="noindex">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>おせち・クリスマス料理 ご注文フォーム｜福岡 2026</title>
 <meta name="description" content="ガーデンテラス福岡ホテル＆リゾート・ロイヤルチェスター福岡・アルカーサル・アヴィオの2026おせち／クリスマス料理／鍋セットのご注文フォームです。">
 <style>
@@ -76,8 +79,8 @@
   }
   .fac:hover{border-color:var(--accent-2)}
   .fac input{position:absolute;left:18px;top:19px;width:18px;height:18px;accent-color:var(--accent)}
-  .fac .fn{font-weight:600;font-size:15px;letter-spacing:.02em}
-  .fac .fd{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  .fac .fn{display:block;font-weight:600;font-size:15px;letter-spacing:.02em}
+  .fac .fd{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:3px}
   .fac.on{border-color:var(--accent);background:#fff}
   .fac.on::after{content:"選択中";position:absolute;right:16px;top:16px;font-size:11px;color:var(--accent);letter-spacing:.08em}
   /* ── メニュー表示＋注文 ─────────────────── */
@@ -315,6 +318,7 @@ const DATES_NABE   = ["12/23(水)","12/24(木)","12/25(金)","12/31(木)"];
 const FACILITIES = {
   garden: {
     name:"ガーデンテラス福岡ホテル＆リゾート",
+    tel:"092-881-0007",
     fax:"092-881-0006",
     menu:"./_assets/img/menu_garden.webp",
     categories:[
@@ -338,6 +342,7 @@ const FACILITIES = {
   },
   royal: {
     name:"ロイヤルチェスター福岡",
+    tel:"092-588-6688",
     fax:"092-588-6680",
     menu:"./_assets/img/menu_royal.webp",
     categories:[
@@ -354,6 +359,7 @@ const FACILITIES = {
   },
   alcasal: {
     name:"アルカーサル・アヴィオ",
+    tel:"092-665-0077",
     fax:"092-665-0088",
     menu:"./_assets/img/menu_alcasal.webp",
     categories:[
@@ -373,6 +379,7 @@ Object.entries(FACILITIES).forEach(([id,f])=>{
   l.className="fac"; l.dataset.id=id;
   l.innerHTML=`<input type="radio" name="facility" value="${id}">
     <span class="fn">${f.name}</span>
+    <span class="fd">TEL ${f.tel}</span>
     <span class="fd">FAX ${f.fax}</span>`;
   facWrap.appendChild(l);
 });

@@ -7,8 +7,8 @@ EXPOSE 8080
 RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf \
  && echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# .htaccess対応とmod_rewrite
-RUN a2enmod rewrite \
+# .htaccess対応とmod_rewrite / mod_headers（キャッシュ制御用）
+RUN a2enmod rewrite headers \
  && sed -i "s/AllowOverride None/AllowOverride All/" /etc/apache2/apache2.conf
 
 # /var/www/html にアクセス許可
