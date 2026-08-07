@@ -1,268 +1,604 @@
 <!DOCTYPE html>
-<html>
+<!-- @version v0001 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
+<html lang="ja">
 <head>
-	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>おせち2026年｜ガーデンテラス福岡ホテル＆リトリート</title>
-	<meta property="og:title" content="おせち2026年｜ガーデンテラス福岡ホテル＆リトリート"/>
-	<meta property="og:description" content="おせち2026年｜ガーデンテラス福岡ホテル＆リトリート|ロイヤルチェスター福岡|アルカーサル・アヴィオ"/>
-	<meta property="og:image" content="https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/rcn/_assets/img/ogp.png"/>
-	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css">
-	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
-	<script type="text/javascript" src="./_assets/js/jquery-3.7.1.min.js"></script>
-	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="./_assets/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="version" content="v0001">
+<meta name="robots" content="noindex">
+<title>おせち・クリスマス料理 ご注文フォーム｜福岡 2026</title>
+<meta name="description" content="ガーデンテラス福岡ホテル＆リゾート・ロイヤルチェスター福岡・アルカーサル・アヴィオの2026おせち／クリスマス料理／鍋セットのご注文フォームです。">
+<style>
+  :root{
+    --ink:#1a1714;          /* 墨 */
+    --ink-soft:#4a423b;
+    --paper:#f6f2ea;        /* 温かい生成り */
+    --paper-2:#efe8db;
+    --line:#d8cdb9;
+    --accent:#7c1f2a;       /* 深い臙脂 */
+    --accent-2:#a8894e;     /* 金泥・控えめ */
+    --ok:#2f5d3a;
+    --radius:14px;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);background:var(--paper);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium",system-ui,sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased;font-feature-settings:"palt";
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  /* ── ヘッダー ─────────────────── */
+  header.hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+  .hero .eyebrow{font-size:12px;letter-spacing:.32em;color:var(--accent-2);margin:0 0 16px}
+  .hero h1{
+    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:600;
+    font-size:clamp(26px,5.4vw,40px);line-height:1.32;margin:0 0 18px;letter-spacing:.02em;
+  }
+  .hero h1 .yr{display:block;font-size:.62em;color:var(--ink-soft);letter-spacing:.14em;margin-top:8px}
+  .hero p.lead{margin:0;color:var(--ink-soft);font-size:15px;max-width:56ch}
+  /* ── セクション ─────────────────── */
+  main{padding:40px 0 90px}
+  .step{margin:0 0 46px}
+  .step-head{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
+  .step-no{
+    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--accent);
+    font-size:15px;letter-spacing:.14em;white-space:nowrap;
+  }
+  .step-head h2{font-size:19px;margin:0;font-weight:600;letter-spacing:.03em}
+  .step-head .sub{font-size:12.5px;color:var(--ink-soft);margin-left:2px}
+  /* ── フォーム部品 ─────────────────── */
+  label.field{display:block;margin:0 0 18px}
+  .field .lb{display:flex;align-items:center;gap:9px;font-size:13.5px;margin:0 0 7px;font-weight:600}
+  .req{font-size:10.5px;color:#fff;background:var(--accent);border-radius:3px;padding:2px 6px;letter-spacing:.08em}
+  .opt{font-size:10.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:3px;padding:1px 6px}
+  input[type=text],input[type=tel],input[type=email],select,textarea{
+    width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fffdf9;
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s,box-shadow .15s;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,31,42,.10)}
+  textarea{min-height:96px;resize:vertical}
+  .hint{font-size:12px;color:var(--ink-soft);margin:6px 0 0}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row-zip{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+  .btn-zip{
+    white-space:nowrap;font:inherit;font-size:13px;font-weight:600;color:var(--accent);
+    background:#fff;border:1px solid var(--accent);border-radius:10px;padding:12px 16px;cursor:pointer;transition:.15s;
+  }
+  .btn-zip:hover{background:var(--accent);color:#fff}
+  .btn-zip:disabled{opacity:.5;cursor:default}
+  /* ── 施設選択カード ─────────────────── */
+  .facilities{display:grid;gap:12px}
+  .fac{
+    position:relative;border:1.5px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px 16px 52px;cursor:pointer;background:#fffdf9;transition:.18s;
+  }
+  .fac:hover{border-color:var(--accent-2)}
+  .fac input{position:absolute;left:18px;top:19px;width:18px;height:18px;accent-color:var(--accent)}
+  .fac .fn{font-weight:600;font-size:15px;letter-spacing:.02em}
+  .fac .fd{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  .fac.on{border-color:var(--accent);background:#fff}
+  .fac.on::after{content:"選択中";position:absolute;right:16px;top:16px;font-size:11px;color:var(--accent);letter-spacing:.08em}
+  /* ── メニュー表示＋注文 ─────────────────── */
+  #menuArea{margin-top:26px}
+  .menu-card{border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;margin:0 0 24px}
+  .menu-img{display:block;width:100%;height:auto;background:var(--paper-2)}
+  .menu-note{font-size:12px;color:var(--ink-soft);padding:11px 16px;background:var(--paper-2);border-top:1px solid var(--line)}
+  .cat{border:1px solid var(--line);border-radius:var(--radius);background:#fffdf9;padding:18px 18px 6px;margin:0 0 18px}
+  .cat-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin:0 0 4px}
+  .cat-title b{font-size:15px;font-weight:600}
+  .cat-title .tag{font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:2px 10px}
+  .cat-meta{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px}
+  .item{display:grid;grid-template-columns:1fr 84px 96px;gap:10px;align-items:center;padding:11px 0;border-top:1px dashed var(--line)}
+  .item:first-of-type{border-top:1px solid var(--line)}
+  .item .nm{font-size:14px;line-height:1.5}
+  .item .nm .no{display:inline-block;min-width:1.6em;color:var(--accent);font-weight:700;font-family:"Yu Mincho",serif;margin-right:4px}
+  .item .nm .lim{font-size:10.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:20px;padding:1px 8px;margin-left:6px;white-space:nowrap}
+  .item .nm .unit{display:inline-block;font-size:12px;color:var(--ink-soft);margin-top:3px}
+  .item .nm .unit .u-s,.item .nm .unit .u-g{white-space:nowrap}
+  .item .qtywrap{display:flex;align-items:center;gap:5px;justify-content:flex-end}
+  .item select{padding:8px 10px;font-size:15px;width:64px}
+  .item .unitlabel{font-size:11px;color:var(--ink-soft)}
+  .item .line{text-align:right;font-size:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  /* 価格区分の強調 */
+  .menu .unit .u-s{color:var(--ink-soft)} .menu .unit .u-g{color:var(--ink);font-weight:600}
+  .menu.tier-special .unit .u-s{color:var(--accent);font-weight:700} .menu.tier-special .unit .u-g{color:var(--ink-soft);font-weight:400;text-decoration:line-through}
+  .menu.tier-general .unit .u-g{color:var(--accent);font-weight:700} .menu.tier-general .unit .u-s{color:var(--ink-soft);text-decoration:line-through}
+  .tier{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:14px 16px;margin:0 0 18px}
+  .tier .lb{font-size:12.5px;font-weight:600;margin:0 0 8px}
+  .tier .tier-opt{display:inline-flex;align-items:center;gap:6px;margin-right:20px;font-size:14px;cursor:pointer}
+  .tier .tier-opt input{width:16px;height:16px;accent-color:var(--accent)}
+  .subtotal{text-align:right;font-size:13px;color:var(--ink-soft);padding:12px 0 4px;border-top:1px solid var(--line);margin-top:8px}
+  .subtotal b{color:var(--ink);font-size:15px;margin-left:6px;font-variant-numeric:tabular-nums}
+  .totalbar{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border-radius:var(--radius);padding:16px 20px;margin:6px 0 4px}
+  .totalbar span{font-size:14px;letter-spacing:.06em}
+  .totalbar b{font-size:22px;font-family:"Yu Mincho",serif;font-variant-numeric:tabular-nums}
+  .totalbar .tb-l{display:flex;flex-direction:column}
+  .totalbar .tbtax{font-size:11.5px;opacity:.78;margin-top:2px;font-variant-numeric:tabular-nums}
+  .item .nm .unit .itax{color:var(--ink-soft);font-size:11px;white-space:nowrap}
+  .subtotal .subtax{font-size:11.5px;color:var(--ink-soft);margin-left:8px;font-variant-numeric:tabular-nums}
+  .method{margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)}
+  .method .lb{font-size:12.5px;font-weight:600;margin:0 0 6px}
+  .method .hint{margin-top:6px}
+  .feeline{text-align:right;font-size:13px;color:var(--ink-soft);padding:2px 0}
+  .feeline b{color:var(--ink);margin-left:6px;font-variant-numeric:tabular-nums}
+  .notes{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-2);padding:16px 18px;margin:0 0 18px;font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+  .notes b{color:var(--ink);font-weight:600}
+  .notes ul{margin:8px 0 0;padding-left:1.1em} .notes li{margin:2px 0}
+  .cat .pick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .cat .pick .lb{font-size:12.5px;font-weight:600;margin:0 0 6px}
+  @media(max-width:560px){ .row2,.cat .pick{grid-template-columns:1fr} .item{grid-template-columns:1fr 74px 80px} }
+  /* ── 送信 ─────────────────── */
+  .submit-wrap{margin-top:14px}
+  .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-soft);margin:0 0 20px}
+  .agree input{margin-top:4px;width:17px;height:17px;accent-color:var(--accent)}
+  .btn-submit{
+    width:100%;font:inherit;font-size:16px;font-weight:600;letter-spacing:.14em;color:#fff;
+    background:var(--accent);border:none;border-radius:12px;padding:17px;cursor:pointer;transition:.18s;
+  }
+  .btn-submit:hover{background:#651822}
+  .btn-submit:disabled{opacity:.55;cursor:default}
+  .form-msg{margin:14px 0 0;font-size:13.5px;text-align:center;min-height:1.2em}
+  .form-msg.err{color:var(--accent)}
+  .form-msg.ok{color:var(--ok)}
+  /* ── 完了画面 ─────────────────── */
+  #done{display:none;text-align:center;padding:70px 0 90px}
+  #done .mk{font-family:"Yu Mincho",serif;font-size:40px;color:var(--accent-2)}
+  #done h2{font-family:"Yu Mincho",serif;font-weight:600;font-size:24px;margin:14px 0 12px}
+  #done p{color:var(--ink-soft);font-size:14.5px}
+  .hidden{display:none!important}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:12px;text-align:center}
+</style>
 </head>
+<body>
 
-<body style="">
-	<div id="content">
-		<!--span class="view_timer" data-start-date="2025/12/15 17:00"><p class="end-msg">おせちのご予約は終了しました</p></span>-->
-		<div class="top_con wow fadeIn">
-			<picture>
-				<!--source src="./_assets/img/#.webp" type="image/webp"/>-->
-				<!-- <img src="./_assets/img/rcn_osechi1.jpg?v=2" width="100%" height="auto" alt=""> -->
-		</div>
-		
-		
-		
-		<!-- <div class="atention wow fadeInUp">
-			  <div class="inner">
-				  
-				  <p class="siharai-title">●お支払い締め切り</p>
-				  <p class="siharai-text">
-					  ※配達エリアは長崎市内、長与町、時津町、諫早市、大村市<br class="sp">
-					  <span style="text-decoration:underline;padding-left:1em;"><br>別途2,000円(税込)</span><br>
-					  ※配達の時間指定はできませんのでご了承くださいませ。<br>
-					  <span style="color:red;font-weight:bold;">2025年</span>
-				  </p>
-				  <p class="siharai-title">●お支払い方法について</p>
-				  <p class="siharai-text">
-					  お支払い方法については以下のとおりです。<br>
-					  ・現金支払<span style="text-decoration:underline;">（期限：当日まで）</span><br>
-					  ・振込<span style="text-decoration:underline;">（期限：12/15まで）</span>
-				  </p>
-				  <p class="siharai-title">●振込先のご案内</p>
-				  <p class="siharai-text" style="border:1px solid #000;">
-					  金融機関：十八親和銀行<br>
-					  支店名：道ノ尾支店<br>
-					  預金種類：普通<br>
-					  口座番号：0063945<br>
-					  口座名義：株式会社メモリード<br>
-					  <span style="color:red;padding-top:0.5em;">
-						  ※振込依頼人名には先頭に「オセチ」とご入力ください。<br>（例：オセチスズキタロウ）
-					  </span>
-				  </p>
-			  </div>
-		  </div> -->
-		
-		<div class="form-area view_timer" data-end-date="">
-			<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
-			  <input type="hidden" name="key" value="a847520c358242">
-			  <h1>おせちお申し込みフォーム</h1>
-			  
-			  <!-- <span class="formItem">
-			  <p class="itemText">
-				会員・非会員<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				<select name="field_5226166">
-				  <option value="">------</option>
-				  <option value="0" >会員</option>
-				  <option value="1" >非会員</option>
-				</select>
-			  </p>
-			  </span>  -->
-			  <!-- dropdown -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				個数<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				<select name="field_5226176">
-				  <option value="">------</option>
-				  <option value="0" >1</option>
-				  <option value="1" >2</option>
-				  <option value="2" >3</option>
-				  <option value="3" >4</option>
-				  <option value="4" >5</option>
-				  <option value="5" >6</option>
-				  <option value="6" >7</option>
-				  <option value="7" >8</option>
-				  <option value="8" >9</option>
-				  <option value="9" >10</option>
-				  <option value="10" >11</option>
-				  <option value="11" >12</option>
-				  <option value="12" >13</option>
-				  <option value="13" >14</option>
-				  <option value="14" >15</option>
-				</select><br>
-				<span class="attention" style="font-size: 0.9rem;">
-					※売切れ次第終了とさせていただきます。<br>
-					※お料理内容は、一部変更になる場合がございます。予めご了承ください。<br>※当ホテルは国産米を使用しております。<br>※配達料2,000円(税込)配達エリアは<br><span class="und-msg">長崎市内、長与町、時津町、諫早市、大村市まで</span>とさせていただきます。</span>
-			  </p>
-			  </span> -->
-			  <!-- dropdown -->
-			  <!-- <span class="formItem">
-			  <p class="itemText">
-				受け取り方法<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				<select name="field_5226308">
-				  <option value="">------</option>
-				  <option value="0" >店舗受取(ロイヤルチェスター長崎ホテル&リトリート)</option>
-				  <option value="1" >配送希望（+2,000円）</option>
-				</select>
-			  </p>
-			  </span> -->
-			  <!-- text -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				合計金額
-			  </p> -->
-			  <!-- <p class="itemContent"> -->
-				<!-- 送信用（カンマ付き） -->
-				<!-- <input name="field_5231284" type="hidden" value=""> -->
-				<!-- 送信用（hidden） -->
-				<!-- <input name="field_5225657" type="hidden" value=""> -->
-				<!-- 表示用（readonly） -->
-				<!-- <input name="field_5225657_display" type="text" value="" size="6" readonly style="width:70px;background: #ddd;border: none;">
-				円
-			  </p>
-			  </span> -->
-			  <!-- name -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				名前<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				姓 <input name="field_5224304_sei" type="text" placeholder="姓" style="margin-bottom: 10px;"><br>
-				名 <input name="field_5224304_mei" type="text" placeholder="名">
-			  </p>
-			  </span> -->
-			  <!-- text -->
-			  <!-- <span class="formItem" style="margin: 10px auto;">
-			  <p class="itemText">
-				郵便番号<span class="hissu">必須</span><br>
-				<span class="attention">※半角英数でご入力ください</span>
-			  </p>
-			  
-			  <p class="itemContent">
-				〒
-				<input name="field_5227151" type="text" value="" size="9"  placeholder="ハイフン無し" onKeyUp="AjaxZip3.zip2addr(this,'','field_5227164','field_5227165');"><br>
-			  </p>
-			  </span>
-			  <span class="formItem">
-			  <p class="itemText">
-				都道府県<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				<input name="field_5227164" type="text" value="" size="30">
-			  </p>
-			  </span> -->
-			  <!-- text -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				市区町村<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				<input name="field_5227165" type="text" value="" size="30">
-			  </p>
-			  </span> -->
-			  <!-- text -->
-			  <!-- <span class="formItem">
-			  <p class="itemText">
-				番地<span class="hissu">必須</span>
-			  </p>
-			  <p class="itemContent">
-				<input name="field_5227166" type="text" value="" size="30">
-			  </p>
-			  </span> -->
-			  <!-- text -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				マンション<br class="pc">ビル名など
-			  </p>
-			 <p class="itemContent">
-				<input name="field_5227178" type="text" value="" size="30">
-			  </p>
-			  </span> -->
-			  <!-- email -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				メールアドレス<span class="hissu">必須</span><br>
-				<span class="attention">※半角英数でご入力ください</span>
-				</p>
-				<p class="itemContent">
-					<input name="field_5224307" type="text" size="30" placeholder="info@example.com">
-				</p>
-			  </span> -->
-			  <!-- phone -->
-			  <!-- <span class="formItem">
-			  <p class="itemText">
-				電話番号<span class="hissu">必須</span><br>
-				<span class="attention">※半角英数でご入力ください</span>
-			  </p>
-			  <p class="itemContent">
-				<input name="field_5224306" type="text" placeholder="090-0000-0000">
-			  </p>
-			  </span> -->
-			  <!-- textarea -->
-			  <!-- <span class="formItem">
-				<p class="itemText">
-				その他、ご質問・ご要望など
-			  </p>
-			  <p class="itemContent">
-				<textarea name="field_5224324" cols="30" rows="5"></textarea>
-			  </p>
-			  </span>
-			  <p><input name="submit" type="submit" value="送信する"></p>
-			  <input type="hidden" name="code" value="utf8">
-			</form>
-		  </div>
-		<div id="contact" class="">
-			<div class="inner">
-				<div class="container">
-					<p class="textContact times"><span>お問合せ</span></p>
-					<p class="timeContact">ロイヤルチェスター長崎 ホテル&リトリート</p>
-					<p class="telContact times">TEL <span><a href="tel:095-856-1101">095-856-1101</a></span></p> -->
-					<!-- <p class="timeContact">10:00 ～ 20:00</p> -->
-					<!-- <p class="noteContact">店休日：毎週火曜日・水曜日 ※祝祭日を除く</p> -->
-					<!-- <div style="display: flex; justify-content: center;">
-						<p class="logo-footer">
-						<a href="https://www.nagasaki-rch.jp/" target="_blank">
-							<img src="./_assets/img/logo.svg" width="150" height="auto" alt="ロイヤルチェスター長崎 ホテル&リトリート">
-						</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">MEMOLEAD FUKUOKA ｜ OSECHI &amp; CHRISTMAS</p>
+    <h1>おせち・クリスマス料理<br>ご注文フォーム<span class="yr">2026 年末年始 ／ 福岡</span></h1>
+    <p class="lead">ご希望の施設を選ぶと、その施設のメニューとご注文欄が表示されます。数量・お受け取り場所・お受け取り日をご入力のうえ、送信してください。</p>
+  </div>
+</header>
 
-	<script src="./_assets/js/wow/dist/wow.min.js"></script>
-	<script>
-	  $(document).ready(function() {
-		$(".view_timer").each(function(index, target) {
-		  var startDate = $(this).attr("data-start-date");
-		  var endDate = $(this).attr("data-end-date");
-		  var nowDate = new Date();
-		  if (startDate) {
-			startDate = new Date(startDate);
-		  } else {
-			startDate = nowDate;
-		  }
-		  if (endDate) {
-			endDate = new Date(endDate);
-		  }
-		  if (startDate <= nowDate && (!endDate || nowDate <= endDate)) {
-			$(this).show();
-		  } else {
-			$(this).hide();
-		  }
-		});
-	  });
-	  </script>
+<main class="wrap">
+  <form id="orderForm" novalidate>
 
+    <!-- STEP 1 お客様情報 -->
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 1</span><h2>お客様情報</h2></div>
+
+      <label class="field">
+        <span class="lb">お名前 <span class="req">必須</span></span>
+        <input type="text" name="name" autocomplete="name" placeholder="山田 太郎" required>
+      </label>
+
+      <label class="field">
+        <span class="lb">郵便番号 <span class="req">必須</span></span>
+        <div class="row-zip">
+          <input type="text" name="zip" id="zip" inputmode="numeric" autocomplete="postal-code" placeholder="810-0001" maxlength="8" required>
+          <button type="button" class="btn-zip" id="zipBtn">住所を自動入力</button>
+        </div>
+        <p class="hint">ハイフンあり・なしどちらでも可。入力後、自動で住所が反映されます。</p>
+      </label>
+
+      <label class="field">
+        <span class="lb">ご住所 <span class="req">必須</span></span>
+        <input type="text" name="address" id="address" autocomplete="street-address" placeholder="福岡県福岡市中央区…" required>
+        <p class="hint">番地・建物名・部屋番号までご入力ください。</p>
+      </label>
+
+      <div class="row2">
+        <label class="field">
+          <span class="lb">お電話番号 <span class="req">必須</span></span>
+          <input type="tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="090-1234-5678" required>
+        </label>
+        <label class="field">
+          <span class="lb">メールアドレス <span class="req">必須</span></span>
+          <input type="email" name="email" autocomplete="email" placeholder="example@mail.jp" required>
+        </label>
+      </div>
+    </section>
+
+    <!-- STEP 2 施設選択 -->
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 2</span><h2>お申し込み施設</h2><span class="sub">1施設をお選びください</span></div>
+      <div class="facilities" id="facilities"></div>
+      <div id="menuArea"></div>
+    </section>
+
+    <!-- STEP 3 送信 -->
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 3</span><h2>ご要望・送信</h2></div>
+      <label class="field">
+        <span class="lb">ご要望・備考 <span class="opt">任意</span></span>
+        <textarea name="note" placeholder="アレルギー、お受け取り時間のご希望など"></textarea>
+      </label>
+      <div class="notes">
+        <b>ご注文にあたって</b>
+        <ul>
+          <li><b>お支払い締め切り：2026年12月10日(木)まで</b>（各式場カード払い可／お振込希望の場合は各式場にお問い合わせください）</li>
+          <li>お受け取り先の変更：クリスマス商品は12/15(火)まで／おせち料理は12/25(金)まで／鍋セットは受け取り日の1週間前までにご連絡ください</li>
+          <li>おせち料理は福岡県内の配達も可能です（別途1,000円を商品代金と併せてお支払い。エリアによってはお受けできない場合がございます）</li>
+          <li>金額はすべて税込表示です（内消費税を併記）。売り切れ次第終了となります。料理内容は一部変更になる場合があります。</li>
+        </ul>
+      </div>
+      <div class="submit-wrap">
+        <label class="agree">
+          <input type="checkbox" id="agree">
+          <span>ご入力内容を確認し、この内容で注文を申し込みます。折り返し担当者よりご連絡いたします。</span>
+        </label>
+        <button type="submit" class="btn-submit" id="submitBtn">この内容で申し込む</button>
+        <p class="form-msg" id="formMsg"></p>
+      </div>
+    </section>
+  </form>
+
+  <!-- 完了 -->
+  <section id="done">
+    <div class="mk">承</div>
+    <h2>ご注文を承りました</h2>
+    <p>ご入力のメールアドレス宛に受付確認をお送りします。<br>担当者より改めてご連絡いたしますので、少々お待ちください。</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>株式会社メモリード ／ 福岡</div>
+  <div style="margin-top:6px">ご不明な点は各施設までお問い合わせください。</div>
+</footer>
+
+<script>
+/* ==========================================================================
+   設定 — 本番デプロイ時にここだけ書き換えてください
+   ========================================================================== */
+const CONFIG = {
+  // フォーム送信先（Cloudflare Worker のエンドポイント）
+  ENDPOINT: "https://memolead-fukuoka-osechi.mk-cbe.workers.dev/submit"
+};
+
+/* ==========================================================================
+   商品マスタ（FAX申込書の内容をそのまま定義）
+   ========================================================================== */
+const PICK_3 = [
+  "ガーデンテラス福岡ホテル＆リゾート",
+  "ロイヤルチェスター福岡",
+  "アルカーサル・アヴィオ"
+];
+const PICK_5 = [
+  ...PICK_3,
+  "グランドベルズ飯塚（飯塚市川津608-1）",
+  "メモリードホール福岡（福岡市中央区警固3丁目1-7）"
+];
+const DATES_XMAS   = ["12/23(水)","12/24(木)","12/25(金)"];
+const DATES_OSECHI = ["12/31(木)"];
+const DATES_NABE   = ["12/23(水)","12/24(木)","12/25(金)","12/31(木)"];
+
+const FACILITIES = {
+  garden: {
+    name:"ガーデンテラス福岡ホテル＆リゾート",
+    fax:"092-881-0006",
+    menu:"./_assets/img/menu_garden.webp",
+    categories:[
+      { key:"xmas", title:"クリスマス商品", tag:"12/23・24・25", time:"13:00〜18:00 CLOSE",
+        dates:DATES_XMAS, pickup:PICK_3,
+        items:[
+          {no:1, name:"ローストビーフとローストチキンの盛り合わせ", price:11000, tax:814, limit:15},
+          {no:2, name:"野菜ソムリエの星降るオードブル", price:11000, tax:814, limit:15},
+          {no:3, name:"イタリアハムとチーズ盛り合わせ 乾杯セット", price:11000, tax:814, limit:15},
+          {no:5, name:"ホワイトノエル（クリスマスケーキ）", price:5000, tax:370, limit:30},
+          {no:6, name:"ノエル ショコラ ビジュー（ガトーケーキ）", price:5000, tax:370, limit:30}
+        ]},
+      { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
+        dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
+        items:[
+          {no:9,  name:"和洋風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:150},
+          {no:10, name:"和洋風プレミアムおせち", s:48000, sTax:3555, g:50000, gTax:3703, limit:10},
+          {no:11, name:"お菓子おせち", s:5000, sTax:370, g:6000, gTax:444, limit:30}
+        ]}
+    ]
+  },
+  royal: {
+    name:"ロイヤルチェスター福岡",
+    fax:"092-588-6680",
+    menu:"./_assets/img/menu_royal.webp",
+    categories:[
+      { key:"xmas", title:"クリスマス商品", tag:"12/23・24・25", time:"13:00〜18:00 CLOSE",
+        dates:DATES_XMAS, pickup:PICK_3,
+        items:[ {no:4, name:"クリスマスオードブル", price:11000, tax:814, limit:30} ]},
+      { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
+        dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
+        items:[ {no:7, name:"和風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:320} ]},
+      { key:"nabe", title:"鍋セット", tag:"12/23・24・25 ／ 12/31", time:"クリスマス 13:00〜18:00／大晦日 10:00〜13:00",
+        dates:DATES_NABE, pickup:PICK_3,
+        items:[ {no:12, name:"博多水炊き", s:7000, sTax:518, g:8000, gTax:592, limit:30}, {no:13, name:"博多もつ鍋", s:7000, sTax:518, g:8000, gTax:592, limit:30} ]}
+    ]
+  },
+  alcasal: {
+    name:"アルカーサル・アヴィオ",
+    fax:"092-665-0088",
+    menu:"./_assets/img/menu_alcasal.webp",
+    categories:[
+      { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
+        dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
+        items:[ {no:8, name:"和風おせち 2段重", s:21000, sTax:1555, g:22000, gTax:1629, limit:190} ]}
+    ]
+  }
+};
+
+/* ==========================================================================
+   施設カード描画
+   ========================================================================== */
+const facWrap = document.getElementById("facilities");
+Object.entries(FACILITIES).forEach(([id,f])=>{
+  const l=document.createElement("label");
+  l.className="fac"; l.dataset.id=id;
+  l.innerHTML=`<input type="radio" name="facility" value="${id}">
+    <span class="fn">${f.name}</span>
+    <span class="fd">FAX ${f.fax}</span>`;
+  facWrap.appendChild(l);
+});
+
+const menuArea=document.getElementById("menuArea");
+
+facWrap.addEventListener("change",e=>{
+  if(e.target.name!=="facility")return;
+  document.querySelectorAll(".fac").forEach(el=>el.classList.toggle("on",el.dataset.id===e.target.value));
+  renderMenu(e.target.value);
+});
+
+let PRICE_TIER = "general"; // 'general'（一般価格）| 'special'（特別価格）
+const yen = n => "¥" + Number(n).toLocaleString("ja-JP");
+
+function renderMenu(id){
+  const f=FACILITIES[id];
+  PRICE_TIER="general";
+  menuArea.className="menu tier-general";
+  menuArea.innerHTML="";
+  const hasTier=f.categories.some(c=>c.items.some(it=>it.s!=null));
+
+  // 価格区分トグル（おせち・鍋がある施設のみ）
+  if(hasTier){
+    const t=document.createElement("div");
+    t.className="tier";
+    t.innerHTML=`<div class="lb">価格区分</div>
+      <label class="tier-opt"><input type="radio" name="ptier" value="general" checked>一般価格</label>
+      <label class="tier-opt"><input type="radio" name="ptier" value="special">特別価格（メモリード会員）</label>
+      <p class="hint">メモリード会員のお客様は特別価格でご注文いただけます。おせち・鍋セットは価格区分により金額が異なります（クリスマス商品は共通価格）。</p>`;
+    menuArea.appendChild(t);
+  }
+
+  // カテゴリごとの注文欄
+  f.categories.forEach(c=>{
+    const box=document.createElement("div");
+    box.className="cat"; box.dataset.cat=c.key;
+    let html=`<div class="cat-title"><b>${c.title}</b><span class="tag">${c.tag}</span></div>
+      <div class="cat-meta">お受け取り時間：${c.time}</div>`;
+    c.items.forEach(it=>{
+      const attr = it.price!=null
+        ? `data-price="${it.price}" data-tax="${it.tax}"`
+        : `data-s="${it.s}" data-stax="${it.sTax}" data-g="${it.g}" data-gtax="${it.gTax}"`;
+      let sel=`<select data-item="${it.no}" data-name="${it.name}" ${attr}><option value="0">0</option>`;
+      for(let n=1;n<=10;n++) sel+=`<option value="${n}">${n}</option>`;
+      sel+=`</select>`;
+      const priceLabel = it.price!=null
+        ? `<span class="unit">${yen(it.price)} 税込<span class="itax">（内消費税 ${yen(it.tax)}）</span></span>`
+        : `<span class="unit"><span class="u-g">一般 ${yen(it.g)}<span class="itax">（内消費税 ${yen(it.gTax)}）</span></span> ／ <span class="u-s">特別 ${yen(it.s)}<span class="itax">（内消費税 ${yen(it.sTax)}）</span></span></span>`;
+      html+=`<div class="item">
+        <div class="nm"><span class="no">${it.no}</span>${it.name}<span class="lim">限定${it.limit}個</span><br>${priceLabel}</div>
+        <div class="qtywrap">${sel}<span class="unitlabel">個</span></div>
+        <div class="line" data-line>—</div>
+      </div>`;
+    });
+    if(c.delivery){
+      html+=`<div class="method">
+        <div class="lb">お受け取り方法</div>
+        <select class="pickmethod">
+          <option value="store">店頭受け取り（無料）</option>
+          <option value="delivery">福岡県内配達（＋1,000円）</option>
+        </select>
+        <p class="hint">配達はおせち料理・福岡県内が対象です（エリアによってはお受けできない場合がございます）。配達をお選びの場合はご住所へお届けします。</p>
+      </div>`;
+    }
+    html+=`<div class="pick">
+      <div class="pickup-wrap"><div class="lb">お受け取り場所</div><select class="pickup">${["",...c.pickup].map(p=>`<option value="${p}">${p||"選択してください"}</option>`).join("")}</select></div>
+      <div><div class="lb">お受け取り希望日</div><select class="pickdate">${["",...c.dates].map(d=>`<option value="${d}">${d||"選択してください"}</option>`).join("")}</select></div>
+    </div>
+    <div class="subtotal">小計<b data-subtotal>¥0</b><span class="subtax" data-subtax></span></div>
+    <div class="feeline" data-feeline style="display:none">配達料<b>¥1,000</b></div>`;
+    box.innerHTML=html;
+    menuArea.appendChild(box);
+  });
+
+  // 合計バー
+  const tot=document.createElement("div");
+  tot.className="totalbar";
+  tot.innerHTML=`<div class="tb-l"><span>合計金額（税込）</span><span class="tbtax" id="grandTax"></span></div><b id="grandTotal">¥0</b>`;
+  menuArea.appendChild(tot);
+
+  bindRecalc();
+  recalc();
+  menuArea.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function itemUnit(s){
+  return s.hasAttribute("data-price")
+    ? +s.dataset.price
+    : (PRICE_TIER==="special" ? +s.dataset.s : +s.dataset.g);
+}
+function itemTax(s){
+  return s.hasAttribute("data-tax")
+    ? +s.dataset.tax
+    : (PRICE_TIER==="special" ? +s.dataset.stax : +s.dataset.gtax);
+}
+const DELIVERY_FEE=1000;
+function bindRecalc(){
+  menuArea.querySelectorAll('select[data-item]').forEach(s=>s.addEventListener("change",recalc));
+  menuArea.querySelectorAll('input[name="ptier"]').forEach(r=>r.addEventListener("change",e=>{
+    PRICE_TIER=e.target.value;
+    menuArea.classList.toggle("tier-special",PRICE_TIER==="special");
+    menuArea.classList.toggle("tier-general",PRICE_TIER==="general");
+    recalc();
+  }));
+  menuArea.querySelectorAll('.pickmethod').forEach(m=>m.addEventListener("change",()=>{
+    const box=m.closest(".cat");
+    const del=m.value==="delivery";
+    const pw=box.querySelector(".pickup-wrap");
+    if(pw) pw.style.display = del ? "none" : "";
+    recalc();
+  }));
+}
+function recalc(){
+  let grand=0, grandTax=0;
+  menuArea.querySelectorAll(".cat").forEach(box=>{
+    let sub=0, subTax=0;
+    box.querySelectorAll("select[data-item]").forEach(s=>{
+      const q=parseInt(s.value,10)||0, u=itemUnit(s), t=itemTax(s), line=q*u;
+      const cell=s.closest(".item").querySelector("[data-line]");
+      cell.textContent = q>0 ? yen(line) : "—";
+      sub+=line; subTax+=q*t;
+    });
+    box.querySelector("[data-subtotal]").textContent=yen(sub);
+    const stx=box.querySelector("[data-subtax]"); if(stx) stx.textContent = subTax>0 ? `（内消費税 ${yen(subTax)}）` : "";
+    // 配達料
+    let fee=0;
+    const pm=box.querySelector(".pickmethod"), fl=box.querySelector("[data-feeline]");
+    if(pm && pm.value==="delivery" && sub>0){ fee=DELIVERY_FEE; }
+    if(fl) fl.style.display = fee>0 ? "" : "none";
+    grand+=sub+fee; grandTax+=subTax;
+  });
+  const g=document.getElementById("grandTotal"); if(g) g.textContent=yen(grand);
+  const gt=document.getElementById("grandTax"); if(gt) gt.textContent = grand>0 ? `（内消費税 ${yen(grandTax)}）` : "";
+  return grand;
+}
+
+/* ==========================================================================
+   郵便番号 → 住所自動反映（zipcloud）
+   ========================================================================== */
+const zip=document.getElementById("zip");
+const zipBtn=document.getElementById("zipBtn");
+const addr=document.getElementById("address");
+
+async function lookupZip(){
+  const code=zip.value.replace(/[^0-9]/g,"");
+  if(code.length!==7){setMsg("郵便番号は7桁でご入力ください。","err");return;}
+  zipBtn.disabled=true;zipBtn.textContent="検索中…";
+  try{
+    const r=await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${code}`);
+    const j=await r.json();
+    if(j.results&&j.results[0]){
+      const a=j.results[0];
+      const base=`${a.address1}${a.address2}${a.address3}`;
+      // 既入力の番地を保持しつつ都道府県〜町域を前方に反映
+      addr.value=base;
+      addr.focus();
+      setMsg("","");
+    }else{
+      setMsg("該当する住所が見つかりませんでした。手入力でお願いします。","err");
+    }
+  }catch(_){
+    setMsg("住所の取得に失敗しました。手入力でお願いします。","err");
+  }finally{
+    zipBtn.disabled=false;zipBtn.textContent="住所を自動入力";
+  }
+}
+zipBtn.addEventListener("click",lookupZip);
+zip.addEventListener("blur",()=>{ if(zip.value.replace(/[^0-9]/g,"").length===7 && !addr.value) lookupZip(); });
+
+/* ==========================================================================
+   送信
+   ========================================================================== */
+const form=document.getElementById("orderForm");
+const msg=document.getElementById("formMsg");
+const submitBtn=document.getElementById("submitBtn");
+function setMsg(t,cls){msg.textContent=t;msg.className="form-msg"+(cls?" "+cls:"");}
+
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  setMsg("","");
+  const fd=new FormData(form);
+  // 基本項目
+  const base={
+    name:fd.get("name")?.trim(),
+    zip:fd.get("zip")?.trim(),
+    address:fd.get("address")?.trim(),
+    tel:fd.get("tel")?.trim(),
+    email:fd.get("email")?.trim(),
+    note:fd.get("note")?.trim()||"",
+    facilityId:fd.get("facility")
+  };
+  if(!base.name||!base.zip||!base.address||!base.tel||!base.email){setMsg("お客様情報の必須項目をご入力ください。","err");return;}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(base.email)){setMsg("メールアドレスの形式をご確認ください。","err");return;}
+  if(!base.facilityId){setMsg("お申し込み施設をお選びください。","err");return;}
+  if(!document.getElementById("agree").checked){setMsg("確認のチェックを入れてください。","err");return;}
+
+  // 注文明細を収集
+  const f=FACILITIES[base.facilityId];
+  base.facility=f.name; base.fax=f.fax;
+  base.tier=PRICE_TIER; base.tierLabel=(PRICE_TIER==="special"?"特別価格（メモリード会員）":"一般価格");
+  const orders=[];
+  let itemCount=0, missingPick=false, grand=0, grandTax=0;
+  menuArea.querySelectorAll(".cat").forEach(box=>{
+    const chosen=[]; let sub=0, subTax=0;
+    box.querySelectorAll("select[data-item]").forEach(s=>{
+      const q=parseInt(s.value,10);
+      if(q>0){
+        const unit=itemUnit(s), tax=itemTax(s), line=q*unit, lineTax=q*tax;
+        sub+=line; subTax+=lineTax; itemCount+=q;
+        chosen.push({no:s.dataset.item,name:s.dataset.name,qty:q,unit,line,tax,lineTax});
+      }
+    });
+    if(chosen.length){
+      const pm=box.querySelector(".pickmethod");
+      const method=pm?pm.value:"store";
+      const isDelivery=(method==="delivery");
+      const pickup=box.querySelector(".pickup").value;
+      const pickdate=box.querySelector(".pickdate").value;
+      if(!pickdate || (!isDelivery && !pickup)) missingPick=true;
+      const fee=isDelivery?DELIVERY_FEE:0;
+      const catTitle=box.querySelector(".cat-title b").textContent;
+      orders.push({category:catTitle,items:chosen,
+        method:isDelivery?"福岡県内配達":"店頭受け取り",
+        pickup:isDelivery?"（ご住所へ配達）":pickup,
+        pickdate,subtotal:sub,subtax:subTax,fee});
+      grand+=sub+fee; grandTax+=subTax;
+    }
+  });
+  if(itemCount===0){setMsg("ご注文の商品を1点以上お選びください。","err");return;}
+  if(missingPick){setMsg("お受け取り場所・お受け取り希望日をお選びください。","err");return;}
+
+  base.orders=orders;
+  base.total=grand;
+  base.totalTax=grandTax;
+  base.summary=buildSummary(base);
+
+  submitBtn.disabled=true;submitBtn.textContent="送信中…";
+  try{
+    const r=await fetch(CONFIG.ENDPOINT,{
+      method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(base)
+    });
+    if(!r.ok) throw new Error("status "+r.status);
+    form.style.display="none";
+    document.getElementById("done").style.display="block";
+    document.getElementById("done").scrollIntoView({behavior:"smooth"});
+  }catch(err){
+    setMsg("送信に失敗しました。時間をおいて再度お試しください。","err");
+    submitBtn.disabled=false;submitBtn.textContent="この内容で申し込む";
+  }
+});
+
+function buildSummary(b){
+  const y=n=>"¥"+Number(n).toLocaleString("ja-JP");
+  let s=`【お申し込み施設】${b.facility}（FAX ${b.fax}）\n【価格区分】${b.tierLabel}\n`;
+  b.orders.forEach(o=>{
+    s+=`\n■ ${o.category}\n`;
+    o.items.forEach(it=>{ s+=`  ${it.no}. ${it.name} … ${it.qty}個 × ${y(it.unit)} = ${y(it.line)}（内消費税 ${y(it.lineTax)}）\n`; });
+    s+=`  受け取り方法：${o.method}\n  受取場所：${o.pickup}\n  受取希望日：${o.pickdate}\n`;
+    if(o.fee>0) s+=`  配達料：${y(o.fee)}\n`;
+    s+=`  小計：${y(o.subtotal+ (o.fee||0))}（うち商品 ${y(o.subtotal)}／内消費税 ${y(o.subtax)}）\n`;
+  });
+  s+=`\n━━━━━━━━━━━━━━\n合計金額（税込）：${y(b.total)}\n（うち内消費税：${y(b.totalTax)}／配達料は税込）\n`;
+  return s;
+}
+</script>
 </body>
 </html>

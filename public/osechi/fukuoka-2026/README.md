@@ -1,0 +1,66 @@
+# メモリード福岡 おせち・クリスマス2026 ご注文フォーム
+
+配置先: `/public/osechi/fukuoka-2026/`
+標準スタック: Cloud Run（フォーム設置）＋ Cloudflare Worker ＋ Brevo（送信）
+
+## ファイル構成
+```
+osechi/fukuoka-2026/
+├─ index.html            … 入力フォーム本体
+├─ images/
+│  ├─ menu_garden.webp   … ガーデンテラス福岡 MENU
+│  ├─ menu_royal.webp    … ロイヤルチェスター福岡 MENU
+│  └─ menu_alcasal.webp  … アルカーサル・アヴィオ MENU
+├─ worker.js             … Brevo送信 Cloudflare Worker
+├─ wrangler.toml         … Worker設定
+└─ README.md
+```
+
+## 実装済みの機能
+- お客様情報：お名前／郵便番号／ご住所／電話／メール
+- **郵便番号 → 住所自動反映**（zipcloud API・キー不要）
+- **施設を選ぶとMENU画像が切り替わり、その施設の注文欄が表示**
+  - ガーデンテラス＝クリスマス商品＋おせち
+  - ロイヤルチェスター＝クリスマス商品＋おせち＋鍋セット
+  - アルカーサル・アヴィオ＝おせち
+- 商品ごとの数量・お受け取り場所・お受け取り希望日（FAX申込書の内容を反映）
+- 送信 → Brevoで①担当者へ注文メール ②お客様へ受付確認 ③（任意）コンタクト登録
+- noindex・バージョンコメント付き（標準運用に準拠）
+
+## セットアップ手順
+
+### 1. Worker をデプロイ
+```bash
+cd osechi/fukuoka-2026
+npx wrangler deploy
+# APIキーはシークレットで登録（コードに直書きしない）
+npx wrangler secret put BREVO_API_KEY
+```
+`wrangler.toml` の `FROM_EMAIL`（Brevo認証済ドメイン）・`TO_EMAILS`（担当者）を確認・修正してください。
+コンタクト登録も行う場合は `BREVO_LIST_ID` のコメントを外して設定します。
+
+### 2. フォームの送信先を合わせる
+`index.html` 先頭の `CONFIG.ENDPOINT` を、デプロイした Worker の URL に合わせます。
+```js
+const CONFIG = { ENDPOINT: "https://memolead-fukuoka-osechi.mk-cbe.workers.dev/submit" };
+```
+（Workerはパスを問わずPOSTを受けるため、末尾 `/submit` はそのままで動作します）
+
+### 3. Cloud Run へ配置
+`index.html` と `images/` を `/public/osechi/fukuoka-2026/` に置き、GitHub Desktop → Cloud Build で反映。
+
+## 価格について（リーフレットPDFより反映済み）
+`2607福岡事業部おせちリーフA4折6PfinOL.pdf` から各商品の税込価格を読み取り、フォームに反映しました。
+- クリスマス商品①〜⑥：共通価格（①〜④ 11,000円／⑤⑥ 5,000円）
+- おせち⑦〜⑪・鍋⑫⑬：**一般価格／特別価格（メモリード会員）**の2区分（例：⑦ 特別28,000／一般29,000）
+- 各金額に**内消費税**を併記。数量×単価の自動計算、カテゴリ小計（内消費税）、合計金額（税込・内消費税）を表示。価格区分トグルで即時切替（初期＝一般価格）。
+- 支払締切・受取先変更期限等の注記を掲載。
+- **受け取り方法**：おせち料理のみ「店頭受け取り（無料）／福岡県内配達（＋1,000円）」を選択可。配達選択時は合計へ自動で+1,000円を加算し、受け取り場所欄を非表示にしてご住所へお届け扱いにします（クリスマス・鍋は店頭のみ）。
+
+## 確認しておきたい点（お知らせください）
+- **FROM_EMAIL**：Brevoで送信認証済みのメール／ドメインをご指定ください（自動返信の到達率に必要）。
+- **TO_EMAILS**：注文通知を受け取る担当者アドレス（複数可）。
+- **Brevoリスト登録**：コンタクトをリストに貯める場合は対象リストIDをご指定ください。
+
+## バージョン
+v0001 | 2026-08-07

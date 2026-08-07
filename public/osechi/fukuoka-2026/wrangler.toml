@@ -1,0 +1,15 @@
+# @version v0001 | 2026-08-07 | メモリード福岡 おせち申込フォーム Worker
+name = "memolead-fukuoka-osechi"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+# シークレット以外の変数（公開されても問題ない値）
+[vars]
+FROM_NAME    = "メモリード福岡"
+FROM_EMAIL   = "info@memolead.co.jp"                                  # ← Brevoで認証済のドメインに変更
+TO_EMAILS    = "mk@emanet.jp"                                          # ← 担当者宛先をカンマ区切りで追加
+ALLOW_ORIGIN = "https://memolead-lp-665477084949.asia-northeast1.run.app"
+# BREVO_LIST_ID = "2"                                                  # ← コンタクト登録する場合のみ設定
+
+# ↓ APIキーは vars に書かず、必ずシークレットで登録：
+#   npx wrangler secret put BREVO_API_KEY
