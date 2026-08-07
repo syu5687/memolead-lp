@@ -121,6 +121,10 @@
   .method{margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)}
   .method .lb{font-size:12.5px;font-weight:600;margin:0 0 6px}
   .method .hint{margin-top:6px}
+  .locinfo{margin-top:7px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+  .locinfo .locaddr{font-size:12px;color:var(--ink-soft)}
+  .locinfo .locmap{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:20px;padding:3px 11px;white-space:nowrap}
+  .locinfo .locmap:hover{background:var(--accent);color:#fff}
   .feeline{text-align:right;font-size:13px;color:var(--ink-soft);padding:2px 0}
   .feeline b{color:var(--ink);margin-left:6px;font-variant-numeric:tabular-nums}
   .notes{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-2);padding:16px 18px;margin:0 0 18px;font-size:12.5px;color:var(--ink-soft);line-height:1.7}
@@ -259,16 +263,20 @@ const CONFIG = {
 /* ==========================================================================
    商品マスタ（FAX申込書の内容をそのまま定義）
    ========================================================================== */
-const PICK_3 = [
-  "ガーデンテラス福岡ホテル＆リゾート",
-  "ロイヤルチェスター福岡",
-  "アルカーサル・アヴィオ"
-];
-const PICK_5 = [
-  ...PICK_3,
-  "グランドベルズ飯塚（飯塚市川津608-1）",
-  "メモリードホール福岡（福岡市中央区警固3丁目1-7）"
-];
+// 受取場所マスタ（住所＋Googleマップ）。addrが空の会場は施設名でマップ検索します
+const LOCATIONS = {
+  "ガーデンテラス福岡ホテル＆リゾート": { addr:"福岡県福岡市西区小戸2丁目3-55" },
+  "ロイヤルチェスター福岡":            { addr:"福岡県大野城市雑餉隈町3丁目3-15" },
+  "アルカーサル・アヴィオ":            { addr:"福岡県福岡市東区水谷2丁目52-8" },
+  "グランドベルズ飯塚":                { addr:"福岡県飯塚市川津608-1" },
+  "メモリードホール福岡":              { addr:"福岡県福岡市中央区警固3丁目1-7" }
+};
+function locMapUrl(name){
+  const a=(LOCATIONS[name]||{}).addr;
+  return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(a?`${name} ${a}`:name);
+}
+const PICK_3 = ["ガーデンテラス福岡ホテル＆リゾート","ロイヤルチェスター福岡","アルカーサル・アヴィオ"];
+const PICK_5 = [...PICK_3, "グランドベルズ飯塚", "メモリードホール福岡"];
 const DATES_XMAS   = ["12/23(水)","12/24(木)","12/25(金)"];
 const DATES_OSECHI = ["12/31(木)"];
 const DATES_NABE   = ["12/23(水)","12/24(木)","12/25(金)","12/31(木)"];
@@ -400,7 +408,7 @@ function renderMenu(id){
       </div>`;
     }
     html+=`<div class="pick">
-      <div class="pickup-wrap"><div class="lb">お受け取り場所</div><select class="pickup">${["",...c.pickup].map(p=>`<option value="${p}">${p||"選択してください"}</option>`).join("")}</select></div>
+      <div class="pickup-wrap"><div class="lb">お受け取り場所</div><select class="pickup">${["",...c.pickup].map(p=>`<option value="${p}">${p||"選択してください"}</option>`).join("")}</select><div class="locinfo" data-locinfo></div></div>
       <div><div class="lb">お受け取り希望日</div><select class="pickdate">${["",...c.dates].map(d=>`<option value="${d}">${d||"選択してください"}</option>`).join("")}</select></div>
     </div>
     <div class="subtotal">小計<b data-subtotal>¥0</b><span class="subtax" data-subtax></span></div>
@@ -446,6 +454,15 @@ function bindRecalc(){
     if(pw) pw.style.display = del ? "none" : "";
     recalc();
   }));
+  menuArea.querySelectorAll('.pickup').forEach(p=>p.addEventListener("change",()=>updateLocInfo(p.closest(".cat"))));
+}
+function updateLocInfo(box){
+  const sel=box.querySelector(".pickup"), el=box.querySelector("[data-locinfo]");
+  if(!el) return;
+  const name=sel.value;
+  if(!name){ el.innerHTML=""; return; }
+  const a=(LOCATIONS[name]||{}).addr;
+  el.innerHTML = `${a?`<span class="locaddr">${a}</span>`:""}<a class="locmap" href="${locMapUrl(name)}" target="_blank" rel="noopener">Googleマップで開く ↗</a>`;
 }
 function recalc(){
   let grand=0, grandTax=0;
@@ -559,6 +576,8 @@ form.addEventListener("submit",async e=>{
       orders.push({category:catTitle,items:chosen,
         method:isDelivery?"福岡県内配達":"店頭受け取り",
         pickup:isDelivery?"（ご住所へ配達）":pickup,
+        pickupAddr:isDelivery?"":((LOCATIONS[pickup]||{}).addr||""),
+        pickupMap:isDelivery?"":(pickup?locMapUrl(pickup):""),
         pickdate,subtotal:sub,subtax:subTax,fee});
       grand+=sub+fee; grandTax+=subTax;
     }
@@ -592,7 +611,9 @@ function buildSummary(b){
   b.orders.forEach(o=>{
     s+=`\n■ ${o.category}\n`;
     o.items.forEach(it=>{ s+=`  ${it.no}. ${it.name} … ${it.qty}個 × ${y(it.unit)} = ${y(it.line)}（内消費税 ${y(it.lineTax)}）\n`; });
-    s+=`  受け取り方法：${o.method}\n  受取場所：${o.pickup}\n  受取希望日：${o.pickdate}\n`;
+    s+=`  受け取り方法：${o.method}\n  受取場所：${o.pickup}${o.pickupAddr?`（${o.pickupAddr}）`:""}\n`;
+    if(o.pickupMap) s+=`  地図：${o.pickupMap}\n`;
+    s+=`  受取希望日：${o.pickdate}\n`;
     if(o.fee>0) s+=`  配達料：${y(o.fee)}\n`;
     s+=`  小計：${y(o.subtotal+ (o.fee||0))}（うち商品 ${y(o.subtotal)}／内消費税 ${y(o.subtax)}）\n`;
   });
