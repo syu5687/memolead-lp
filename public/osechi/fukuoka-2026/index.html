@@ -144,6 +144,7 @@
   .notes ul{margin:8px 0 0;padding-left:1.1em} .notes li{margin:2px 0}
   .cat .pick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
   .cat .pick .lb{font-size:12.5px;font-weight:600;margin:0 0 6px}
+  .cat .pick select,.method .pickmethod{font-size:13px}
   @media(max-width:560px){ .row2,.cat .pick{grid-template-columns:1fr} .item{grid-template-columns:1fr 74px 80px} }
   /* ── 送信 ─────────────────── */
   .submit-wrap{margin-top:14px}
@@ -175,7 +176,17 @@
   #done h2{font-family:"Yu Mincho",serif;font-weight:600;font-size:24px;margin:14px 0 12px}
   #done p{color:var(--ink-soft);font-size:14.5px}
   .hidden{display:none!important}
-  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:12px;text-align:center}
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-soft);font-size:12px;text-align:center}
+  /* 文字サイズ変更ボタン（右下固定） */
+  .fs-ctrl{position:fixed;right:14px;bottom:14px;z-index:900;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:30px;padding:7px 10px 7px 14px;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+  .fs-ctrl .fs-label{font-size:11.5px;color:var(--ink-soft);font-weight:600;white-space:nowrap}
+  .fs-ctrl button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:20px;padding:6px 11px;font-weight:700;line-height:1;transition:.15s}
+  .fs-ctrl button.s{font-size:12px} .fs-ctrl button.m{font-size:14px} .fs-ctrl button.l{font-size:16px}
+  .fs-ctrl button:hover{border-color:var(--accent-2)}
+  .fs-ctrl button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  body.fs-1 header.hero, body.fs-1 main, body.fs-1 footer{zoom:1.12}
+  body.fs-2 header.hero, body.fs-2 main, body.fs-2 footer{zoom:1.25}
+  @media(max-width:560px){ .fs-ctrl{right:10px;bottom:10px;padding:6px 8px 6px 10px} .fs-ctrl .fs-label{display:none} }
 </style>
 </head>
 <body>
@@ -285,6 +296,14 @@
   <div style="margin-top:6px">ご不明な点は各施設までお問い合わせください。</div>
 </footer>
 
+<!-- 文字サイズ変更（右下固定） -->
+<div class="fs-ctrl" role="group" aria-label="文字サイズ変更">
+  <span class="fs-label">文字サイズ</span>
+  <button type="button" class="s active" data-fs="0">標準</button>
+  <button type="button" class="m" data-fs="1">大</button>
+  <button type="button" class="l" data-fs="2">特大</button>
+</div>
+
 <script>
 /* ==========================================================================
    設定 — 本番デプロイ時にここだけ書き換えてください
@@ -311,9 +330,9 @@ function locMapUrl(name){
 }
 const PICK_3 = ["ガーデンテラス福岡ホテル＆リゾート","ロイヤルチェスター福岡","アルカーサル・アヴィオ"];
 const PICK_5 = [...PICK_3, "グランドベルズ飯塚", "メモリードホール福岡"];
-const DATES_XMAS   = ["12/23(水) 13:00〜18:00","12/24(木) 13:00〜18:00","12/25(金) 13:00〜18:00"];
-const DATES_OSECHI = ["12/31(木) 10:00〜13:00"];
-const DATES_NABE   = ["12/23(水) 13:00〜18:00","12/24(木) 13:00〜18:00","12/25(金) 13:00〜18:00","12/31(木) 10:00〜13:00"];
+const DATES_XMAS   = ["12/23(水) 13:00〜18:00 CLOSE","12/24(木) 13:00〜18:00 CLOSE","12/25(金) 13:00〜18:00 CLOSE"];
+const DATES_OSECHI = ["12/31(木) 10:00〜13:00 CLOSE"];
+const DATES_NABE   = ["12/23(水) 13:00〜18:00 CLOSE","12/24(木) 13:00〜18:00 CLOSE","12/25(金) 13:00〜18:00 CLOSE","12/31(木) 10:00〜13:00 CLOSE"];
 
 const FACILITIES = {
   garden: {
@@ -385,6 +404,15 @@ Object.entries(FACILITIES).forEach(([id,f])=>{
 });
 
 const menuArea=document.getElementById("menuArea");
+
+/* 文字サイズ変更（標準／大／特大） */
+document.querySelectorAll('.fs-ctrl button').forEach(btn=>btn.addEventListener("click",()=>{
+  const lv=+btn.dataset.fs;
+  document.body.classList.remove("fs-1","fs-2");
+  if(lv===1) document.body.classList.add("fs-1");
+  else if(lv===2) document.body.classList.add("fs-2");
+  document.querySelectorAll('.fs-ctrl button').forEach(b=>b.classList.toggle("active",b===btn));
+}));
 
 facWrap.addEventListener("change",e=>{
   if(e.target.name!=="facility")return;
