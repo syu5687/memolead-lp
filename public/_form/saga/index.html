@@ -151,7 +151,7 @@
 </div>
 
 <script>
-const CONFIG = { ENDPOINT: "https://photo-wedding.mk-cbe.workers.dev/submit" };
+const CONFIG = { ENDPOINT: "https://lp-saga.mk-cbe.workers.dev/submit" };
 
 /* 文字サイズ変更 */
 document.querySelectorAll('.fs-ctrl button').forEach(btn=>btn.addEventListener("click",()=>{
@@ -198,7 +198,9 @@ form.addEventListener("submit",async e=>{
     email:fd.get("email")?.trim(),
     status:fd.get("status")||"",
     points:points.join("、"),
-    message:fd.get("message")?.trim()||""
+    message:fd.get("message")?.trim()||"",
+    formName:"フォトウェディング お申し込みフォーム（saga）",
+    source:location.href
   };
   if(!d.name||!d.age||!d.zip||!d.address||!d.tel||!d.email){setMsg("必須項目をご入力ください。","err");return;}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){setMsg("メールアドレスの形式をご確認ください。","err");return;}

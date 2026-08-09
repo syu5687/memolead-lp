@@ -1,5 +1,5 @@
 /**
- * @version v0007 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0008 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -30,7 +30,9 @@ var CONFIG = {
   BREVO_LIST_ID: null,
   // 毎日の稼働確認メール（Cron Trigger）の宛先・件名
   MONITOR_TO: "mk@emanet.jp",
-  MONITOR_SUBJECT: "【自動稼働確認】おせち申込フォーム 正常稼働中"
+  MONITOR_SUBJECT: "【自動稼働確認】おせち申込フォーム 正常稼働中",
+  // 稼働確認メールに記載するフォームのURL
+  FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/fukuoka-2026/"
 };
 
 var BREVO_EMAIL = "https://api.brevo.com/v3/smtp/email";
@@ -154,6 +156,7 @@ export default {
         `<p>おせち・クリスマス2026 申込フォームの<b>メール送信機能は正常に稼働しています</b>。</p>` +
         `<p>この自動確認メールが毎日届いていれば、Worker＋Brevo送信は正常です。<br>` +
         `もし届かない日があれば、フォームまたは送信機能に問題がある可能性があります。</p>` +
+        `<p>フォームURL：<br><a href="${CONFIG.FORM_URL}" target="_blank" rel="noopener" style="color:#7c1f2a;">${CONFIG.FORM_URL}</a></p>` +
         `<p style="font-size:12px;color:#888;">自動送信（稼働確認）／送信時刻 ${now} UTC</p></div>`
     };
     ctx.waitUntil(fetch(BREVO_EMAIL, {
