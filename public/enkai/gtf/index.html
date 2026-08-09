@@ -120,6 +120,27 @@ section{position:relative}
 .plan ul li::before{content:""; position:absolute; left:2px; top:14px; width:5px; height:5px; background:var(--accent-2); border-radius:50%}
 .plans .foot-note{margin-top:34px; font-size:13px; color:var(--ink-soft); line-height:1.95}
 .plans .foot-note .wa{display:inline-block; font-family:var(--serif); color:var(--accent); font-size:16px; margin-bottom:6px}
+.plans .foot-note a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-2); padding-bottom:1px}
+/* benefits band (light) */
+.benefit-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:40px 0 6px}
+.benefit{background:#fff; border:1px solid var(--line); border-top:3px solid var(--accent); padding:24px 22px}
+.benefit .no{font-family:var(--serif); font-size:13px; letter-spacing:.18em; color:var(--accent-2); margin-bottom:12px}
+.benefit h4{font-family:var(--serif); font-weight:500; font-size:17px; margin:0 0 9px; line-height:1.5}
+.benefit p{font-size:12.5px; line-height:1.85; color:var(--ink-soft); margin:0}
+.benefit p .price{color:var(--accent); font-family:var(--serif)}
+.benefit .gift{color:var(--accent); font-weight:700}
+.plans-sub{font-family:var(--serif); font-weight:500; font-size:22px; letter-spacing:.03em; margin:54px 0 2px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.plans-sub small{font-family:var(--sans); font-size:12.5px; letter-spacing:.02em; color:var(--ink-soft)}
+.plans-sub::before{content:""; width:26px; height:1px; background:var(--accent-2)}
+/* price bar (compact, shared-menu plan) */
+.pricebar{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px}
+.pricecard{background:#fff; border:1px solid var(--line); padding:30px 26px; text-align:center}
+.pricecard .st{font-size:11px; letter-spacing:.18em; color:var(--accent); margin-bottom:10px}
+.pricecard h4{font-family:var(--serif); font-weight:500; font-size:23px; margin:0 0 6px; letter-spacing:.03em}
+.pricecard .sub{font-size:12.5px; color:var(--ink-soft); line-height:1.7; margin:0 0 18px; min-height:3.4em}
+.pricecard .prow{display:flex; justify-content:center; gap:14px; border-top:1px solid var(--line); padding-top:16px}
+.pricecard .prow div b{display:block; font-family:var(--serif); font-size:19px; color:var(--accent)}
+.pricecard .prow div span{font-size:10px; color:#8c8272; letter-spacing:.05em}
 
 /* drink */
 .drink{background:var(--ink); color:#f0e9dd}
@@ -248,6 +269,8 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   .split,.drink .dwrap,.access .awrap{grid-template-columns:1fr; gap:38px}
   .perk-grid{grid-template-columns:repeat(2,1fr)}
   .plan-grid{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .pricebar{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto}
   .room-grid{grid-template-columns:repeat(2,1fr)}
   .occ-grid{grid-template-columns:1fr}
   .biz .cols{grid-template-columns:1fr; gap:30px}
@@ -318,28 +341,19 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   </div>
 </section>
 
-<!-- PERKS -->
-<section class="perks pad">
+<!-- 忘新年会プラン -->
+<section class="plans pad-lg" id="bounenkai">
   <div class="wrap">
-    <div class="eyebrow"><span class="en">Special Benefits</span></div>
-    <h2 class="h2">忘新年会・同窓会の<span class="accent" style="color:var(--accent-2)">お得な4大特典</span></h2>
-    <p class="lead-txt">幹事様の負担をやわらげ、皆さまに気持ちよくお集まりいただくための特典をご用意しました。</p>
-    <div class="perk-grid">
-      <div class="perk"><div class="no">BENEFIT 01</div><h3>送迎バス1台<br>サービス</h3><p>30名様以上のご利用で1台サービス。〈通行料別途〉台数に限りがございますので、お早めのご予約をおすすめします。</p></div>
-      <div class="perk"><div class="no">BENEFIT 02</div><h3>カラオケ・<br>プロジェクター無料</h3><p>使用料無料。余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
-      <div class="perk"><div class="no">BENEFIT 03</div><h3>幹事様<br>1名様分無料</h3><p>50名様以上のご利用で、幹事様お1人様分の料金を無料とさせていただきます。</p></div>
-      <div class="perk"><div class="no">BENEFIT 04</div><h3>飲み放題<br>グレードアップ</h3><p>お1人様＋500円で、日本酒・カクテル・コーヒーも飲み放題に。<span class="price">〈通常価格1,000円〉</span></p></div>
+    <div class="eyebrow"><span class="en">Year-End / New-Year Party</span></div>
+    <h2 class="h2">忘新年会プラン</h2>
+    <p class="lead-txt">会社の忘年会・新年会に。10名様のアットホームな集いから、最大150名様の企業宴会まで、あらゆるシーンに対応いたします。</p>
+    <div class="benefit-grid">
+      <div class="benefit"><div class="no">特典 01</div><h4>送迎バス1台サービス</h4><p>30名様以上のご利用で1台サービス。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
+      <div class="benefit"><div class="no">特典 02</div><h4>カラオケ・プロジェクター使用料無料</h4><p>余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
+      <div class="benefit"><div class="no">特典 03</div><h4>幹事様1名様分無料</h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料とさせていただきます。</p></div>
+      <div class="benefit"><div class="no">特典 04</div><h4>飲み放題グレードアップ</h4><p>お1人様＋500円で、日本酒・カクテル・コーヒーも飲み放題に。<span class="price">〈通常価格1,000円〉</span></p></div>
     </div>
-    <p class="perk-note">※同窓会プランでは、特典④に代えて「集合写真データの無料プレゼント」もお選びいただけます。詳しくはお問い合わせください。</p>
-  </div>
-</section>
-
-<!-- PLANS -->
-<section class="plans pad-lg" id="plans">
-  <div class="wrap">
-    <div class="eyebrow"><span class="en">Party Style</span></div>
-    <h2 class="h2">選べる、3つの宴会スタイル</h2>
-    <p class="lead-txt">ご宴席の趣旨や人数にあわせて、会席コース・パーティー・ビュッフェからお選びいただけます。いずれも<b>フリードリンク2時間付き</b>です。</p>
+    <h3 class="plans-sub">選べる、3つの宴会スタイル<small>いずれもフリードリンク2時間付き</small></h3>
     <div class="plan-grid">
 
       <div class="plan">
@@ -422,6 +436,46 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     <p class="foot-note">
       <span class="wa">和食テイストのご用意もご相談ください。</span><br>
       ※メニュー内容はその日の仕入れ状況により変更する場合がございます。※アレルギー等ございましたらご予約時にお申し付けください。※写真は一部イメージです。
+    </p>
+  </div>
+</section>
+
+<!-- 同窓会プラン -->
+<section class="plans pad-lg" id="dousoukai" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="eyebrow"><span class="en">Reunion / OB Party</span></div>
+    <h2 class="h2">同窓会プラン</h2>
+    <p class="lead-txt">10名様のアットホームな同窓会から、最大150名様の大規模OB会まで。懐かしい顔ぶれで囲む、ゆったりとしたお席をご用意いたします。</p>
+    <div class="benefit-grid">
+      <div class="benefit"><div class="no">特典 01</div><h4>送迎バス1台サービス</h4><p>30名様以上のご利用で1台サービス。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
+      <div class="benefit"><div class="no">特典 02</div><h4>カラオケ・プロジェクター使用料無料</h4><p>余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
+      <div class="benefit"><div class="no">特典 03</div><h4>幹事様1名様分無料</h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料とさせていただきます。</p></div>
+      <div class="benefit"><div class="no">特典 04</div><h4><span class="gift">集合写真データ無料プレゼント</span></h4><p>皆さまでの集合写真を撮影し、データにして無料でプレゼントいたします。※データでのお渡しとなります。</p></div>
+    </div>
+    <h3 class="plans-sub">お料理は、選べる3つのスタイル<small>コース／パーティー／ビュッフェ・フリードリンク2時間付</small></h3>
+    <div class="pricebar">
+      <div class="pricecard">
+        <div class="st">COURSE ／ 会席料理</div>
+        <h4>コースプラン</h4>
+        <p class="sub">大切な方々と、ゆったりと味わうスタイル。</p>
+        <div class="prow"><div><b>¥6,500</b><span>スタンダード</span></div><div><b>¥7,500</b><span>プレミアム</span></div><div><b>¥8,500</b><span>スペシャル</span></div></div>
+      </div>
+      <div class="pricecard">
+        <div class="st">PARTY ／ 卓盛料理</div>
+        <h4>パーティープラン</h4>
+        <p class="sub">テーブルごとに盛り付けたお料理を、皆さまで愉しむスタイル。</p>
+        <div class="prow"><div><b>¥6,000</b><span>スタンダード</span></div><div><b>¥7,000</b><span>プレミアム</span></div><div><b>¥8,000</b><span>スペシャル</span></div></div>
+      </div>
+      <div class="pricecard">
+        <div class="st">BUFFET ／ ビュッフェ料理</div>
+        <h4>ビュッフェプラン</h4>
+        <p class="sub">会場を自由に巡る人気のスタイル。立食・着席いずれにも対応。</p>
+        <div class="prow"><div><b>¥6,000</b><span>スタンダード</span></div><div><b>¥7,000</b><span>プレミアム</span></div><div><b>¥8,000</b><span>スペシャル</span></div></div>
+      </div>
+    </div>
+    <p class="foot-note">
+      お料理内容は忘新年会プランと共通の3スタイルです。<a href="#bounenkai">▸ 各スタイルのメニュー例を見る</a>　／　<span class="wa" style="font-size:15px">和食テイストのご用意もご相談ください。</span><br>
+      ※料金は税・サービス料込。※メニュー内容はその日の仕入れ状況により変更する場合がございます。※アレルギー等ございましたらご予約時にお申し付けください。※写真は一部イメージです。
     </p>
   </div>
 </section>
