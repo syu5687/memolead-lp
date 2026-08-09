@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!-- @version v0001 | 2026-08-07 | フォトウェディング申込フォーム(saga) | /public/_form/saga/ -->
+<!-- @version v0002 | 2026-08-09 | フォトウェディングプレゼントキャンペーン応募フォーム(saga) | /public/_form/saga/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0001">
+<meta name="version" content="v0002">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>フォトウェディング お申し込みフォーム</title>
+<title>フォトウェディングプレゼントキャンペーン応募フォーム</title>
 <style>
   :root{
     --ink:#1a1714; --ink-soft:#4a423b; --paper:#f6f2ea; --paper-2:#efe8db;
@@ -75,9 +75,9 @@
 </head>
 <body>
 <header class="hero"><div class="wrap">
-  <p class="eyebrow">PHOTO WEDDING</p>
-  <h1>フォトウェディング<br>お申し込みフォーム</h1>
-  <p class="lead">おふたりの記念のひとときを、写真におさめるお手伝いをいたします。下記フォームにご記入のうえ、お申し込みください。担当者より改めてご連絡いたします。</p>
+  <p class="eyebrow">PHOTO WEDDING PRESENT CAMPAIGN</p>
+  <h1>フォトウェディング<br>プレゼントキャンペーン<br>応募フォーム</h1>
+  <p class="lead">おふたりの記念のひとときを写真におさめる、フォトウェディングのプレゼントキャンペーンです。下記フォームにご記入のうえご応募ください。担当者より改めてご連絡いたします。</p>
 </div></header>
 
 <main class="wrap">
@@ -132,16 +132,16 @@
       <label class="field"><span class="lb">応募のきっかけ・ひとことメッセージ <span class="req">必須</span></span>
         <textarea name="message" placeholder="フォトウェディングに応募しようと思ったきっかけや、叶えたいイメージなどをお聞かせください。" required></textarea>
         <p class="hint">おふたりの想いや背景を、担当者が事前に把握できるようご記入ください。</p></label>
-      <label class="agree"><input type="checkbox" id="agree"><span>入力内容を確認し、この内容で送信します。</span></label>
-      <button type="submit" class="btn-submit" id="submitBtn">この内容で送信する</button>
+      <label class="agree"><input type="checkbox" id="agree"><span>入力内容を確認し、この内容で応募します。</span></label>
+      <button type="submit" class="btn-submit" id="submitBtn">この内容で応募する</button>
       <p class="form-msg" id="formMsg"></p>
     </section>
   </form>
 
-  <section id="done"><h2>お申し込みを承りました</h2><p>ご入力いただいたメールアドレスへ受付確認メールをお送りしました。<br>担当者より改めてご連絡いたしますので、今しばらくお待ちください。</p></section>
+  <section id="done"><h2>ご応募を承りました</h2><p>ご入力いただいたメールアドレスへ受付確認メールをお送りしました。<br>担当者より改めてご連絡いたしますので、今しばらくお待ちください。</p></section>
 </main>
 
-<footer class="wrap"><div>フォトウェディング お申し込みフォーム</div></footer>
+<footer class="wrap"><div>フォトウェディングプレゼントキャンペーン応募フォーム</div></footer>
 
 <div class="fs-ctrl" role="group" aria-label="文字サイズ変更">
   <span class="fs-label">文字サイズ</span>
@@ -199,7 +199,7 @@ form.addEventListener("submit",async e=>{
     status:fd.get("status")||"",
     points:points.join("、"),
     message:fd.get("message")?.trim()||"",
-    formName:"フォトウェディング お申し込みフォーム（saga）",
+    formName:"フォトウェディングプレゼントキャンペーン応募フォーム（saga）",
     source:location.href
   };
   if(!d.name||!d.age||!d.zip||!d.address||!d.tel||!d.email){setMsg("必須項目をご入力ください。","err");return;}
@@ -212,7 +212,7 @@ form.addEventListener("submit",async e=>{
     const r=await fetch(CONFIG.ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
     if(!r.ok)throw new Error("status "+r.status);
     form.style.display="none";document.getElementById("done").style.display="block";document.getElementById("done").scrollIntoView({behavior:"smooth"});
-  }catch(_){setMsg("送信に失敗しました。時間をおいて再度お試しください。","err");submitBtn.disabled=false;submitBtn.textContent="この内容で送信する";}
+  }catch(_){setMsg("送信に失敗しました。時間をおいて再度お試しください。","err");submitBtn.disabled=false;submitBtn.textContent="この内容で応募する";}
 });
 </script>
 </body>
