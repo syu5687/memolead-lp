@@ -213,9 +213,12 @@ section{position:relative}
 .houji .lead-txt{color:#c7bcac}
 .houji .fig img{aspect-ratio:4/5}
 .houji .courses{margin-top:30px; border-top:1px solid rgba(255,255,255,.16)}
-.houji .courses .row{display:flex; justify-content:space-between; align-items:baseline; padding:20px 0; border-bottom:1px solid rgba(255,255,255,.16)}
+.houji .courses .row{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.16)}
+.houji .courses .row .hthumb{width:88px; height:62px; object-fit:cover; flex:none; border:1px solid rgba(255,255,255,.18)}
+.houji .courses .row .rname{flex:1}
 .houji .courses .row b{font-family:var(--serif); font-size:18px; letter-spacing:.05em; color:#fff; font-weight:500}
-.houji .courses .row .p{font-family:var(--serif); font-size:24px; color:var(--accent-2)}
+.houji .courses .row .rname .rd{display:block; font-size:11.5px; color:#a99f8f; margin-top:4px; line-height:1.5}
+.houji .courses .row .p{font-family:var(--serif); font-size:23px; color:var(--accent-2); white-space:nowrap}
 .houji .courses .row .p small{font-size:13px; color:#b3a898}
 .houji .drinkline{margin-top:18px; font-size:14px; color:#cbbfae}
 .houji .drinkline b{color:var(--accent-2); font-family:var(--serif); font-size:17px}
@@ -642,9 +645,9 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
       <h2 class="h2">法事法要プラン</h2>
       <p class="lead-txt">ご家族やご親族が集い、故人を偲ぶ大切な時間。ホテルならではの落ち着いた空間と、季節の食材を丁寧に仕上げたお料理で、皆さまの心に残る法要のお席をお手伝いいたします。会場は THE W（最大60名様）・小ホールをご用意しています。</p>
       <div class="courses">
-        <div class="row"><b>特別会席</b><span class="p">¥11,000<small>〜（税込）</small></span></div>
-        <div class="row"><b>上会席</b><span class="p">¥8,800<small>〜（税込）</small></span></div>
-        <div class="row"><b>会席</b><span class="p">¥6,600<small>〜（税込）</small></span></div>
+        <div class="row"><img class="hthumb" src="_assets/img/houji-11000.jpg" alt="特別会席の会席料理"><div class="rname"><b>特別会席</b><span class="rd">最上級のおもてなしに</span></div><span class="p">¥11,000<small>〜（税込）</small></span></div>
+        <div class="row"><img class="hthumb" src="_assets/img/houji-8800.jpg" alt="上会席の会席料理"><div class="rname"><b>上会席</b><span class="rd">季節の食材をより豊かに</span></div><span class="p">¥8,800<small>〜（税込）</small></span></div>
+        <div class="row"><img class="hthumb" src="_assets/img/houji-6600.jpg" alt="会席の会席料理"><div class="rname"><b>会席</b><span class="rd">真心を込めた基本の会席</span></div><span class="p">¥6,600<small>〜（税込）</small></span></div>
       </div>
       <p class="drinkline">フリードリンク <b>¥2,750</b>（税込）でご用意できます。</p>
       <p class="rn">●15名様から承っております。●旬の食材を使用しておりますので、一部内容が変わる場合がございます。●サービス料10%を別途いただきます。●別途会場費が発生いたします。●ご利用のお時間は2時間とさせていただきます。●10日前までにお申込みください。●アレルギー等、お体に合わない食材がございましたらお申し付けください。</p>
