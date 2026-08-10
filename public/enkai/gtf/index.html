@@ -167,7 +167,9 @@ section{position:relative}
 /* drink */
 .drink{background:var(--ink); color:#f0e9dd}
 .drink .h2{color:#fff}
-.drink .dwrap{display:grid; grid-template-columns:.8fr 1.2fr; gap:52px; align-items:center; margin-top:20px}
+.drink .dwrap{display:grid; grid-template-columns:.85fr 1.15fr; gap:52px; align-items:center; margin-top:20px}
+.drink .dfig img{width:100%; aspect-ratio:1/1; object-fit:cover; border:1px solid rgba(168,137,78,.35)}
+.drink .dcontent .tags{margin-top:26px}
 .drink .tags{display:flex; flex-wrap:wrap; gap:10px}
 .drink .tags span{border:1px solid rgba(255,255,255,.28); padding:9px 16px; font-size:13px; letter-spacing:.04em; color:#e7ddcd}
 .drink .up{margin-top:26px; font-size:13.5px; color:#cbbfae; line-height:1.9}
@@ -646,13 +648,14 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 <!-- FREE DRINK -->
 <section class="drink pad">
   <div class="wrap dwrap">
-    <div>
+    <div class="dfig"><img src="_assets/img/freedrink.jpg" alt="フリードリンクでの乾杯"></div>
+    <div class="dcontent">
       <div class="eyebrow"><span class="en">Free Drink</span></div>
-      <h2 class="h2">フリードリンク<br>2時間付き</h2>
+      <h2 class="h2">フリードリンク 2時間付き</h2>
       <p class="up">お1人様＋500円で、<b>日本酒・カクテル・コーヒー</b>も飲み放題にグレードアップいただけます。〈通常価格1,000円〉</p>
-    </div>
-    <div class="tags">
-      <span>瓶ビール</span><span>赤ワイン</span><span>白ワイン</span><span>焼酎（芋・米・麦）</span><span>カクテル</span><span>ウィスキー</span><span>ハイボール</span><span>梅酒</span><span>ノンアルコールビール</span><span>ウーロン茶</span><span>コーラ</span><span>オレンジジュース</span><span>アップルジュース</span><span>グレープフルーツジュース</span>
+      <div class="tags">
+        <span>瓶ビール</span><span>赤ワイン</span><span>白ワイン</span><span>焼酎（芋・米・麦）</span><span>カクテル</span><span>ウィスキー</span><span>ハイボール</span><span>梅酒</span><span>ノンアルコールビール</span><span>ウーロン茶</span><span>コーラ</span><span>オレンジジュース</span><span>アップルジュース</span><span>グレープフルーツジュース</span>
+      </div>
     </div>
   </div>
 </section>
