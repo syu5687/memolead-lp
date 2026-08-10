@@ -131,6 +131,26 @@ section{position:relative}
 .benefit p{font-size:12.5px; line-height:1.85; color:var(--ink-soft); margin:0}
 .benefit p .price{color:var(--accent); font-family:var(--serif)}
 .benefit .gift{color:var(--accent); font-weight:700}
+/* perk band (emphasised 4大特典) */
+.perk-band{display:grid; grid-template-columns:210px 1fr; margin:42px 0 8px; color:#f4ead9;
+  background:linear-gradient(135deg,#822130 0%,#5c1319 100%); border:1px solid rgba(168,137,78,.45);
+  box-shadow:0 20px 44px rgba(70,20,26,.26); position:relative; overflow:hidden}
+.perk-band::before{content:""; position:absolute; inset:6px; border:1px solid rgba(168,137,78,.28); pointer-events:none}
+.perk-badge{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding:26px 22px; border-right:1px solid rgba(168,137,78,.4)}
+.perk-badge .pb-en{font-family:"Cormorant Garamond",var(--serif); letter-spacing:.3em; font-size:10px; color:var(--accent-2); margin-bottom:10px}
+.perk-badge .pb-ttl{font-family:var(--serif); font-weight:500; font-size:19px; line-height:1.35; color:#fff}
+.perk-badge .pb-num{font-family:var(--serif); color:var(--accent-2); font-size:15px; vertical-align:baseline}
+.perk-badge .pb-big{font-size:52px; line-height:1; color:#fff; display:block; margin:8px 0 2px; text-shadow:0 2px 14px rgba(0,0,0,.3)}
+.perk-badge .pb-under{width:44px; height:1px; background:var(--accent-2); margin:12px auto 0}
+.perk-items{display:grid; grid-template-columns:repeat(4,1fr)}
+.pk{padding:26px 22px 28px; border-right:1px solid rgba(168,137,78,.24)}
+.pk:last-child{border-right:none}
+.pk .pk-no{font-family:"Cormorant Garamond",var(--serif); font-size:12px; letter-spacing:.24em; color:var(--accent-2)}
+.pk h4{font-family:var(--serif); font-weight:500; font-size:18px; line-height:1.5; color:#fff; margin:10px 0 9px}
+.pk .free{color:#ffd98a; font-weight:700}
+.pk p{font-size:12px; line-height:1.8; color:#d9c4b1; margin:0}
+.pk p .price{color:var(--accent-2)}
 .plans-sub{font-family:var(--serif); font-weight:500; font-size:22px; letter-spacing:.03em; margin:54px 0 2px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
 .plans-sub small{font-family:var(--sans); font-size:12.5px; letter-spacing:.02em; color:var(--ink-soft)}
 .plans-sub::before{content:""; width:26px; height:1px; background:var(--accent-2)}
@@ -320,6 +340,9 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   .perk-grid{grid-template-columns:repeat(2,1fr)}
   .plan-grid{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto}
   .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .perk-items{grid-template-columns:repeat(2,1fr)}
+  .pk:nth-child(2){border-right:none}
+  .pk:nth-child(1),.pk:nth-child(2){border-bottom:1px solid rgba(168,137,78,.24)}
   .pricebar{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto}
   .room-grid{grid-template-columns:repeat(3,1fr)}
   .room-mini-grid{grid-template-columns:repeat(2,1fr)}
@@ -345,6 +368,13 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   .room img{aspect-ratio:16/10}
   .room-mini-grid{grid-template-columns:1fr 1fr}
   .modal-panel .mbody{padding:26px 22px 30px}
+  .perk-band{grid-template-columns:1fr}
+  .perk-badge{border-right:none; border-bottom:1px solid rgba(168,137,78,.4); flex-direction:row; gap:14px; padding:18px}
+  .perk-badge .pb-big{font-size:38px; margin:0}
+  .perk-badge .pb-under{display:none}
+  .perk-items{grid-template-columns:1fr}
+  .pk{border-right:none !important; border-bottom:1px solid rgba(168,137,78,.24)}
+  .pk:last-child{border-bottom:none}
   body{padding-bottom:64px}
   .spbar{display:flex; position:fixed; bottom:0; left:0; right:0; z-index:60; box-shadow:0 -2px 14px rgba(0,0,0,.15)}
   .spbar a{flex:1; text-align:center; padding:16px 0; text-decoration:none; font-size:14px; letter-spacing:.1em; color:#fff}
@@ -403,11 +433,20 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     <div class="eyebrow"><span class="en">Year-End / New-Year Party</span></div>
     <h2 class="h2">忘新年会プラン</h2>
     <p class="lead-txt">会社の忘年会・新年会に。10名様のアットホームな集いから、最大150名様の企業宴会まで、あらゆるシーンに対応いたします。</p>
-    <div class="benefit-grid">
-      <div class="benefit"><div class="no">特典 01</div><h4>送迎バス1台サービス</h4><p>30名様以上のご利用で1台サービス。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
-      <div class="benefit"><div class="no">特典 02</div><h4>カラオケ・プロジェクター使用料無料</h4><p>余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
-      <div class="benefit"><div class="no">特典 03</div><h4>幹事様1名様分無料</h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料とさせていただきます。</p></div>
-      <div class="benefit"><div class="no">特典 04</div><h4>飲み放題グレードアップ</h4><p>お1人様＋500円で、日本酒・カクテル・コーヒーも飲み放題に。<span class="price">〈通常価格1,000円〉</span></p></div>
+    <div class="perk-band">
+      <div class="perk-badge">
+        <span class="pb-en">Special Benefits</span>
+        <span class="pb-ttl">お得な</span>
+        <span class="pb-big">4</span>
+        <span class="pb-ttl">大特典</span>
+        <span class="pb-under"></span>
+      </div>
+      <div class="perk-items">
+        <div class="pk"><span class="pk-no">BENEFIT 01</span><h4>送迎バス1台<span class="free">サービス</span></h4><p>30名様以上のご利用で1台。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 02</span><h4>カラオケ・プロジェクター<span class="free">無料</span></h4><p>使用料無料。余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 03</span><h4>幹事様1名様分<span class="free">無料</span></h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料に。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 04</span><h4>飲み放題<span class="free">グレードアップ</span></h4><p>お1人様＋500円で、日本酒・カクテル・コーヒーも飲み放題に。<span class="price">〈通常価格1,000円〉</span></p></div>
+      </div>
     </div>
     <h3 class="plans-sub">選べる、3つの宴会スタイル<small>いずれもフリードリンク2時間付き</small></h3>
     <div class="plan-grid">
@@ -502,11 +541,20 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     <div class="eyebrow"><span class="en">Reunion / OB Party</span></div>
     <h2 class="h2">同窓会プラン</h2>
     <p class="lead-txt">10名様のアットホームな同窓会から、最大150名様の大規模OB会まで。懐かしい顔ぶれで囲む、ゆったりとしたお席をご用意いたします。</p>
-    <div class="benefit-grid">
-      <div class="benefit"><div class="no">特典 01</div><h4>送迎バス1台サービス</h4><p>30名様以上のご利用で1台サービス。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
-      <div class="benefit"><div class="no">特典 02</div><h4>カラオケ・プロジェクター使用料無料</h4><p>余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
-      <div class="benefit"><div class="no">特典 03</div><h4>幹事様1名様分無料</h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料とさせていただきます。</p></div>
-      <div class="benefit"><div class="no">特典 04</div><h4><span class="gift">集合写真データ無料プレゼント</span></h4><p>皆さまでの集合写真を撮影し、データにして無料でプレゼントいたします。※データでのお渡しとなります。</p></div>
+    <div class="perk-band">
+      <div class="perk-badge">
+        <span class="pb-en">Special Benefits</span>
+        <span class="pb-ttl">お得な</span>
+        <span class="pb-big">4</span>
+        <span class="pb-ttl">大特典</span>
+        <span class="pb-under"></span>
+      </div>
+      <div class="perk-items">
+        <div class="pk"><span class="pk-no">BENEFIT 01</span><h4>送迎バス1台<span class="free">サービス</span></h4><p>30名様以上のご利用で1台。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 02</span><h4>カラオケ・プロジェクター<span class="free">無料</span></h4><p>使用料無料。余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 03</span><h4>幹事様1名様分<span class="free">無料</span></h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料に。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 04</span><h4>集合写真データ<span class="free">無料プレゼント</span></h4><p>皆さまでの集合写真を撮影し、データにして無料でプレゼント。※データでのお渡しとなります。</p></div>
+      </div>
     </div>
     <h3 class="plans-sub">選べる、3つの宴会スタイル<small>いずれもフリードリンク2時間付き</small></h3>
     <div class="plan-grid">
