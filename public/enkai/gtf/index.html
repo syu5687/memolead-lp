@@ -70,16 +70,19 @@ header .menu a.mi-bou{border-bottom-color:#cf5b3d}
 header .menu a.mi-dou{border-bottom-color:#c99a4c}
 header .menu a.mi-room{border-bottom-color:#5f8a8d}
 header .menu a.mi-houji{border-bottom-color:#9481a8}
+header .menu a.mi-occ{border-bottom-color:#7d8a4f}
 header .menu a.mi-bou:hover{color:#e0714f}
 header .menu a.mi-dou:hover{color:#dcb45f}
 header .menu a.mi-room:hover{color:#7fabae}
 header .menu a.mi-houji:hover{color:#b3a0c6}
+header .menu a.mi-occ:hover{color:#9fac70}
 header.scrolled .menu{margin-top:10px; padding-top:9px; border-top-color:var(--line)}
 header.scrolled .menu a{color:var(--ink); text-shadow:none}
 header.scrolled .menu a.mi-bou:hover{color:#b8462b}
 header.scrolled .menu a.mi-dou:hover{color:#a5832f}
 header.scrolled .menu a.mi-room:hover{color:#3f6c6f}
 header.scrolled .menu a.mi-houji:hover{color:#6f5d84}
+header.scrolled .menu a.mi-occ:hover{color:#5f6c38}
 
 /* hero */
 .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden}
@@ -117,8 +120,9 @@ section{position:relative}
 #dousoukai{--pc:#c99a4c}
 #rooms{--pc:#5f8a8d}
 #houji{--pc:#9481a8}
-#bounenkai .eyebrow::before,#dousoukai .eyebrow::before,#rooms .eyebrow::before,#houji .eyebrow::before{background:var(--pc); width:44px}
-#bounenkai .eyebrow .en,#dousoukai .eyebrow .en,#rooms .eyebrow .en,#houji .eyebrow .en{color:var(--pc)}
+#occasions{--pc:#7d8a4f}
+#bounenkai .eyebrow::before,#dousoukai .eyebrow::before,#rooms .eyebrow::before,#houji .eyebrow::before,#occasions .eyebrow::before{background:var(--pc); width:44px}
+#bounenkai .eyebrow .en,#dousoukai .eyebrow .en,#rooms .eyebrow .en,#houji .eyebrow .en,#occasions .eyebrow .en{color:var(--pc)}
 section:target .h2::after{content:""; position:absolute; left:0; bottom:-9px; height:2px; width:0; background:var(--pc); border-radius:2px; animation:arriveHL 1.6s ease forwards}
 @keyframes arriveHL{0%{width:0; opacity:.85} 22%{width:70px; opacity:.85} 66%{width:70px; opacity:.85} 100%{width:70px; opacity:0}}
 @media(prefers-reduced-motion:reduce){section:target .h2::after{animation:none; display:none}}
@@ -430,7 +434,8 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   /* メニュータブ（SPは省スペース・はみ出す場合は横スクロール） */
   header .menu{margin-top:9px; padding-top:8px; gap:7px; justify-content:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
   header .menu::-webkit-scrollbar{display:none}
-  header .menu a{font-size:12.5px; letter-spacing:.01em; padding:2px 11px 5px; flex:0 0 auto}
+  header .menu a{font-size:11.5px; letter-spacing:0; padding:2px 8px 5px; flex:0 0 auto}
+  header .menu{gap:5px}
   header.scrolled .menu{margin-top:6px; padding-top:6px}
   .hero{min-height:92svh}
   .hero .acts{flex-direction:column; align-items:flex-start; gap:20px}
@@ -488,6 +493,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="mi mi-dou" href="#dousoukai">同窓会</a>
     <a class="mi mi-room" href="#rooms">貸会場</a>
     <a class="mi mi-houji" href="#houji">法事法要</a>
+    <a class="mi mi-occ" href="#occasions">各種ご宴会</a>
   </nav>
 </header>
 
@@ -820,7 +826,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- OCCASIONS -->
-<section class="occ pad-lg">
+<section class="occ pad-lg" id="occasions">
   <div class="wrap">
     <div class="eyebrow"><span class="en">Various Banquets</span></div>
     <h2 class="h2">各種ご宴会</h2>
