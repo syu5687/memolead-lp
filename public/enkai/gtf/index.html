@@ -24,7 +24,7 @@
   --wrap:1120px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; scroll-padding-top:112px}
 body{
   margin:0; background:var(--paper); color:var(--ink);
   font-family:var(--sans); font-feature-settings:"palt"; line-height:1.9;
@@ -40,15 +40,28 @@ a{color:inherit}
 /* header */
 header{position:fixed; top:0; left:0; right:0; z-index:50; transition:.4s; padding:18px 0}
 header .bar{display:flex; align-items:center; justify-content:space-between}
-header .site{font-family:var(--serif); font-size:17px; letter-spacing:.14em; color:#fff; transition:.4s}
-header .site small{display:block; font-size:9.5px; letter-spacing:.32em; color:var(--accent-2); margin-top:3px; font-family:var(--sans)}
+header .brand{display:flex; align-items:center; height:42px; transition:.4s}
+header .brand img{height:100%; width:auto; display:block}
+header .brand .logo-dark{display:none}
 header .nav{display:flex; align-items:center; gap:22px}
 header .nav a.tel{font-family:var(--serif); font-size:20px; letter-spacing:.06em; color:#fff; transition:.4s; text-decoration:none}
 header .nav a.tel span{font-size:10px; letter-spacing:.2em; display:block; font-family:var(--sans); color:var(--accent-2)}
 header .nav a.cta{background:var(--accent); color:#fff; text-decoration:none; padding:12px 22px; font-size:13px; letter-spacing:.16em; border-radius:1px}
 header.scrolled{background:var(--paper); box-shadow:0 1px 0 var(--line); padding:12px 0}
-header.scrolled .site,header.scrolled .nav a.tel{color:var(--ink)}
+header.scrolled .nav a.tel{color:var(--ink)}
+header.scrolled .brand{height:34px}
+header.scrolled .brand .logo-light{display:none}
+header.scrolled .brand .logo-dark{display:block}
 header .nav a.tel .num{color:inherit}
+/* header menu tabs */
+header .menu{display:flex; justify-content:center; gap:0; margin-top:13px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2); transition:.4s}
+header .menu a{position:relative; font-family:var(--serif); font-size:14.5px; letter-spacing:.08em; color:#fff; text-decoration:none; padding:3px 26px; transition:.25s; text-shadow:0 1px 8px rgba(0,0,0,.35); white-space:nowrap}
+header .menu a:not(:last-child)::after{content:""; position:absolute; right:0; top:50%; transform:translateY(-50%); width:1px; height:14px; background:rgba(255,255,255,.28)}
+header .menu a:hover{color:var(--accent-2)}
+header.scrolled .menu{margin-top:10px; padding-top:9px; border-top-color:var(--line)}
+header.scrolled .menu a{color:var(--ink); text-shadow:none}
+header.scrolled .menu a:not(:last-child)::after{background:var(--line)}
+header.scrolled .menu a:hover{color:var(--accent)}
 
 /* hero */
 .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden}
@@ -120,6 +133,7 @@ section{position:relative}
 .plan ul{list-style:none; margin:0; padding:0; flex:1}
 .plan ul li{font-size:13.5px; line-height:1.75; padding:7px 0 7px 18px; position:relative; border-bottom:1px dotted #e4dccb; color:var(--ink-soft)}
 .plan ul li::before{content:""; position:absolute; left:2px; top:14px; width:5px; height:5px; background:var(--accent-2); border-radius:50%}
+.plan .plan-tag{margin-top:18px; border:1px solid var(--accent); color:var(--accent); text-align:center; padding:11px 12px; font-size:13px; letter-spacing:.02em; line-height:1.5; font-family:var(--serif); border-radius:2px}
 .plans .foot-note{margin-top:34px; font-size:13px; color:var(--ink-soft); line-height:1.95}
 .plans .foot-note .wa{display:inline-block; font-family:var(--serif); color:var(--accent); font-size:16px; margin-bottom:6px}
 .plans .foot-note a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-2); padding-bottom:1px}
@@ -171,9 +185,14 @@ section{position:relative}
 .drink .dfig img{width:100%; aspect-ratio:1/1; object-fit:cover; border:1px solid rgba(168,137,78,.35)}
 .drink .dcontent .tags{margin-top:26px}
 .drink .tags{display:flex; flex-wrap:wrap; gap:10px}
-.drink .tags span{border:1px solid rgba(255,255,255,.28); padding:9px 16px; font-size:13px; letter-spacing:.04em; color:#e7ddcd}
+.drink .tags span{border:1px solid rgba(255,255,255,.26); padding:6px 12px; font-size:11.5px; letter-spacing:.03em; color:#e0d6c6}
 .drink .up{margin-top:26px; font-size:13.5px; color:#cbbfae; line-height:1.9}
 .drink .up b{color:var(--accent-2); font-family:var(--serif); font-size:15px}
+.drink-plans{display:flex; flex-wrap:wrap; gap:10px; margin:2px 0 18px}
+.drink-plans .dp{font-family:var(--serif); font-size:13.5px; letter-spacing:.05em; color:#f4ead9; text-decoration:none; background:linear-gradient(135deg,#822130 0%,#611620 100%); border:1px solid rgba(168,137,78,.55); padding:9px 18px; border-radius:3px; box-shadow:0 6px 16px rgba(70,20,26,.28); transition:.25s}
+.drink-plans a.dp:hover{border-color:var(--accent-2); box-shadow:0 6px 20px rgba(168,137,78,.35); color:#fff}
+.drink-plans .dp::before{content:"●"; color:var(--accent-2); font-size:8px; margin-right:8px; vertical-align:2px}
+.drink-plans .dp-lead{align-self:center; font-size:12px; letter-spacing:.08em; color:#b9ac97; margin-right:2px}
 
 /* rooms */
 .rooms{background:var(--paper)}
@@ -250,8 +269,13 @@ section{position:relative}
 .houji .courses .row .rname .rd{display:block; font-size:11.5px; color:#a99f8f; margin-top:4px; line-height:1.5}
 .houji .courses .row .p{font-family:var(--serif); font-size:23px; color:var(--accent-2); white-space:nowrap}
 .houji .courses .row .p small{font-size:13px; color:#b3a898}
-.houji .drinkline{margin-top:18px; font-size:14px; color:#cbbfae}
+.houji .drinkline-row{display:flex; align-items:center; gap:16px; margin-top:20px; padding-top:18px; border-top:1px solid rgba(255,255,255,.16)}
+.houji .drinkline-row img{width:96px; height:66px; object-fit:cover; flex:none; border:1px solid rgba(255,255,255,.18)}
+.houji .drinkline{margin:0; font-size:14px; color:#cbbfae; line-height:1.7}
 .houji .drinkline b{color:var(--accent-2); font-family:var(--serif); font-size:17px}
+.houji .drinkline .dsub{display:block; font-size:11.5px; color:#a99f8f; margin-top:4px}
+.houji .houji-drinks{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+.houji .houji-drinks span{border:1px solid rgba(255,255,255,.24); padding:7px 13px; font-size:12px; letter-spacing:.02em; color:#ddd0bd}
 .houji .rn{margin-top:22px; font-size:12px; color:#9d9384; line-height:1.9}
 
 /* occasions */
@@ -334,8 +358,8 @@ section{position:relative}
 
 /* footer */
 footer{background:#141210; color:#8c8272; text-align:center; padding:48px 0 40px}
-footer .site{font-family:var(--serif); font-size:18px; letter-spacing:.14em; color:#e7ddcd; margin-bottom:10px}
-footer .site small{display:block; font-size:9.5px; letter-spacing:.3em; color:var(--accent-2); margin-top:6px}
+footer .brand-foot{margin-bottom:14px}
+footer .brand-foot img{height:52px; width:auto; display:inline-block}
 footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 
 /* floating SP cta */
@@ -358,11 +382,24 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   .split .fig .cap{left:16px; bottom:-14px}
 }
 @media(max-width:768px){
+  html{scroll-padding-top:88px}
   .br-sp{display:inline}
   .pad,.pad-lg{padding:70px 0}
+  header{padding:12px 0}
   header .nav a.cta{display:none}
   header .nav a.tel{font-size:16px}
-  header .site{font-size:15px}
+  header .nav a.tel span:not(.num){font-size:8.5px; transition:.35s}
+  header .brand{height:32px}
+  /* SP: scroll時にブランド行（ロゴ・電話）を自動で縦圧縮 */
+  header.scrolled{padding:6px 0}
+  header.scrolled .brand{height:24px}
+  header.scrolled .nav a.tel span:not(.num){font-size:0; opacity:0; height:0; overflow:hidden}
+  header.scrolled .nav a.tel{font-size:14px}
+  /* メニュータブ（SPは省スペース・はみ出す場合は横スクロール） */
+  header .menu{margin-top:9px; padding-top:8px; gap:0; justify-content:flex-start; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+  header .menu::-webkit-scrollbar{display:none}
+  header .menu a{font-size:12px; letter-spacing:.02em; padding:2px 13px; flex:0 0 auto}
+  header.scrolled .menu{margin-top:6px; padding-top:6px}
   .hero{min-height:92svh}
   .hero .acts{flex-direction:column; align-items:flex-start; gap:20px}
   .formcard{padding:34px 22px}
@@ -396,17 +433,26 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 
 <header id="hd">
   <div class="wrap bar">
-    <div class="site">ガーデンテラス福岡<small>GARDEN TERRACE FUKUOKA</small></div>
+    <div class="brand">
+      <img loading="eager" decoding="async" class="logo-light" src="_assets/img/GTF-light.svg" alt="ガーデンテラス福岡">
+      <img loading="eager" decoding="async" class="logo-dark" src="_assets/img/GTF.svg" alt="ガーデンテラス福岡">
+    </div>
     <nav class="nav">
       <a class="tel" href="tel:0928810007"><span>ご予約・お問い合わせ</span><span class="num">092-881-0007</span></a>
       <a class="cta" href="#form">Web申込・お見積り</a>
     </nav>
   </div>
+  <nav class="menu">
+    <a href="#bounenkai">忘新年会プラン</a>
+    <a href="#dousoukai">同窓会プラン</a>
+    <a href="#rooms">貸会場について</a>
+    <a href="#houji">法事法要プラン</a>
+  </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="bg"><img src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観"></div>
+  <div class="bg"><img loading="eager" fetchpriority="high" decoding="async" src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観"></div>
   <div class="wrap inner">
     <span class="season">2026 WINTER ｜ 忘新年会・同窓会シーズン</span>
     <h1><span class="thin">GARDEN TERRACE FUKUOKA</span>宴会・ご宴席</h1>
@@ -422,7 +468,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 <section class="intro pad-lg">
   <div class="wrap split">
     <div class="fig">
-      <img src="_assets/img/hall-01.jpg" alt="ガーデンテラス福岡 宴会会場">
+      <img loading="lazy" decoding="async" src="_assets/img/hall-01.jpg" alt="ガーデンテラス福岡 宴会会場">
       <span class="cap">最大150名様まで</span>
     </div>
     <div class="txt">
@@ -458,7 +504,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     <div class="plan-grid">
 
       <div class="plan">
-        <div class="ph"><img src="_assets/img/course-hero.jpg" alt="会席料理 コースプラン"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/course-hero.jpg" alt="会席料理 コースプラン"></div>
         <div class="body">
           <div class="style">COURSE ／ 会席料理</div>
           <h3>コースプラン</h3>
@@ -478,11 +524,12 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
             <li>牛タンの赤ワイン煮込み 冬野菜のマッシュポテト添え</li>
             <li>冬のドルチェ盛り合わせ 3種</li>
           </ul>
+          <div class="plan-tag">和食テイストのご用意もご相談ください</div>
         </div>
       </div>
 
       <div class="plan">
-        <div class="ph"><img src="_assets/img/party-01.jpg" alt="卓盛料理 パーティープラン"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/party-01.jpg" alt="卓盛料理 パーティープラン"></div>
         <div class="body">
           <div class="style">PARTY ／ 卓盛料理</div>
           <h3>パーティープラン</h3>
@@ -508,7 +555,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
       </div>
 
       <div class="plan">
-        <div class="ph"><img src="_assets/img/buffet-01.jpg" alt="ビュッフェ料理 ビュッフェプラン"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/buffet-01.jpg" alt="ビュッフェ料理 ビュッフェプラン"></div>
         <div class="body">
           <div class="style">BUFFET ／ ビュッフェ料理</div>
           <h3>ビュッフェプラン</h3>
@@ -530,6 +577,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
             <li>ビーフピラフ／豚ロースのパプリカバター焼き 冬野菜添え</li>
             <li>冬のドルチェ盛り合わせ 3種</li>
           </ul>
+          <div class="plan-tag">立食・着席いずれにも対応できます</div>
         </div>
       </div>
 
@@ -566,7 +614,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     <div class="plan-grid">
 
       <div class="plan">
-        <div class="ph"><img src="_assets/img/course-hero.jpg" alt="会席料理 コースプラン"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/course-hero.jpg" alt="会席料理 コースプラン"></div>
         <div class="body">
           <div class="style">COURSE ／ 会席料理</div>
           <h3>コースプラン</h3>
@@ -586,11 +634,12 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
             <li>牛タンの赤ワイン煮込み 冬野菜のマッシュポテト添え</li>
             <li>冬のドルチェ盛り合わせ 3種</li>
           </ul>
+          <div class="plan-tag">和食テイストのご用意もご相談ください</div>
         </div>
       </div>
 
       <div class="plan">
-        <div class="ph"><img src="_assets/img/party-01.jpg" alt="卓盛料理 パーティープラン"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/party-01.jpg" alt="卓盛料理 パーティープラン"></div>
         <div class="body">
           <div class="style">PARTY ／ 卓盛料理</div>
           <h3>パーティープラン</h3>
@@ -616,7 +665,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
       </div>
 
       <div class="plan">
-        <div class="ph"><img src="_assets/img/buffet-01.jpg" alt="ビュッフェ料理 ビュッフェプラン"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/buffet-01.jpg" alt="ビュッフェ料理 ビュッフェプラン"></div>
         <div class="body">
           <div class="style">BUFFET ／ ビュッフェ料理</div>
           <h3>ビュッフェプラン</h3>
@@ -638,6 +687,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
             <li>ビーフピラフ／豚ロースのパプリカバター焼き 冬野菜添え</li>
             <li>冬のドルチェ盛り合わせ 3種</li>
           </ul>
+          <div class="plan-tag">立食・着席いずれにも対応できます</div>
         </div>
       </div>
 
@@ -652,9 +702,14 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 <!-- FREE DRINK -->
 <section class="drink pad">
   <div class="wrap dwrap">
-    <div class="dfig"><img src="_assets/img/freedrink.jpg" alt="フリードリンクでの乾杯"></div>
+    <div class="dfig"><img loading="lazy" decoding="async" src="_assets/img/freedrink.jpg" alt="フリードリンクでの乾杯"></div>
     <div class="dcontent">
       <div class="eyebrow"><span class="en">Free Drink</span></div>
+      <div class="drink-plans">
+        <span class="dp-lead">対象プラン</span>
+        <a class="dp" href="#bounenkai">忘新年会プラン</a>
+        <a class="dp" href="#dousoukai">同窓会プラン</a>
+      </div>
       <h2 class="h2">フリードリンク 2時間付き</h2>
       <p class="up">お1人様＋500円で、<b>日本酒・カクテル・コーヒー</b>も飲み放題にグレードアップいただけます。〈通常価格1,000円〉</p>
       <div class="tags">
@@ -673,17 +728,17 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 
     <h3 class="rooms-sub">宴会向け（大・中会場）</h3>
     <div class="room-grid">
-      <button class="room" type="button" data-room="north"><img src="_assets/img/hall-02.jpg" alt="ノースガーデン"><div class="lab"><b>ノースガーデン</b><span>243㎡ ／ 宴会 最大150名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
-      <button class="room" type="button" data-room="south"><img src="_assets/img/hall-03.jpg" alt="サウスガーデン"><div class="lab"><b>サウスガーデン</b><span>250㎡ ／ 宴会 最大100名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
-      <button class="room" type="button" data-room="thew"><img src="_assets/img/hall-thew.jpg" alt="THE W"><div class="lab"><b>THE&nbsp;W</b><span>187㎡ ／ 宴会 最大60名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
+      <button class="room" type="button" data-room="north"><img loading="lazy" decoding="async" src="_assets/img/hall-02.jpg" alt="ノースガーデン"><div class="lab"><b>ノースガーデン</b><span>243㎡ ／ 宴会 最大150名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
+      <button class="room" type="button" data-room="south"><img loading="lazy" decoding="async" src="_assets/img/hall-03.jpg" alt="サウスガーデン"><div class="lab"><b>サウスガーデン</b><span>250㎡ ／ 宴会 最大100名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
+      <button class="room" type="button" data-room="thew"><img loading="lazy" decoding="async" src="_assets/img/hall-thew.jpg" alt="THE W"><div class="lab"><b>THE&nbsp;W</b><span>187㎡ ／ 宴会 最大60名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
     </div>
 
     <h3 class="rooms-sub">会議・少人数向け</h3>
     <div class="room-mini-grid">
-      <button class="room-mini" type="button" data-room="wind"><span class="rm-ph"><img src="_assets/img/hall-small.jpg" alt="WIND"></span><span class="rm-body"><b>WIND</b><span class="a">21.39㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
-      <button class="room-mini" type="button" data-room="leaf"><span class="rm-ph"><img src="_assets/img/hall-small.jpg" alt="LEAF"></span><span class="rm-body"><b>LEAF</b><span class="a">24.32㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
-      <button class="room-mini" type="button" data-room="forest"><span class="rm-ph"><img src="_assets/img/hall-small.jpg" alt="FOREST"></span><span class="rm-body"><b>FOREST</b><span class="a">23.47㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
-      <button class="room-mini" type="button" data-room="leaf_forest"><span class="rm-ph"><img src="_assets/img/hall-small.jpg" alt="LEAF+FOREST"></span><span class="rm-body"><b>LEAF+FOREST</b><span class="a">47.79㎡ ／ 着席 16名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="wind"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="WIND"></span><span class="rm-body"><b>WIND</b><span class="a">21.39㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="leaf"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="LEAF"></span><span class="rm-body"><b>LEAF</b><span class="a">24.32㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="forest"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="FOREST"></span><span class="rm-body"><b>FOREST</b><span class="a">23.47㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="leaf_forest"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="LEAF+FOREST"></span><span class="rm-body"><b>LEAF+FOREST</b><span class="a">47.79㎡ ／ 着席 16名</span><em class="more">＋ 詳細</em></span></button>
     </div>
 
     <div class="rooms-actions">
@@ -697,18 +752,24 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 <section class="houji pad-lg" id="houji">
   <div class="wrap split">
     <div class="fig">
-      <img src="_assets/img/houji-course.jpg" alt="法事法要 会席料理">
+      <img loading="lazy" decoding="async" src="_assets/img/houji-course.jpg" alt="法事法要 会席料理">
     </div>
     <div class="txt">
       <div class="eyebrow"><span class="en">Memorial Service</span></div>
       <h2 class="h2">法事法要プラン</h2>
       <p class="lead-txt">ご家族やご親族が集い、故人を偲ぶ大切な時間。ホテルならではの落ち着いた空間と、季節の食材を丁寧に仕上げたお料理で、皆さまの心に残る法要のお席をお手伝いいたします。会場は THE W（最大60名様）・小ホールをご用意しています。</p>
       <div class="courses">
-        <div class="row"><img class="hthumb" src="_assets/img/houji-11000.jpg" alt="特別会席の会席料理"><div class="rname"><b>特別会席</b><span class="rd">最上級のおもてなしに</span></div><span class="p">¥11,000<small>〜（税込）</small></span></div>
-        <div class="row"><img class="hthumb" src="_assets/img/houji-8800.jpg" alt="上会席の会席料理"><div class="rname"><b>上会席</b><span class="rd">季節の食材をより豊かに</span></div><span class="p">¥8,800<small>〜（税込）</small></span></div>
-        <div class="row"><img class="hthumb" src="_assets/img/houji-6600.jpg" alt="会席の会席料理"><div class="rname"><b>会席</b><span class="rd">真心を込めた基本の会席</span></div><span class="p">¥6,600<small>〜（税込）</small></span></div>
+        <div class="row"><img loading="lazy" decoding="async" class="hthumb" src="_assets/img/houji-11000.jpg" alt="特別会席の会席料理"><div class="rname"><b>特別会席</b><span class="rd">最上級のおもてなしに</span></div><span class="p">¥11,000<small>〜（税込）</small></span></div>
+        <div class="row"><img loading="lazy" decoding="async" class="hthumb" src="_assets/img/houji-8800.jpg" alt="上会席の会席料理"><div class="rname"><b>上会席</b><span class="rd">季節の食材をより豊かに</span></div><span class="p">¥8,800<small>〜（税込）</small></span></div>
+        <div class="row"><img loading="lazy" decoding="async" class="hthumb" src="_assets/img/houji-6600.jpg" alt="会席の会席料理"><div class="rname"><b>会席</b><span class="rd">真心を込めた基本の会席</span></div><span class="p">¥6,600<small>〜（税込）</small></span></div>
       </div>
-      <p class="drinkline">フリードリンク <b>¥2,750</b>（税込）でご用意できます。</p>
+      <div class="drinkline-row">
+        <img loading="lazy" decoding="async" src="_assets/img/freedrink.jpg" alt="フリードリンク">
+        <p class="drinkline">フリードリンク <b>¥2,750</b>（税込）でご用意できます。</p>
+      </div>
+      <div class="houji-drinks">
+        <span>ビール</span><span>ノンアルコール</span><span>焼酎（芋・麦・米）</span><span>ウイスキー</span><span>ハイボール</span><span>梅酒</span><span>赤・白ワイン</span><span>カクテル3種</span><span>烏龍茶</span><span>オレンジ</span><span>アップル</span><span>グレープフルーツ</span><span>コーラ</span>
+      </div>
       <p class="rn">●15名様から承っております。●旬の食材を使用しておりますので、一部内容が変わる場合がございます。●サービス料10%を別途いただきます。●別途会場費が発生いたします。●ご利用のお時間は2時間とさせていただきます。●10日前までにお申込みください。●アレルギー等、お体に合わない食材がございましたらお申し付けください。</p>
     </div>
   </div>
@@ -722,22 +783,22 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     <p class="lead-txt">歓送迎会・同窓会・忘新年会をはじめ、ご宴席の趣旨にあわせたプランをご用意いたします。</p>
     <div class="occ-grid">
       <div class="occ-item">
-        <div class="im"><img src="_assets/img/scene-party.jpg" alt="季節ご宴会"></div>
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/scene-party.jpg" alt="季節ご宴会"></div>
         <div class="tx"><div class="en">Banquet</div><h3>季節ご宴会</h3>
           <div class="tags"><span>歓送迎会［3〜5月］</span><span>暑気払い［6〜8月］</span><span>忘新年会［12〜2月］</span></div></div>
       </div>
       <div class="occ-item">
-        <div class="im"><img src="_assets/img/scene-business.jpg" alt="パーティー"></div>
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/scene-business.jpg" alt="パーティー"></div>
         <div class="tx"><div class="en">Party</div><h3>パーティー</h3>
           <div class="tags"><span>謝恩会［2〜3月］</span><span>同窓会・OB会［通年］</span><span>ご祝宴［通年］</span></div></div>
       </div>
       <div class="occ-item">
-        <div class="im"><img src="_assets/img/celebration.jpg" alt="家族のお祝いごと"></div>
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/celebration.jpg" alt="家族のお祝いごと"></div>
         <div class="tx"><div class="en">Celebration</div><h3>家族のお祝いごと</h3>
           <div class="tags"><span>ご結納・お顔合わせ</span><span>長寿祝（還暦・古希 等）</span><span>お誕生日・初節句</span></div></div>
       </div>
       <div class="occ-item">
-        <div class="im"><img src="_assets/img/ceremony.jpg" alt="ご法宴・お別れの会"></div>
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/ceremony.jpg" alt="ご法宴・お別れの会"></div>
         <div class="tx"><div class="en">Ceremony</div><h3>ご法宴・お別れの会</h3>
           <div class="tags"><span>ご法宴［通年］</span><span>お別れの会［通年］</span></div></div>
       </div>
@@ -747,7 +808,7 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 
 <!-- BUSINESS -->
 <section class="biz pad-lg">
-  <div class="bg"><img src="_assets/img/hall-meeting.jpg" alt="展示会・研修・会議"></div>
+  <div class="bg"><img loading="lazy" decoding="async" src="_assets/img/hall-meeting.jpg" alt="展示会・研修・会議"></div>
   <div class="wrap inner">
     <div class="eyebrow"><span class="en">Exhibition &amp; Meeting</span></div>
     <h2 class="h2">展示会・研修・会議</h2>
@@ -887,13 +948,13 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
       <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E7%A6%8F%E5%B2%A1%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E8%A5%BF%E5%8C%BA%E5%B0%8F%E6%88%B82-3-55" target="_blank" rel="noopener">Googleマップで見る ▸</a>
     </div>
     <div class="mapfig">
-      <img src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観">
+      <img loading="lazy" decoding="async" src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観">
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="site">ガーデンテラス福岡<small>GARDEN TERRACE FUKUOKA</small></div>
+  <div class="brand-foot"><img loading="lazy" decoding="async" src="_assets/img/GTF-light.svg" alt="ガーデンテラス福岡"></div>
   <div class="cp">〒819-0001 福岡県福岡市西区小戸2-3-55 ／ TEL 092-881-0007<br>© GARDEN TERRACE FUKUOKA. All Rights Reserved.</div>
 </footer>
 
