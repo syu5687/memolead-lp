@@ -199,8 +199,12 @@ section{position:relative}
 .room-mini .a{font-size:12.5px; color:var(--ink-soft)}
 .room-mini .more{display:block; margin-top:12px; font-size:11px; letter-spacing:.12em; color:var(--accent); font-style:normal}
 .rooms-actions{margin-top:34px}
-.ghost-btn{background:transparent; border:1px solid var(--accent); color:var(--accent); padding:15px 30px; font-size:14px; letter-spacing:.1em; font-family:var(--sans); cursor:pointer; border-radius:2px; transition:.25s}
-.ghost-btn:hover{background:var(--accent); color:#fff}
+.ghost-btn{position:relative; overflow:hidden; background:transparent; border:1px solid var(--accent); color:var(--accent); padding:15px 30px; font-size:14px; letter-spacing:.1em; font-family:var(--sans); cursor:pointer; border-radius:2px; transition:.25s; animation:btnGlow 2.8s ease-in-out infinite}
+.ghost-btn::after{content:""; position:absolute; top:0; bottom:0; left:-45%; width:32%; background:linear-gradient(105deg,transparent,rgba(212,178,110,.5),transparent); transform:skewX(-18deg); animation:btnShine 3.8s ease-in-out infinite; pointer-events:none}
+.ghost-btn:hover{background:var(--accent); color:#fff; animation:none; box-shadow:0 0 20px 2px rgba(168,137,78,.55)}
+@keyframes btnGlow{0%,100%{box-shadow:0 0 0 0 rgba(168,137,78,0)} 50%{box-shadow:0 0 15px 2px rgba(168,137,78,.5)}}
+@keyframes btnShine{0%,12%{left:-45%} 52%,100%{left:135%}}
+@media(prefers-reduced-motion:reduce){.ghost-btn{animation:none} .ghost-btn::after{display:none}}
 .rooms .rn{margin-top:28px; font-size:12.5px; color:var(--ink-soft); line-height:1.95}
 /* modal */
 .modal{position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; padding:22px}
