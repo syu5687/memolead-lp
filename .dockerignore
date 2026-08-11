@@ -1,0 +1,9 @@
+# 配信イメージに含めない（＝Webから見えないようにする）内部ファイル
+.git
+.gitignore
+.dockerignore
+Dockerfile
+firebase.json
+.nova
+.DS_Store
+**/.DS_Store
