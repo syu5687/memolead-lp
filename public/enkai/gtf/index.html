@@ -82,9 +82,12 @@ header.scrolled .menu a.mi-houji:hover{color:#6f5d84}
 /* hero */
 .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden}
 .hero .bg{position:absolute; inset:0; background:#111}
-.hero .bg img{width:100%; height:100%; object-fit:cover; opacity:.86; transform-origin:center 42%; animation:heroPull 24s ease-in-out infinite alternate; will-change:transform}
-@keyframes heroPull{from{transform:scale(1.14)} to{transform:scale(1.0)}}
-@media(prefers-reduced-motion:reduce){.hero .bg img{animation:none; transform:scale(1.04)}}
+.hero .bg .slide{position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease}
+.hero .bg .slide.is-active{opacity:1}
+.hero .bg .slide img{width:100%; height:100%; object-fit:cover; opacity:.86; transform-origin:center 45%; will-change:transform}
+.hero .bg .slide.is-active img{animation:heroPull 8s ease-out both}
+@keyframes heroPull{from{transform:scale(1.12)} to{transform:scale(1.0)}}
+@media(prefers-reduced-motion:reduce){.hero .bg .slide img{animation:none; transform:scale(1.03)}}
 .hero .bg::after{content:""; position:absolute; inset:0;
   background:linear-gradient(180deg,rgba(15,12,10,.55) 0%,rgba(15,12,10,.15) 32%,rgba(15,12,10,.15) 55%,rgba(15,12,10,.82) 100%)}
 .hero .inner{position:relative; z-index:2; color:#fff; padding-bottom:9vh; width:100%}
@@ -231,8 +234,9 @@ section:target .h2::after{content:""; position:absolute; left:0; bottom:-9px; he
 .room .lab{position:absolute; left:0; bottom:0; right:0; padding:22px 20px; color:#fff;
   background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.05) 78%,transparent)}
 .room .lab b{display:block; font-family:var(--serif); font-size:20px; letter-spacing:.06em; margin-bottom:5px}
-.room .lab span{font-size:12.5px; color:#e7ddcd; letter-spacing:.04em}
-.room .lab .more{display:inline-block; margin-top:12px; font-size:11px; letter-spacing:.12em; color:var(--accent-2); font-style:normal; border-bottom:1px solid rgba(168,137,78,.5); padding-bottom:2px}
+.room .lab span{display:block; font-size:12.5px; color:#e7ddcd; letter-spacing:.04em}
+.room .lab .more{display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; letter-spacing:.1em; color:#fff; font-style:normal; background:var(--accent); border:1px solid var(--accent-2); padding:10px 20px; border-radius:2px; box-shadow:0 8px 20px rgba(0,0,0,.3); transition:.25s}
+.room:hover .lab .more{background:var(--accent-2); color:#3a1116; border-color:var(--accent-2)}
 .room-mini-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
 .room-mini{background:#fff; border:1px solid var(--line); padding:0; overflow:hidden; text-align:left; cursor:pointer; font-family:inherit; transition:.25s; display:flex; flex-direction:column}
 .room-mini:hover{box-shadow:0 10px 26px rgba(0,0,0,.09)}
@@ -487,7 +491,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="bg"><img loading="eager" fetchpriority="high" decoding="async" src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観"></div>
+  <div class="bg">
+    <div class="slide is-active"><img loading="eager" fetchpriority="high" decoding="async" src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観"></div>
+    <div class="slide"><img loading="lazy" decoding="async" src="_assets/img/hero-north.jpg" alt="ノースガーデン"></div>
+    <div class="slide"><img loading="lazy" decoding="async" src="_assets/img/hero-south.jpg" alt="サウスガーデン"></div>
+    <div class="slide"><img loading="lazy" decoding="async" src="_assets/img/hero-thew.jpg" alt="THE W"></div>
+  </div>
   <div class="wrap inner">
     <span class="season">2026 WINTER ｜ 忘新年会・同窓会シーズン</span>
     <h1><span class="thin">GARDEN TERRACE FUKUOKA</span>宴会・ご宴席</h1>
@@ -618,7 +627,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </div>
     <p class="foot-note">
-      <span class="wa">和食テイストのご用意もご相談ください。</span><br>
       ※メニュー内容はその日の仕入れ状況により変更する場合がございます。※アレルギー等ございましたらご予約時にお申し付けください。※写真は一部イメージです。
     </p>
   </div>
@@ -728,7 +736,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </div>
     <p class="foot-note">
-      <span class="wa">和食テイストのご用意もご相談ください。</span><br>
       ※メニュー内容はその日の仕入れ状況により変更する場合がございます。※アレルギー等ございましたらご予約時にお申し付けください。※写真は一部イメージです。
     </p>
   </div>
@@ -1020,6 +1027,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function onScroll(){ if(window.scrollY>60) hd.classList.add('scrolled'); else hd.classList.remove('scrolled'); }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
+  // ===== ヒーロー スライドショー =====
+  (function(){
+    var slides=[].slice.call(document.querySelectorAll('.hero .bg .slide'));
+    if(slides.length<2) return;
+    var i=0;
+    setInterval(function(){
+      slides[i].classList.remove('is-active');
+      i=(i+1)%slides.length;
+      slides[i].classList.add('is-active');
+    },5500);
+  })();
+
   // ===== 郵便番号 → 住所（zipcloud JSONP）=====
   window.__zipcb=function(res){
     var addr=document.getElementById('addr');
@@ -1044,7 +1063,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var CONFIG={
     ENDPOINT:'https://memolead-enkai.mk-cbe.workers.dev',
     VENUE:'GTF ガーデンテラス福岡',
-    FORM_NAME:'GTF宴会 ご予約・お見積りフォーム'
+    FORM_NAME:'GTF宴会 ご予約・お見積りフォーム',
+    FORM_URL:'https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/gtf/'
   };
   var form=document.getElementById('enkaiForm');
   var errBox=document.getElementById('errMsg');
@@ -1076,7 +1096,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     var d={
-      venue:CONFIG.VENUE, formName:CONFIG.FORM_NAME, source:location.href,
+      venue:CONFIG.VENUE, formName:CONFIG.FORM_NAME, source:CONFIG.FORM_URL,
       purpose:purpose,
       name:name.value.trim(), kana:document.getElementById('kana').value.trim(),
       tel:tel.value.trim(), email:email.value.trim(),
