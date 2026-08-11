@@ -2,6 +2,13 @@
 <!-- @version v0001 | 2026-08-09 | memolead-enkai GTF ガーデンテラス福岡 宴会LP | /public/enkai/gtf/ -->
 <html lang="ja">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KG9CZ8Q4');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="version" content="v0001 (2026-08-09)">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,14 +61,23 @@ header.scrolled .brand .logo-light{display:none}
 header.scrolled .brand .logo-dark{display:block}
 header .nav a.tel .num{color:inherit}
 /* header menu tabs */
-header .menu{display:flex; justify-content:center; gap:0; margin-top:13px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2); transition:.4s}
-header .menu a{position:relative; font-family:var(--serif); font-size:14.5px; letter-spacing:.08em; color:#fff; text-decoration:none; padding:3px 26px; transition:.25s; text-shadow:0 1px 8px rgba(0,0,0,.35); white-space:nowrap}
-header .menu a:not(:last-child)::after{content:""; position:absolute; right:0; top:50%; transform:translateY(-50%); width:1px; height:14px; background:rgba(255,255,255,.28)}
-header .menu a:hover{color:var(--accent-2)}
+header .menu{display:flex; justify-content:center; gap:14px; margin-top:13px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2); transition:.4s}
+header .menu a{position:relative; font-family:var(--serif); font-size:14.5px; letter-spacing:.06em; color:#fff; text-decoration:none; padding:3px 18px 7px; transition:.25s; text-shadow:0 1px 8px rgba(0,0,0,.35); white-space:nowrap; border-bottom:2px solid transparent}
+/* プランごとの色分け */
+header .menu a.mi-bou{border-bottom-color:#cf5b3d}
+header .menu a.mi-dou{border-bottom-color:#c99a4c}
+header .menu a.mi-room{border-bottom-color:#5f8a8d}
+header .menu a.mi-houji{border-bottom-color:#9481a8}
+header .menu a.mi-bou:hover{color:#e0714f}
+header .menu a.mi-dou:hover{color:#dcb45f}
+header .menu a.mi-room:hover{color:#7fabae}
+header .menu a.mi-houji:hover{color:#b3a0c6}
 header.scrolled .menu{margin-top:10px; padding-top:9px; border-top-color:var(--line)}
 header.scrolled .menu a{color:var(--ink); text-shadow:none}
-header.scrolled .menu a:not(:last-child)::after{background:var(--line)}
-header.scrolled .menu a:hover{color:var(--accent)}
+header.scrolled .menu a.mi-bou:hover{color:#b8462b}
+header.scrolled .menu a.mi-dou:hover{color:#a5832f}
+header.scrolled .menu a.mi-room:hover{color:#3f6c6f}
+header.scrolled .menu a.mi-houji:hover{color:#6f5d84}
 
 /* hero */
 .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden}
@@ -90,7 +106,17 @@ section{position:relative}
 .pad-lg{padding:120px 0}
 .eyebrow{display:flex; align-items:center; gap:16px; margin-bottom:20px}
 .eyebrow::before{content:""; width:38px; height:1px; background:var(--accent-2)}
-.h2{font-family:var(--serif); font-weight:500; font-size:clamp(27px,3.6vw,40px); line-height:1.4; margin:0 0 26px; letter-spacing:.03em}
+.h2{position:relative; font-family:var(--serif); font-weight:500; font-size:clamp(27px,3.6vw,40px); line-height:1.4; margin:0 0 26px; letter-spacing:.03em}
+/* プラン別カラー（メニュータブと一致・控えめに見出しへ反映） */
+#bounenkai{--pc:#cf5b3d}
+#dousoukai{--pc:#c99a4c}
+#rooms{--pc:#5f8a8d}
+#houji{--pc:#9481a8}
+#bounenkai .eyebrow::before,#dousoukai .eyebrow::before,#rooms .eyebrow::before,#houji .eyebrow::before{background:var(--pc); width:44px}
+#bounenkai .eyebrow .en,#dousoukai .eyebrow .en,#rooms .eyebrow .en,#houji .eyebrow .en{color:var(--pc)}
+section:target .h2::after{content:""; position:absolute; left:0; bottom:-9px; height:2px; width:0; background:var(--pc); border-radius:2px; animation:arriveHL 1.6s ease forwards}
+@keyframes arriveHL{0%{width:0; opacity:.85} 22%{width:70px; opacity:.85} 66%{width:70px; opacity:.85} 100%{width:70px; opacity:0}}
+@media(prefers-reduced-motion:reduce){section:target .h2::after{animation:none; display:none}}
 .h2 .accent{color:var(--accent)}
 .lead-txt{font-size:16.5px; line-height:2.15; color:var(--ink-soft); max-width:40em}
 
@@ -396,15 +422,20 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
   header.scrolled .nav a.tel span:not(.num){font-size:0; opacity:0; height:0; overflow:hidden}
   header.scrolled .nav a.tel{font-size:14px}
   /* メニュータブ（SPは省スペース・はみ出す場合は横スクロール） */
-  header .menu{margin-top:9px; padding-top:8px; gap:0; justify-content:flex-start; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+  header .menu{margin-top:9px; padding-top:8px; gap:7px; justify-content:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
   header .menu::-webkit-scrollbar{display:none}
-  header .menu a{font-size:12px; letter-spacing:.02em; padding:2px 13px; flex:0 0 auto}
+  header .menu a{font-size:12.5px; letter-spacing:.01em; padding:2px 11px 5px; flex:0 0 auto}
   header.scrolled .menu{margin-top:6px; padding-top:6px}
   .hero{min-height:92svh}
   .hero .acts{flex-direction:column; align-items:flex-start; gap:20px}
   .formcard{padding:34px 22px}
   .formcard .telrow a{font-size:30px}
   .row2,.row3{grid-template-columns:1fr}
+  /* フリードリンク対象プラン：段落ち防止（ラベルを1行に、チップは次行へまとめて） */
+  .drink-plans{gap:8px 10px}
+  .drink-plans .dp-lead{flex-basis:100%; margin:0 0 2px}
+  .drink-plans .dp{font-size:12.5px; padding:8px 15px}
+  .drink-plans .dp::before{margin-right:6px}
   .occ-item{grid-template-columns:110px 1fr}
   .access .info dl{grid-template-columns:80px 1fr}
   .room-grid{grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto}
@@ -430,6 +461,10 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9CZ8Q4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header id="hd">
   <div class="wrap bar">
@@ -443,10 +478,10 @@ footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
     </nav>
   </div>
   <nav class="menu">
-    <a href="#bounenkai">忘新年会プラン</a>
-    <a href="#dousoukai">同窓会プラン</a>
-    <a href="#rooms">貸会場について</a>
-    <a href="#houji">法事法要プラン</a>
+    <a class="mi mi-bou" href="#bounenkai">忘新年会</a>
+    <a class="mi mi-dou" href="#dousoukai">同窓会</a>
+    <a class="mi mi-room" href="#rooms">貸会場</a>
+    <a class="mi mi-houji" href="#houji">法事法要</a>
   </nav>
 </header>
 
