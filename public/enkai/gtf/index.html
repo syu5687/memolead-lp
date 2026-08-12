@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- @version v0002 | 2026-08-12 | memolead-enkai GTF ガーデンテラス福岡 宴会LP（画像版） | /public/enkai/gtf/ var001-->
+<!-- @version v0003 | 2026-08-12 | memolead-enkai GTF ガーデンテラス福岡 宴会LP（画像版・連絡先バー固定フッタ） | /public/enkai/gtf/ -->
 <html lang="ja">
 <head>
 <!-- Google Tag Manager -->
@@ -30,12 +30,16 @@ img{display:block; border:0}
 header.fx{position:fixed; top:0; left:0; right:0; z-index:1000; background:#40210f; line-height:0}
 header.fx .hwrap{max-width:1920px; margin:0 auto}
 header.fx img{width:100%}
-/* 本文（AIデータを画像化・スライス） */
+/* 固定フッター（連絡先バー：ロゴ・住所・TEL・定休日/受付時間） */
+footer.fx{position:fixed; bottom:0; left:0; right:0; z-index:1000; background:#40210f; line-height:0}
+footer.fx .fwrap{max-width:1920px; margin:0 auto}
+footer.fx img{width:100%}
+/* 本文（AIデータを画像化・スライス／連絡先バーは本文から除去済み） */
 .lp{max-width:1920px; margin:0 auto}
 .body-wrap{position:relative; line-height:0; font-size:0}
 .body-wrap .s{width:100%}
 /* 貸会場「こちら」ボタン → 料金表PDF */
-.kai-link{position:absolute; left:36%; top:28.3%; width:28%; height:1.5%; display:block; border-radius:4px; transition:background .2s}
+.kai-link{position:absolute; left:36.72%; top:28.0%; width:26.56%; height:1.15%; display:block; border-radius:4px; transition:background .2s}
 .kai-link:hover,.kai-link:focus{background:rgba(176,155,94,.22); outline:none}
 </style>
 </head>
@@ -63,6 +67,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<footer class="fx" id="fxFooter">
+  <div class="fwrap"><a href="tel:0928810007" aria-label="ガーデンテラス福岡に電話する（092-881-0007）"><img id="fxFootImg" src="_assets/lp/lp-footer.jpg" alt="ガーデンテラス福岡 〒819-0001 福岡県福岡市西区小戸2-3-55 TEL.092-881-0007 定休日 毎週火曜日・第1・3水曜日 受付時間 10:00〜19:00"></a></div>
+</footer>
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org","@type":"EventVenue",
@@ -79,9 +87,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function(){
-  var hd=document.getElementById('fxHeader'), lp=document.getElementById('lp'), img=document.getElementById('fxImg');
-  function pad(){ lp.style.paddingTop = hd.offsetHeight + 'px'; }
-  if(img.complete) pad(); else img.addEventListener('load',pad);
+  var hd=document.getElementById('fxHeader'), ft=document.getElementById('fxFooter'),
+      lp=document.getElementById('lp'),
+      himg=document.getElementById('fxImg'), fimg=document.getElementById('fxFootImg');
+  function pad(){
+    lp.style.paddingTop = hd.offsetHeight + 'px';
+    lp.style.paddingBottom = ft.offsetHeight + 'px';
+  }
+  if(himg.complete) pad(); else himg.addEventListener('load',pad);
+  if(fimg.complete) pad(); else fimg.addEventListener('load',pad);
   window.addEventListener('load',pad);
   window.addEventListener('resize',pad);
   pad();
