@@ -7,9 +7,8 @@ EXPOSE 8080
 RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf \
  && echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# mod_rewrite / mod_headers 有効化、ディレクトリ一覧(autoindex)は無効化
+# mod_rewrite / mod_headers 有効化（ディレクトリ一覧は下の Options -Indexes で無効化）
 RUN a2enmod rewrite headers \
- && a2dismod autoindex \
  && sed -i "s/AllowOverride None/AllowOverride All/" /etc/apache2/apache2.conf
 
 # /var/www/html 設定（Indexes無し＝一覧表示なし。ドットファイルや .git 等は配信拒否）
