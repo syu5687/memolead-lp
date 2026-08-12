@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- @version v0002 | 2026-08-12 | memolead-enkai RCF ロイヤルチェスター福岡 宴会LP（画像版） | /public/enkai/rcf/ -->
+<!-- @version v0003 | 2026-08-12 | memolead-enkai RCF ロイヤルチェスター福岡 宴会LP（画像版・連絡先バー固定フッタ） | /public/enkai/rcf/ -->
 <html lang="ja">
 <head>
 <!-- Google Tag Manager -->
@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>宴会・ご宴席｜ロイヤルチェスター福岡｜忘新年会・同窓会・法事法要・各種宴会</title>
-<meta name="description" content="ロイヤルチェスター福岡の宴会・ご宴席。忘新年会・同窓会・歓送迎会・法事法要・各種宴会・展示会・研修会議に対応。会席コース／パーティー／ビュッフェのご宴会プラン、フリードリンク付き。貸会場＝ウィンザー円卓／ロイヤルシアター／ブライトンスクール／ロッソ会食。">
+<meta name="description" content="ロイヤルチェスター福岡の宴会・ご宴席。忘新年会・同窓会・歓送迎会・法事法要・各種宴会・展示会・研修会議に対応。会席コース／パーティー／ビュッフェのご宴会プラン、フリードリンク付き。貸会場＝ウィンザー円卓／ロイヤルシアター／ブライトンスクール／ロッソ会食。ご予約・お問い合わせは TEL 092-588-6688。">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/rcf/">
 <meta property="og:type" content="website">
@@ -28,12 +28,16 @@ img{display:block; border:0}
 header.fx{position:fixed; top:0; left:0; right:0; z-index:1000; background:#66161f; line-height:0}
 header.fx .hwrap{max-width:1920px; margin:0 auto}
 header.fx img{width:100%}
-/* 本文（AIデータを画像化・スライス） */
+/* 固定フッター（連絡先バー：ロゴ・住所・TEL・定休日/受付時間） */
+footer.fx{position:fixed; bottom:0; left:0; right:0; z-index:1000; background:#66161f; line-height:0}
+footer.fx .fwrap{max-width:1920px; margin:0 auto}
+footer.fx img{width:100%}
+/* 本文（AIデータを画像化・スライス／連絡先バーは本文から除去済み） */
 .lp{max-width:1920px; margin:0 auto}
 .body-wrap{position:relative; line-height:0; font-size:0}
 .body-wrap .s{width:100%}
-/* 貸会場「貸会場の詳細はこちら」ボタン → 料金表PDF */
-.kai-link{position:absolute; left:36%; top:30%; width:28%; height:1.5%; display:block; border-radius:4px; transition:background .2s}
+/* 貸会場「貸会場の詳細はこちら」ボタン → 貸会場ページ */
+.kai-link{position:absolute; left:36.35%; top:28.6%; width:27.34%; height:1.1%; display:block; border-radius:4px; transition:background .2s}
 .kai-link:hover,.kai-link:focus{background:rgba(176,155,94,.22); outline:none}
 </style>
 </head>
@@ -61,21 +65,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<footer class="fx" id="fxFooter">
+  <div class="fwrap"><a href="tel:0925886688" aria-label="ロイヤルチェスター福岡に電話する（092-588-6688）"><img id="fxFootImg" src="_assets/lp/lp-footer.jpg" alt="ロイヤルチェスター福岡 〒816-0923 福岡県大野城市雑餉隈町3-3-15 TEL.092-588-6688 定休日 毎週火曜日・第1・3水曜日・年末年始 受付時間 10:00〜19:00"></a></div>
+</footer>
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org","@type":"EventVenue",
   "name":"ロイヤルチェスター福岡",
+  "alternateName":"ROYAL CHESTER FUKUOKA",
   "description":"忘新年会・同窓会・歓送迎会・法事法要・各種宴会・展示会・研修会議に対応する宴会会場。会席コース／パーティー／ビュッフェのご宴会プラン、フリードリンク付き。貸会場＝ウィンザー円卓／ロイヤルシアター／ブライトンスクール／ロッソ会食。",
+  "telephone":"+81-92-588-6688",
   "url":"https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/rcf/",
-  "image":"https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/rcf/_assets/lp/lp-01.jpg"
+  "image":"https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/rcf/_assets/lp/lp-01.jpg",
+  "address":{"@type":"PostalAddress","postalCode":"816-0923","addressRegion":"福岡県","addressLocality":"大野城市","streetAddress":"雑餉隈町3-3-15","addressCountry":"JP"},
+  "openingHoursSpecification":{"@type":"OpeningHoursSpecification","opens":"10:00","closes":"19:00"}
 }
 </script>
 
 <script>
 (function(){
-  var hd=document.getElementById('fxHeader'), lp=document.getElementById('lp'), img=document.getElementById('fxImg');
-  function pad(){ lp.style.paddingTop = hd.offsetHeight + 'px'; }
-  if(img.complete) pad(); else img.addEventListener('load',pad);
+  var hd=document.getElementById('fxHeader'), ft=document.getElementById('fxFooter'),
+      lp=document.getElementById('lp'),
+      himg=document.getElementById('fxImg'), fimg=document.getElementById('fxFootImg');
+  function pad(){
+    lp.style.paddingTop = hd.offsetHeight + 'px';
+    lp.style.paddingBottom = ft.offsetHeight + 'px';
+  }
+  if(himg.complete) pad(); else himg.addEventListener('load',pad);
+  if(fimg.complete) pad(); else fimg.addEventListener('load',pad);
   window.addEventListener('load',pad);
   window.addEventListener('resize',pad);
   pad();
