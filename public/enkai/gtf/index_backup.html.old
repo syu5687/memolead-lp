@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<!-- @version v0001 | 2026-08-09 | memolead-enkai GTF ガーデンテラス福岡 宴会LP | /public/enkai/gtf/ -->
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KG9CZ8Q4');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="version" content="v0001 (2026-08-09)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宴会・ご宴席｜ガーデンテラス福岡｜忘新年会・同窓会・法事法要・各種宴会</title>
+<meta name="description" content="ガーデンテラス福岡の宴会・ご宴席。10名様のアットホームな集いから最大150名様の企業宴会まで。忘新年会・同窓会・歓送迎会・法事法要・展示会・研修会議に対応。会席コース／パーティー／ビュッフェの3スタイル、フリードリンク付き。ご予約・お見積りはお電話またはWebから。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/gtf/">
+<link rel="shortcut icon" href="https://www.gt-fukuoka.net/favicon.ico">
+<link rel="icon" href="https://www.gt-fukuoka.net/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:title" content="宴会・ご宴席｜ガーデンテラス福岡">
+<meta property="og:description" content="10名様の集いから最大150名様の企業宴会まで。忘新年会・同窓会・法事法要・各種宴会に。会席／パーティー／ビュッフェの3スタイル。">
+<meta property="og:image" content="https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/gtf/_assets/img/exterior.jpg">
+<meta name="format-detection" content="telephone=no">
+<style>
+:root{
+  --paper:#f6f2ea; --paper-2:#efe8db; --ink:#1a1714; --ink-soft:#4a423a;
+  --line:#dacfbb;
+  --accent:#7c1f2a; --accent-2:#a8894e;
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Meiryo",sans-serif;
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:112px}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-feature-settings:"palt"; line-height:1.9;
+  font-size:16px; letter-spacing:.02em; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px}
+.serif{font-family:var(--serif)}
+.en{font-family:"Cormorant Garamond",var(--serif); letter-spacing:.28em; text-transform:uppercase; font-size:12px; color:var(--accent-2); font-weight:600}
+.br-sp{display:none}
+
+/* header */
+header{position:fixed; top:0; left:0; right:0; z-index:50; transition:.4s; padding:18px 0}
+header .bar{display:flex; align-items:center; justify-content:space-between}
+header .brand{display:flex; align-items:center; height:42px; transition:.4s}
+header .brand img{height:100%; width:auto; display:block}
+header .brand .logo-dark{display:none}
+header .nav{display:flex; align-items:center; gap:22px}
+header .nav a.tel{font-family:var(--serif); font-size:20px; letter-spacing:.06em; color:#fff; transition:.4s; text-decoration:none}
+header .nav a.tel span{font-size:10px; letter-spacing:.2em; display:block; font-family:var(--sans); color:var(--accent-2)}
+header .nav a.cta{background:var(--accent); color:#fff; text-decoration:none; padding:12px 22px; font-size:13px; letter-spacing:.16em; border-radius:1px}
+header.scrolled{background:var(--paper); box-shadow:0 1px 0 var(--line); padding:12px 0}
+header.scrolled .nav a.tel{color:var(--ink)}
+header.scrolled .brand{height:34px}
+header.scrolled .brand .logo-light{display:none}
+header.scrolled .brand .logo-dark{display:block}
+header .nav a.tel .num{color:inherit}
+/* header menu tabs */
+header .menu{display:flex; justify-content:center; gap:14px; margin-top:13px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2); transition:.4s}
+header .menu a{position:relative; font-family:var(--serif); font-size:14.5px; letter-spacing:.06em; color:#fff; text-decoration:none; padding:3px 18px 7px; transition:.25s; text-shadow:0 1px 8px rgba(0,0,0,.35); white-space:nowrap; border-bottom:2px solid transparent}
+/* プランごとの色分け */
+header .menu a.mi-bou{border-bottom-color:#cf5b3d}
+header .menu a.mi-dou{border-bottom-color:#c99a4c}
+header .menu a.mi-room{border-bottom-color:#5f8a8d}
+header .menu a.mi-houji{border-bottom-color:#9481a8}
+header .menu a.mi-occ{border-bottom-color:#7d8a4f}
+header .menu a.mi-bou:hover{color:#e0714f}
+header .menu a.mi-dou:hover{color:#dcb45f}
+header .menu a.mi-room:hover{color:#7fabae}
+header .menu a.mi-houji:hover{color:#b3a0c6}
+header .menu a.mi-occ:hover{color:#9fac70}
+header.scrolled .menu{margin-top:10px; padding-top:9px; border-top-color:var(--line)}
+header.scrolled .menu a{color:var(--ink); text-shadow:none}
+header.scrolled .menu a.mi-bou:hover{color:#b8462b}
+header.scrolled .menu a.mi-dou:hover{color:#a5832f}
+header.scrolled .menu a.mi-room:hover{color:#3f6c6f}
+header.scrolled .menu a.mi-houji:hover{color:#6f5d84}
+header.scrolled .menu a.mi-occ:hover{color:#5f6c38}
+
+/* hero */
+.hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden}
+.hero .bg{position:absolute; inset:0; background:#111}
+.hero .bg .slide{position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease}
+.hero .bg .slide.is-active{opacity:1}
+.hero .bg .slide img{width:100%; height:100%; object-fit:cover; opacity:.86; transform-origin:center 45%; will-change:transform}
+.hero .bg .slide.is-active img{animation:heroPull 8s ease-out both}
+@keyframes heroPull{from{transform:scale(1.12)} to{transform:scale(1.0)}}
+@media(prefers-reduced-motion:reduce){.hero .bg .slide img{animation:none; transform:scale(1.03)}}
+.hero .bg::after{content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(15,12,10,.55) 0%,rgba(15,12,10,.15) 32%,rgba(15,12,10,.15) 55%,rgba(15,12,10,.82) 100%)}
+.hero .inner{position:relative; z-index:2; color:#fff; padding-bottom:9vh; width:100%}
+.hero .season{display:inline-block; border:1px solid rgba(255,255,255,.5); padding:7px 16px; font-size:12px; letter-spacing:.18em; margin-bottom:26px}
+.hero h1{font-family:var(--serif); font-weight:500; font-size:clamp(38px,6.4vw,76px); line-height:1.16; margin:0 0 22px; letter-spacing:.04em; text-shadow:0 2px 24px rgba(0,0,0,.3)}
+.hero h1 .thin{display:block; font-size:.26em; letter-spacing:.24em; color:var(--accent-2); margin-bottom:18px; font-weight:600; font-family:"Cormorant Garamond",var(--serif)}
+.hero p.lead{font-size:clamp(15px,1.7vw,18px); max-width:33em; line-height:2.05; margin:0 0 34px; text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .acts{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.hero .acts a{text-decoration:none}
+.hero .acts .tel{color:#fff}
+.hero .acts .tel .num{font-family:var(--serif); font-size:30px; letter-spacing:.05em}
+.hero .acts .tel small{display:block; font-size:11px; letter-spacing:.22em; color:rgba(255,255,255,.75)}
+.hero .acts .cta{background:var(--accent); color:#fff; padding:17px 34px; font-size:14px; letter-spacing:.16em; border-radius:1px; transition:.3s}
+.hero .acts .cta:hover{background:#651821}
+
+/* section shell */
+section{position:relative}
+.pad{padding:96px 0}
+.pad-lg{padding:120px 0}
+.eyebrow{display:flex; align-items:center; gap:16px; margin-bottom:20px}
+.eyebrow::before{content:""; width:38px; height:1px; background:var(--accent-2)}
+.h2{position:relative; font-family:var(--serif); font-weight:500; font-size:clamp(27px,3.6vw,40px); line-height:1.4; margin:0 0 26px; letter-spacing:.03em}
+/* プラン別カラー（メニュータブと一致・控えめに見出しへ反映） */
+#bounenkai{--pc:#cf5b3d}
+#dousoukai{--pc:#c99a4c}
+#rooms{--pc:#5f8a8d}
+#houji{--pc:#9481a8}
+#occasions{--pc:#7d8a4f}
+#bounenkai .eyebrow::before,#dousoukai .eyebrow::before,#rooms .eyebrow::before,#houji .eyebrow::before,#occasions .eyebrow::before{background:var(--pc); width:44px}
+#bounenkai .eyebrow .en,#dousoukai .eyebrow .en,#rooms .eyebrow .en,#houji .eyebrow .en,#occasions .eyebrow .en{color:var(--pc)}
+section:target .h2::after{content:""; position:absolute; left:0; bottom:-9px; height:2px; width:0; background:var(--pc); border-radius:2px; animation:arriveHL 1.6s ease forwards}
+@keyframes arriveHL{0%{width:0; opacity:.85} 22%{width:70px; opacity:.85} 66%{width:70px; opacity:.85} 100%{width:70px; opacity:0}}
+@media(prefers-reduced-motion:reduce){section:target .h2::after{animation:none; display:none}}
+.h2 .accent{color:var(--accent)}
+.lead-txt{font-size:16.5px; line-height:2.15; color:var(--ink-soft); max-width:40em}
+
+/* intro split */
+.intro{background:var(--paper)}
+.split{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center}
+.split .fig{position:relative}
+.split .fig img{width:100%; aspect-ratio:4/3; object-fit:cover}
+.split .fig .cap{position:absolute; bottom:-18px; left:-18px; background:var(--accent); color:#fff; font-family:var(--serif); padding:16px 22px; font-size:15px; letter-spacing:.08em}
+
+/* perks */
+.perks{background:var(--ink); color:#f3ece0}
+.perks .h2{color:#fff}
+.perks .lead-txt{color:#cbbfae}
+.perk-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.12); margin-top:44px}
+.perk{background:var(--ink); padding:38px 26px}
+.perk .no{font-family:var(--serif); font-size:14px; letter-spacing:.2em; color:var(--accent-2); margin-bottom:18px}
+.perk h3{font-family:var(--serif); font-size:20px; font-weight:500; margin:0 0 12px; line-height:1.5; color:#fff}
+.perk p{font-size:13px; line-height:1.9; color:#bcb1a0; margin:0}
+.perk .price{color:var(--accent-2); font-family:var(--serif)}
+.perk-note{margin-top:22px; font-size:12.5px; color:#9c9182; line-height:1.9}
+
+/* plans */
+.plans{background:var(--paper-2)}
+.plan-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:52px}
+.plan{background:#fff; border:1px solid var(--line); display:flex; flex-direction:column}
+.plan .ph{aspect-ratio:3/2; overflow:hidden}
+.plan .ph img{width:100%; height:100%; object-fit:cover; transition:.6s}
+.plan:hover .ph img{transform:scale(1.04)}
+.plan .body{padding:30px 26px 32px; display:flex; flex-direction:column; flex:1}
+.plan .style{font-size:11px; letter-spacing:.2em; color:var(--accent); margin-bottom:12px}
+.plan h3{font-family:var(--serif); font-weight:500; font-size:25px; margin:0 0 6px; letter-spacing:.04em}
+.plan .sub{font-size:13px; color:var(--ink-soft); margin:0 0 22px; min-height:2.4em; line-height:1.8}
+.plan .tiers{display:flex; gap:8px; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:20px}
+.plan .tiers .t{flex:1; text-align:center}
+.plan .tiers .t b{display:block; font-family:var(--serif); font-size:21px; color:var(--accent); letter-spacing:.02em}
+.plan .tiers .t span{font-size:10px; color:#8c8272; letter-spacing:.06em}
+.plan .taxnote{font-size:11px; color:#8c8272; text-align:center; margin:-12px 0 20px}
+.plan .menu-h{font-size:12px; letter-spacing:.14em; color:var(--accent-2); margin-bottom:12px; font-weight:600}
+.plan ul{list-style:none; margin:0; padding:0; flex:1}
+.plan ul li{font-size:13.5px; line-height:1.75; padding:7px 0 7px 18px; position:relative; border-bottom:1px dotted #e4dccb; color:var(--ink-soft)}
+.plan ul li::before{content:""; position:absolute; left:2px; top:14px; width:5px; height:5px; background:var(--accent-2); border-radius:50%}
+.plan .plan-tag{margin-top:18px; border:1px solid var(--accent); color:var(--accent); text-align:center; padding:11px 12px; font-size:13px; letter-spacing:.02em; line-height:1.5; font-family:var(--serif); border-radius:2px}
+.plans .foot-note{margin-top:34px; font-size:13px; color:var(--ink-soft); line-height:1.95}
+.plans .foot-note .wa{display:inline-block; font-family:var(--serif); color:var(--accent); font-size:16px; margin-bottom:6px}
+.plans .foot-note a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-2); padding-bottom:1px}
+/* benefits band (light) */
+.benefit-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:40px 0 6px}
+.benefit{background:#fff; border:1px solid var(--line); border-top:3px solid var(--accent); padding:24px 22px}
+.benefit .no{font-family:var(--serif); font-size:13px; letter-spacing:.18em; color:var(--accent-2); margin-bottom:12px}
+.benefit h4{font-family:var(--serif); font-weight:500; font-size:17px; margin:0 0 9px; line-height:1.5}
+.benefit p{font-size:12.5px; line-height:1.85; color:var(--ink-soft); margin:0}
+.benefit p .price{color:var(--accent); font-family:var(--serif)}
+.benefit .gift{color:var(--accent); font-weight:700}
+/* perk band (emphasised 4大特典) */
+.perk-band{display:grid; grid-template-columns:210px 1fr; margin:42px 0 8px; color:#f4ead9;
+  background:linear-gradient(135deg,#822130 0%,#5c1319 100%); border:1px solid rgba(168,137,78,.45);
+  box-shadow:0 20px 44px rgba(70,20,26,.26); position:relative; overflow:hidden}
+.perk-band::before{content:""; position:absolute; inset:6px; border:1px solid rgba(168,137,78,.28); pointer-events:none}
+.perk-badge{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding:26px 22px; border-right:1px solid rgba(168,137,78,.4)}
+.perk-badge .pb-en{font-family:"Cormorant Garamond",var(--serif); letter-spacing:.3em; font-size:10px; color:var(--accent-2); margin-bottom:10px}
+.perk-badge .pb-ttl{font-family:var(--serif); font-weight:500; font-size:19px; line-height:1.35; color:#fff}
+.perk-badge .pb-num{font-family:var(--serif); color:var(--accent-2); font-size:15px; vertical-align:baseline}
+.perk-badge .pb-big{font-size:52px; line-height:1; color:#fff; display:block; margin:8px 0 2px; text-shadow:0 2px 14px rgba(0,0,0,.3)}
+.perk-badge .pb-under{width:44px; height:1px; background:var(--accent-2); margin:12px auto 0}
+.perk-items{display:grid; grid-template-columns:repeat(4,1fr)}
+.pk{padding:26px 22px 28px; border-right:1px solid rgba(168,137,78,.24)}
+.pk:last-child{border-right:none}
+.pk .pk-no{font-family:"Cormorant Garamond",var(--serif); font-size:12px; letter-spacing:.24em; color:var(--accent-2)}
+.pk h4{font-family:var(--serif); font-weight:500; font-size:18px; line-height:1.5; color:#fff; margin:10px 0 9px}
+.pk .free{color:#ffd98a; font-weight:700}
+.pk p{font-size:12px; line-height:1.8; color:#d9c4b1; margin:0}
+.pk p .price{color:var(--accent-2)}
+.plans-sub{font-family:var(--serif); font-weight:500; font-size:22px; letter-spacing:.03em; margin:54px 0 2px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.plans-sub small{font-family:var(--sans); font-size:12.5px; letter-spacing:.02em; color:var(--ink-soft)}
+.plans-sub::before{content:""; width:26px; height:1px; background:var(--accent-2)}
+/* price bar (compact, shared-menu plan) */
+.pricebar{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px}
+.pricecard{background:#fff; border:1px solid var(--line); padding:30px 26px; text-align:center}
+.pricecard .st{font-size:11px; letter-spacing:.18em; color:var(--accent); margin-bottom:10px}
+.pricecard h4{font-family:var(--serif); font-weight:500; font-size:23px; margin:0 0 6px; letter-spacing:.03em}
+.pricecard .sub{font-size:12.5px; color:var(--ink-soft); line-height:1.7; margin:0 0 18px; min-height:3.4em}
+.pricecard .prow{display:flex; justify-content:center; gap:14px; border-top:1px solid var(--line); padding-top:16px}
+.pricecard .prow div b{display:block; font-family:var(--serif); font-size:19px; color:var(--accent)}
+.pricecard .prow div span{font-size:10px; color:#8c8272; letter-spacing:.05em}
+
+/* drink */
+.drink{background:var(--ink); color:#f0e9dd}
+.drink .h2{color:#fff}
+.drink .dwrap{display:grid; grid-template-columns:.85fr 1.15fr; gap:52px; align-items:center; margin-top:20px}
+.drink .dfig img{width:100%; aspect-ratio:1/1; object-fit:cover; border:1px solid rgba(168,137,78,.35)}
+.drink .dcontent .tags{margin-top:26px}
+.drink .tags{display:flex; flex-wrap:wrap; gap:10px}
+.drink .tags span{border:1px solid rgba(255,255,255,.26); padding:6px 12px; font-size:11.5px; letter-spacing:.03em; color:#e0d6c6}
+.drink .up{margin-top:26px; font-size:13.5px; color:#cbbfae; line-height:1.9}
+.drink .up b{color:var(--accent-2); font-family:var(--serif); font-size:15px}
+.drink-plans{display:flex; flex-wrap:wrap; gap:10px; margin:2px 0 18px}
+.drink-plans .dp{font-family:var(--serif); font-size:13.5px; letter-spacing:.05em; color:#f4ead9; text-decoration:none; background:linear-gradient(135deg,#822130 0%,#611620 100%); border:1px solid rgba(168,137,78,.55); padding:9px 18px; border-radius:3px; box-shadow:0 6px 16px rgba(70,20,26,.28); transition:.25s}
+.drink-plans a.dp:hover{border-color:var(--accent-2); box-shadow:0 6px 20px rgba(168,137,78,.35); color:#fff}
+.drink-plans .dp::before{content:"●"; color:var(--accent-2); font-size:8px; margin-right:8px; vertical-align:2px}
+.drink-plans .dp-lead{align-self:center; font-size:12px; letter-spacing:.08em; color:#b9ac97; margin-right:2px}
+
+/* rooms */
+.rooms{background:var(--paper)}
+.rooms-sub{font-family:var(--serif); font-weight:500; font-size:19px; letter-spacing:.05em; margin:44px 0 18px; display:flex; align-items:center; gap:13px}
+.rooms-sub::before{content:""; width:24px; height:1px; background:var(--accent-2)}
+.room-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.room{position:relative; overflow:hidden; background:#000; border:none; padding:0; cursor:pointer; font-family:inherit; text-align:left; display:block; width:100%}
+.room img{width:100%; aspect-ratio:4/5; object-fit:cover; opacity:.9; transition:.6s}
+.room:hover img{transform:scale(1.05); opacity:1}
+.room .lab{position:absolute; left:0; bottom:0; right:0; padding:22px 20px; color:#fff;
+  background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.05) 78%,transparent)}
+.room .lab b{display:block; font-family:var(--serif); font-size:20px; letter-spacing:.06em; margin-bottom:5px}
+.room .lab span{display:block; font-size:12.5px; color:#e7ddcd; letter-spacing:.04em}
+.room .lab .more{display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; letter-spacing:.1em; color:#fff; font-style:normal; background:var(--accent); border:1px solid var(--accent-2); padding:10px 20px; border-radius:2px; box-shadow:0 8px 20px rgba(0,0,0,.3); transition:.25s}
+.room:hover .lab .more{background:var(--accent-2); color:#3a1116; border-color:var(--accent-2)}
+.room-mini-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+.room-mini{background:#fff; border:1px solid var(--line); padding:0; overflow:hidden; text-align:left; cursor:pointer; font-family:inherit; transition:.25s; display:flex; flex-direction:column}
+.room-mini:hover{box-shadow:0 10px 26px rgba(0,0,0,.09)}
+.room-mini .rm-ph{overflow:hidden}
+.room-mini img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:.5s}
+.room-mini:hover img{transform:scale(1.06)}
+.room-mini .rm-body{padding:16px 18px 20px; border-top:3px solid var(--accent-2)}
+.room-mini b{display:block; font-family:var(--serif); font-size:19px; letter-spacing:.08em; margin-bottom:6px}
+.room-mini .a{font-size:12.5px; color:var(--ink-soft)}
+.room-mini .more{display:block; margin-top:12px; font-size:11px; letter-spacing:.12em; color:var(--accent); font-style:normal}
+.rooms-actions{margin-top:34px}
+.ghost-btn{position:relative; overflow:hidden; background:transparent; border:1px solid var(--accent); color:var(--accent); padding:15px 30px; font-size:14px; letter-spacing:.1em; font-family:var(--sans); cursor:pointer; border-radius:2px; transition:.25s; animation:btnGlow 2.8s ease-in-out infinite}
+.ghost-btn::after{content:""; position:absolute; top:0; bottom:0; left:-45%; width:32%; background:linear-gradient(105deg,transparent,rgba(212,178,110,.5),transparent); transform:skewX(-18deg); animation:btnShine 3.8s ease-in-out infinite; pointer-events:none}
+.ghost-btn:hover{background:var(--accent); color:#fff; animation:none; box-shadow:0 0 20px 2px rgba(168,137,78,.55)}
+@keyframes btnGlow{0%,100%{box-shadow:0 0 0 0 rgba(168,137,78,0)} 50%{box-shadow:0 0 15px 2px rgba(168,137,78,.5)}}
+@keyframes btnShine{0%,12%{left:-45%} 52%,100%{left:135%}}
+@media(prefers-reduced-motion:reduce){.ghost-btn{animation:none} .ghost-btn::after{display:none}}
+.rooms .rn{margin-top:28px; font-size:12.5px; color:var(--ink-soft); line-height:1.95}
+/* modal */
+.modal{position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; padding:22px}
+.modal.open{display:flex}
+.modal .ov{position:absolute; inset:0; background:rgba(15,12,10,.66)}
+.modal-panel{position:relative; z-index:2; background:var(--paper); max-width:600px; width:100%; max-height:90vh; overflow:auto; box-shadow:0 30px 90px rgba(0,0,0,.45)}
+.modal-panel .mphoto{aspect-ratio:16/9; overflow:hidden; background:#000}
+.modal-panel .mphoto img{width:100%; height:100%; object-fit:cover}
+.modal-panel .mbody{padding:32px 34px 36px}
+.modal .mclose{position:absolute; top:14px; right:16px; z-index:5; width:40px; height:40px; border:none; background:rgba(0,0,0,.55); color:#fff; font-size:22px; line-height:1; cursor:pointer; border-radius:50%}
+.modal .m-en{font-family:"Cormorant Garamond",var(--serif); letter-spacing:.22em; text-transform:uppercase; color:var(--accent-2); font-size:11px; font-weight:600}
+.modal .m-name{font-family:var(--serif); font-weight:500; font-size:27px; margin:6px 0 6px; letter-spacing:.03em}
+.modal .m-desc{font-size:13.5px; color:var(--ink-soft); line-height:1.85; margin:0 0 20px}
+.spec{width:100%; border-collapse:collapse; font-size:14px}
+.spec th{text-align:left; color:var(--ink-soft); font-weight:600; width:44%; padding:12px 2px; border-bottom:1px solid var(--line); vertical-align:top}
+.spec td{padding:12px 2px; border-bottom:1px solid var(--line); color:var(--ink); vertical-align:top}
+.spec td b{font-family:var(--serif); color:var(--accent); font-size:17px; letter-spacing:.02em}
+.spec .grp th{color:var(--accent-2); font-family:var(--serif); font-size:13px; letter-spacing:.1em; padding-top:18px; border-bottom:none}
+.m-note{margin-top:18px; font-size:11.5px; color:var(--ink-soft); line-height:1.85}
+.m-cta{margin-top:24px; display:flex; gap:12px; flex-wrap:wrap}
+.m-cta a{flex:1; text-align:center; text-decoration:none; padding:15px 10px; font-size:14px; letter-spacing:.06em; border-radius:2px}
+.m-cta .tel{background:var(--ink); color:#fff; font-family:var(--serif); font-size:18px}
+.m-cta .form{background:var(--accent); color:#fff}
+/* options modal blocks */
+.optcols{display:grid; grid-template-columns:1fr 1fr; gap:26px 30px; margin-top:8px}
+.optblock h4{font-family:var(--serif); font-weight:500; font-size:16px; color:var(--accent); margin:0 0 10px; padding-bottom:6px; border-bottom:1px solid var(--line)}
+.optblock .r{display:flex; justify-content:space-between; gap:10px; font-size:13px; padding:5px 0; color:var(--ink-soft)}
+.optblock .r b{color:var(--ink); font-weight:500; white-space:nowrap}
+.optfull{grid-column:1/-1}
+.opt-note{font-size:11.5px; color:var(--ink-soft); line-height:1.8; margin-top:6px}
+
+/* houji */
+.houji{background:#20201d; color:#ece5d8}
+.houji .split{gap:56px}
+.houji .h2{color:#fff}
+.houji .lead-txt{color:#c7bcac}
+.houji .fig img{aspect-ratio:4/5}
+.houji .courses{margin-top:30px; border-top:1px solid rgba(255,255,255,.16)}
+.houji .courses .row{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.16)}
+.houji .courses .row .hthumb{width:88px; height:62px; object-fit:cover; flex:none; border:1px solid rgba(255,255,255,.18)}
+.houji .courses .row .rname{flex:1}
+.houji .courses .row b{font-family:var(--serif); font-size:18px; letter-spacing:.05em; color:#fff; font-weight:500}
+.houji .courses .row .rname .rd{display:block; font-size:11.5px; color:#a99f8f; margin-top:4px; line-height:1.5}
+.houji .courses .row .p{font-family:var(--serif); font-size:23px; color:var(--accent-2); white-space:nowrap}
+.houji .courses .row .p small{font-size:13px; color:#b3a898}
+.houji .drinkline-row{display:flex; align-items:center; gap:16px; margin-top:20px; padding-top:18px; border-top:1px solid rgba(255,255,255,.16)}
+.houji .drinkline-row img{width:96px; height:66px; object-fit:cover; flex:none; border:1px solid rgba(255,255,255,.18)}
+.houji .drinkline{margin:0; font-size:14px; color:#cbbfae; line-height:1.7}
+.houji .drinkline b{color:var(--accent-2); font-family:var(--serif); font-size:17px}
+.houji .drinkline .dsub{display:block; font-size:11.5px; color:#a99f8f; margin-top:4px}
+.houji .houji-drinks{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+.houji .houji-drinks span{border:1px solid rgba(255,255,255,.24); padding:7px 13px; font-size:12px; letter-spacing:.02em; color:#ddd0bd}
+.houji .rn{margin-top:22px; font-size:12px; color:#9d9384; line-height:1.9}
+
+/* occasions */
+.occ{background:var(--paper-2)}
+.occ-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:50px}
+.occ-item{background:var(--paper); display:grid; grid-template-columns:150px 1fr; min-height:190px}
+.occ-item .im{overflow:hidden}
+.occ-item .im img{width:100%; height:100%; object-fit:cover}
+.occ-item .tx{padding:30px 30px}
+.occ-item .en{margin-bottom:10px}
+.occ-item h3{font-family:var(--serif); font-weight:500; font-size:21px; margin:0 0 14px; letter-spacing:.04em}
+.occ-item .tags{display:flex; flex-wrap:wrap; gap:8px 10px}
+.occ-item .tags span{font-size:12.5px; color:var(--ink-soft); padding:4px 0; position:relative}
+.occ-item .tags span:not(:last-child)::after{content:"／"; color:var(--line); margin-left:10px}
+
+/* business */
+.biz{position:relative; color:#fff; overflow:hidden}
+.biz .bg{position:absolute; inset:0}
+.biz .bg img{width:100%; height:100%; object-fit:cover}
+.biz .bg::after{content:""; position:absolute; inset:0; background:rgba(18,15,12,.72)}
+.biz .inner{position:relative; z-index:2}
+.biz .h2{color:#fff}
+.biz .cols{display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:44px}
+.biz .col{border-top:2px solid var(--accent-2); padding-top:24px}
+.biz .col h3{font-family:var(--serif); font-weight:500; font-size:22px; margin:0 0 14px}
+.biz .col p{font-size:14px; line-height:2; color:#d8cfc0; margin:0}
+
+/* form */
+.formsec{background:var(--paper)}
+.formsec .head{text-align:center; margin-bottom:12px}
+.formsec .eyebrow{justify-content:center}
+.formsec .eyebrow::before{display:none}
+.formsec .lead-txt{margin:0 auto; text-align:center}
+.formcard{max-width:820px; margin:48px auto 0; background:#fff; border:1px solid var(--line); padding:52px 54px}
+.formcard .telrow{text-align:center; padding:0 0 34px; margin-bottom:36px; border-bottom:1px solid var(--line)}
+.formcard .telrow .lb{font-size:13px; letter-spacing:.14em; color:var(--ink-soft); margin-bottom:8px}
+.formcard .telrow a{font-family:var(--serif); font-size:38px; color:var(--accent); text-decoration:none; letter-spacing:.05em}
+.formcard .telrow .hours{font-size:12px; color:#8c8272; margin-top:6px}
+.field{margin-bottom:24px}
+.field label{display:block; font-size:14px; letter-spacing:.05em; margin-bottom:9px; font-weight:600}
+.field label .req{color:#fff; background:var(--accent); font-size:10px; padding:2px 7px; margin-left:8px; letter-spacing:.1em; border-radius:1px; vertical-align:2px}
+.field label .opt{color:#8c8272; background:var(--paper-2); font-size:10px; padding:2px 7px; margin-left:8px; letter-spacing:.1em; border-radius:1px; vertical-align:2px}
+.field input,.field select,.field textarea{width:100%; font-family:var(--sans); font-size:16px; padding:14px 15px; border:1px solid #cfc4b1; background:var(--paper); border-radius:2px; color:var(--ink)}
+.field input:focus,.field select,.field textarea:focus{outline:none; border-color:var(--accent)}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.row3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px}
+.zip-wrap{display:flex; gap:10px}
+.zip-wrap input{flex:1}
+.zip-wrap button{white-space:nowrap; border:1px solid var(--accent); background:#fff; color:var(--accent); padding:0 18px; font-size:13px; border-radius:2px; cursor:pointer}
+.choices{display:flex; flex-wrap:wrap; gap:10px}
+.choice{position:relative; cursor:pointer}
+.choice input{position:absolute; opacity:0; inset:0; cursor:pointer}
+.choice span{display:block; border:1px solid #cfc4b1; padding:11px 18px; font-size:14px; border-radius:2px; transition:.2s; background:var(--paper)}
+.choice input:checked+span{background:var(--accent); color:#fff; border-color:var(--accent)}
+.field .hint{font-size:12px; color:#8c8272; margin-top:7px}
+.err-msg{display:none; background:var(--accent); color:#fff; font-weight:700; padding:12px 16px; border-radius:2px; margin-bottom:20px; font-size:14px}
+.err-msg::before{content:"⚠ "; }
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--accent); background:#fbeef0}
+.submit{width:100%; background:var(--accent); color:#fff; border:none; padding:20px; font-size:16px; letter-spacing:.16em; font-family:var(--serif); cursor:pointer; border-radius:2px; transition:.3s}
+.submit:hover{background:#651821}
+.submit:disabled{opacity:.6; cursor:wait}
+.privacy{font-size:12px; color:#8c8272; text-align:center; margin-top:18px; line-height:1.8}
+.done{display:none; text-align:center; padding:40px 10px}
+.done .mk{font-family:var(--serif); font-size:26px; color:var(--accent); margin-bottom:18px}
+.done p{color:var(--ink-soft); line-height:2}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+
+/* access */
+.access{background:var(--ink); color:#ece5d8}
+.access .awrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center}
+.access .h2{color:#fff}
+.access .info{font-size:15px; line-height:1.6}
+.access .info dl{display:grid; grid-template-columns:96px 1fr; gap:0; margin:0}
+.access .info dt{font-family:var(--serif); color:var(--accent-2); padding:14px 0; border-bottom:1px solid rgba(255,255,255,.14); letter-spacing:.08em}
+.access .info dd{margin:0; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.14); color:#ddd3c3}
+.access .info dd a{color:#ddd3c3}
+.access .maplink{display:inline-block; margin-top:26px; border:1px solid var(--accent-2); color:var(--accent-2); padding:13px 26px; text-decoration:none; font-size:13px; letter-spacing:.12em}
+.access .mapfig img{width:100%; aspect-ratio:1/1; object-fit:cover}
+
+/* footer */
+footer{background:#141210; color:#8c8272; text-align:center; padding:48px 0 40px}
+footer .brand-foot{margin-bottom:14px}
+footer .brand-foot img{height:52px; width:auto; display:inline-block}
+footer .cp{font-size:11px; letter-spacing:.06em; margin-top:22px; color:#6c6355}
+
+/* floating SP cta */
+.spbar{display:none}
+
+@media(max-width:900px){
+  .split,.drink .dwrap,.access .awrap{grid-template-columns:1fr; gap:38px}
+  .perk-grid{grid-template-columns:repeat(2,1fr)}
+  .plan-grid{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .perk-items{grid-template-columns:repeat(2,1fr)}
+  .pk:nth-child(2){border-right:none}
+  .pk:nth-child(1),.pk:nth-child(2){border-bottom:1px solid rgba(168,137,78,.24)}
+  .pricebar{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto}
+  .room-grid{grid-template-columns:repeat(3,1fr)}
+  .room-mini-grid{grid-template-columns:repeat(2,1fr)}
+  .optcols{grid-template-columns:1fr}
+  .occ-grid{grid-template-columns:1fr}
+  .biz .cols{grid-template-columns:1fr; gap:30px}
+  .split .fig .cap{left:16px; bottom:-14px}
+}
+@media(max-width:768px){
+  html{scroll-padding-top:88px}
+  .br-sp{display:inline}
+  .pad,.pad-lg{padding:70px 0}
+  header{padding:12px 0}
+  header .nav a.cta{display:none}
+  header .nav a.tel{font-size:16px}
+  header .nav a.tel span:not(.num){font-size:8.5px; transition:.35s}
+  header .brand{height:32px}
+  /* SP: scroll時にブランド行（ロゴ・電話）を自動で縦圧縮 */
+  header.scrolled{padding:6px 0}
+  header.scrolled .brand{height:24px}
+  header.scrolled .nav a.tel span:not(.num){font-size:0; opacity:0; height:0; overflow:hidden}
+  header.scrolled .nav a.tel{font-size:14px}
+  /* メニュータブ（SPは省スペース・はみ出す場合は横スクロール） */
+  header .menu{margin-top:9px; padding-top:8px; gap:7px; justify-content:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+  header .menu::-webkit-scrollbar{display:none}
+  header .menu a{font-size:11.5px; letter-spacing:0; padding:2px 8px 5px; flex:0 0 auto}
+  header .menu{gap:5px}
+  header.scrolled .menu{margin-top:6px; padding-top:6px}
+  .hero{min-height:92svh}
+  .hero .acts{flex-direction:column; align-items:flex-start; gap:20px}
+  .formcard{padding:34px 22px}
+  .formcard .telrow a{font-size:30px}
+  .row2,.row3{grid-template-columns:1fr}
+  /* フリードリンク対象プラン：段落ち防止（ラベルを1行に、チップは次行へまとめて） */
+  .drink-plans{gap:8px 10px}
+  .drink-plans .dp-lead{flex-basis:100%; margin:0 0 2px}
+  .drink-plans .dp{font-size:12.5px; padding:8px 15px}
+  .drink-plans .dp::before{margin-right:6px}
+  .occ-item{grid-template-columns:110px 1fr}
+  .access .info dl{grid-template-columns:80px 1fr}
+  .room-grid{grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto}
+  .room img{aspect-ratio:16/10}
+  .room-mini-grid{grid-template-columns:1fr 1fr}
+  .modal-panel .mbody{padding:26px 22px 30px}
+  .perk-band{grid-template-columns:1fr}
+  .perk-badge{border-right:none; border-bottom:1px solid rgba(168,137,78,.4); flex-direction:row; gap:14px; padding:18px}
+  .perk-badge .pb-big{font-size:38px; margin:0}
+  .perk-badge .pb-under{display:none}
+  .perk-items{grid-template-columns:1fr}
+  .pk{border-right:none !important; border-bottom:1px solid rgba(168,137,78,.24)}
+  .pk:last-child{border-bottom:none}
+  body{padding-bottom:64px}
+  .spbar{display:flex; position:fixed; bottom:0; left:0; right:0; z-index:60; box-shadow:0 -2px 14px rgba(0,0,0,.15)}
+  .spbar a{flex:1; text-align:center; padding:16px 0; text-decoration:none; font-size:14px; letter-spacing:.1em; color:#fff}
+  .spbar a.tel{background:var(--ink)}
+  .spbar a.cta{background:var(--accent)}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9CZ8Q4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header id="hd">
+  <div class="wrap bar">
+    <div class="brand">
+      <img loading="eager" decoding="async" class="logo-light" src="_assets/img/GTF-light.svg" alt="ガーデンテラス福岡">
+      <img loading="eager" decoding="async" class="logo-dark" src="_assets/img/GTF.svg" alt="ガーデンテラス福岡">
+    </div>
+    <nav class="nav">
+      <a class="tel" href="tel:0928810007"><span>ご予約・お問い合わせ</span><span class="num">092-881-0007</span></a>
+      <a class="cta" href="#form">Web申込・お見積り</a>
+    </nav>
+  </div>
+  <nav class="menu">
+    <a class="mi mi-bou" href="#bounenkai">忘新年会</a>
+    <a class="mi mi-dou" href="#dousoukai">同窓会</a>
+    <a class="mi mi-room" href="#rooms">貸会場</a>
+    <a class="mi mi-houji" href="#houji">法事法要</a>
+    <a class="mi mi-occ" href="#occasions">各種ご宴会</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bg">
+    <div class="slide is-active"><img loading="eager" fetchpriority="high" decoding="async" src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観"></div>
+    <div class="slide"><img loading="lazy" decoding="async" src="_assets/img/hero-north.jpg" alt="ノースガーデン"></div>
+    <div class="slide"><img loading="lazy" decoding="async" src="_assets/img/hero-south.jpg" alt="サウスガーデン"></div>
+    <div class="slide"><img loading="lazy" decoding="async" src="_assets/img/hero-thew.jpg" alt="THE W"></div>
+  </div>
+  <div class="wrap inner">
+    <span class="season">2026 WINTER ｜ 忘新年会・同窓会シーズン</span>
+    <h1><span class="thin">GARDEN TERRACE FUKUOKA</span>宴会・ご宴席</h1>
+    <p class="lead">10名様のアットホームな集いから、最大150名様の企業宴会まで。<br class="br-sp">季節の食材を映したお料理と、ゆとりある会場で、心に残るひとときを。</p>
+    <div class="acts">
+      <a class="tel" href="tel:0928810007"><span class="num">092-881-0007</span><small>受付 10:00 - 19:00 ／ 定休日 火曜・第1第3水曜</small></a>
+      <a class="cta" href="#form">Webでご予約・お見積り</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro pad-lg">
+  <div class="wrap split">
+    <div class="fig">
+      <img loading="lazy" decoding="async" src="_assets/img/hall-01.jpg" alt="ガーデンテラス福岡 宴会会場">
+      <span class="cap">最大150名様まで</span>
+    </div>
+    <div class="txt">
+      <div class="eyebrow"><span class="en">Occasions</span></div>
+      <h2 class="h2">あらゆるシーンに、<br>ふさわしいおもてなしを。</h2>
+      <p class="lead-txt">歓送迎会や忘新年会、同窓会、祝賀会、ご家族のお祝いごと、そして法事法要まで。ご宴席の趣旨にあわせて、お料理・装花・記念撮影など、さまざまなプランをご用意いたします。立食・着席のいずれにも対応し、少人数から大人数まで、ゆったりとお過ごしいただけます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 忘新年会プラン -->
+<section class="plans pad-lg" id="bounenkai">
+  <div class="wrap">
+    <div class="eyebrow"><span class="en">Year-End / New-Year Party</span></div>
+    <h2 class="h2">忘新年会プラン</h2>
+    <p class="lead-txt">会社の忘年会・新年会に。10名様のアットホームな集いから、最大150名様の企業宴会まで、あらゆるシーンに対応いたします。</p>
+    <div class="perk-band">
+      <div class="perk-badge">
+        <span class="pb-en">Special Benefits</span>
+        <span class="pb-ttl">お得な</span>
+        <span class="pb-big">4</span>
+        <span class="pb-ttl">大特典</span>
+        <span class="pb-under"></span>
+      </div>
+      <div class="perk-items">
+        <div class="pk"><span class="pk-no">BENEFIT 01</span><h4>送迎バス1台<span class="free">サービス</span></h4><p>30名様以上のご利用で1台。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 02</span><h4>カラオケ・プロジェクター<span class="free">無料</span></h4><p>使用料無料。余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 03</span><h4>幹事様1名様分<span class="free">無料</span></h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料に。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 04</span><h4>飲み放題<span class="free">グレードアップ</span></h4><p>お1人様＋500円で、日本酒・カクテル・コーヒーも飲み放題に。<span class="price">〈通常価格1,000円〉</span></p></div>
+      </div>
+    </div>
+    <h3 class="plans-sub">選べる、3つの宴会スタイル<small>いずれもフリードリンク2時間付き</small></h3>
+    <div class="plan-grid">
+
+      <div class="plan">
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/course-hero.jpg" alt="会席料理 コースプラン"></div>
+        <div class="body">
+          <div class="style">COURSE ／ 会席料理</div>
+          <h3>コースプラン</h3>
+          <p class="sub">大切な方々と、ゆったりと味わうスタイル。</p>
+          <div class="tiers">
+            <div class="t"><b>¥6,500</b><span>スタンダード</span></div>
+            <div class="t"><b>¥7,500</b><span>プレミアム</span></div>
+            <div class="t"><b>¥8,500</b><span>スペシャル</span></div>
+          </div>
+          <div class="taxnote">税・サービス料込／フリードリンク2時間付</div>
+          <div class="menu-h">¥6,500 冬の内容例</div>
+          <ul>
+            <li>冬野菜と彩り前菜の盛り合わせ</li>
+            <li>豆乳ときのこの温かい茶碗蒸し</li>
+            <li>旬の魚の冬のオーブン焼き カポナータ添え</li>
+            <li>冬のパンフレスコ 2種</li>
+            <li>牛タンの赤ワイン煮込み 冬野菜のマッシュポテト添え</li>
+            <li>冬のドルチェ盛り合わせ 3種</li>
+          </ul>
+          <div class="plan-tag">和食テイストのご用意もご相談ください</div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/party-01.jpg" alt="卓盛料理 パーティープラン"></div>
+        <div class="body">
+          <div class="style">PARTY ／ 卓盛料理</div>
+          <h3>パーティープラン</h3>
+          <p class="sub">テーブルごとに盛り付けたお料理を、皆さまで愉しむスタイル。</p>
+          <div class="tiers">
+            <div class="t"><b>¥6,000</b><span>スタンダード</span></div>
+            <div class="t"><b>¥7,000</b><span>プレミアム</span></div>
+            <div class="t"><b>¥8,000</b><span>スペシャル</span></div>
+          </div>
+          <div class="taxnote">税・サービス料込／フリードリンク2時間付</div>
+          <div class="menu-h">¥6,000 冬の内容例</div>
+          <ul>
+            <li>本日の冬のカルパッチョ</li>
+            <li>イタリアハム 3種盛り合わせ</li>
+            <li>パンフレスコ 2種</li>
+            <li>グリルチキンと冬野菜のシーザーサラダ</li>
+            <li>冬のフリットミスト 3種</li>
+            <li>本日の温かいパスタ</li>
+            <li>豚フィレ肉のサルティンボッカ 根菜とマッシュポテト添え</li>
+            <li>冬のドルチェ盛り合わせ</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/buffet-01.jpg" alt="ビュッフェ料理 ビュッフェプラン"></div>
+        <div class="body">
+          <div class="style">BUFFET ／ ビュッフェ料理</div>
+          <h3>ビュッフェプラン</h3>
+          <p class="sub">会場を自由に巡りながらお召し上がりいただく人気のスタイル。立食・着席いずれにも対応。</p>
+          <div class="tiers">
+            <div class="t"><b>¥6,000</b><span>スタンダード</span></div>
+            <div class="t"><b>¥7,000</b><span>プレミアム</span></div>
+            <div class="t"><b>¥8,000</b><span>スペシャル</span></div>
+          </div>
+          <div class="taxnote">税・サービス料込／フリードリンク2時間付</div>
+          <div class="menu-h">¥6,000 冬の内容例</div>
+          <ul>
+            <li>白身魚のカルパッチョ 柚子ヴィネグレットと冬の彩り</li>
+            <li>フリットミスト 4種</li>
+            <li>ローストポーク リンゴの冬のソース</li>
+            <li>イタリアハム 3種の冬の盛り合わせ</li>
+            <li>本日の温かいパスタ</li>
+            <li>自家製フォカッチャのパンフレスコ 2種</li>
+            <li>ビーフピラフ／豚ロースのパプリカバター焼き 冬野菜添え</li>
+            <li>冬のドルチェ盛り合わせ 3種</li>
+          </ul>
+          <div class="plan-tag">立食・着席いずれにも対応できます</div>
+        </div>
+      </div>
+
+    </div>
+    <p class="foot-note">
+      ※メニュー内容はその日の仕入れ状況により変更する場合がございます。※アレルギー等ございましたらご予約時にお申し付けください。※写真は一部イメージです。
+    </p>
+  </div>
+</section>
+
+<!-- 同窓会プラン -->
+<section class="plans pad-lg" id="dousoukai" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="eyebrow"><span class="en">Reunion / OB Party</span></div>
+    <h2 class="h2">同窓会プラン</h2>
+    <p class="lead-txt">10名様のアットホームな同窓会から、最大150名様の大規模OB会まで。懐かしい顔ぶれで囲む、ゆったりとしたお席をご用意いたします。</p>
+    <div class="perk-band">
+      <div class="perk-badge">
+        <span class="pb-en">Special Benefits</span>
+        <span class="pb-ttl">お得な</span>
+        <span class="pb-big">4</span>
+        <span class="pb-ttl">大特典</span>
+        <span class="pb-under"></span>
+      </div>
+      <div class="perk-items">
+        <div class="pk"><span class="pk-no">BENEFIT 01</span><h4>送迎バス1台<span class="free">サービス</span></h4><p>30名様以上のご利用で1台。〈通行料別途〉台数に限りがございますので、お早めのご予約がおすすめです。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 02</span><h4>カラオケ・プロジェクター<span class="free">無料</span></h4><p>使用料無料。余興やスライド上映など、会の演出にお役立ていただけます。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 03</span><h4>幹事様1名様分<span class="free">無料</span></h4><p>50名様以上のご利用で、幹事様お1人様分の料金を無料に。</p></div>
+        <div class="pk"><span class="pk-no">BENEFIT 04</span><h4>集合写真データ<span class="free">無料プレゼント</span></h4><p>皆さまでの集合写真を撮影し、データにして無料でプレゼント。※データでのお渡しとなります。</p></div>
+      </div>
+    </div>
+    <h3 class="plans-sub">選べる、3つの宴会スタイル<small>いずれもフリードリンク2時間付き</small></h3>
+    <div class="plan-grid">
+
+      <div class="plan">
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/course-hero.jpg" alt="会席料理 コースプラン"></div>
+        <div class="body">
+          <div class="style">COURSE ／ 会席料理</div>
+          <h3>コースプラン</h3>
+          <p class="sub">大切な方々と、ゆったりと味わうスタイル。</p>
+          <div class="tiers">
+            <div class="t"><b>¥6,500</b><span>スタンダード</span></div>
+            <div class="t"><b>¥7,500</b><span>プレミアム</span></div>
+            <div class="t"><b>¥8,500</b><span>スペシャル</span></div>
+          </div>
+          <div class="taxnote">税・サービス料込／フリードリンク2時間付</div>
+          <div class="menu-h">¥6,500 冬の内容例</div>
+          <ul>
+            <li>冬野菜と彩り前菜の盛り合わせ</li>
+            <li>豆乳ときのこの温かい茶碗蒸し</li>
+            <li>旬の魚の冬のオーブン焼き カポナータ添え</li>
+            <li>冬のパンフレスコ 2種</li>
+            <li>牛タンの赤ワイン煮込み 冬野菜のマッシュポテト添え</li>
+            <li>冬のドルチェ盛り合わせ 3種</li>
+          </ul>
+          <div class="plan-tag">和食テイストのご用意もご相談ください</div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/party-01.jpg" alt="卓盛料理 パーティープラン"></div>
+        <div class="body">
+          <div class="style">PARTY ／ 卓盛料理</div>
+          <h3>パーティープラン</h3>
+          <p class="sub">テーブルごとに盛り付けたお料理を、皆さまで愉しむスタイル。</p>
+          <div class="tiers">
+            <div class="t"><b>¥6,000</b><span>スタンダード</span></div>
+            <div class="t"><b>¥7,000</b><span>プレミアム</span></div>
+            <div class="t"><b>¥8,000</b><span>スペシャル</span></div>
+          </div>
+          <div class="taxnote">税・サービス料込／フリードリンク2時間付</div>
+          <div class="menu-h">¥6,000 冬の内容例</div>
+          <ul>
+            <li>本日の冬のカルパッチョ</li>
+            <li>イタリアハム 3種盛り合わせ</li>
+            <li>パンフレスコ 2種</li>
+            <li>グリルチキンと冬野菜のシーザーサラダ</li>
+            <li>冬のフリットミスト 3種</li>
+            <li>本日の温かいパスタ</li>
+            <li>豚フィレ肉のサルティンボッカ 根菜とマッシュポテト添え</li>
+            <li>冬のドルチェ盛り合わせ</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="ph"><img loading="lazy" decoding="async" src="_assets/img/buffet-01.jpg" alt="ビュッフェ料理 ビュッフェプラン"></div>
+        <div class="body">
+          <div class="style">BUFFET ／ ビュッフェ料理</div>
+          <h3>ビュッフェプラン</h3>
+          <p class="sub">会場を自由に巡りながらお召し上がりいただく人気のスタイル。立食・着席いずれにも対応。</p>
+          <div class="tiers">
+            <div class="t"><b>¥6,000</b><span>スタンダード</span></div>
+            <div class="t"><b>¥7,000</b><span>プレミアム</span></div>
+            <div class="t"><b>¥8,000</b><span>スペシャル</span></div>
+          </div>
+          <div class="taxnote">税・サービス料込／フリードリンク2時間付</div>
+          <div class="menu-h">¥6,000 冬の内容例</div>
+          <ul>
+            <li>白身魚のカルパッチョ 柚子ヴィネグレットと冬の彩り</li>
+            <li>フリットミスト 4種</li>
+            <li>ローストポーク リンゴの冬のソース</li>
+            <li>イタリアハム 3種の冬の盛り合わせ</li>
+            <li>本日の温かいパスタ</li>
+            <li>自家製フォカッチャのパンフレスコ 2種</li>
+            <li>ビーフピラフ／豚ロースのパプリカバター焼き 冬野菜添え</li>
+            <li>冬のドルチェ盛り合わせ 3種</li>
+          </ul>
+          <div class="plan-tag">立食・着席いずれにも対応できます</div>
+        </div>
+      </div>
+
+    </div>
+    <p class="foot-note">
+      ※メニュー内容はその日の仕入れ状況により変更する場合がございます。※アレルギー等ございましたらご予約時にお申し付けください。※写真は一部イメージです。
+    </p>
+  </div>
+</section>
+
+<!-- FREE DRINK -->
+<section class="drink pad">
+  <div class="wrap dwrap">
+    <div class="dfig"><img loading="lazy" decoding="async" src="_assets/img/freedrink.jpg" alt="フリードリンクでの乾杯"></div>
+    <div class="dcontent">
+      <div class="eyebrow"><span class="en">Free Drink</span></div>
+      <div class="drink-plans">
+        <span class="dp-lead">対象プラン</span>
+        <a class="dp" href="#bounenkai">忘新年会プラン</a>
+        <a class="dp" href="#dousoukai">同窓会プラン</a>
+      </div>
+      <h2 class="h2">フリードリンク 2時間付き</h2>
+      <p class="up">お1人様＋500円で、<b>日本酒・カクテル・コーヒー</b>も飲み放題にグレードアップいただけます。〈通常価格1,000円〉</p>
+      <div class="tags">
+        <span>瓶ビール</span><span>赤ワイン</span><span>白ワイン</span><span>焼酎（芋・米・麦）</span><span>カクテル</span><span>ウィスキー</span><span>ハイボール</span><span>梅酒</span><span>ノンアルコールビール</span><span>ウーロン茶</span><span>コーラ</span><span>オレンジジュース</span><span>アップルジュース</span><span>グレープフルーツジュース</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms pad-lg" id="rooms">
+  <div class="wrap">
+    <div class="eyebrow"><span class="en">Banquet Rooms</span></div>
+    <h2 class="h2">貸会場について</h2>
+    <p class="lead-txt">用途や人数にあわせて、大小7つの会場をご用意しています。立食・着席のいずれにも対応。<b>各会場をタップすると、面積・収容人数・使用料の詳細をご覧いただけます。</b></p>
+
+    <h3 class="rooms-sub">宴会向け（大・中会場）</h3>
+    <div class="room-grid">
+      <button class="room" type="button" data-room="north"><img loading="lazy" decoding="async" src="_assets/img/hall-02.jpg" alt="ノースガーデン"><div class="lab"><b>ノースガーデン</b><span>243㎡ ／ 宴会 最大150名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
+      <button class="room" type="button" data-room="south"><img loading="lazy" decoding="async" src="_assets/img/hall-03.jpg" alt="サウスガーデン"><div class="lab"><b>サウスガーデン</b><span>250㎡ ／ 宴会 最大100名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
+      <button class="room" type="button" data-room="thew"><img loading="lazy" decoding="async" src="_assets/img/hall-thew.jpg" alt="THE W"><div class="lab"><b>THE&nbsp;W</b><span>187㎡ ／ 宴会 最大60名様</span><em class="more">＋ 詳細・料金を見る</em></div></button>
+    </div>
+
+    <h3 class="rooms-sub">会議・少人数向け</h3>
+    <div class="room-mini-grid">
+      <button class="room-mini" type="button" data-room="wind"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="WIND"></span><span class="rm-body"><b>WIND</b><span class="a">21.39㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="leaf"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="LEAF"></span><span class="rm-body"><b>LEAF</b><span class="a">24.32㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="forest"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="FOREST"></span><span class="rm-body"><b>FOREST</b><span class="a">23.47㎡ ／ 着席 8名</span><em class="more">＋ 詳細</em></span></button>
+      <button class="room-mini" type="button" data-room="leaf_forest"><span class="rm-ph"><img loading="lazy" decoding="async" src="_assets/img/hall-small.jpg" alt="LEAF+FOREST"></span><span class="rm-body"><b>LEAF+FOREST</b><span class="a">47.79㎡ ／ 着席 16名</span><em class="more">＋ 詳細</em></span></button>
+    </div>
+
+    <div class="rooms-actions">
+      <button class="ghost-btn" type="button" data-open="options">お料理・お飲物・オプション料金を見る　＋</button>
+    </div>
+    <p class="rn">※料金はすべて税込。会場使用料にはサービス料10％・会場設営費・スクリーン使用料・お冷（お茶）を含みます。※会場準備から撤収までが会場利用時間です。※会議のみの時間貸しは最小3時間・追加は1時間単位。※宴会場のご利用は22:00までです。空き状況はお気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- HOUJI -->
+<section class="houji pad-lg" id="houji">
+  <div class="wrap split">
+    <div class="fig">
+      <img loading="lazy" decoding="async" src="_assets/img/houji-course.jpg" alt="法事法要 会席料理">
+    </div>
+    <div class="txt">
+      <div class="eyebrow"><span class="en">Memorial Service</span></div>
+      <h2 class="h2">法事法要プラン</h2>
+      <p class="lead-txt">ご家族やご親族が集い、故人を偲ぶ大切な時間。ホテルならではの落ち着いた空間と、季節の食材を丁寧に仕上げたお料理で、皆さまの心に残る法要のお席をお手伝いいたします。会場は THE W（最大60名様）・小ホールをご用意しています。</p>
+      <div class="courses">
+        <div class="row"><img loading="lazy" decoding="async" class="hthumb" src="_assets/img/houji-11000.jpg" alt="特別会席の会席料理"><div class="rname"><b>特別会席</b><span class="rd">最上級のおもてなしに</span></div><span class="p">¥11,000<small>〜（税込）</small></span></div>
+        <div class="row"><img loading="lazy" decoding="async" class="hthumb" src="_assets/img/houji-8800.jpg" alt="上会席の会席料理"><div class="rname"><b>上会席</b><span class="rd">季節の食材をより豊かに</span></div><span class="p">¥8,800<small>〜（税込）</small></span></div>
+        <div class="row"><img loading="lazy" decoding="async" class="hthumb" src="_assets/img/houji-6600.jpg" alt="会席の会席料理"><div class="rname"><b>会席</b><span class="rd">真心を込めた基本の会席</span></div><span class="p">¥6,600<small>〜（税込）</small></span></div>
+      </div>
+      <div class="drinkline-row">
+        <img loading="lazy" decoding="async" src="_assets/img/freedrink.jpg" alt="フリードリンク">
+        <p class="drinkline">フリードリンク <b>¥2,750</b>（税込）でご用意できます。</p>
+      </div>
+      <div class="houji-drinks">
+        <span>ビール</span><span>ノンアルコール</span><span>焼酎（芋・麦・米）</span><span>ウイスキー</span><span>ハイボール</span><span>梅酒</span><span>赤・白ワイン</span><span>カクテル3種</span><span>烏龍茶</span><span>オレンジ</span><span>アップル</span><span>グレープフルーツ</span><span>コーラ</span>
+      </div>
+      <p class="rn">●15名様から承っております。●旬の食材を使用しておりますので、一部内容が変わる場合がございます。●サービス料10%を別途いただきます。●別途会場費が発生いたします。●ご利用のお時間は2時間とさせていただきます。●10日前までにお申込みください。●アレルギー等、お体に合わない食材がございましたらお申し付けください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASIONS -->
+<section class="occ pad-lg" id="occasions">
+  <div class="wrap">
+    <div class="eyebrow"><span class="en">Various Banquets</span></div>
+    <h2 class="h2">各種ご宴会</h2>
+    <p class="lead-txt">歓送迎会・同窓会・忘新年会をはじめ、ご宴席の趣旨にあわせたプランをご用意いたします。</p>
+    <div class="occ-grid">
+      <div class="occ-item">
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/scene-party.jpg" alt="季節ご宴会"></div>
+        <div class="tx"><div class="en">Banquet</div><h3>季節ご宴会</h3>
+          <div class="tags"><span>歓送迎会［3〜5月］</span><span>暑気払い［6〜8月］</span><span>忘新年会［12〜2月］</span></div></div>
+      </div>
+      <div class="occ-item">
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/scene-business.jpg" alt="パーティー"></div>
+        <div class="tx"><div class="en">Party</div><h3>パーティー</h3>
+          <div class="tags"><span>謝恩会［2〜3月］</span><span>同窓会・OB会［通年］</span><span>ご祝宴［通年］</span></div></div>
+      </div>
+      <div class="occ-item">
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/celebration.jpg" alt="家族のお祝いごと"></div>
+        <div class="tx"><div class="en">Celebration</div><h3>家族のお祝いごと</h3>
+          <div class="tags"><span>ご結納・お顔合わせ</span><span>長寿祝（還暦・古希 等）</span><span>お誕生日・初節句</span></div></div>
+      </div>
+      <div class="occ-item">
+        <div class="im"><img loading="lazy" decoding="async" src="_assets/img/ceremony.jpg" alt="ご法宴・お別れの会"></div>
+        <div class="tx"><div class="en">Ceremony</div><h3>ご法宴・お別れの会</h3>
+          <div class="tags"><span>ご法宴［通年］</span><span>お別れの会［通年］</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section class="biz pad-lg">
+  <div class="bg"><img loading="lazy" decoding="async" src="_assets/img/hall-meeting.jpg" alt="展示会・研修・会議"></div>
+  <div class="wrap inner">
+    <div class="eyebrow"><span class="en">Exhibition &amp; Meeting</span></div>
+    <h2 class="h2">展示会・研修・会議</h2>
+    <p class="lead-txt" style="color:#d8cfc0">1日単位での貸切で、各種展示会スペースとしてもご利用いただけます。シアターなど各種設備も整い、ビジネスミーティングや研修会場としても最適です。</p>
+    <div class="cols">
+      <div class="col"><h3>展示会・発表会・招待会</h3><p>大中小の宴会場で、さまざまなビジネスイベントに対応。宝石・着物・毛皮・書道・電化製品・絵画などの展示会にご利用いただけます。</p></div>
+      <div class="col"><h3>研修・会議</h3><p>スクリーンを使った会議から各種研修会まで、大中小の会場をご用意。ビジネスからプライベートまで、各種セミナー等にぜひご利用ください。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="formsec pad-lg" id="form">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow"><span class="en">Reservation &amp; Inquiry</span></div>
+      <h2 class="h2">ご予約・お見積りのご相談</h2>
+      <p class="lead-txt">ご希望の日程・人数・スタイルをお知らせください。担当者より、空き状況とお見積りをご案内いたします。仮予約としても承ります。</p>
+    </div>
+    <div class="formcard">
+      <div class="telrow">
+        <div class="lb">お急ぎの方・ご相談はお電話でも承ります</div>
+        <a href="tel:0928810007">092-881-0007</a>
+        <div class="hours" style="font-size:12px;color:#8c8272;margin-top:6px">受付 10:00 - 19:00 ／ 定休日 毎週火曜・第1第3水曜</div>
+      </div>
+
+      <form id="enkaiForm" novalidate>
+        <div class="err-msg" id="errMsg"></div>
+
+        <div class="field">
+          <label>ご利用目的<span class="req">必須</span></label>
+          <div class="choices" id="purpose">
+            <label class="choice"><input type="radio" name="purpose" value="忘新年会"><span>忘新年会</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="同窓会・OB会"><span>同窓会・OB会</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="歓送迎会"><span>歓送迎会</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="祝賀会・パーティー"><span>祝賀会・パーティー</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="家族のお祝い"><span>家族のお祝い</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="法事法要"><span>法事法要</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="展示会・研修・会議"><span>展示会・研修・会議</span></label>
+            <label class="choice"><input type="radio" name="purpose" value="その他"><span>その他</span></label>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="name">お名前<span class="req">必須</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="例）福岡 太郎">
+          </div>
+          <div class="field">
+            <label for="kana">フリガナ<span class="opt">任意</span></label>
+            <input type="text" id="kana" name="kana" placeholder="例）フクオカ タロウ">
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="tel">お電話番号<span class="req">必須</span></label>
+            <input type="tel" id="tel" name="tel" inputmode="numeric" autocomplete="tel" placeholder="例）090-1234-5678">
+          </div>
+          <div class="field">
+            <label for="email">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="例）taro@example.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="zip">郵便番号<span class="opt">任意</span></label>
+          <div class="zip-wrap">
+            <input type="text" id="zip" name="zip" inputmode="numeric" maxlength="8" placeholder="例）8190001">
+            <button type="button" id="zipBtn">住所を自動入力</button>
+          </div>
+          <input type="text" id="addr" name="addr" placeholder="都道府県・市区町村（自動入力）" style="margin-top:10px">
+          <p class="hint">団体・企業名や会社住所がある場合はご記入ください（任意）。</p>
+        </div>
+
+        <div class="row3">
+          <div class="field">
+            <label for="date">ご希望日<span class="opt">任意</span></label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="field">
+            <label for="time">ご希望時間帯<span class="opt">任意</span></label>
+            <input type="text" id="time" name="time" placeholder="例）18:30〜">
+          </div>
+          <div class="field">
+            <label for="pax">ご予定人数<span class="req">必須</span></label>
+            <input type="number" id="pax" name="pax" inputmode="numeric" min="1" max="300" placeholder="例）40">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>ご希望スタイル<span class="opt">任意</span></label>
+          <div class="choices" id="style">
+            <label class="choice"><input type="radio" name="style" value="コース（会席）"><span>コース（会席）</span></label>
+            <label class="choice"><input type="radio" name="style" value="パーティー（卓盛）"><span>パーティー（卓盛）</span></label>
+            <label class="choice"><input type="radio" name="style" value="ビュッフェ"><span>ビュッフェ</span></label>
+            <label class="choice"><input type="radio" name="style" value="相談したい"><span>相談したい</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="budget">ご予算（お一人様）<span class="opt">任意</span></label>
+          <input type="text" id="budget" name="budget" placeholder="例）6,000円〜7,000円">
+        </div>
+
+        <div class="field">
+          <label for="message">ご要望・ご質問<span class="opt">任意</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="送迎バスのご希望、アレルギー、記念撮影、装花のご相談など、ご自由にご記入ください。"></textarea>
+        </div>
+
+        <button type="submit" class="submit" id="submitBtn">この内容で送信する</button>
+        <p class="privacy">ご入力いただいた個人情報は、お問い合わせへのご対応の目的にのみ利用いたします。<br class="br-sp">送信後、確認メールを自動でお送りします。</p>
+      </form>
+
+      <div class="done" id="doneBox">
+        <div class="mk">お問い合わせを承りました</div>
+        <p>この度はお問い合わせいただき、誠にありがとうございます。<br>担当者より、空き状況とお見積りをあらためてご案内いたします。<br>確認メールを自動送信しておりますので、あわせてご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access pad-lg">
+  <div class="wrap awrap">
+    <div class="txt">
+      <div class="eyebrow"><span class="en">Access</span></div>
+      <h2 class="h2">ガーデンテラス福岡</h2>
+      <div class="info">
+        <dl>
+          <dt>所在地</dt><dd>〒819-0001<br>福岡県福岡市西区小戸2-3-55</dd>
+          <dt>お電話</dt><dd><a href="tel:0928810007">092-881-0007</a></dd>
+          <dt>受付時間</dt><dd>10:00 - 19:00</dd>
+          <dt>定休日</dt><dd>毎週火曜日、第1・第3水曜日</dd>
+        </dl>
+      </div>
+      <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E7%A6%8F%E5%B2%A1%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E8%A5%BF%E5%8C%BA%E5%B0%8F%E6%88%B82-3-55" target="_blank" rel="noopener">Googleマップで見る ▸</a>
+    </div>
+    <div class="mapfig">
+      <img loading="lazy" decoding="async" src="_assets/img/exterior.jpg" alt="ガーデンテラス福岡 外観">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand-foot"><img loading="lazy" decoding="async" src="_assets/img/GTF-light.svg" alt="ガーデンテラス福岡"></div>
+  <div class="cp">〒819-0001 福岡県福岡市西区小戸2-3-55 ／ TEL 092-881-0007<br>© GARDEN TERRACE FUKUOKA. All Rights Reserved.</div>
+</footer>
+
+<div class="spbar">
+  <a class="tel" href="tel:0928810007">電話で相談</a>
+  <a class="cta" href="#form">Web申込・見積</a>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"EventVenue",
+  "name":"ガーデンテラス福岡",
+  "description":"忘新年会・同窓会・歓送迎会・法事法要・各種宴会・展示会・研修会議に対応する宴会会場。会席コース／パーティー／ビュッフェの3スタイル、フリードリンク付き。最大150名様まで対応。",
+  "telephone":"+81-92-881-0007",
+  "url":"https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/gtf/",
+  "image":"https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/gtf/_assets/img/exterior.jpg",
+  "address":{"@type":"PostalAddress","postalCode":"819-0001","addressRegion":"福岡県","addressLocality":"福岡市西区","streetAddress":"小戸2-3-55","addressCountry":"JP"},
+  "maximumAttendeeCapacity":150,
+  "openingHoursSpecification":{"@type":"OpeningHoursSpecification","opens":"10:00","closes":"19:00"}
+}
+</script>
+
+<script>
+(function(){
+  // header scroll state
+  var hd=document.getElementById('hd');
+  function onScroll(){ if(window.scrollY>60) hd.classList.add('scrolled'); else hd.classList.remove('scrolled'); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // ===== ヒーロー スライドショー =====
+  (function(){
+    var slides=[].slice.call(document.querySelectorAll('.hero .bg .slide'));
+    if(slides.length<2) return;
+    var i=0;
+    setInterval(function(){
+      slides[i].classList.remove('is-active');
+      i=(i+1)%slides.length;
+      slides[i].classList.add('is-active');
+    },5500);
+  })();
+
+  // ===== 郵便番号 → 住所（zipcloud JSONP）=====
+  window.__zipcb=function(res){
+    var addr=document.getElementById('addr');
+    if(res && res.results && res.results[0]){
+      var r=res.results[0];
+      addr.value=r.address1+r.address2+r.address3;
+    } else { addr.placeholder='住所が見つかりませんでした。番地からご記入ください。'; }
+  };
+  function lookupZip(){
+    var z=(document.getElementById('zip').value||'').replace(/[^0-9]/g,'');
+    if(z.length!==7) return;
+    var s=document.createElement('script');
+    s.src='https://zipcloud.ibsnet.co.jp/api/search?zipcode='+z+'&callback=__zipcb';
+    document.body.appendChild(s); setTimeout(function(){s.remove();},8000);
+  }
+  document.getElementById('zipBtn').addEventListener('click',lookupZip);
+  document.getElementById('zip').addEventListener('input',function(){
+    if(this.value.replace(/[^0-9]/g,'').length===7) lookupZip();
+  });
+
+  // ===== validation + submit =====
+  var CONFIG={
+    ENDPOINT:'https://memolead-enkai.mk-cbe.workers.dev',
+    VENUE:'GTF ガーデンテラス福岡',
+    FORM_NAME:'GTF宴会 ご予約・お見積りフォーム',
+    FORM_URL:'https://memolead-lp-665477084949.asia-northeast1.run.app/public/enkai/gtf/'
+  };
+  var form=document.getElementById('enkaiForm');
+  var errBox=document.getElementById('errMsg');
+  var doneBox=document.getElementById('doneBox');
+  var btn=document.getElementById('submitBtn');
+
+  function isMail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function clearInvalid(){ Array.prototype.forEach.call(document.querySelectorAll('.field.invalid'),function(f){f.classList.remove('invalid');}); }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    clearInvalid(); errBox.style.display='none';
+    var errs=[];
+    var purpose=(form.querySelector('input[name="purpose"]:checked')||{}).value||'';
+    var name=document.getElementById('name'); var tel=document.getElementById('tel');
+    var email=document.getElementById('email'); var pax=document.getElementById('pax');
+
+    if(!purpose){ errs.push('ご利用目的をお選びください'); document.getElementById('purpose').closest('.field').classList.add('invalid'); }
+    if(!name.value.trim()){ errs.push('お名前をご記入ください'); name.closest('.field').classList.add('invalid'); }
+    if(!tel.value.replace(/[^0-9]/g,'')){ errs.push('お電話番号をご記入ください'); tel.closest('.field').classList.add('invalid'); }
+    if(!isMail(email.value.trim())){ errs.push('メールアドレスを正しくご記入ください'); email.closest('.field').classList.add('invalid'); }
+    if(!pax.value || +pax.value<1){ errs.push('ご予定人数をご記入ください'); pax.closest('.field').classList.add('invalid'); }
+
+    if(errs.length){
+      errBox.textContent=errs.join('　／　'); errBox.style.display='block';
+      errBox.classList.remove('shake'); void errBox.offsetWidth; errBox.classList.add('shake');
+      var first=document.querySelector('.field.invalid'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+
+    var d={
+      venue:CONFIG.VENUE, formName:CONFIG.FORM_NAME, source:CONFIG.FORM_URL,
+      purpose:purpose,
+      name:name.value.trim(), kana:document.getElementById('kana').value.trim(),
+      tel:tel.value.trim(), email:email.value.trim(),
+      zip:document.getElementById('zip').value.trim(), addr:document.getElementById('addr').value.trim(),
+      date:document.getElementById('date').value, time:document.getElementById('time').value.trim(),
+      pax:pax.value, style:(form.querySelector('input[name="style"]:checked')||{}).value||'',
+      budget:document.getElementById('budget').value.trim(),
+      message:document.getElementById('message').value.trim()
+    };
+
+    btn.disabled=true; btn.textContent='送信しています…';
+    fetch(CONFIG.ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){ return r.ok ? r.text() : Promise.reject(r.status); })
+      .then(function(){ form.style.display='none'; doneBox.style.display='block'; doneBox.scrollIntoView({behavior:'smooth',block:'center'}); })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='この内容で送信する';
+        errBox.textContent='送信に失敗しました。お手数ですが、時間をおいて再度お試しいただくか、お電話（092-881-0007）でご連絡ください。';
+        errBox.style.display='block';
+      });
+  });
+})();
+</script>
+<!-- ROOM / OPTIONS MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="ov" data-close></div>
+  <div class="modal-panel">
+    <button class="mclose" type="button" data-close aria-label="閉じる">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var IMG='_assets/img/';
+  var ROOMS={
+    north:{en:'North Garden',name:'ノースガーデン',img:'hall-02.jpg',desc:'常設ステージを備えた、最も広いお部屋。大人数の企業宴会や祝賀会に。',area:'243㎡',stage:'3.6m×2.4m（常設ステージ）',tables:'最大22卓',banquet:'最大150名様',school:'60名',theater:'150名',round:'150名',fee1:'¥50,000',fee3:'¥140,000',feeAdd:'¥45,000'},
+    south:{en:'South Garden',name:'サウスガーデン',img:'hall-03.jpg',desc:'ピアノもご用意できる上質な中〜大会場。',area:'207㎡＋43㎡',stage:'3.6m×2.4m（常設ステージ）',tables:'最大15卓',banquet:'最大100名様',school:'45名',theater:'100名',round:'100名',fee1:'¥45,000',fee3:'¥125,000',feeAdd:'¥40,000'},
+    thew:{en:'The W',name:'THE W',img:'hall-thew.jpg',desc:'落ち着いた雰囲気の中会場。法要のお席にもおすすめです。',area:'187㎡',stage:'3.6m×2.4m（常設ステージ）',tables:'最大9卓',banquet:'最大60名様',school:'30名',theater:'60名',round:'60名',fee1:'¥35,000',fee3:'¥100,000',feeAdd:'¥30,000'},
+    wind:{en:'Wind',name:'WIND',img:'hall-small.jpg',desc:'会議や少人数のご会食に。',area:'21.39㎡',square:'8名',fee1:'¥25,000',fee3:'¥60,000',feeAdd:'¥20,000'},
+    leaf:{en:'Leaf',name:'LEAF',img:'hall-small.jpg',desc:'会議や少人数のご会食に。',area:'24.32㎡',square:'8名',fee1:'¥22,000',fee3:'¥50,000',feeAdd:'¥20,000'},
+    forest:{en:'Forest',name:'FOREST',img:'hall-small.jpg',desc:'会議や少人数のご会食に。',area:'23.47㎡',square:'8名',fee1:'¥22,000',fee3:'¥50,000',feeAdd:'¥20,000'},
+    leaf_forest:{en:'Leaf + Forest',name:'LEAF+FOREST',img:'hall-small.jpg',desc:'LEAFとFORESTを繋げた、広めのお部屋。',area:'47.79㎡',square:'16名',fee1:'¥33,000',fee3:'¥77,000',feeAdd:'¥30,000'}
+  };
+  function row(label,val,bold){ return val?('<tr><th>'+label+'</th><td>'+(bold?'<b>'+val+'</b>':val)+'</td></tr>'):''; }
+  function grp(label){ return '<tr class="grp"><th colspan="2">'+label+'</th></tr>'; }
+  function roomHtml(r){
+    var meeting = (r.school||r.theater||r.round||r.square);
+    var photo = r.img?('<div class="mphoto"><img src="'+IMG+r.img+'" alt="'+r.name+'"></div>'):'';
+    var t='<table class="spec">';
+    t+=row('面積',r.area);
+    t+=row('ステージ',r.stage);
+    if(r.tables||r.banquet){ t+=grp('宴会収容人数'); t+=row('最大卓数',r.tables); t+=row('宴会 最大人数',r.banquet,true); }
+    if(meeting){ t+=grp('会議収容人数'); t+=row('スクール（1卓3名）',r.school); t+=row('シアター',r.theater); t+=row('円卓（1卓7名）',r.round); t+=row('スクエア（着席）',r.square); }
+    t+=grp('会場使用料（税込）'); t+=row('基本使用料（室料）',r.fee1); t+=row('基本3時間（2時間以上の会場利用）',r.fee3,true); t+=row('1時間追加',r.feeAdd);
+    t+='</table>';
+    return photo+'<div class="mbody"><div class="m-en">'+r.en+'</div><div class="m-name">'+r.name+'</div>'+
+      '<p class="m-desc">'+(r.desc||'')+'</p>'+t+
+      '<p class="m-note">※料金はすべて税込です。会場使用料にはサービス料10％・会場設営費・スクリーン使用料・お冷（お茶）を含みます。※プロジェクターは会場費に含まれています。※宴会場のご利用は22:00までです。</p>'+
+      '<div class="m-cta"><a class="tel" href="tel:0928810007">092-881-0007</a><a class="form" href="#form" data-close>この会場で相談する</a></div></div>';
+  }
+  function optRow(label,price){ return '<div class="r"><span>'+label+'</span><b>'+price+'</b></div>'; }
+  function optionsHtml(){
+    return '<div class="mbody"><div class="m-en">Price &amp; Options</div><div class="m-name">お料理・お飲物・オプション料金</div>'+
+      '<p class="m-desc">すべて税込価格です。お料理は1名様あたり、会場使用料は別途申し受けます。</p>'+
+      '<div class="optcols">'+
+      '<div class="optblock"><h4>お料理（お一人様）</h4>'+optRow('コース料理','4,400円〜')+optRow('卓盛料理','3,850円〜')+optRow('ビュッフェ料理','4,000円〜')+optRow('お子様ランチ','3,300円〜')+optRow('お弁当','3,300円〜')+'</div>'+
+      '<div class="optblock"><h4>お飲物</h4>'+optRow('ソフトドリンク飲み放題','1,100円')+optRow('アルコール飲み放題','2,200円')+optRow('単品（1杯）','500円')+'<p class="opt-note">アルコール飲み放題：ビール／芋・麦・米焼酎／梅酒／赤・白ワイン／ウイスキー／ハイボール／カシスオレンジ／チャイナブルー／パッソアグレープフルーツ。ソフトドリンク：ウーロン茶／ノンアルコールビール／オレンジ／グレープフルーツ／アップル／コーラ。※お冷（お茶）は会場費に含みます。※コーヒー飲み放題はお一人様500円。※ビールは1瓶500円、ワインボトルは1本3,300円。</p></div>'+
+      '<div class="optblock"><h4>印刷物</h4>'+optRow('式次第','22,000円〜')+optRow('案内状','550円〜')+optRow('席順表','550円〜')+optRow('席札','220円〜')+optRow('メニューカード','330円〜')+optRow('外案内看板','1,100円〜')+optRow('会場前案内看板','1,100円〜')+optRow('会場内横断幕','55,000円〜')+'</div>'+
+      '<div class="optblock"><h4>音響</h4>'+optRow('プロジェクター','会場費に含む')+optRow('カラオケ機','11,000円〜')+optRow('司会料金（2時間）','77,000円〜')+optRow('ミキサー料（2時間）','33,000円〜')+'</div>'+
+      '<div class="optblock"><h4>装花</h4>'+optRow('テーブル装花（1卓）','5,500円〜')+optRow('花束（小）','5,500円〜')+optRow('花束（大）','8,800円〜')+'</div>'+
+      '<div class="optblock"><h4>備品・引出物</h4>'+optRow('ピアノ（サウスガーデン）','27,500円〜')+optRow('ピアノ（ノースガーデン）','33,000円〜')+optRow('記念品','3,300円〜')+optRow('引菓子','1,100円〜')+optRow('ペーパーバック','440円〜')+'</div>'+
+      '<div class="optblock optfull"><h4>キャンセル料（ご利用日から起算）</h4>'+optRow('ご宴会：7日前〜3日前','お料理代金の全額')+optRow('ご宴会：2日前〜当日','お料理・お飲物・会場費の全額')+optRow('会場のみ：7日前〜3日前','会場利用料の50％（延長料金含む）')+optRow('会場のみ：2日前〜当日','会場利用料の100％（延長料金含む）')+'</div>'+
+      '</div>'+
+      '<div class="m-cta"><a class="tel" href="tel:0928810007">092-881-0007</a><a class="form" href="#form" data-close>お見積りを依頼する</a></div></div>';
+  }
+
+  var modal=document.getElementById('modal');
+  var content=document.getElementById('modalContent');
+  var panel=modal.querySelector('.modal-panel');
+  function open(html){ content.innerHTML=html; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; panel.scrollTop=0; }
+  function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+
+  document.querySelectorAll('[data-room]').forEach(function(el){
+    el.addEventListener('click',function(){ var r=ROOMS[el.getAttribute('data-room')]; if(r) open(roomHtml(r)); });
+  });
+  document.querySelectorAll('[data-open="options"]').forEach(function(el){
+    el.addEventListener('click',function(){ open(optionsHtml()); });
+  });
+  modal.addEventListener('click',function(e){ if(e.target.closest('[data-close]')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+})();
+</script>
+</body>
+</html>
