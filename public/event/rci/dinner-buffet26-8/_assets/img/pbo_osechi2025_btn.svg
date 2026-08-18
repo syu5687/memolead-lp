@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="330" height="48" viewBox="0 0 330 48">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc3c3"/>
+      <stop offset="0.118" stop-color="#c26060"/>
+      <stop offset="0.187" stop-color="#9e2627"/>
+      <stop offset="1" stop-color="#9e2627"/>
+    </linearGradient>
+    <filter id="長方形_12189" x="0" y="0" width="330" height="48" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="pbo_osechi2025_btn" transform="translate(-25 -585)">
+    <g transform="matrix(1, 0, 0, 1, 25, 585)" filter="url(#長方形_12189)">
+      <rect id="長方形_12189-2" data-name="長方形 12189" width="324" height="42" rx="21" transform="translate(1)" fill="url(#linear-gradient)"/>
+    </g>
+    <text id="お申し込みはこちらから" transform="translate(88 614)" fill="#fff" font-size="19" font-family="TsukuMinPr6N-L, FOT-TsukuMin Pr6N" letter-spacing="-0.05em"><tspan x="0" y="0">お申し込みはこちらから</tspan></text>
+    <path id="多角形_13" data-name="多角形 13" d="M3.5,0,7,6H0Z" transform="translate(336 603) rotate(90)" fill="#fff"/>
+  </g>
+</svg>
