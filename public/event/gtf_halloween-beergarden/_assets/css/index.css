@@ -1,0 +1,216 @@
+/* =========================================================
+   ガーデンテラス福岡 秋ビアフェス LP
+   元デザイン（白ヘッダー / 赤帯 / メインビジュアル / クリーム色
+   予約ボタン / ダークブラウンフッター）を再現した自作CSS。
+   WordPress非依存・GitHub等の静的ホスティングでそのまま動作します。
+   ========================================================= */
+
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	color: #333;
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+a {
+	color: inherit;
+}
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* ---------- header ---------- */
+#header {
+	background: #fff;
+	height: 100px;
+	display: flex;
+	align-items: center;
+}
+#header .inner {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 30px;
+	display: flex;
+	align-items: center;
+}
+#header .logo img {
+	width: 150px;
+}
+
+/* ---------- main visual / content ----------
+   画像1枚（ポスター）を中央寄せで表示するシンプル構成。
+   スクリーンショットに合わせ、コンテンツ幅は最大1550pxで中央配置。
+---------------------------------------------- */
+#content {
+	max-width: 1550px;
+	margin: 0 auto;
+}
+.area_zero .inner {
+	width: 100%;
+}
+
+/* 赤帯バナー（ポスター画像の直上、コンテンツ幅いっぱい） */
+.notice-banner {
+	background: #B9382F;
+	color: #fff;
+	padding: 14px 10px;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+}
+
+/* メインビジュアル（ポスター画像） */
+.main-ttl {
+	margin: 0;
+	line-height: 0; /* 画像直下の余白防止 */
+}
+
+/* ---------- fm reserve area (formmailer) ---------- */
+#fm-reserve-area {
+	background: #f2ede4;
+	padding: 48px 20px;
+	text-align: center;
+	margin-top: 8px;
+}
+#fm-reserve-area .fm-inner {
+	max-width: 700px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 4px;
+	padding: 32px 24px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+#fm-reserve-area .fm-ttl {
+	font-size: 1.3rem;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	margin: 0 0 24px;
+	color: #333;
+}
+#fm-reserve-area iframe {
+	width: 100%;
+	min-height: 900px;
+	border: none;
+}
+#fm-reserve-area form {
+	text-align: left;
+	max-width: 480px;
+	margin: 0 auto;
+}
+#fm-reserve-area form p {
+	margin-bottom: 16px;
+}
+#fm-reserve-area form label {
+	display: block;
+	font-size: 0.9rem;
+	color: #333;
+	margin-bottom: 4px;
+}
+#fm-reserve-area form input,
+#fm-reserve-area form select,
+#fm-reserve-area form textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	font-size: 1rem;
+	font-family: inherit;
+}
+#fm-reserve-area form button[type="submit"] {
+	display: block;
+	width: 100%;
+	background: #B9382F;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	padding: 14px;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	font-size: 1rem;
+}
+#fm-reserve-area form button[type="submit"]:hover {
+	opacity: 0.85;
+}
+
+/* ---------- footer ----------
+   濃茶色の帯フッター。中にクリーム色の予約ボタン（横長・下線付き）を配置。
+------------------------------- */
+#footer {
+	background: #2e2a26;
+	padding: 32px 20px 20px;
+	text-align: center;
+}
+#footer .footer-btn {
+	list-style: none;
+	max-width: 1550px;
+	margin: 0 auto 24px;
+	padding: 0;
+}
+#footer .footer-btn li a {
+	display: block;
+	background: #f2ede4;
+	color: #2e2a26;
+	padding: 22px 0;
+	font-weight: bold;
+	letter-spacing: 0.15em;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	font-size: 1rem;
+}
+#footer .footer-btn li a:hover {
+	opacity: 0.85;
+}
+#footer p {
+	color: #fff;
+	font-size: 0.75rem;
+	letter-spacing: 0.05em;
+	margin: 0;
+	opacity: 0.85;
+}
+
+/* ---------- simple fade-in (wow.js の代替。JS不要) ---------- */
+.wow-fade {
+	animation: fadeInUp 0.8s ease both;
+}
+@keyframes fadeInUp {
+	from { opacity: 0; transform: translateY(16px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- purun (元のバウンドアニメーション。使う場合は該当要素に class="purun" を付与) ---------- */
+.purun {
+	-webkit-animation: purun 2.8s linear 0s infinite;
+	animation: purun 2.8s linear 0s infinite;
+}
+@keyframes purun {
+	0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	70%  { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	76%  { transform: scale(0.9, 0.9) translate(0%, 5%); }
+	84%  { transform: scale(1.3, 0.8) translate(0%, 10%); }
+	90%  { transform: scale(0.8, 1.3) translate(0%, -10%); }
+	96%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+	100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 600px) {
+	#header .mainMenu .menu {
+		gap: 12px;
+	}
+	.event-info .event-name {
+		font-size: 1.4rem;
+	}
+	.info-table dl {
+		flex-direction: column;
+	}
+	.info-table dt {
+		width: 100%;
+	}
+}
