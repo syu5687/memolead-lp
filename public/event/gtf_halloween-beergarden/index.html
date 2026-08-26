@@ -4,11 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ガーデンテラス福岡｜秋ビアフェス</title>
-
 <!-- このページ専用CSS（同フォルダ内。WordPress非依存） -->
 <link rel="stylesheet" type="text/css" href="./_assets/css/index.css">
-
-
 <!-- Facebook Pixel Code -->
 <script>
   !function(f,b,e,v,n,t,s)
@@ -26,12 +23,8 @@
   src="https://www.facebook.com/tr?id=651353565556346&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
-
 </head>
-
-
 <body>
-
 	<!-- ========== header ========== -->
 	<div id="header">
 		<div class="inner">
@@ -51,25 +44,119 @@
 	<div id="content">
 		<div class="area_zero">
 			<div class="inner">
-
 				<!-- メインビジュアル：デザイン済みのポスター画像（1枚）をここに配置してください -->
 				<p class="main-ttl">
 					<img src="./_assets/img/autumn-beer.jpg" alt="ガーデンテラス福岡 秋ビアフェス" width="100%">
 				</p>
-
 			</div>
+		</div>
+	</div>
+
+	<!-- ========== 予約フォーム（ボタンを押すまで非表示） ========== -->
+	<div id="fm-reserve-area" class="is-hidden">
+		<div class="fm-inner">
+			<p class="fm-ttl">ガーデンテラス福岡 秋のビアガーデン</p>
+
+			<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
+				<input type="hidden" name="key" value="1252e567365063">
+
+				<p>日程 <span class="req-badge">必須</span></p>
+				<p>
+					<select name="field_6298575">
+						<option value="">-以下から選択してください-</option>
+						<option value="0">10月2日(金)</option>
+						<option value="1">10月4日(日)</option>
+						<option value="2">10月18日(日)</option>
+						<option value="3">10月19日(月)</option>
+					</select>
+					<span class="noteRed">※日程で満席が出た場合お受けできない可能性があります。</span>
+				</p>
+
+				<p>開催時間 <span class="req-badge">必須</span></p>
+				<p>
+					<select name="field_6298613">
+						<option value="">-以下から選択してください-</option>
+						<option value="0">18:00</option>
+						<option value="1">18:15</option>
+						<option value="2">18:30</option>
+						<option value="3">18:45</option>
+						<option value="4">19:00</option>
+					</select>
+				</p>
+
+				<p>大人 <span class="req-badge">必須</span></p>
+				<p><input name="field_6298615" type="number" min="0" value="" id="fm-adult">名様</p>
+				
+				<p>中高生 <span class="req-badge">必須</span></p>
+				<p><input name="field_6298621" type="number" min="0" value="" id="fm-teen" placeholder="参加なしの場合0とご入力">名様</p>
+				
+				<p>小学生 <span class="req-badge">必須</span></p>
+				<p><input name="field_6298622" type="number" min="0" value="" id="fm-kid" placeholder="参加なしの場合0とご入力">名様</p>
+				
+				<p>幼児 <span class="req-badge">必須</span></p>
+				<p><input name="field_6298625" type="number" min="0" value="" id="fm-infant" placeholder="参加なしの場合0とご入力">名様</p>
+
+				<p>ご予約人数合計</p>
+				<p><input name="field_6298626" type="text" value="" size="5" id="fm-total" readonly><span class="bold-unit">名様</span></p>
+				
+				<p id="fm-price-mode" class="price-mode"></p>
+				
+				<p>合計金額</p>
+				<p>
+					<input name="field_TOTALMONEY" type="text" value="" size="8" id="fm-totalmoney" readonly><span class="bold-unit">円</span>
+					<span class="noteRed">※お支払は予約日の前日までにお願い致します。※お支払方法は現金、カード、お振込が可能です。</span>
+				</p>
+
+				<p>お名前 <span class="req-badge">必須</span></p>
+				<p>
+					姓 <input name="field_6297106_sei" type="text" placeholder="姓">
+					名 <input name="field_6297106_mei" type="text" placeholder="名">
+				</p>
+
+				<p>ふりがな <span class="req-badge">必須</span></p>
+				<p>
+					姓 <input name="field_6298629_sei" type="text" placeholder="姓">
+					名 <input name="field_6298629_mei" type="text" placeholder="名">
+				</p>
+
+				<p>電話番号</p>
+				<p><input name="field_6297111" type="text" placeholder="090-0000-0000"></p>
+
+				<p>メールアドレス</p>
+				<p>
+					<input name="field_6297107" type="text" size="30" placeholder="info@example.com">
+					<span class="noteRed">ご予約確認のため、いただいたお電話、メールアドレスへご連絡をいたします。</span>
+				</p>
+
+				<p>備考</p>
+				<p>
+					<textarea name="field_6298631" cols="30" rows="5" placeholder="※事前に伝えておきたい事があればご記入ください。"></textarea>
+					<span class="noteRed">※全角でお願いします</span>
+				</p>
+
+				<p class="commitment">
+					<a href="https://www.memolead.co.jp/privacy/" target="_blank">プライバシーポリシー</a>(※新しいタブで開きます)をよくお読みいただき同意いただけましたら「確認画面へ」ボタンを押してください。
+				</p>
+
+				<p class="formSubmit">
+					<input name="submit" type="submit" value="確認画面へ" class="btn-red">
+				</p>
+
+				<input type="hidden" name="code" value="utf8">
+			</form>
 		</div>
 	</div>
 
 	<!-- ========== footer ========== -->
 	<div id="footer">
 		<ul class="footer-btn">
-			<!-- <li><a href="https://business.form-mailer.jp/fms/1252e567365063" target="_blank" rel="noopener">ご予約はこちら</a></li>  -->
-			 <li><a href="" target="_blank" rel="noopener">ご予約はこちら</a></li> 
+			<li><a href="#fm-reserve-area" id="reserveToggleBtn">ご予約はこちら</a></li>
 		</ul>
 		<p>copyright © group all right reserved.</p>
 	</div>
-	
-	<script src="./_assets/css/script.js"></script>
+
+	<script src="./_assets/js/script.js"></script>
+	<script src="./_assets/js/scroll-effect.js"></script>
+	<script src="./_assets/js/fm-form.js"></script>
 </body>
 </html>
