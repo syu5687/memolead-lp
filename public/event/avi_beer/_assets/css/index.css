@@ -245,6 +245,8 @@ img {
 	border-radius: 3px;
 	font-size: 1rem;
 	cursor: pointer;
+	display: block;
+	margin: 0 auto;
 }
 #fm-reserve-area .btn-red:hover,
 #fm-reserve-area input[type="submit"]:hover {
