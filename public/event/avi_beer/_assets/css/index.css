@@ -293,4 +293,7 @@ img {
 	#fm-reserve-area form input[type="number"] {
 		width: 140px;
 	}
+	#fm-reserve-area .fm-ttl {
+		font-size: 20px;
+	}
 }
