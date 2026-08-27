@@ -7,7 +7,8 @@
    2) 予約フォーム制御：
 	  - 「ご予約はこちら」ボタンでフォーム表示 → ボタン自体は非表示に
 	  - 大人・中高生・小学生・幼児 → 合計人数の自動計算
-	  - 前売り／通常価格を日時で自動判定し、合計金額を自動計算
+	  - 選んだ「日程」が本日と一致する場合のみ当日料金、
+		それ以外は前売り料金として合計金額を自動計算
    ========================================================= */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -79,22 +80,37 @@ document.addEventListener('DOMContentLoaded', function () {
 		var total = document.getElementById('fm-total');
 		var totalMoney = document.getElementById('fm-totalmoney');
 		var priceModeEl = document.getElementById('fm-price-mode');
+		var dateSelect = document.getElementById('fm-date');
 
-		/* 前売り締切：10月2日(金) 0:00 未満なら前売り価格を適用
+		/* 開催日一覧（選択肢の value と実際の日付を対応させる）
 		   ※年をまたいで使い回す場合は年数（2026）を毎年更新してください */
-		var ADVANCE_DEADLINE = new Date(2026, 9, 2, 0, 0, 0); // 月は0始まりなので 9 = 10月
+		var EVENT_DATES = {
+			'0': new Date(2026, 9, 2),  // 10月2日(金)
+			'1': new Date(2026, 9, 4),  // 10月4日(日)
+			'2': new Date(2026, 9, 18), // 10月18日(日)
+			'3': new Date(2026, 9, 19)  // 10月19日(月)
+		};
 
 		/* 単価（円）※金額変更時はここだけ書き換え */
 		var PRICE = {
-			adultAdvance: 6000,  // 大人・前売り
-			adultRegular: 6500,  // 大人・当日/通常
+			adultAdvance: 6000,  // 大人・前売り（選んだ開催日が今日でない場合）
+			adultRegular: 6500,  // 大人・当日（選んだ開催日がまさに今日の場合）
 			teen: 3000,
 			kid: 2000,
 			infant: 500
 		};
 
-		function isAdvancePeriod() {
-			return new Date() < ADVANCE_DEADLINE;
+		/* 選んだ日程が「今日」と一致するかどうかを判定 */
+		function isSelectedDateToday() {
+			if (!dateSelect || !dateSelect.value) return false;
+
+			var eventDate = EVENT_DATES[dateSelect.value];
+			if (!eventDate) return false;
+
+			var today = new Date();
+			return eventDate.getFullYear() === today.getFullYear()
+				&& eventDate.getMonth() === today.getMonth()
+				&& eventDate.getDate() === today.getDate();
 		}
 
 		if (adult && teen && kid && infant && total) {
@@ -107,8 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				var sum = na + nt + nk + ni;
 				total.value = sum;
 
-				var advance = isAdvancePeriod();
-				var adultPrice = advance ? PRICE.adultAdvance : PRICE.adultRegular;
+				var isToday = isSelectedDateToday();
+				var adultPrice = isToday ? PRICE.adultRegular : PRICE.adultAdvance;
 
 				if (totalMoney) {
 					var money = (na * adultPrice) + (nt * PRICE.teen) + (nk * PRICE.kid) + (ni * PRICE.infant);
@@ -116,15 +132,23 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 
 				if (priceModeEl) {
-					priceModeEl.textContent = advance
-						? '※現在「前売り価格」が適用されています（大人 ¥' + PRICE.adultAdvance.toLocaleString() + '）'
-						: '※現在「通常価格」が適用されています（大人 ¥' + PRICE.adultRegular.toLocaleString() + '）';
+					if (!dateSelect || !dateSelect.value) {
+						priceModeEl.textContent = '※日程を選択すると、価格区分が表示されます';
+					} else if (isToday) {
+						priceModeEl.textContent = '※本日開催日のため「当日価格」が適用されています（大人 ¥' + PRICE.adultRegular.toLocaleString() + '）';
+					} else {
+						priceModeEl.textContent = '※「前売り価格」が適用されています（大人 ¥' + PRICE.adultAdvance.toLocaleString() + '）';
+					}
 				}
 			}
 
 			[adult, teen, kid, infant].forEach(function (el) {
 				el.addEventListener('input', calcTotal);
 			});
+
+			if (dateSelect) {
+				dateSelect.addEventListener('change', calcTotal);
+			}
 
 			calcTotal(); // 初期表示時にも一度実行（価格区分の表示のため）
 		}
