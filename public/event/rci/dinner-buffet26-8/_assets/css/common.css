@@ -264,6 +264,14 @@ a:hover {
 	font-size: 13px;
 	letter-spacing: 1px;
 }
+
+
+.top-img{
+  margin-bottom:20px;
+}
+
+
+
 /* FOOTER */
 #footer {
 	background: #000;
