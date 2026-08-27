@@ -82,15 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		var priceModeEl = document.getElementById('fm-price-mode');
 		var dateSelect = document.getElementById('fm-date');
 
-		/* 開催日一覧（選択肢の value と実際の日付を対応させる）
-		   ※年をまたいで使い回す場合は年数（2026）を毎年更新してください */
-		var EVENT_DATES = {
-			'0': new Date(2026, 9, 2),  // 10月2日(金)
-			'1': new Date(2026, 9, 4),  // 10月4日(日)
-			'2': new Date(2026, 9, 18), // 10月18日(日)
-			'3': new Date(2026, 9, 19)  // 10月19日(月)
-		};
-
 		/* 単価（円）※金額変更時はここだけ書き換え */
 		var PRICE = {
 			adultAdvance: 6000,  // 大人・前売り（選んだ開催日が今日でない場合）
@@ -100,12 +91,18 @@ document.addEventListener('DOMContentLoaded', function () {
 			infant: 500
 		};
 
-		/* 選んだ日程が「今日」と一致するかどうかを判定 */
+		/* 選んだ日程が「今日」と一致するかどうかを判定
+		   ※日付は index.html の <option data-event-date="YYYY-MM-DD"> から取得。
+			 日程を追加・変更する場合は HTML側だけ編集すればOK */
 		function isSelectedDateToday() {
 			if (!dateSelect || !dateSelect.value) return false;
 
-			var eventDate = EVENT_DATES[dateSelect.value];
-			if (!eventDate) return false;
+			var selectedOption = dateSelect.options[dateSelect.selectedIndex];
+			var dateStr = selectedOption ? selectedOption.getAttribute('data-event-date') : null;
+			if (!dateStr) return false;
+
+			var parts = dateStr.split('-'); // ["2026", "10", "02"]
+			var eventDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
 
 			var today = new Date();
 			return eventDate.getFullYear() === today.getFullYear()
