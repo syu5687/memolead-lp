@@ -1,14 +1,4 @@
-/* =========================================================
-   script.js
-   ガーデンテラス福岡 秋ビアフェス LP 用スクリプト（統合版）
 
-   1) スクロール演出：チラシ画像が画面に入ったら一瞬光る（点滅）、
-	  少し遅れて「ご予約はこちら」ボタンがふわっと表示
-   2) 予約フォーム制御：
-	  - 「ご予約はこちら」ボタンでフォーム表示 → ボタン自体は非表示に
-	  - 大人・中高生・小学生・幼児 → 合計人数の自動計算
-	  - 前売り／通常価格を日時で自動判定し、合計金額を自動計算
-   ========================================================= */
 document.addEventListener('DOMContentLoaded', function () {
 
 	/* =========================================================
@@ -53,82 +43,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	/* =========================================================
-	   ② 予約フォーム制御
+	   ② 予約人数の合計計算
 	   ========================================================= */
 	(function () {
-
-		/* ボタンを押すまでフォームを非表示、押したら表示してスクロール。
-		   表示後はボタン（li）自体を非表示にする */
-		var toggleBtn = document.getElementById('reserveToggleBtn');
-		var reserveArea = document.getElementById('fm-reserve-area');
-
-		if (toggleBtn && reserveArea) {
-			toggleBtn.addEventListener('click', function (e) {
-				e.preventDefault();
-				reserveArea.classList.remove('is-hidden');
-				toggleBtn.parentElement.style.display = 'none'; // ボタン（liごと）を非表示
-				reserveArea.scrollIntoView({ behavior: 'smooth' });
+		// form-mailer のフォームは id が無く name だけなので
+		// 属性セレクタ [name="..."] で取得する
+		var form = document.querySelector('form[name="form1"]');
+		if (!form) return; // フォームが無いページでは何もしない
+	
+		// 各人数欄（name は HTML 側の入力欄と一致させる）
+		var adult  = form.querySelector('[name="field_6301232"]'); // 大人
+		var teen   = form.querySelector('[name="field_6301233"]'); // 中高生
+		var kid    = form.querySelector('[name="field_6301234"]'); // 小学生
+		var infant = form.querySelector('[name="field_6301235"]'); // 幼児
+		var total  = form.querySelector('[name="field_6301236"]'); // ご予約人数合計
+	
+		var inputs = [adult, teen, kid, infant];
+	
+		// 1つでも取得できなければ処理しない（name 変更時の誤動作防止）
+		if (!total || inputs.some(function (el) { return !el; })) return;
+	
+		// 合計欄は自動計算なので手入力させない
+		total.readOnly = true;
+	
+		// 全角数字を半角に直してから数値化する
+		function toNumber(value) {
+			var half = String(value).replace(/[０-９]/g, function (s) {
+				return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
 			});
+			var n = parseInt(half, 10);
+			return isNaN(n) ? 0 : n; // 空欄・文字入力は 0 として扱う
 		}
-
-		/* 人数の自動計算（合計人数・合計金額） */
-		var adult = document.getElementById('fm-adult');
-		var teen = document.getElementById('fm-teen');
-		var kid = document.getElementById('fm-kid');
-		var infant = document.getElementById('fm-infant');
-		var total = document.getElementById('fm-total');
-		var totalMoney = document.getElementById('fm-totalmoney');
-		var priceModeEl = document.getElementById('fm-price-mode');
-
-		/* 前売り締切：10月2日(金) 0:00 未満なら前売り価格を適用
-		   ※年をまたいで使い回す場合は年数（2026）を毎年更新してください */
-		var ADVANCE_DEADLINE = new Date(2026, 9, 2, 0, 0, 0); // 月は0始まりなので 9 = 10月
-
-		/* 単価（円）※金額変更時はここだけ書き換え */
-		var PRICE = {
-			adultAdvance: 6000,  // 大人・前売り
-			adultRegular: 6500,  // 大人・当日/通常
-			teen: 3000,
-			kid: 2000,
-			infant: 500
-		};
-
-		function isAdvancePeriod() {
-			return new Date() < ADVANCE_DEADLINE;
-		}
-
-		if (adult && teen && kid && infant && total) {
-			function calcTotal() {
-				var na = parseInt(adult.value, 10) || 0;
-				var nt = parseInt(teen.value, 10) || 0;
-				var nk = parseInt(kid.value, 10) || 0;
-				var ni = parseInt(infant.value, 10) || 0;
-
-				var sum = na + nt + nk + ni;
-				total.value = sum;
-
-				var advance = isAdvancePeriod();
-				var adultPrice = advance ? PRICE.adultAdvance : PRICE.adultRegular;
-
-				if (totalMoney) {
-					var money = (na * adultPrice) + (nt * PRICE.teen) + (nk * PRICE.kid) + (ni * PRICE.infant);
-					totalMoney.value = money.toLocaleString();
-				}
-
-				if (priceModeEl) {
-					priceModeEl.textContent = advance
-						? '※現在「前売り価格」が適用されています（大人 ¥' + PRICE.adultAdvance.toLocaleString() + '）'
-						: '※現在「通常価格」が適用されています（大人 ¥' + PRICE.adultRegular.toLocaleString() + '）';
-				}
-			}
-
-			[adult, teen, kid, infant].forEach(function (el) {
-				el.addEventListener('input', calcTotal);
+	
+		function calcTotal() {
+			var sum = 0;
+			inputs.forEach(function (el) {
+				sum += toNumber(el.value);
 			});
-
-			calcTotal(); // 初期表示時にも一度実行（価格区分の表示のため）
+			total.value = sum; // 合計欄へ反映
 		}
-
+	
+		// 入力のたびに再計算
+		inputs.forEach(function (el) {
+			el.addEventListener('input', calcTotal);
+		});
+	
+		calcTotal(); // 読み込み直後にも一度実行（ブラウザの入力復元対策）
 	})();
 
 });
