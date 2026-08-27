@@ -41,7 +41,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		observer.observe(footerBtn);
 	})();
 
-
+	/* =========================================================
+	   ②-0 予約フォームの開閉
+	   ========================================================= */
+	(function () {
+		var toggleBtn   = document.getElementById('reserveToggleBtn');
+		var reserveArea = document.getElementById('fm-reserve-area');
+		if (!toggleBtn || !reserveArea) return;
+	
+		toggleBtn.addEventListener('click', function (e) {
+			e.preventDefault(); // aタグのページ内ジャンプを止め、下のスムーススクロールに任せる
+			reserveArea.classList.remove('is-hidden');       // 非表示クラスを外して表示
+			toggleBtn.parentElement.style.display = 'none';  // 押した後はボタン（li）ごと隠す
+			reserveArea.scrollIntoView({ behavior: 'smooth' });
+		});
+	})();
 	/* =========================================================
 	   ② 予約人数の合計計算
 	   ========================================================= */
