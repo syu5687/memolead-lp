@@ -1,7 +1,11 @@
 /* =========================================================
    ガーデンテラス福岡 秋ビアフェス LP - 完成版CSS（全体）
    ========================================================= */
-
+:root{
+	--red:#B9382F;
+	--main:#C9702E;
+	--lg:#f5f5f5;
+}
 * {
 	box-sizing: border-box;
 }
@@ -43,7 +47,7 @@ img {
 .notice-banner {
 	max-width: 700px;
 	margin: 0 auto;
-	background: #B9382F;
+	background: var(--red);
 	color: #fff;
 	padding: 14px 10px;
 	text-align: center;
@@ -65,7 +69,7 @@ img {
 	line-height: 0;
 }
 
-/* ---------- 予約フォームエリア：初期非表示 + ボタンで表示 ---------- */
+/* ---------- 予約フォームエリア ---------- */
 #fm-reserve-area {
 	max-width: 900px;
 	margin: 0 auto;
@@ -76,7 +80,7 @@ img {
 }
 #fm-reserve-area .fm-inner {
 	background: #fff;
-	border: 3px solid #C9702E;
+	border: 3px solid var(--main);
 	border-radius: 10px;
 	padding: 32px 24px;
 	box-shadow: 0 4px 16px rgba(201, 112, 46, 0.15);
@@ -86,7 +90,7 @@ img {
 	content: "";
 	position: absolute;
 	inset: -10px;
-	border: 1px solid #E3A45B;
+	border: 1px solid var(--main);
 	border-radius: 14px;
 	pointer-events: none;
 	z-index: -1;
@@ -100,12 +104,14 @@ img {
 	color: #333;
 }
 
-/* FormMailerが出力する素のp/select/input/textareaをスタイリング */
+
 #fm-reserve-area form p {
 	text-align: left;
 	margin: 0 0 8px;
 	font-size: 1.05rem;
 	font-weight: bold;
+	padding: .5rem 1rem;
+	color: var(--main);
 }
 #fm-reserve-area form p:has(select),
 #fm-reserve-area form p:has(input[type="text"]),
@@ -160,21 +166,21 @@ img {
 #fm-reserve-area form input#fm-total {
 	width: 400px;
 	max-width: 100%;
-	background: #f5f5f5;
+	background: var(--lg);
 	color: #666;
 }
 #fm-reserve-area input#fm-totalmoney {
 	width: 400px;
 	max-width: 100%;
-	background: #f5f5f5;
-	color: #B9382F;
+	background: var(--lg);
+	color: var(--red);
 	font-weight: bold;
 	font-size: 1.1rem;
 }
 #fm-reserve-area .req-badge {
 	display: inline-block;
-	color: #e53935;
-	border: 1px solid #e53935;
+	color: var(--red);
+	border: 1px solid var(--red);
 	font-size: 0.7rem;
 	font-weight: bold;
 	padding: 1px 8px;
@@ -184,7 +190,7 @@ img {
 }
 #fm-reserve-area .noteRed {
 	display: block;
-	color: #B9382F;
+	color:  var(--red);
 	font-size: 0.85rem;
 	margin-top: 6px;
 	font-weight: bold;
@@ -197,14 +203,14 @@ img {
 	font-weight: normal;
 }
 #fm-reserve-area .commitment a {
-	color: #B9382F;
+	color:var(--red);
 }
 #fm-reserve-area .formSubmit {
 	text-align: center;
 }
 #fm-reserve-area .btn-red,
 #fm-reserve-area input[type="submit"] {
-	background: #B9382F;
+	background: var(--red);
 	color: #fff;
 	font-weight: bold;
 	letter-spacing: 0.1em;
@@ -219,6 +225,9 @@ img {
 	opacity: 0.85;
 }
 
+.hissu{
+	border: 1px solid var(--red);
+}
 /* ---------- footer ---------- */
 #footer {
 	background: #393229;
@@ -256,7 +265,7 @@ img {
 	opacity: 1;
 }
 
-/* ---------- scroll effect: チラシ点滅 + 予約ボタンふわっと表示 ---------- */
+/* ---------- scroll effect: チラシ点滅 + 予約ボタン表示 ---------- */
 .main-ttl img.flash-once {
 	animation: flyerFlash 0.6s ease-in-out;
 }
@@ -281,7 +290,7 @@ img {
 
 #fm-reserve-area .price-mode {
 	font-size: 0.85rem;
-	color: #B9382F;
+	color: var(--red);
 	font-weight: bold;
 	margin: -20px 0 20px !important;
 }
