@@ -133,7 +133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<select name="field_5226308" id="receiveMethod">
 				  <option value="">------</option>
 				  <option value="0" >店舗受取(ロイヤルチェスター長崎ホテル&リトリート)</option>
-				  <option value="1" >配送希望（+2,000円）</option>
+				  <option value="1" id="paidDelivery" style="display:none;>配送希望（+2,000円）</option>
 				  <option value="2" id="freeDelivery" >配送希望（0円）9月末迄</option>
 				</select>
 			  </p>
@@ -288,15 +288,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	  </script>
 
 <script>
-	  
 	  document.addEventListener("DOMContentLoaded", function () {
 		const endDate = new Date("2026-09-30T23:59:59");
-		const option = document.getElementById("freeDelivery");
-		if (new Date() > endDate) {
-		  option.remove();
+		const freeOption = document.getElementById("freeDelivery");
+		const paidOption = document.getElementById("paidDelivery");
+		const now = new Date();
+	  
+		if (now > endDate) {
+		  // 10月1日以降：0円オプションを消して、+2,000円オプションを表示
+		  if (freeOption) freeOption.remove();
+		  if (paidOption) paidOption.style.display = "";
 		}
 	  });
-	  
 	  </script>
 </body>
 </html>
