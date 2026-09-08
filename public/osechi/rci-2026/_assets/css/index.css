@@ -134,10 +134,21 @@ a:hover {
 	text-align: center;
 	vertical-align: middle;
 	color: #333;
+	padding: 20px 15px;
+	line-height: 1.6;
+	min-width: 140px;
 }
 .price1 {
 	border-bottom: 1px solid #D8C7C7;
 	padding-bottom: 8px;
+}
+
+/* 価格の行をflexboxで確実に整列させる */
+.osechi_info .price1 > div {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 100%;
 }
 .price1-1 {
 	display: inline-block;
@@ -147,7 +158,9 @@ a:hover {
 }
 .price1-2 {
 	display: inline-block;
-	float: right;
+	float: none;
+	text-align: right;
+	white-space: nowrap;
 }
 .price1-2 span {
 	font-size: 40px;
@@ -196,6 +209,7 @@ a:hover {
 	font-family: 'Noto Serif JP', serif;
 	background: #fff;
 	padding-top: 65px;
+	padding-bottom: 80px;
 }
 #contact .textContact {
 	font-size: 15px;
@@ -338,8 +352,11 @@ a:hover {
 	font-weight: bold;
 	margin: 5px 0;
 }
+.price-main .price-label {
+	font-size: 0.7em;
+}
 .price-box .price-tax {
-	font-size: 1.1em;
+	font-size: 0.5em;
 	margin: 0;
 }
 .early-bird {
@@ -356,6 +373,17 @@ a:hover {
 	border-radius: 35px;
 	padding: 10px 0px;
 	width: 390px;
+}
+.early-bird-text .small-text {
+	font-size: 0.65em;
+}
+.early-bird-text-gray {
+	background-color: #888888;
+	color: #fff;
+	width: auto;
+	max-width: 50%;
+	white-space: nowrap;
+	margin: 20px auto 0;
 }
 .early-bird .early-bird-price {
 	font-size: 2.5em;
@@ -374,28 +402,15 @@ a:hover {
 	font-size: 1.1em;
 	text-align: left;
 }
-
 .description-box p {
 	line-height: 20px;
 	text-align: left;
 }
-
 .description-box h3 {
 	font-size: 1.8em;
 	color: #8B4513;
 	margin-bottom: 15px;
 	text-align: left;
-}
-
-
-/* PC用（既存の #contact に追記） */
-#contact {
-	text-align: center;
-	margin-top: 0;
-	font-family: 'Noto Serif JP', serif;
-	background: #fff;
-	padding-top: 65px;
-	padding-bottom: 80px; /* ← 追加：固定ボタン分の余白 */
 }
 
 /* --- フッター --- */
@@ -426,7 +441,7 @@ a:hover {
 	}
 	#contact {
 		margin-top: 0;
-		padding: 43px 0px 80px 0px; /* ← 下だけ広めに変更 */
+		padding: 43px 0px 80px 0px;
 		color: #000;
 	}
 	#contact a {
@@ -448,13 +463,13 @@ a:hover {
 		height: unset;
 		background: #fff;
 	}
-	
+
 	.menu {
 		width: 100%;
 		color: #FFF;
 		margin: 0 auto;
 	}
-	
+
 	.tab-nav-item {
 		padding: 12px 40px;
 		cursor: pointer;
@@ -470,7 +485,7 @@ a:hover {
 		width: 50%;
 		text-align: center;
 	}
-	
+
 	.premium-title {
 		background-color: #fff;
 		color: #990000;
@@ -481,31 +496,30 @@ a:hover {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: fit-content;      /* ← 固定幅をやめて内容に応じた幅に */
-		max-width: 90%;          /* ← はみ出し防止 */
-		white-space: nowrap;     /* ← タイトルを1行に固定 */
+		width: fit-content;
+		max-width: 90%;
+		white-space: nowrap;
 	}
-	
+
 	.premium-title h2 {
 		font-size: 23px;
 		margin: 0;
 		font-weight: bold;
-		white-space: nowrap;     /* ← 折り返し禁止 */
+		white-space: nowrap;
 	}
-	
+
 	.premium-title p {
-	font-size: 20px;
-	margin: 0 0 0 16px;
-	font-weight: bold;
-	background-color: #c0392b;
-	color: #fff;
-	width: 130px;
-	text-align: center;
-	padding: 10px 0;
-	line-height: 25px;
+		font-size: 20px;
+		margin: 0 0 0 16px;
+		font-weight: bold;
+		background-color: #c0392b;
+		color: #fff;
+		width: 130px;
+		text-align: center;
+		padding: 10px 0;
+		line-height: 25px;
 	}
-	
-	
+
 	.osechi_info01 {
 		padding-top: 40px;
 		padding-bottom: 40px;
@@ -560,5 +574,4 @@ a:hover {
 		padding: 10px 0px;
 		width: 100%;
 	}
-	
 }
