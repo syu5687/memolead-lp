@@ -387,6 +387,17 @@ a:hover {
 	text-align: left;
 }
 
+
+/* PC用（既存の #contact に追記） */
+#contact {
+	text-align: center;
+	margin-top: 0;
+	font-family: 'Noto Serif JP', serif;
+	background: #fff;
+	padding-top: 65px;
+	padding-bottom: 80px; /* ← 追加：固定ボタン分の余白 */
+}
+
 /* --- フッター --- */
 #footer {
 	text-align: center;
@@ -415,7 +426,7 @@ a:hover {
 	}
 	#contact {
 		margin-top: 0;
-		padding: 43px 0px;
+		padding: 43px 0px 80px 0px; /* ← 下だけ広めに変更 */
 		color: #000;
 	}
 	#contact a {
@@ -463,20 +474,23 @@ a:hover {
 	.premium-title {
 		background-color: #fff;
 		color: #990000;
-		padding: 10px 0;
-		border-radius: 2px solid #990000;
+		padding: 10px 20px;
+		margin: 0 auto 40px;
+		border: 2px solid #990000;
 		text-align: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 100%;
-		margin: 0 auto 40px;
+		width: fit-content;      /* ← 固定幅をやめて内容に応じた幅に */
+		max-width: 90%;          /* ← はみ出し防止 */
+		white-space: nowrap;     /* ← タイトルを1行に固定 */
 	}
 	
 	.premium-title h2 {
-		font-size: 20px;
+		font-size: 23px;
 		margin: 0;
 		font-weight: bold;
+		white-space: nowrap;     /* ← 折り返し禁止 */
 	}
 	
 	.premium-title p {
