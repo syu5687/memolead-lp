@@ -354,6 +354,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<form class="reserve-form" action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
 				<input type="hidden" name="key" value="8765eb03367234">
 
+				<!-- ★★★ 早期ご購入の切り替え日時はここだけ書き換えればOK（YYYY-MM-DD HH:MM の形式） ★★★ -->
+				<span id="earlybird-deadline" data-deadline="2026-09-10 17:20" style="display:none;"></span>
+
 				<h2 class="reserve-form-title">おせちお申し込みフォーム</h2>
 				<p class="reserve-form-sub">ロイヤルチェスター伊万里 ホワイトハウス伊万里</p>
 				<!-- <p class="reserve-form-required-note">*は必須項目です</p> -->
@@ -813,9 +816,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			$group.find('select').val('');
 		}
 
-		// 早期ご購入の締切判定（2026年10月31日 23:59:59まで早期、2026年11月1日 0:00から通常）
+		// ★早期ご購入の締切判定：フォーム内の <span id="earlybird-deadline" data-deadline="..."> を読み取るだけ
+		// テスト時は、上の方にあるHTMLの data-deadline="2026-10-31 23:59" を書き換えてください。JSはここを触らなくてOKです。
 		function isBeforeEarlyBirdDeadline() {
-			var deadline = new Date(2026, 9, 31, 23, 59, 59); // 月は0始まりなので9=10月
+			var deadlineStr = $('#earlybird-deadline').data('deadline'); // 例: "2026-10-31 23:59"
+			var deadline = new Date(deadlineStr.replace(' ', 'T') + ':00'); // Safari対策でT区切りに変換
 			return new Date() <= deadline;
 		}
 
@@ -853,14 +858,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			}
 
 			if (isBeforeEarlyBirdDeadline()) {
-				// 2026/10/31 23:59:59まで：早期個数欄のみ表示
+				// 締切日時まで：早期個数欄のみ表示
 				$earlyBirdField.show();
 				$memberField.hide();
 				resetFieldGroup($memberField);
 				$nonMemberField.hide();
 				resetFieldGroup($nonMemberField);
 			} else {
-				// 2026/11/1 0:00から：早期欄は非表示、会員・非会員で通常個数欄を出し分け
+				// 締切日時後：早期欄は非表示、会員・非会員で通常個数欄を出し分け
 				$earlyBirdField.hide();
 				resetFieldGroup($earlyBirdField);
 
