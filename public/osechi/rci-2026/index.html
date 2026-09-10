@@ -16,13 +16,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<meta property="og:description" content="おせち2026年｜メモリード"/>
 	<meta property="og:image" content="./_assets/hfi-pbo/img/lp/ogp-hfi.jpg?1"/>
 	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v30">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v40">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v42">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
-	
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -36,7 +36,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<div class="menu">
 				<img class="wow fadeIn" src="./_assets/img/osechi2026_top.jpg?v4" width="100%" height="auto" alt="プレミアムおせち">
 			</div>
-			
+
 			<ul class="tab-nav wow fadeIn">
 				<li class="tab-nav-item active" data-tab="osechi">おせち</li>
 				<li class="tab-nav-item" data-tab="christmas">クリスマス</li>
@@ -62,9 +62,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<p class="early-bird-text">2026年10月末までの早期ご購入<span class="small-text">(ご入金)</span>で</p>
 					<p class="early-bird-price">33,000円(税込)</p>
 				</div>
-				
+
 				<p class="early-bird-text early-bird-text-gray">ふせちのお申し込みも承っております。</p>
-				
+
 				<div class="description-box">
 					<h3>匠が織りなす特選料理</h3>
 					<p>
@@ -73,7 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</p>
 				</div>
 			</div>
-			
+
 			<div class="osechi-slider wow fadeIn">
 				<div class="slides-container">
 					<div class="slide">
@@ -129,7 +129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<button class="slider-nav slider-next">&gt;</button>
 				<div class="slider-dots"></div>
 			</div>
-			
+
 			<div class="premium-info-wrapper wow fadeIn">
 				<div class="premium-title">
 					<h2>特選おせち</h2>
@@ -237,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<p class="price-main">12,000円<span class="price-tax">(税込)</span></p>
 					<p class="price-size">【メニュー】<br class="sp">ローストビーフ/アワビ/ロブスターネーズ焼き 他18品</p>
 				</div>
-				
+
 				<div class="description-box">
 					<h3>CHRISTMAS<br class="sp">HOME PARTY SET</h3>
 					<p>
@@ -245,8 +245,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</p>
 				</div>
 			</div>
-			
-			
+
+
 			<div class="osechi_info01 wow fadeIn">
 				<div class="osechi_info">
 					<div>
@@ -320,7 +320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						</a>
 					</p>
 				</div>
-			
+
 				<div>
 					<p class="timeContact">うらり武雄ガーデンテラススパリゾート</p>
 					<p class="telContact times">TEL <span><a href="tel:0954277717">0954-27-7717</a></span></p>
@@ -333,17 +333,350 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="btn_reserve wow fadeInUp">
 		<ul>
 			<li class="fair_reserve" >
-				<a href="https://business.form-mailer.jp/fms/8765eb03367234">
+				<a href="javascript:void(0);" id="js-open-reserve-modal">
 					<span class="" style="font-size: 18px;">ご予約はこちら</span>
 				</a>
 			</li>
 		</ul>
 	</div>
-	
+
+	</div>
+
+	<!-- 予約フォーム モーダル -->
+	<div id="reserveModalOverlay" class="reserve-modal-overlay">
+		<div class="reserve-modal-box">
+			<button type="button" id="js-close-reserve-modal" class="reserve-modal-close" aria-label="閉じる">&times;</button>
+
+			<form class="reserve-form" action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
+				<input type="hidden" name="key" value="8765eb03367234">
+
+				<h2 class="reserve-form-title">おせちお申し込みフォーム</h2>
+				<p class="reserve-form-sub">ロイヤルチェスター伊万里 ホワイトハウス伊万里</p>
+				<!-- <p class="reserve-form-required-note">*は必須項目です</p> -->
+
+				<!-- name -->
+				<div class="rf-field">
+					<label class="rf-label">*名前</label>
+					<div class="rf-row">
+						<span class="rf-inline-label">姓</span>
+						<input class="rf-input" name="field_6338710_sei" type="text" placeholder="鈴木">
+						<span class="rf-inline-label">名</span>
+						<input class="rf-input" name="field_6338710_mei" type="text" placeholder="太郎">
+					</div>
+				</div>
+
+				<!-- name kana -->
+				<div class="rf-field">
+					<label class="rf-label">*ふりがな</label>
+					<div class="rf-row">
+						<span class="rf-inline-label">姓</span>
+						<input class="rf-input" name="field_6338711_sei" type="text" placeholder="すずき">
+						<span class="rf-inline-label">名</span>
+						<input class="rf-input" name="field_6338711_mei" type="text" placeholder="たろう">
+					</div>
+				</div>
+
+				<!-- address -->
+				<div class="rf-field">
+					<label class="rf-label">*住所</label>
+					<div class="rf-address">
+						<div class="rf-address-row">
+							<span class="rf-inline-label">〒</span>
+							<input class="rf-input rf-zip" name="field_6338712_zip" type="text" maxlength="7">
+						</div>
+						<label class="rf-sublabel">都道府県</label>
+						<select class="rf-select" name="field_6338712_pref">
+							<option value="">----</option>
+							<option value="北海道">北海道</option>
+							<option value="青森県">青森県</option>
+							<option value="岩手県">岩手県</option>
+							<option value="宮城県">宮城県</option>
+							<option value="秋田県">秋田県</option>
+							<option value="山形県">山形県</option>
+							<option value="福島県">福島県</option>
+							<option value="茨城県">茨城県</option>
+							<option value="栃木県">栃木県</option>
+							<option value="群馬県">群馬県</option>
+							<option value="埼玉県">埼玉県</option>
+							<option value="千葉県">千葉県</option>
+							<option value="東京都">東京都</option>
+							<option value="神奈川県">神奈川県</option>
+							<option value="新潟県">新潟県</option>
+							<option value="富山県">富山県</option>
+							<option value="石川県">石川県</option>
+							<option value="福井県">福井県</option>
+							<option value="山梨県">山梨県</option>
+							<option value="長野県">長野県</option>
+							<option value="岐阜県">岐阜県</option>
+							<option value="静岡県">静岡県</option>
+							<option value="愛知県">愛知県</option>
+							<option value="三重県">三重県</option>
+							<option value="滋賀県">滋賀県</option>
+							<option value="京都府">京都府</option>
+							<option value="大阪府">大阪府</option>
+							<option value="兵庫県">兵庫県</option>
+							<option value="奈良県">奈良県</option>
+							<option value="和歌山県">和歌山県</option>
+							<option value="鳥取県">鳥取県</option>
+							<option value="島根県">島根県</option>
+							<option value="岡山県">岡山県</option>
+							<option value="広島県">広島県</option>
+							<option value="山口県">山口県</option>
+							<option value="徳島県">徳島県</option>
+							<option value="香川県">香川県</option>
+							<option value="愛媛県">愛媛県</option>
+							<option value="高知県">高知県</option>
+							<option value="福岡県">福岡県</option>
+							<option value="佐賀県">佐賀県</option>
+							<option value="長崎県">長崎県</option>
+							<option value="熊本県">熊本県</option>
+							<option value="大分県">大分県</option>
+							<option value="宮崎県">宮崎県</option>
+							<option value="鹿児島県">鹿児島県</option>
+							<option value="沖縄県">沖縄県</option>
+							<option value="その他">その他</option>
+						</select>
+						<label class="rf-sublabel">市区町村</label>
+						<input class="rf-input rf-full" name="field_6338712_city" type="text">
+						<label class="rf-sublabel">番地</label>
+						<input class="rf-input rf-full" name="field_6338712_block" type="text">
+						<label class="rf-sublabel">マンション・ビル名</label>
+						<input class="rf-input rf-full" name="field_6338712_building" type="text">
+					</div>
+				</div>
+
+				<!-- phone -->
+				<div class="rf-field">
+					<label class="rf-label">*電話番号</label>
+					<input class="rf-input rf-full" name="field_6338713" type="text" placeholder="090-0000-0000">
+				</div>
+
+				<!-- email -->
+				<div class="rf-field">
+					<label class="rf-label">*メールアドレス</label>
+					<input class="rf-input rf-full" name="field_6338714" type="text" size="30" placeholder="info@example.com">
+				</div>
+
+				<hr class="rf-divider">
+
+				<!-- radio: 担当者 -->
+				<div class="rf-field">
+					<label class="rf-label">*担当者</label>
+					<div class="rf-options">
+						<label class="rf-option"><input name="field_6338716" type="radio" value="0" id="staff-yes">担当者あり</label>
+						<label class="rf-option"><input name="field_6338716" type="radio" value="1" id="staff-no">担当者なし</label>
+					</div>
+				</div>
+
+				<!-- text: 担当者名 -->
+				<div class="rf-field" id="staff-name-field">
+					<label class="rf-label">*担当者名記入欄</label>
+					<p class="rf-hint">担当者の名前を記入してください</p>
+					<input class="rf-input rf-full" name="field_6338717" type="text" value="" size="30">
+				</div>
+
+				<!-- checkbox: ご注文内容 -->
+				<div class="rf-field">
+					<label class="rf-label">*ご注文内容</label>
+					<p class="rf-hint rf-hint-accent">お申込み・お支払い締め切り/12月14日（日）まで【現金のみ】</p>
+					<div class="rf-options">
+						<label class="rf-option"><input name="field_6338718" type="checkbox" value="0" id="order-osechi-check">おせち</label>
+						<label class="rf-option"><input name="field_6338718" type="checkbox" value="1" id="order-christmas-check">クリスマス</label>
+					</div>
+				</div>
+
+				<!-- checkbox: おせち -->
+				<div class="rf-field rf-conditional" id="osechi-select-field">
+					<label class="rf-label">*おせち</label>
+					<div class="rf-options">
+						<label class="rf-option"><input name="field_6338719" type="checkbox" value="0" id="osechi-premium-check">プレミアムおせち</label>
+						<label class="rf-option"><input name="field_6338719" type="checkbox" value="1" id="osechi-tokusen-check">特選おせち</label>
+					</div>
+				</div>
+
+				<!-- radio: 会員・非会員 -->
+				<div class="rf-field rf-conditional premium-group">
+					<label class="rf-label">*会員・非会員</label>
+					<div class="rf-options">
+						<label class="rf-option"><input name="field_6342847" type="radio" value="0" id="member-yes">会員</label>
+						<label class="rf-option"><input name="field_6342847" type="radio" value="1" id="member-no">非会員</label>
+					</div>
+				</div>
+
+				<!-- dropdown: 早期プレミアム個数 -->
+				<div class="rf-field rf-conditional premium-group" id="earlybird-price-field">
+					<label class="rf-label">*【プレミアムおせち：早期ご購入】個数</label>
+					<p class="rf-hint rf-hint-accent">【早期申込】10月末日までのご購入（ご入金）の特別価格で販売中でございます。</p>
+					<select class="rf-select rf-full" name="field_6351511">
+						<option value="">個数を選択してください</option>
+						<option value="0">【プレミアムおせち】1個: 33,000円(税込)</option>
+						<option value="1">【プレミアムおせち】2個: 66,000円(税込)</option>
+						<option value="2">【プレミアムおせち】3個: 99,000円(税込)</option>
+						<option value="3">【プレミアムおせち】4個: 132,000円(税込)</option>
+						<option value="4">【プレミアムおせち】5個: 165,000円(税込)</option>
+					</select>
+				</div>
+
+				<!-- dropdown: プレミアム個数(会員) -->
+				<div class="rf-field rf-conditional premium-group" id="member-price-field">
+					<label class="rf-label">*【プレミアムおせち】個数</label>
+					<select class="rf-select rf-full" name="field_6338720">
+						<option value="">個数を選択してください</option>
+						<option value="0">【プレミアムおせち】1個: 35,000円(税込)</option>
+						<option value="1">【プレミアムおせち】2個: 70,000円(税込)</option>
+						<option value="2">【プレミアムおせち】3個: 105,000円(税込)</option>
+						<option value="3">【プレミアムおせち】4個: 140,000円(税込)</option>
+						<option value="4">【プレミアムおせち】5個: 175,000円(税込)</option>
+					</select>
+				</div>
+
+				<!-- dropdown: プレミアム個数(非会員) -->
+				<div class="rf-field rf-conditional premium-group" id="nonmember-price-field">
+					<label class="rf-label">*【プレミアムおせち】個数</label>
+					<select class="rf-select rf-full" name="field_6342505">
+						<option value="">個数を選択してください</option>
+						<option value="0">【プレミアムおせち】1個: 37,000円(税込)</option>
+						<option value="1">【プレミアムおせち】2個: 74,000円(税込)</option>
+						<option value="2">【プレミアムおせち】3個: 111,000円(税込)</option>
+						<option value="3">【プレミアムおせち】4個: 148,000円(税込)</option>
+						<option value="4">【プレミアムおせち】5個: 185,000円(税込)</option>
+					</select>
+				</div>
+
+				<!-- dropdown: 特選個数 -->
+				<div class="rf-field rf-conditional tokusen-group" id="tokusen-field">
+					<label class="rf-label">*【特選おせち】個数</label>
+					<select class="rf-select rf-full" name="field_6338721">
+						<option value="">個数を選択してください</option>
+						<option value="0">【特選おせち】1個: 22,000円(税込)</option>
+						<option value="1">【特選おせち】2個: 44,000円(税込)</option>
+						<option value="2">【特選おせち】3個: 66,000円(税込)</option>
+						<option value="3">【特選おせち】4個: 88,000円(税込)</option>
+						<option value="4">【特選おせち】5個: 110,000円(税込)</option>
+					</select>
+				</div>
+
+				<!-- label: おせち受取時間の案内 -->
+				<div class="rf-field rf-conditional premium-group">
+					<p class="rf-notice-title">【おせち】お受取り時間</p>
+					<p class="rf-notice-time">10：00〜13：00</p>
+					<p class="rf-hint rf-hint-accent">※時間内にご来館できない場合はお電話をお願いいたします。<br>※配達はいたしかねますので、予めご了承ください。</p>
+				</div>
+
+				<!-- dropdown: おせち受取時間 -->
+				<!-- <div class="rf-field rf-conditional premium-group">
+					<label class="rf-label">*【おせち】お受取り時間</label>
+					<select class="rf-select rf-full" name="field_6338722">
+						<option value="">------</option>
+						<option value="11:00">11:00</option>
+						<option value="11:30">11:30</option>
+						<option value="12:00">12:00</option>
+						<option value="12:30">12:30</option>
+						<option value="13:00">13:00</option>
+					</select>
+				</div> -->
+
+				<!-- radio: おせち受取場所 -->
+				<div class="rf-field rf-conditional premium-group">
+					<label class="rf-label">*【おせち】お受取り</label>
+					<p class="rf-hint rf-hint-accent">お受取り日12月31日(木)</p>
+					<div class="rf-options rf-options-vertical">
+						<label class="rf-option"><input name="field_6338723" type="radio" value="0">ロイヤルチェスター伊万里</label>
+						<label class="rf-option"><input name="field_6338723" type="radio" value="1">うらり武雄</label>
+						<label class="rf-option"><input name="field_6338723" type="radio" value="2">メモリードホール山本</label>
+						<label class="rf-option"><input name="field_6338723" type="radio" value="3">メモリードホールはま</label>
+					</div>
+				</div>
+
+				<!-- checkbox: クリスマス -->
+				<div class="rf-field rf-conditional" id="christmas-select-field">
+					<label class="rf-label">*クリスマス</label>
+					<div class="rf-options">
+						<label class="rf-option"><input name="field_6338724" type="checkbox" value="0" id="xmas-party-check">クリスマスホームパーティーセット</label>
+						<label class="rf-option"><input name="field_6338724" type="checkbox" value="1" id="xmas-ebulle-check">オードブル</label>
+					</div>
+				</div>
+
+				<!-- radio: ケーキ種類 -->
+				<div class="rf-field rf-conditional christmas-party-group">
+					<label class="rf-label">*ケーキ種類</label>
+					<div class="rf-options">
+						<label class="rf-option"><input name="field_6338725" type="radio" value="0">チョコムース</label>
+						<label class="rf-option"><input name="field_6338725" type="radio" value="1">いちごケーキ</label>
+					</div>
+				</div>
+
+				<!-- dropdown: クリスマスセット個数 -->
+				<div class="rf-field rf-conditional christmas-party-group">
+					<label class="rf-label">*【クリスマスホームパーティーセット】個数</label>
+					<select class="rf-select rf-full" name="field_6338726">
+						<option value="">個数を選択してください</option>
+						<option value="0">【クリスマスホームパーティーセット】1個: 15,000円(税込)</option>
+						<option value="1">【クリスマスホームパーティーセット】2個: 30,000円(税込)</option>
+						<option value="2">【クリスマスホームパーティーセット】3個: 45,000円(税込)</option>
+						<option value="3">【クリスマスホームパーティーセット】4個: 60,000円(税込)</option>
+						<option value="4">【クリスマスホームパーティーセット】5個: 75,000円(税込)</option>
+					</select>
+				</div>
+
+				<!-- dropdown: オードブル個数 -->
+				<div class="rf-field rf-conditional christmas-ebulle-group">
+					<label class="rf-label">*【オードブル】個数</label>
+					<select class="rf-select rf-full" name="field_6338727">
+						<option value="">個数を選択してください</option>
+						<option value="0">【オードブル】1個: 12,000円(税込)</option>
+						<option value="1">【オードブル】2個: 24,000円(税込)</option>
+						<option value="2">【オードブル】3個: 36,000円(税込)</option>
+						<option value="3">【オードブル】4個: 48,000円(税込)</option>
+						<option value="4">【オードブル】5個: 60,000円(税込)</option>
+					</select>
+				</div>
+
+				<!-- calendar date -->
+				<div class="rf-field rf-conditional christmas-common-group">
+					<label class="rf-label">*【クリスマス】お受取り日</label>
+					<input class="rf-input rf-full" name="field_6338728" type="date" value="2026-12-23" min="2026-12-23" max="2026-12-25" pattern="\d{4}-\d{2}-\d{2}">
+				</div>
+
+				<!-- dropdown: クリスマス受取時間 -->
+				<div class="rf-field rf-conditional christmas-common-group">
+					<label class="rf-label">*【クリスマス】お受取り時間</label>
+					<p class="rf-hint rf-hint-accent">※時間内にご来館できない場合はお電話をお願いいたします。<br>※配達はいたしかねますので、予めご了承ください。（最終18：00まで）</p>
+					<select class="rf-select rf-full" name="field_6338729">
+						<option value="">受け取り時間を選択してください</option>
+						<option value="0">11:00</option>
+						<option value="1">16:00</option>
+					</select>
+				</div>
+
+				<!-- radio: クリスマス受取場所 -->
+				<div class="rf-field rf-conditional christmas-common-group">
+					<label class="rf-label">*【クリスマス】お受取り</label>
+					<div class="rf-options rf-options-vertical">
+						<label class="rf-option"><input name="field_6338730" type="radio" value="0">ロイヤルチェスター伊万里</label>
+						<label class="rf-option"><input name="field_6338730" type="radio" value="1">うらり武雄</label>
+						<label class="rf-option"><input name="field_6338730" type="radio" value="2">メモリードホール山本</label>
+						<label class="rf-option"><input name="field_6338730" type="radio" value="3">メモリードホールはま</label>
+					</div>
+				</div>
+
+				<!-- textarea -->
+				<div class="rf-field">
+					<label class="rf-label">備考・お問い合わせ</label>
+					<textarea class="rf-textarea" name="field_6338731" cols="30" rows="5"></textarea>
+				</div>
+
+				<div class="rf-submit-wrap">
+					<input class="rf-submit" name="submit" type="submit" value="確認画面へ">
+				</div>
+
+				<input type="hidden" name="code" value="utf8">
+			</form>
+		</div>
 	</div>
 
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
@@ -356,7 +689,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			if (!$(this).hasClass('active')) {
 				$('.tab-nav-item').removeClass('active');
 				$(this).addClass('active');
-				
+
 				$('.tab-content').hide().removeClass('active animated fadeIn');
 				$('#' + targetTab).show().addClass('active animated fadeIn');
 			}
@@ -409,10 +742,220 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			prevButton.on('click', function() { goToSlide((currentIndex - 1 + slideCount) % slideCount); });
 			dots.on('click', function() { goToSlide($(this).data('index')); });
 			slider.on('mouseenter', stopAutoplay).on('mouseleave', startAutoplay);
-			
+
 			goToSlide(0);
 			startAutoplay();
 		}
+
+		// 予約フォーム モーダルの開閉
+		var $overlay = $('#reserveModalOverlay');
+
+		function openReserveModal() {
+			$overlay.addClass('active');
+			$('body').css('overflow', 'hidden'); // 背景スクロール防止
+		}
+		function closeReserveModal() {
+			$overlay.removeClass('active');
+			$('body').css('overflow', '');
+		}
+
+		$('#js-open-reserve-modal').on('click', function(e) {
+			e.preventDefault();
+			openReserveModal();
+		});
+		$('#js-close-reserve-modal').on('click', function(e) {
+			e.preventDefault();
+			closeReserveModal();
+		});
+		// オーバーレイの背景（フォーム外）をクリックしたら閉じる
+		$overlay.on('click', function(e) {
+			if (e.target === this) {
+				closeReserveModal();
+			}
+		});
+		// ESCキーで閉じる
+		$(document).on('keydown', function(e) {
+			if (e.key === 'Escape' && $overlay.hasClass('active')) {
+				closeReserveModal();
+			}
+		});
+
+		// 必須項目のラベルに「※必須」バッジを付ける
+		$('.rf-label').each(function () {
+			var $label = $(this);
+			var text = $label.text();
+			if (text.charAt(0) === '*') {
+				$label.text(text.substring(1)); // 先頭の * を除去
+				$label.append('<span class="rf-required">※必須</span>');
+			}
+		});
+
+		// 担当者「なし」選択時は担当者名記入欄を非表示＆必須解除
+		var $staffNameField = $('#staff-name-field');
+		var $staffNameInput = $staffNameField.find('input[name="field_6338717"]');
+
+		function toggleStaffNameField() {
+			if ($('#staff-no').is(':checked')) {
+				$staffNameField.hide();
+				$staffNameInput.prop('required', false).val(''); // 非表示時は入力値もクリア
+			} else {
+				$staffNameField.show();
+				$staffNameInput.prop('required', true);
+			}
+		}
+
+		$('input[name="field_6338716"]').on('change', toggleStaffNameField);
+		toggleStaffNameField(); // 初期状態を反映（未選択時は表示のまま）
+
+		// 共通：指定グループ内の入力値をリセットする
+		function resetFieldGroup($group) {
+			$group.find('input[type="radio"], input[type="checkbox"]').prop('checked', false);
+			$group.find('select').val('');
+		}
+
+		// 早期ご購入の締切判定（2026年10月31日 23:59:59まで早期、2026年11月1日 0:00から通常）
+		function isBeforeEarlyBirdDeadline() {
+			var deadline = new Date(2026, 9, 31, 23, 59, 59); // 月は0始まりなので9=10月
+			return new Date() <= deadline;
+		}
+
+		// ご注文内容「おせち」選択に連動して、おせち商品の選択欄を表示
+		var $osechiSelectField = $('#osechi-select-field');
+		var $premiumGroup = $('.premium-group');
+		var $tokusenGroup = $('.tokusen-group');
+
+		function toggleOsechiSelectField() {
+			var osechiChecked = $('#order-osechi-check').is(':checked');
+			if (osechiChecked) {
+				$osechiSelectField.show();
+			} else {
+				$osechiSelectField.hide();
+				$('#osechi-premium-check, #osechi-tokusen-check').prop('checked', false);
+				$premiumGroup.hide();
+				resetFieldGroup($premiumGroup);
+				$tokusenGroup.hide();
+				resetFieldGroup($tokusenGroup);
+			}
+		}
+
+		// プレミアムおせちの個数欄：時期（早期／通常）と会員・非会員に応じて出し分け
+		function toggleMembershipPriceFields() {
+			var $earlyBirdField = $('#earlybird-price-field');
+			var $memberField = $('#member-price-field');
+			var $nonMemberField = $('#nonmember-price-field');
+			var premiumChecked = $('#osechi-premium-check').is(':checked');
+
+			if (!premiumChecked) {
+				$earlyBirdField.hide();
+				$memberField.hide();
+				$nonMemberField.hide();
+				return;
+			}
+
+			if (isBeforeEarlyBirdDeadline()) {
+				// 2026/10/31 23:59:59まで：早期個数欄のみ表示
+				$earlyBirdField.show();
+				$memberField.hide();
+				resetFieldGroup($memberField);
+				$nonMemberField.hide();
+				resetFieldGroup($nonMemberField);
+			} else {
+				// 2026/11/1 0:00から：早期欄は非表示、会員・非会員で通常個数欄を出し分け
+				$earlyBirdField.hide();
+				resetFieldGroup($earlyBirdField);
+
+				if ($('#member-yes').is(':checked')) {
+					$memberField.show();
+					$nonMemberField.hide();
+					resetFieldGroup($nonMemberField);
+				} else if ($('#member-no').is(':checked')) {
+					$nonMemberField.show();
+					$memberField.hide();
+					resetFieldGroup($memberField);
+				} else {
+					$memberField.hide();
+					$nonMemberField.hide();
+				}
+			}
+		}
+
+		function togglePremiumTokusenFields() {
+			var premiumChecked = $('#osechi-premium-check').is(':checked');
+			var tokusenChecked = $('#osechi-tokusen-check').is(':checked');
+
+			if (premiumChecked) {
+				$premiumGroup.show();
+			} else {
+				$premiumGroup.hide();
+				resetFieldGroup($premiumGroup);
+			}
+
+			if (tokusenChecked) {
+				$tokusenGroup.show();
+			} else {
+				$tokusenGroup.hide();
+				resetFieldGroup($tokusenGroup);
+			}
+
+			toggleMembershipPriceFields();
+		}
+
+		$('input[name="field_6338718"]').on('change', toggleOsechiSelectField);
+		$('input[name="field_6338719"]').on('change', togglePremiumTokusenFields);
+		$('input[name="field_6342847"]').on('change', toggleMembershipPriceFields);
+
+		// ご注文内容「クリスマス」選択に連動して、クリスマス商品・受取日時・受取場所の選択欄を表示
+		var $christmasSelectField = $('#christmas-select-field');
+		var $christmasPartyGroup = $('.christmas-party-group');
+		var $christmasEbulleGroup = $('.christmas-ebulle-group');
+		var $christmasCommonGroup = $('.christmas-common-group');
+
+		function toggleChristmasSelectField() {
+			var christmasChecked = $('#order-christmas-check').is(':checked');
+			if (christmasChecked) {
+				$christmasSelectField.show();
+				$christmasCommonGroup.show();
+			} else {
+				$christmasSelectField.hide();
+				$('#xmas-party-check, #xmas-ebulle-check').prop('checked', false);
+				$christmasPartyGroup.hide();
+				resetFieldGroup($christmasPartyGroup);
+				$christmasEbulleGroup.hide();
+				resetFieldGroup($christmasEbulleGroup);
+				$christmasCommonGroup.hide();
+				resetFieldGroup($christmasCommonGroup);
+			}
+		}
+
+		function toggleChristmasItemFields() {
+			var partyChecked = $('#xmas-party-check').is(':checked');
+			var ebulleChecked = $('#xmas-ebulle-check').is(':checked');
+
+			if (partyChecked) {
+				$christmasPartyGroup.show();
+			} else {
+				$christmasPartyGroup.hide();
+				resetFieldGroup($christmasPartyGroup);
+			}
+
+			if (ebulleChecked) {
+				$christmasEbulleGroup.show();
+			} else {
+				$christmasEbulleGroup.hide();
+				resetFieldGroup($christmasEbulleGroup);
+			}
+		}
+
+		$('input[name="field_6338718"]').on('change', toggleChristmasSelectField);
+		$('input[name="field_6338724"]').on('change', toggleChristmasItemFields);
+
+		// 初期状態を反映（ページを開いた時点では条件付き項目は全て非表示）
+		toggleOsechiSelectField();
+		togglePremiumTokusenFields();
+		toggleMembershipPriceFields();
+		toggleChristmasSelectField();
+		toggleChristmasItemFields();
+
 	});
 	new WOW().init();
 	</script>
