@@ -1,0 +1,82 @@
+:root{--catalog-width:1120px}
+body.fs-1 .catalog-wrap,body.fs-1 .form-intro{zoom:1.12}
+body.fs-2 .catalog-wrap,body.fs-2 .form-intro{zoom:1.25}
+[hidden]{display:none!important}
+a{color:var(--accent)}
+button,a,input,select,summary{touch-action:manipulation}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #ad7832;outline-offset:4px}
+.preview-banner{background:#302820;color:#fff;text-align:center;padding:8px 16px;font-size:12px;letter-spacing:.025em}
+.catalog-wrap{max-width:var(--catalog-width);margin:auto;padding-left:28px;padding-right:28px}
+.catalog-hero{background:#f9f6ef;border-bottom:1px solid var(--line)}
+.hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding-top:48px;padding-bottom:48px}
+.catalog-eyebrow{color:#806633;font-size:11px;letter-spacing:.18em;font-weight:600;margin:0 0 16px}
+.catalog-eyebrow span{display:block;margin-top:7px}
+.hero-copy h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(28px,3.1vw,42px);font-weight:600;line-height:1.65;letter-spacing:.06em;margin:18px 0}
+.hero-sub{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.015em}
+.hero-intro{font-size:14px;color:var(--ink-soft);line-height:1.9;margin:22px 0}
+.catalog-primary{display:inline-flex;justify-content:space-between;gap:48px;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:4px;font-weight:600;font-size:14px}
+.catalog-primary:hover{background:#5d1720}
+.hero-form-link{display:block;font-size:12px;margin-top:17px;text-underline-offset:4px}
+.hero-photo{position:relative;align-self:stretch;min-height:380px;overflow:hidden;border-radius:140px 3px 3px 3px;background:#281b16}
+.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;object-position:58% center}
+.hero-photo span{position:absolute;right:18px;bottom:14px;color:#fff;text-shadow:0 1px 5px #000;font-size:10px;letter-spacing:.2em}
+.season-info{display:grid;grid-template-columns:1.12fr 1fr 1fr;gap:24px;padding-top:23px;padding-bottom:23px;border-bottom:1px solid var(--line)}
+.season-info>div+div{border-left:1px solid var(--line);padding-left:24px}
+.season-info span{display:block;color:var(--ink-soft);font-size:11px}
+.season-info strong{font-size:16px;display:block;font-weight:600;margin:3px 0}
+.season-info>div:first-child strong{color:var(--accent);font-size:19px}
+.season-info small{font-size:11px;font-weight:400}
+.catalog-section{padding-top:56px;padding-bottom:36px;scroll-margin-top:20px}
+.catalog-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:26px}
+.catalog-heading h2,.order-guide h2,.form-intro h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:25px;line-height:1.6;font-weight:600;margin:0}
+.catalog-heading .catalog-eyebrow{margin-bottom:7px}
+.catalog-heading>p{font-size:12px;color:var(--ink-soft);margin:0;line-height:1.8}
+.catalog-tabs{display:flex;gap:10px;margin-bottom:20px}
+.catalog-tabs button{font:inherit;font-size:14px;font-weight:600;padding:13px 19px;flex:1;border:1px solid var(--line);background:#fffdf9;border-radius:5px;color:var(--ink);cursor:pointer}
+.catalog-tabs button:last-child{flex:0 0 96px}
+.catalog-tabs span{font-size:11px;font-weight:400;margin-left:7px;white-space:nowrap}
+.catalog-tabs button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.category-guide{margin:0 0 23px;font-size:13px;color:var(--ink-soft);border-left:3px solid #ad9155;padding-left:12px;min-height:23px}
+.catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;align-items:start}
+.product-card{background:#fffdf9;border:1px solid #ded5c6;border-radius:7px;overflow:hidden;box-shadow:0 2px 6px #46311506}
+.product-visual{position:relative;background:#eee7dc;aspect-ratio:4/3;overflow:hidden}
+.product-visual img{display:block;width:100%;height:100%;object-fit:contain}
+.product-number{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;font-size:13px;padding:4px 9px;border-radius:3px}
+.product-limit{position:absolute;top:12px;right:12px;background:#fffef8f2;border:1px solid #ded5c6;padding:4px 8px;font-size:11px;border-radius:3px}
+.product-body{padding:20px}
+.product-size{font-size:12px;color:#685e50;margin:0 0 6px}
+.product-card h3{font-size:17px;line-height:1.55;margin:0 0 15px;font-weight:600;min-height:53px;overflow-wrap:anywhere}
+.product-prices{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:13px;min-height:94px;display:flex;flex-direction:column;justify-content:center}
+.product-prices>div{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.product-prices span{font-size:11px;white-space:nowrap}
+.product-prices strong{font-family:Georgia,"Yu Mincho",serif;font-size:23px;line-height:1.7;font-weight:400;white-space:nowrap}
+.product-prices small{font:11px system-ui,sans-serif;margin-left:3px}
+.product-prices .member{color:var(--accent)}
+.product-prices .member strong{font-weight:600}
+.product-prices .shared{font-size:11px;color:var(--ink-soft);margin:0}
+.product-facility{font-size:11px;line-height:1.6;min-height:38px;margin:0 0 14px}
+.product-facility span{display:block;color:#756a5e;font-size:10px;margin-bottom:1px}
+.product-details{font-size:12px;border-top:1px dashed var(--line);margin-top:17px;padding-top:11px}
+.product-details summary{cursor:pointer;color:var(--ink-soft);padding:4px 0}
+.product-details p{line-height:1.9;color:var(--ink-soft);margin:10px 0 0}
+.product-order{font:inherit;font-size:12px;font-weight:600;color:var(--accent);width:100%;padding:11px 6px;background:transparent;border:1px solid var(--accent);border-radius:4px;cursor:pointer}
+.product-order:hover{background:var(--accent);color:#fff}
+.catalog-footnote{color:var(--ink-soft);font-size:11px;line-height:1.9;margin-top:23px}
+.order-guide{padding-top:30px;padding-bottom:40px;border-top:1px solid var(--line)}
+.order-guide .catalog-eyebrow{margin-bottom:6px}
+.order-guide h2{font-size:23px}
+.guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-top:20px}
+.guide-grid b{font-size:13px;color:var(--accent)}
+.guide-grid p{font-size:12px;color:var(--ink-soft);line-height:1.85;margin:8px 0 0}
+.form-intro{padding-top:42px;border-top:2px solid var(--accent);scroll-margin-top:18px}
+.form-intro .catalog-eyebrow{margin-bottom:5px}
+.form-intro p{font-size:13px;color:var(--ink-soft)}
+#selection-notice:not(:empty){background:#ebe3d4;border-left:3px solid var(--accent);padding:12px}
+main.wrap{padding-top:20px}
+#testReview{background:#fffdf9;border:1px solid var(--accent);border-radius:8px;padding:22px;margin:20px 0;scroll-margin-top:20px}
+#testReview h2{font-size:20px}#testSummary{font:13px/1.8 inherit;white-space:pre-wrap;overflow-wrap:anywhere}
+.item select:focus{outline:3px solid #b48946;outline-offset:4px}
+@media(min-width:761px){.fs-ctrl{bottom:12px}.catalog-grid .product-card:hover{box-shadow:0 5px 20px #4631150d}}
+@media(max-width:800px){.hero-layout{gap:24px}.hero-copy h1{font-size:29px}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-heading{display:block}.catalog-heading>p{margin-top:12px}.season-info{gap:14px}.season-info>div+div{padding-left:14px}.season-info strong{font-size:14px}.season-info>div:first-child strong{font-size:16px}.catalog-tabs button{padding:12px 8px}}
+@media(max-width:560px){.preview-banner{font-size:10px;padding:7px 12px}.catalog-wrap{padding-left:20px;padding-right:20px}.hero-layout{grid-template-columns:1fr;padding-top:26px;padding-bottom:25px;gap:24px}.catalog-eyebrow{font-size:10px}.catalog-eyebrow span{display:inline;margin-left:12px}.hero-copy h1{font-size:29px;line-height:1.6;margin:12px 0}.hero-sub{font-size:11px}.hero-intro{font-size:12px;margin:15px 0}.catalog-primary{font-size:13px;padding:12px 22px}.hero-form-link{font-size:11px}.hero-photo{min-height:0;aspect-ratio:16/9;border-radius:60px 3px 3px 3px}.season-info{grid-template-columns:1fr 1fr;padding-top:18px;padding-bottom:18px;gap:13px 14px}.season-info>div:first-child{grid-column:1/-1;border-bottom:1px solid var(--line);padding-bottom:11px}.season-info>div:nth-child(2){padding-left:0;border-left:0}.season-info strong{font-size:12px}.season-info>div:first-child strong{font-size:19px}.season-info span{font-size:10px}.catalog-section{padding-top:33px}.catalog-heading h2{font-size:21px}.catalog-heading>p{font-size:11px}.catalog-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.catalog-tabs button{font-size:12px;padding:11px 3px}.catalog-tabs span{display:block;margin:1px 0 0;font-size:10px}.catalog-tabs button:last-child{grid-column:1/-1;padding:7px;font-size:11px}.category-guide{font-size:12px}.catalog-grid{grid-template-columns:1fr;gap:22px}.product-body{padding:20px}.product-card h3{min-height:0;font-size:18px}.product-facility{min-height:0}.product-prices{min-height:0}.product-prices strong{font-size:25px}.product-order{font-size:14px;padding:12px}.guide-grid{grid-template-columns:1fr;gap:18px}.guide-grid b{font-size:14px}.guide-grid p{font-size:12px}.form-intro h2{font-size:25px}.step-head{flex-wrap:wrap;gap:5px 10px}.step-head .sub{width:100%;margin-left:0}.fac.on::after{position:static;display:block;margin-top:5px}.item{grid-template-columns:1fr 80px}.item .nm{grid-column:1/-1}.item .line{font-size:15px}.item .qtywrap{justify-content:flex-start}.fs-ctrl{bottom:8px}.order-guide{padding-bottom:30px}body.fs-2 .catalog-tabs button{font-size:11px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
