@@ -9,6 +9,8 @@
 var CONFIG = {
   // 注文通知の宛先（担当者）。全施設まとめてこちらに届きます
   TO: "mk@emanet.jp",
+  // 全体管理者（TOと同じく、全注文内容を受信）
+  OVERALL_TO: ["mk@emanet.jp", "hashiguchi-ken@memolead.co.jp"],
   // CC（管理者・複数可）
   CC: [],
   // 施設ごとの注文通知先（該当施設の注文がある場合、その施設グループへ同じ内容を送信）
@@ -103,7 +105,7 @@ export default {
 
       const facilityIds = [...new Set((d.orders || []).map(o => o.facilityId).filter(Boolean))];
       const facilityTargets = facilityIds.flatMap(id => CONFIG.FACILITY_EMAILS[id] || []);
-      const targets = [...new Set([CONFIG.TO, ...facilityTargets])];
+      const targets = [...new Set([...(CONFIG.OVERALL_TO || [CONFIG.TO]), ...facilityTargets])];
       const adminResults = await Promise.all(targets.map(async (to) => {
         const adminBody = {
           sender,
