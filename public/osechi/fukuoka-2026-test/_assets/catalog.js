@@ -175,7 +175,7 @@ function pickupGuide(category){
   const categories=category==='all'?Object.keys(categoryNames):[category];
   return categories.map(key=>{
     const locations=[...new Set(catalogProducts.filter(p=>p.category===key).flatMap(p=>p.pickup))];
-    return `<div class="pickup-location-group"><h3>${categoryNames[key]} 受け取り可能店舗 <span>${locations.length}店舗</span></h3><ul>${locations.map(name=>`<li>${name}</li>`).join('')}</ul></div>`;
+    return `<div class="pickup-location-group"><h3>${categoryNames[key]} 受け取り可能店舗 <span>${locations.length}店舗</span>${key==='osechi'?'<b class="delivery-badge">配達可</b>':''}</h3><ul>${locations.map(name=>`<li>${name}</li>`).join('')}</ul></div>`;
   }).join('');
 }
 function filterCatalog(category){
