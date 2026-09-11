@@ -49,7 +49,7 @@ productGrid.addEventListener('click',e=>{
 cartItems.addEventListener('change',e=>{const field=e.target.dataset.field;if(!field)return;const r=cart.find(r=>r.id===Number(e.target.closest('[data-row]').dataset.row));r[field]=field==='qty'?Number(e.target.value):e.target.value;invalidate();renderCart();});
 cartItems.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
- if(b.dataset.remove){const index=cart.findIndex(r=>r.id===Number(b.dataset.remove));cart.splice(index,1);invalidate();renderCart();const next=cartItems.querySelector('select');(next||document.getElementById('cart')).focus({preventScroll:true});toast('商品をカートから削除しました');}
+ if(b.dataset.remove){const index=cart.findIndex(r=>r.id===Number(b.dataset.remove));cart.splice(index,1);invalidate();renderCart();document.getElementById('cart').focus({preventScroll:true});toast('商品をカートから削除しました');}
  if(b.dataset.copy){const r=cart.find(r=>r.id===Number(b.dataset.copy));const id=++serial;const p=byNo(r.no);cart.push({id,no:r.no,qty:1,method:p.delivery?'':'store',pickup:'',date:'',time:''});invalidate();renderCart({id,field:'qty'});cartItems.querySelector(`[data-row="${id}"]`).scrollIntoView({behavior:'smooth',block:'center'});toast('別の受け取り分を1点追加しました。場所と日時を指定してください。');}
 
 });
