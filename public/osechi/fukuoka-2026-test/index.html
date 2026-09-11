@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- @version cart-test-v19 | 2026-09-11 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
+<!-- @version cart-test-v20 | 2026-09-11 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
 <html lang="ja">
 <head>
 
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="cart-test-v19">
+<meta name="version" content="cart-test-v20">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -179,20 +179,23 @@
   #done p{color:var(--ink-soft);font-size:14.5px}
   .hidden{display:none!important}
   footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-soft);font-size:12px;text-align:center}
-  /* 文字サイズ変更ボタン（右下固定） */
-  .fs-ctrl{position:fixed;right:14px;bottom:14px;z-index:900;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:30px;padding:7px 10px 7px 14px;box-shadow:0 4px 18px rgba(0,0,0,.14)}
-  .fs-ctrl .fs-label{font-size:11.5px;color:var(--ink-soft);font-weight:600;white-space:nowrap}
+  /* 文字サイズ変更（右下固定・開閉式） */
+  .fs-ctrl{position:fixed;right:14px;bottom:14px;z-index:900;display:flex;flex-direction:column;align-items:stretch;gap:7px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:14px;padding:7px;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+  .fs-ctrl .fs-toggle{font:inherit;cursor:pointer;border:0;background:transparent;color:var(--ink);border-radius:9px;padding:7px 10px;font-size:12px;font-weight:700;line-height:1;white-space:nowrap}
+  .fs-ctrl .fs-toggle::after{content:'⌄';display:inline-block;margin-left:8px;color:var(--ink-soft);transition:transform .15s}
+  .fs-ctrl.open .fs-toggle::after{transform:rotate(180deg)}
+  .fs-options{display:flex;gap:6px}
   .fs-ctrl button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:20px;padding:6px 11px;font-weight:700;line-height:1;transition:.15s}
   .fs-ctrl button.s{font-size:12px} .fs-ctrl button.m{font-size:14px} .fs-ctrl button.l{font-size:16px}
   .fs-ctrl button:hover{border-color:var(--accent-2)}
   .fs-ctrl button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
   body.fs-1 header.hero, body.fs-1 main, body.fs-1 footer{zoom:1.12}
   body.fs-2 header.hero, body.fs-2 main, body.fs-2 footer{zoom:1.25}
-  @media(max-width:560px){ .fs-ctrl{right:10px;bottom:10px;padding:6px 8px 6px 10px} .fs-ctrl .fs-label{display:none} }
+  @media(max-width:560px){ .fs-ctrl{right:10px;bottom:10px;padding:5px;border-radius:12px}.fs-ctrl .fs-toggle{padding:7px 8px;font-size:11px}.fs-options{gap:4px}.fs-ctrl button{padding:6px 9px} }
 </style>
-<link rel="stylesheet" href="./_assets/catalog.css?v=cart-test-v19">
-<link rel="stylesheet" href="./_assets/cart.css?v=cart-test-v19">
-<link rel="stylesheet" href="./_assets/cover.css?v=cart-test-v19">
+<link rel="stylesheet" href="./_assets/catalog.css?v=cart-test-v20">
+<link rel="stylesheet" href="./_assets/cart.css?v=cart-test-v20">
+<link rel="stylesheet" href="./_assets/cover.css?v=cart-test-v20">
 </head>
 <body>
 
@@ -345,19 +348,21 @@
   <div style="margin-top:6px">ご不明な点は各施設までお問い合わせください。</div>
 </footer>
 
-<!-- 文字サイズ変更（右下固定） -->
+<!-- 文字サイズ変更（右下固定・開閉式） -->
 <div class="fs-ctrl" role="group" aria-label="文字サイズ変更">
-  <span class="fs-label">文字サイズ</span>
-  <button type="button" class="s active" data-fs="0">標準</button>
-  <button type="button" class="m" data-fs="1">大</button>
-  <button type="button" class="l" data-fs="2">特大</button>
+  <button type="button" class="fs-toggle" aria-expanded="false" aria-controls="fsOptions">文字サイズ</button>
+  <div class="fs-options" id="fsOptions" hidden>
+    <button type="button" class="s active" data-fs="0">標準</button>
+    <button type="button" class="m" data-fs="1">大</button>
+    <button type="button" class="l" data-fs="2">特大</button>
+  </div>
 </div>
 
 
-<script defer src="./_assets/master.js?v=cart-test-v19"></script>
-<script defer src="./_assets/catalog.js?v=cart-test-v19"></script>
-<script defer src="./_assets/cart.js?v=cart-test-v19"></script>
-<script defer src="./_assets/postcode.js?v=cart-test-v19"></script>
+<script defer src="./_assets/master.js?v=cart-test-v20"></script>
+<script defer src="./_assets/catalog.js?v=cart-test-v20"></script>
+<script defer src="./_assets/cart.js?v=cart-test-v20"></script>
+<script defer src="./_assets/postcode.js?v=cart-test-v20"></script>
 <div class="cart-dock"><span id="dockTotal">カート 0点</span><a href="#cart">カートを確認</a></div><div id="cartToast" role="status" aria-live="polite"></div>
 
 </body>
