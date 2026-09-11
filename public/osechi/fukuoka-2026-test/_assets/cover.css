@@ -1,0 +1,20 @@
+.cover-hero{background:#fafaf8 url('./img/cover-paper.webp') center/650px;border-bottom:1px solid var(--line)}
+.cover-layout{max-width:1440px;margin:auto;display:grid;grid-template-columns:58% 42%;min-height:570px;overflow:hidden}
+.cover-collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:36% 27% 37%;height:620px;overflow:hidden}
+.cover-collage img{display:block;width:100%;height:100%;object-fit:cover;min-height:0}
+.cover-cake{grid-column:1/-1;object-position:50% 44%}
+.cover-platter{object-position:50% 50%}
+.cover-soup{object-position:50% 50%}
+.cover-osechi{grid-column:1/-1;object-position:50% 43%}
+.cover-paper{min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 32px 26px 16px;background:url('./img/cover-paper.webp') center/650px;isolation:isolate}
+.cover-paper:before{content:"";position:absolute;z-index:-1;inset:-12% 0 -12% -60px;border-radius:50% 0 0 50%;background:inherit}
+.cover-heading{max-width:100%;width:min(100%,350px);margin:0 0 12px!important;line-height:0}
+.cover-heading img{width:100%;height:auto;display:block}
+.cover-subtitle{display:block;width:220px;max-width:75%;height:auto;mix-blend-mode:multiply}
+.cover-logos{display:flex;align-items:center;justify-content:center;gap:18px;width:100%;margin-top:30px}
+.cover-logos img{display:block;width:calc((100% - 36px)/3);max-width:135px;height:70px;object-fit:contain;mix-blend-mode:multiply}
+.cover-actions{display:flex;gap:28px;align-items:center;justify-content:center;padding:19px 20px;background:#ffffffb8;border-top:1px solid #dedbd3}
+.cover-actions .hero-form-link{margin:0}
+@media(min-width:1450px){.cover-layout{border-left:1px solid #e5e0d8;border-right:1px solid #e5e0d8}}
+@media(max-width:900px){.cover-layout{grid-template-columns:53% 47%;min-height:0}.cover-collage{height:530px}.cover-paper{padding:24px 22px 22px 10px}.cover-paper:before{left:-34px}.cover-heading{width:290px}.cover-subtitle{width:200px}.cover-logos{gap:9px;margin-top:22px}.cover-logos img{width:calc((100% - 18px)/3);height:55px}}
+@media(max-width:560px){.cover-layout{grid-template-columns:45% 55%}.cover-collage{height:360px;grid-template-rows:34% 24% 42%}.cover-paper{padding:20px 12px 17px 5px}.cover-paper:before{left:-20px}.cover-heading{margin-bottom:10px!important}.cover-subtitle{width:150px;max-width:94%}.cover-logos{gap:4px;margin-top:18px}.cover-logos img{width:calc((100% - 8px)/3);height:38px}.cover-actions{gap:18px;padding:15px 14px}.cover-actions .catalog-primary{font-size:12px;padding:11px 15px;gap:20px}.cover-actions .hero-form-link{font-size:11px}}
