@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- @version cart-test-v12 | 2026-09-11 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
+<!-- @version cart-test-v14 | 2026-09-11 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
 <html lang="ja">
 <head>
 
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="cart-test-v12">
+<meta name="version" content="cart-test-v14">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -190,9 +190,9 @@
   body.fs-2 header.hero, body.fs-2 main, body.fs-2 footer{zoom:1.25}
   @media(max-width:560px){ .fs-ctrl{right:10px;bottom:10px;padding:6px 8px 6px 10px} .fs-ctrl .fs-label{display:none} }
 </style>
-<link rel="stylesheet" href="./_assets/catalog.css?v=cart-test-v12">
-<link rel="stylesheet" href="./_assets/cart.css?v=cart-test-v12">
-<link rel="stylesheet" href="./_assets/cover.css?v=cart-test-v12">
+<link rel="stylesheet" href="./_assets/catalog.css?v=cart-test-v14">
+<link rel="stylesheet" href="./_assets/cart.css?v=cart-test-v14">
+<link rel="stylesheet" href="./_assets/cover.css?v=cart-test-v14">
 </head>
 <body>
 
@@ -222,7 +222,6 @@
   </div>
   <nav class="cover-actions" aria-label="商品・カートへのご案内">
    <a class="catalog-primary" href="#catalog">商品を見る <span>↓</span></a>
-   <a class="hero-form-link" href="#cart">カートを確認する →</a>
   </nav>
  </header>
 <div class="catalog-wrap season-info">
@@ -231,12 +230,14 @@
  <div><span>おせちのお受け取り</span><strong>12月31日<small>（木）</small></strong><small>10:00〜13:00</small></div>
 </div>
 <section class="catalog-wrap catalog-section" id="catalog" aria-labelledby="catalog-title">
- <div class="catalog-heading"><div><p class="catalog-eyebrow">LINEUP</p><h2 id="catalog-title">食卓に合わせて、お選びください。</h2></div><p>表示価格はすべて税込です。<br>特別価格はメモリード会員のお客様が対象です。</p></div>
- <nav class="catalog-tabs" aria-label="商品カテゴリ">
-  <button type="button" data-filter="osechi" aria-pressed="true">おせち料理 <span>5商品</span></button>
+ <div class="catalog-heading"><div><p class="catalog-eyebrow">LINEUP</p><h2 id="catalog-title">絞り込む</h2></div><p>表示価格はすべて税込です。<br>特別価格はメモリード会員のお客様が対象です。</p></div>
+ <nav class="catalog-tabs catalog-tabs-all" aria-label="全商品表示">
+  <button type="button" data-filter="all" aria-pressed="true">すべて <span>13商品</span></button>
+ </nav>
+ <nav class="catalog-tabs catalog-tabs-categories" aria-label="商品カテゴリ">
+  <button type="button" data-filter="osechi" aria-pressed="false">おせち料理 <span>5商品</span></button>
   <button type="button" data-filter="xmas" aria-pressed="false">クリスマス <span>6商品</span></button>
   <button type="button" data-filter="nabe" aria-pressed="false">鍋セット <span>2商品</span></button>
-  <button type="button" data-filter="all" aria-pressed="false">すべて</button>
  </nav>
  <p id="category-guide" class="category-guide" aria-live="polite"></p>
  <div id="category-pickup" class="category-pickup" aria-live="polite" aria-label="受け取り可能店舗"></div>
@@ -351,11 +352,11 @@
 </div>
 
 
-<script defer src="./_assets/master.js?v=cart-test-v12"></script>
-<script defer src="./_assets/catalog.js?v=cart-test-v12"></script>
-<script defer src="./_assets/cart.js?v=cart-test-v12"></script>
-<script defer src="./_assets/postcode.js?v=cart-test-v12"></script>
-<div class="cart-dock"><span id="dockTotal">カート 0点</span><a href="#cart">カートを確認 <span aria-hidden="true">↑</span></a></div><div id="cartToast" role="status" aria-live="polite"></div>
+<script defer src="./_assets/master.js?v=cart-test-v14"></script>
+<script defer src="./_assets/catalog.js?v=cart-test-v14"></script>
+<script defer src="./_assets/cart.js?v=cart-test-v14"></script>
+<script defer src="./_assets/postcode.js?v=cart-test-v14"></script>
+<div class="cart-dock"><span id="dockTotal">カート 0点</span><a href="#cart">カートを確認</a></div><div id="cartToast" role="status" aria-live="polite"></div>
 
 </body>
 </html>
