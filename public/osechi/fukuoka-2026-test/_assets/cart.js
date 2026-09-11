@@ -17,7 +17,7 @@ function totals(){const fees=new Set();let subtotal=0,quantity=0,productTax=0;fo
 function options(values,selected){return '<option value="">選択してください</option>'+values.map(v=>`<option value="${v}"${v===selected?' selected':''}>${v}</option>`).join('');}
 function renderCart(focus){
  cartItems.innerHTML=cart.length?cart.map((r,i)=>{const p=byNo(r.no);return `<article class="cart-row" data-row="${r.id}" aria-label="明細${i+1} ${p.name}">
- <div class="cart-product"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp" alt="" width="92" height="75"><div><span class="cart-row-number">明細${i+1} · No.${p.no}</span><h3>${p.name}</h3><p>担当：${p.facility}</p></div></div>
+ <div class="cart-product"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp" alt="" width="92" height="75"><div><span class="cart-row-number">明細${i+1} · No.${p.no}</span><h3>${p.name}</h3><p>お申し込み先：${p.facility}</p></div></div>
  <div class="cart-quantity"><label>数量<select data-field="qty" aria-label="明細${i+1}の数量">${Array.from({length:10},(_,j)=>`<option${j+1===r.qty?' selected':''}>${j+1}</option>`).join('')}</select></label><span>${yen(unit(p))} × ${r.qty}</span><strong>${yen(unit(p)*r.qty)}</strong><button type="button" data-remove="${r.id}" aria-label="明細${i+1}を削除">削除</button></div>
  <div class="cart-pick">
  ${p.delivery?`<label>受け取り方法<select data-field="method" aria-label="明細${i+1}の受け取り方法"><option value="store"${r.method==='store'?' selected':''}>店頭受け取り</option><option value="delivery"${r.method==='delivery'?' selected':''}>福岡県内配達</option></select></label>`:''}
