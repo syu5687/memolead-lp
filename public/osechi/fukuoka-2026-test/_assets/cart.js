@@ -25,7 +25,7 @@ function renderCart(focus){
  <label>${r.method==='delivery'?'お届け':'受け取り'}日時<select data-field="date" aria-label="明細${i+1}の受け取り日時">${options(p.dates,r.date)}</select></label>
  </div>
  ${r.pickup&&r.method==='store'?`<p class="cart-address">${LOCATIONS[r.pickup]?.addr||''} <a href="${locMapUrl(r.pickup)}" target="_blank" rel="noopener">地図を見る ↗</a></p>`:''}
- <div class="cart-row-actions"><button type="button" data-copy="${r.id}">同じ商品を別の受け取り分として追加</button><button type="button" data-apply="${r.id}">この受け取り条件を同カテゴリに適用</button></div>
+ <div class="cart-row-actions"><button type="button" data-copy="${r.id}">同じ商品を別の受け取り分として追加</button></div>
  </article>`;}).join(''):'<div class="cart-empty"><strong>カートに商品が入っていません</strong><p>商品一覧で数量を選び、「カートに追加」を押してください。</p><a href="#catalog">商品を見る →</a></div>';
  const t=totals();
  document.getElementById('cartTotals').innerHTML=`<div class="cart-total-lines"><span>商品小計（税込）</span><b>${yen(t.subtotal)}</b><span>配達料${t.fees.size?'（'+t.fees.size+'施設分）':''}</span><b>${yen(t.fees.size*1000)}</b></div><div class="totalbar"><span>合計 ${t.quantity}点（税込）</span><b>${yen(t.total)}</b></div><p class="hint">商品代金の内消費税：${yen(t.productTax)}／配達料は税込</p>`;
@@ -43,15 +43,11 @@ productGrid.addEventListener('click',e=>{
  invalidate();renderCart();toast(`${p.name} ${qty}点をカートに追加しました`);
 });
 cartItems.addEventListener('change',e=>{const field=e.target.dataset.field;if(!field)return;const r=cart.find(r=>r.id===Number(e.target.closest('[data-row]').dataset.row));r[field]=field==='qty'?Number(e.target.value):e.target.value;invalidate();renderCart({id:r.id,field});});
-cartItems.addEventListener('click',async e=>{
+cartItems.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.dataset.remove){const index=cart.findIndex(r=>r.id===Number(b.dataset.remove));cart.splice(index,1);invalidate();renderCart();const next=cartItems.querySelector('select');(next||document.getElementById('cart')).focus({preventScroll:true});toast('商品をカートから削除しました');}
  if(b.dataset.copy){const r=cart.find(r=>r.id===Number(b.dataset.copy));const id=++serial;cart.push({id,no:r.no,qty:1,method:'store',pickup:'',date:''});invalidate();renderCart({id,field:'qty'});cartItems.querySelector(`[data-row="${id}"]`).scrollIntoView({behavior:'smooth',block:'center'});toast('別の受け取り分を1点追加しました。場所と日時を指定してください。');}
- if(b.dataset.apply){const r=cart.find(r=>r.id===Number(b.dataset.apply)),p=byNo(r.no);if(!r.date||(r.method==='store'&&!r.pickup)){toast('先に、この明細の受け取り場所・日時を選んでください。');return;}
- const peers=cart.filter(x=>x.id!==r.id&&byNo(x.no).category===p.category);if(!peers.length){toast('同じカテゴリのほかの明細はありません。');return;}
- const dialog=document.getElementById('applyConfirm');document.getElementById('applyMessage').textContent=`同じカテゴリのほかの${peers.length}明細の受け取り条件を上書きします。別々に指定済みの場所・日時も変更されます。`;
- dialog.returnValue='';dialog.showModal();const approved=await new Promise(resolve=>dialog.addEventListener('close',()=>resolve(dialog.returnValue==='apply'),{once:true}));if(!approved)return;
- peers.forEach(x=>Object.assign(x,{method:r.method,pickup:r.pickup,date:r.date}));invalidate();renderCart();toast('同じカテゴリの受け取り条件を揃えました。');}
+
 });
 document.querySelectorAll('[name="ptier"]').forEach(el=>el.addEventListener('change',()=>{tier=el.value;invalidate();renderCart();}));
 document.querySelectorAll('.fs-ctrl button').forEach(b=>b.addEventListener('click',()=>{document.body.classList.remove('fs-1','fs-2');if(Number(b.dataset.fs))document.body.classList.add('fs-'+b.dataset.fs);document.querySelectorAll('.fs-ctrl button').forEach(x=>x.classList.toggle('active',x===b));}));
