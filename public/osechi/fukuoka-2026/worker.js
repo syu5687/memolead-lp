@@ -11,8 +11,14 @@ var CONFIG = {
   TO: "mk@emanet.jp",
   // CC（管理者・複数可）
   CC: [],
+  // 施設ごとの注文通知先（該当施設の注文がある場合、その施設グループへ同じ内容を送信）
+  FACILITY_EMAILS: {
+    garden: ["kasahara-hiro@memolead.co.jp", "muranaka-jun@memolead.co.jp", "mimae-kazu@memolead.co.jp"],
+    alcasal: ["yoshimura-jyun@memolead.co.jp", "sakakihara-yuu@memolead.co.jp", "avvio-keiri@memolead.co.jp", "avvio@memolead.co.jp"],
+    royal: ["gondou-yumi@memolead.co.jp", "turo-nori@memolead.co.jp", "mouri-sei@memolead.co.jp", "yoshida-fumi@memolead.co.jp"]
+  },
   // BCC（他の受信者に知られず通知・複数可）
-  BCC: ["hashiguchi-ken@memolead.co.jp", "emaweb@emanet.jp"],
+  BCC: [],
   // 送信元（★ Brevoで nfz33.com を認証済み。他ドメインを使う場合は認証してから）
   FROM_NAME: "メモリード福岡",
   FROM_EMAIL: "noreply@nfz33.com",
@@ -95,22 +101,24 @@ export default {
           <p style="margin-top:20px;font-size:12px;color:#aaa;">送信元：おせち・クリスマス2026 ご注文フォーム</p>
         </div>`;
 
-      const adminBody = {
-        sender,
-        to: [{ email: CONFIG.TO }],
-        subject: `${CONFIG.SUBJECT_PREFIX}${esc(d.facility)}／${esc(d.name)}様${d.total ? `（¥${Number(d.total).toLocaleString("ja-JP")}）` : ""}`,
-        htmlContent: adminHtml,
-        replyTo: { email: d.email, name: d.name }
-      };
-      if (CONFIG.CC.length) adminBody.cc = CONFIG.CC.map((e) => ({ email: e }));
-      if (CONFIG.BCC.length) adminBody.bcc = CONFIG.BCC.map((e) => ({ email: e }));
-
-      const adminRes = await fetch(BREVO_EMAIL, {
-        method: "POST",
-        headers: { "api-key": env.BREVO_API_KEY, "Content-Type": "application/json", "accept": "application/json" },
-        body: JSON.stringify(adminBody)
-      });
-      const adminResult = await adminRes.json().catch(() => ({}));
+      const facilityIds = [...new Set((d.orders || []).map(o => o.facilityId).filter(Boolean))];
+      const facilityTargets = facilityIds.flatMap(id => CONFIG.FACILITY_EMAILS[id] || []);
+      const targets = [...new Set([CONFIG.TO, ...facilityTargets])];
+      const adminResults = await Promise.all(targets.map(async (to) => {
+        const adminBody = {
+          sender,
+          to: [{ email: to }],
+          subject: `${CONFIG.SUBJECT_PREFIX}${esc(d.facility)}／${esc(d.name)}様${d.total ? `（¥${Number(d.total).toLocaleString("ja-JP")}）` : ""}`,
+          htmlContent: adminHtml,
+          replyTo: { email: d.email, name: d.name }
+        };
+        if (CONFIG.CC.length) adminBody.cc = CONFIG.CC.map((e) => ({ email: e }));
+        if (CONFIG.BCC.length) adminBody.bcc = CONFIG.BCC.map((e) => ({ email: e }));
+        const res = await fetch(BREVO_EMAIL, { method: "POST", headers: { "api-key": env.BREVO_API_KEY, "Content-Type": "application/json", "accept": "application/json" }, body: JSON.stringify(adminBody) });
+        return { ok: res.ok, result: await res.json().catch(() => ({})) };
+      }));
+      const adminOk = adminResults.every(r => r.ok);
+      const adminResult = adminResults.find(r => !r.ok)?.result || adminResults[0]?.result || {};
 
       // お客様への受付確認（自動返信）
       let autoReplyOk = null;
@@ -144,7 +152,7 @@ export default {
         });
       }
 
-      return json({ ok: adminRes.ok, orderId, autoReply: autoReplyOk, ...adminResult }, adminRes.ok ? 200 : 500);
+      return json({ ok: adminOk, orderId, autoReply: autoReplyOk, ...adminResult }, adminOk ? 200 : 500);
     } catch (e) {
       return json({ ok: false, error: e.message }, 500);
     }
