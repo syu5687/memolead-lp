@@ -52,7 +52,7 @@ export default {
     const allowOrigin = CONFIG.ALLOWED_ORIGINS.includes(origin) ? origin : CONFIG.ALLOWED_ORIGINS[0];
     const cors = {
       "Access-Control-Allow-Origin": allowOrigin,
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
       "Vary": "Origin"
     };
@@ -230,6 +230,11 @@ async function handleAdmin(request, env, cors, url) {
       const body = await request.json();
       if (!["未対応", "確認済み", "完了"].includes(body.status)) return json({ ok: false, error: "不正な対応状況です" }, 400);
       await env.DB.prepare("UPDATE orders SET status = ? WHERE id = ?").bind(body.status, decodeURIComponent(match[1])).run();
+      return json({ ok: true });
+    }
+    const deleteMatch = url.pathname.match(/^\/admin\/orders\/([^/]+)$/);
+    if (request.method === "DELETE" && deleteMatch) {
+      await env.DB.prepare("DELETE FROM orders WHERE id = ?").bind(decodeURIComponent(deleteMatch[1])).run();
       return json({ ok: true });
     }
     return json({ ok: false, error: "Not found" }, 404);
