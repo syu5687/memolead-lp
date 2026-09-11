@@ -24,7 +24,6 @@ catalogProducts.forEach(p=>{
     : `<div><span>一般価格</span><strong>${p.g.toLocaleString('ja-JP')}<small>円</small></strong></div><div class="member"><span>会員特別価格</span><strong>${p.s.toLocaleString('ja-JP')}<small>円</small></strong></div>`;
   article.innerHTML=`<div class="product-visual"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp" alt="${p.name}" width="600" height="450" loading="lazy"><span class="product-number">No. ${String(p.no).padStart(2,'0')}</span><span class="product-limit">限定 ${p.limit}${p.category==='nabe'?'セット':'個'}</span></div>
     <div class="product-body"><p class="product-size">${p.size}</p><h3>${p.name}</h3><div class="product-prices">${prices}</div>
-    <p class="product-facility"><span>お申し込み施設</span>${p.facility}</p>
     <div class="add-to-cart"><label>数量<select data-addqty="${p.no}" aria-label="${p.name}を追加する数量">${Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select></label><button type="button" class="product-order" data-order="${p.no}" aria-label="${p.name}をカートに追加">カートに追加 ＋</button></div>
     <details class="product-details"><summary>献立・商品詳細を見る</summary><p>${p.detail}</p></details></div>`;
   productGrid.appendChild(article);
@@ -33,12 +32,21 @@ const categoryGuides={
   osechi:'おせち料理 5商品｜12月31日（木）10:00〜13:00のお受け取り。福岡県内配達も選べます。',
   xmas:'クリスマス 6商品｜12月23日（水）・24日（木）・25日（金）13:00〜18:00のお受け取り。一般・会員共通価格です。',
   nabe:'鍋セット 2商品｜12月23〜25日 13:00〜18:00、または12月31日 10:00〜13:00のお受け取り。',
-  all:'全13商品｜お受け取り日・お申し込み施設は商品ごとに異なります。'
+  all:'全13商品｜お受け取り日・受け取り可能店舗はカテゴリごとに異なります。'
 };
+const categoryNames={osechi:'おせち料理',xmas:'クリスマス',nabe:'鍋セット'};
+function pickupGuide(category){
+  const categories=category==='all'?Object.keys(categoryNames):[category];
+  return categories.map(key=>{
+    const locations=[...new Set(catalogProducts.filter(p=>p.category===key).flatMap(p=>p.pickup))];
+    return `<div class="pickup-location-group"><h3>${category==='all'?categoryNames[key]+'の':''}受け取り可能店舗 <span>${locations.length}店舗</span></h3><ul>${locations.map(name=>`<li>${name}</li>`).join('')}</ul></div>`;
+  }).join('');
+}
 function filterCatalog(category){
   document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));
   productGrid.querySelectorAll('.product-card').forEach(card=>card.hidden=category!=='all'&&card.dataset.category!==category);
   document.getElementById('category-guide').textContent=categoryGuides[category];
+  document.getElementById('category-pickup').innerHTML=pickupGuide(category);
 }
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>filterCatalog(b.dataset.filter)));
 filterCatalog('osechi');
