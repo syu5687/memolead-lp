@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- @version catalog-test-v1 | 2026-09-11 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
+<!-- @version cart-test-v2 | 2026-09-11 | メモリード福岡 おせち・クリスマス2026 ご注文フォーム | /public/osechi/fukuoka-2026/ -->
 <html lang="ja">
 <head>
 
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="catalog-test-v1">
+<meta name="version" content="cart-test-v2">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -190,7 +190,8 @@
   body.fs-2 header.hero, body.fs-2 main, body.fs-2 footer{zoom:1.25}
   @media(max-width:560px){ .fs-ctrl{right:10px;bottom:10px;padding:6px 8px 6px 10px} .fs-ctrl .fs-label{display:none} }
 </style>
-<link rel="stylesheet" href="./_assets/catalog.css">
+<link rel="stylesheet" href="./_assets/catalog.css?v=cart-test-v2">
+<link rel="stylesheet" href="./_assets/cart.css?v=cart-test-v2">
 </head>
 <body>
 
@@ -204,7 +205,7 @@
    <p class="hero-sub">おせち料理・クリスマスオードブル＆ケーキ・鍋セット</p>
    <p class="hero-intro">写真で選んで、価格を比べて。<br>福岡の3施設がご用意する、全13商品をご紹介します。</p>
    <a class="catalog-primary" href="#catalog">商品を見比べる <span>↓</span></a>
-   <a class="hero-form-link" href="#order-start">商品がお決まりの方は注文フォームへ →</a>
+   <a class="hero-form-link" href="#cart">カートを確認する →</a>
   </div>
   <div class="hero-photo"><img src="./_assets/img/hero.webp" alt="リーフレット掲載のおせち料理" width="1111" height="741" fetchpriority="high"><span>OSECHI &amp; CHRISTMAS</span></div>
  </div>
@@ -229,19 +230,33 @@
 </section>
 <section class="catalog-wrap order-guide" aria-labelledby="guide-title">
  <div><p class="catalog-eyebrow">HOW TO ORDER</p><h2 id="guide-title">お申し込みの前に</h2></div>
- <div class="guide-grid"><div><b>01　商品の申込施設を確認</b><p>商品ごとに担当施設が異なります。複数施設の商品は、施設ごとにお申し込みください。</p></div>
+ <div class="guide-grid"><div><b>01　気になる商品をカートへ</b><p>施設が違う商品も同じカートに追加できます。担当施設は商品ごとに自動で振り分けます。</p></div>
  <div><b>02　受け取り場所を選択</b><p>申込施設と受け取り場所は別に選べます。おせちは5か所、クリスマス・鍋は3施設から選択できます。</p></div>
  <div><b>03　おせちは配達も選べます</b><p>福岡県内への配達は別途1,000円。エリアによってはお受けできない場合があります。</p></div></div>
 </section>
-<div class="form-intro wrap" id="order-start" tabindex="-1"><p class="catalog-eyebrow">ORDER FORM</p><h2>ご注文フォーム</h2><p>下記で数量・価格・お受け取り条件をお試しください。<br><strong>テストページのため、受付・メール送信は行いません。</strong></p><p id="selection-notice" aria-live="polite"></p></div>
+<div class="form-intro wrap" id="order-start" tabindex="-1"><p class="catalog-eyebrow">ORDER FORM</p><h2>まとめて、ご注文</h2><p>カートを確認したら、お客様情報を一度だけご入力ください。<br><strong>テストページのため、受付・メール送信は行いません。</strong></p><p id="selection-notice" aria-live="polite"></p></div>
 
 
 <main class="wrap">
-  <form id="orderForm" novalidate>
-
-    <!-- STEP 1 お客様情報 -->
+ <form id="orderForm" novalidate>
+ <section class="step" id="cart" tabindex="-1" aria-labelledby="cart-title">
+ <div class="step-head"><span class="step-no">STEP 1</span><h2 id="cart-title">カート・お受け取り</h2></div>
+ <p class="hint">複数施設の商品をまとめて選べます。商品ごとに受け取り場所・日時をご指定ください。</p>
+      <div class="tier-static">
+        <div class="tier-opts">
+          <label class="tier-opt"><input type="radio" name="ptier" value="general" checked><span>一般価格</span></label>
+          <label class="tier-opt"><input type="radio" name="ptier" value="special"><span>特別価格<em>（メモリード会員）</em></span></label>
+        </div>
+        <p class="hint">メモリード会員のお客様は<b>特別価格</b>でご注文いただけます。おせち・鍋セットは価格区分により金額が異なります（クリスマス商品は共通価格）。</p>
+      </div>
+<div id="cartItems"></div>
+ <div id="cartTotals" aria-live="polite"></div>
+ <p class="hint">配達料は、配達商品がある申込施設ごとに1,000円で試算します。同じ施設のおせちはまとめて計算します。</p>
+ <a class="continue-shopping" href="#catalog">＋ 商品を追加する</a>
+ </section>
+    <!-- STEP 2 お客様情報 -->
     <section class="step">
-      <div class="step-head"><span class="step-no">STEP 1</span><h2>お客様情報</h2></div>
+      <div class="step-head"><span class="step-no">STEP 2</span><h2>お客様情報</h2></div>
 
       <label class="field">
         <span class="lb">お名前 <span class="req">必須</span></span>
@@ -275,28 +290,9 @@
       </div>
     </section>
 
-    <!-- STEP 2 価格区分 -->
+    <!-- STEP 3 送信 -->
     <section class="step">
-      <div class="step-head"><span class="step-no">STEP 2</span><h2>価格区分</h2><span class="sub">会員・一般をお選びください</span></div>
-      <div class="tier-static">
-        <div class="tier-opts">
-          <label class="tier-opt"><input type="radio" name="ptier" value="general" checked><span>一般価格</span></label>
-          <label class="tier-opt"><input type="radio" name="ptier" value="special"><span>特別価格<em>（メモリード会員）</em></span></label>
-        </div>
-        <p class="hint">メモリード会員のお客様は<b>特別価格</b>でご注文いただけます。おせち・鍋セットは価格区分により金額が異なります（クリスマス商品は共通価格）。</p>
-      </div>
-    </section>
-
-    <!-- STEP 3 施設選択 -->
-    <section class="step">
-      <div class="step-head"><span class="step-no">STEP 3</span><h2>お申し込み施設</h2><span class="sub">1施設をお選びください</span></div>
-      <div class="facilities" id="facilities"></div>
-      <div id="menuArea"></div>
-    </section>
-
-    <!-- STEP 4 送信 -->
-    <section class="step">
-      <div class="step-head"><span class="step-no">STEP 4</span><h2>ご要望・テスト確認</h2></div>
+      <div class="step-head"><span class="step-no">STEP 3</span><h2>ご要望・テスト確認</h2></div>
       <label class="field">
         <span class="lb">ご要望・備考 <span class="opt">任意</span></span>
         <textarea name="note"></textarea>
@@ -319,14 +315,8 @@
         <p class="form-msg" id="formMsg"></p>
       </div>
     </section>
-  </form>
-
-  <!-- 完了 -->
-  <section id="testReview" hidden aria-live="polite"><h2>ご注文内容のテスト確認</h2><p>この内容は送信されていません。</p><pre id="testSummary"></pre></section>
-  <section id="done">
-    <h2>ご注文を承りました</h2>
-    <p>ご入力のメールアドレス宛に受付確認をお送りします。<br>担当者より改めてご連絡いたしますので、少々お待ちください。</p>
-  </section>
+</form>
+ <section id="testReview" hidden aria-live="polite"><h2>ご注文内容のテスト確認</h2><p>この内容は送信されていません。</p><pre id="testSummary"></pre><button type="button" id="backToCart" class="product-order">カートに戻って修正する</button></section>
 </main>
 
 <footer class="wrap">
@@ -342,384 +332,12 @@
   <button type="button" class="l" data-fs="2">特大</button>
 </div>
 
-<script>
-/* ==========================================================================
-   設定 — 本番デプロイ時にここだけ書き換えてください
-   ========================================================================== */
-const CONFIG = {
-  // フォーム送信先（Cloudflare Worker のエンドポイント）
-  ENDPOINT: ""
-};
 
-/* ==========================================================================
-   商品マスタ（FAX申込書の内容をそのまま定義）
-   ========================================================================== */
-// 受取場所マスタ（住所＋Googleマップ）。addrが空の会場は施設名でマップ検索します
-const LOCATIONS = {
-  "ガーデンテラス福岡ホテル＆リゾート": { addr:"福岡県福岡市西区小戸2丁目3-55" },
-  "ロイヤルチェスター福岡":            { addr:"福岡県大野城市雑餉隈町3丁目3-15" },
-  "アルカーサル・アヴィオ":            { addr:"福岡県福岡市東区水谷2丁目52-8" },
-  "グランドベルズ飯塚":                { addr:"福岡県飯塚市川津608-1" },
-  "メモリードホール福岡":              { addr:"福岡県福岡市中央区警固3丁目1-7" }
-};
-function locMapUrl(name){
-  const a=(LOCATIONS[name]||{}).addr;
-  return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(a?`${name} ${a}`:name);
-}
-const PICK_3 = ["ガーデンテラス福岡ホテル＆リゾート","ロイヤルチェスター福岡","アルカーサル・アヴィオ"];
-const PICK_5 = [...PICK_3, "グランドベルズ飯塚", "メモリードホール福岡"];
-const DATES_XMAS   = ["12/23(水) 13:00〜18:00 CLOSE","12/24(木) 13:00〜18:00 CLOSE","12/25(金) 13:00〜18:00 CLOSE"];
-const DATES_OSECHI = ["12/31(木) 10:00〜13:00 CLOSE"];
-const DATES_NABE   = ["12/23(水) 13:00〜18:00 CLOSE","12/24(木) 13:00〜18:00 CLOSE","12/25(金) 13:00〜18:00 CLOSE","12/31(木) 10:00〜13:00 CLOSE"];
-
-const FACILITIES = {
-  garden: {
-    name:"ガーデンテラス福岡ホテル＆リゾート",
-    tel:"092-881-0007",
-    fax:"092-881-0006",
-    menu:"./_assets/img/menu_garden.webp",
-    categories:[
-      { key:"xmas", title:"クリスマス商品", tag:"12/23・24・25", time:"13:00〜18:00 CLOSE",
-        dates:DATES_XMAS, pickup:PICK_3,
-        items:[
-          {no:1, name:"ローストビーフとローストチキンの盛り合わせ", price:11000, tax:814, limit:15},
-          {no:2, name:"野菜ソムリエの星降るオードブル", price:11000, tax:814, limit:15},
-          {no:3, name:"イタリアハムとチーズ盛り合わせ 乾杯セット", price:11000, tax:814, limit:15},
-          {no:5, name:"ホワイトノエル（クリスマスケーキ）", price:5000, tax:370, limit:30},
-          {no:6, name:"ノエル ショコラ ビジュー（ガトーケーキ）", price:5000, tax:370, limit:30}
-        ]},
-      { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
-        dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
-        items:[
-          {no:9,  name:"和洋風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:150},
-          {no:10, name:"和洋風プレミアムおせち", s:48000, sTax:3555, g:50000, gTax:3703, limit:10},
-          {no:11, name:"お菓子おせち", s:5000, sTax:370, g:6000, gTax:444, limit:30}
-        ]}
-    ]
-  },
-  royal: {
-    name:"ロイヤルチェスター福岡",
-    tel:"092-588-6688",
-    fax:"092-588-6680",
-    menu:"./_assets/img/menu_royal.webp",
-    categories:[
-      { key:"xmas", title:"クリスマス商品", tag:"12/23・24・25", time:"13:00〜18:00 CLOSE",
-        dates:DATES_XMAS, pickup:PICK_3,
-        items:[ {no:4, name:"クリスマスオードブル", price:11000, tax:814, limit:30} ]},
-      { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
-        dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
-        items:[ {no:7, name:"和風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:320} ]},
-      { key:"nabe", title:"鍋セット", tag:"12/23・24・25 ／ 12/31", time:"クリスマス 13:00〜18:00／大晦日 10:00〜13:00",
-        dates:DATES_NABE, pickup:PICK_3,
-        items:[ {no:12, name:"博多水炊き", s:7000, sTax:518, g:8000, gTax:592, limit:30}, {no:13, name:"博多もつ鍋", s:7000, sTax:518, g:8000, gTax:592, limit:30} ]}
-    ]
-  },
-  alcasal: {
-    name:"アルカーサル・アヴィオ",
-    tel:"092-665-0077",
-    fax:"092-665-0088",
-    menu:"./_assets/img/menu_alcasal.webp",
-    categories:[
-      { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
-        dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
-        items:[ {no:8, name:"和風おせち 2段重", s:21000, sTax:1555, g:22000, gTax:1629, limit:190} ]}
-    ]
-  }
-};
-
-/* ==========================================================================
-   施設カード描画
-   ========================================================================== */
-const facWrap = document.getElementById("facilities");
-Object.entries(FACILITIES).forEach(([id,f])=>{
-  const l=document.createElement("label");
-  l.className="fac"; l.dataset.id=id;
-  l.innerHTML=`<input type="radio" name="facility" value="${id}">
-    <span class="fn">${f.name}</span>
-    <span class="fd">TEL ${f.tel}</span>
-    <span class="fd">FAX ${f.fax}</span>`;
-  facWrap.appendChild(l);
-});
-
-const menuArea=document.getElementById("menuArea");
-
-/* 文字サイズ変更（標準／大／特大） */
-document.querySelectorAll('.fs-ctrl button').forEach(btn=>btn.addEventListener("click",()=>{
-  const lv=+btn.dataset.fs;
-  document.body.classList.remove("fs-1","fs-2");
-  if(lv===1) document.body.classList.add("fs-1");
-  else if(lv===2) document.body.classList.add("fs-2");
-  document.querySelectorAll('.fs-ctrl button').forEach(b=>b.classList.toggle("active",b===btn));
-}));
-
-facWrap.addEventListener("change",e=>{
-  if(e.target.name!=="facility")return;
-  document.querySelectorAll(".fac").forEach(el=>el.classList.toggle("on",el.dataset.id===e.target.value));
-  renderMenu(e.target.value);
-});
-
-// 価格区分（STEP2・常時表示）— 選択で全金額を即時切替
-document.querySelectorAll('input[name="ptier"]').forEach(r=>r.addEventListener("change",e=>{
-  PRICE_TIER=e.target.value;
-  menuArea.classList.toggle("tier-special",PRICE_TIER==="special");
-  menuArea.classList.toggle("tier-general",PRICE_TIER==="general");
-  recalc();
-}));
-
-let PRICE_TIER = "general"; // 'general'（一般価格）| 'special'（特別価格）
-const yen = n => "¥" + Number(n).toLocaleString("ja-JP");
-
-function renderMenu(id){
-  const f=FACILITIES[id];
-  PRICE_TIER=(document.querySelector('input[name="ptier"]:checked')||{}).value||"general";
-  menuArea.className="menu tier-"+PRICE_TIER;
-  menuArea.innerHTML="";
-
-  // カテゴリごとの注文欄
-  f.categories.forEach(c=>{
-    const box=document.createElement("div");
-    box.className="cat"; box.dataset.cat=c.key;
-    let html=`<div class="cat-title"><b>${c.title}</b><span class="tag">${c.tag}</span></div>
-      <div class="cat-meta">お受け取り時間：${c.time}</div>`;
-    c.items.forEach(it=>{
-      const attr = it.price!=null
-        ? `data-price="${it.price}" data-tax="${it.tax}"`
-        : `data-s="${it.s}" data-stax="${it.sTax}" data-g="${it.g}" data-gtax="${it.gTax}"`;
-      let sel=`<select aria-label="${it.name}の数量" data-item="${it.no}" data-name="${it.name}" ${attr}><option value="0">0</option>`;
-      for(let n=1;n<=10;n++) sel+=`<option value="${n}">${n}</option>`;
-      sel+=`</select>`;
-      const priceLabel = it.price!=null
-        ? `<span class="unit">${yen(it.price)} 税込<span class="itax">（内消費税 ${yen(it.tax)}）</span></span>`
-        : `<span class="unit"><span class="u-g">一般 ${yen(it.g)}<span class="itax">（内消費税 ${yen(it.gTax)}）</span></span> ／ <span class="u-s">特別 ${yen(it.s)}<span class="itax">（内消費税 ${yen(it.sTax)}）</span></span></span>`;
-      html+=`<div class="item">
-        <div class="nm"><span class="no">${it.no}</span>${it.name}<span class="lim">限定${it.limit}個</span><br>${priceLabel}</div>
-        <div class="qtywrap">${sel}<span class="unitlabel">個</span></div>
-        <div class="line" data-line>—</div>
-      </div>`;
-    });
-    if(c.delivery){
-      html+=`<div class="method">
-        <div class="lb">お受け取り方法</div>
-        <select class="pickmethod">
-          <option value="store">店頭受け取り（無料）</option>
-          <option value="delivery">福岡県内配達（＋1,000円）</option>
-        </select>
-        <p class="hint">配達はおせち料理・福岡県内が対象です（エリアによってはお受けできない場合がございます）。配達をお選びの場合はご住所へお届けします。</p>
-      </div>`;
-    }
-    html+=`<div class="pick">
-      <div class="pickup-wrap"><div class="lb">お受け取り場所</div><select class="pickup">${["",...c.pickup].map(p=>`<option value="${p}">${p||"選択してください"}</option>`).join("")}</select><div class="locinfo" data-locinfo></div></div>
-      <div><div class="lb">お受け取り希望日</div><select class="pickdate">${["",...c.dates].map(d=>`<option value="${d}">${d||"選択してください"}</option>`).join("")}</select></div>
-    </div>
-    <div class="subtotal">小計<b data-subtotal>¥0</b><span class="subtax" data-subtax></span></div>
-    <div class="feeline" data-feeline style="display:none">配達料<b>¥1,000</b></div>`;
-    box.innerHTML=html;
-    menuArea.appendChild(box);
-  });
-
-  // 合計バー
-  const tot=document.createElement("div");
-  tot.className="totalbar";
-  tot.innerHTML=`<div class="tb-l"><span>合計金額（税込）</span><span class="tbtax" id="grandTax"></span></div><b id="grandTotal">¥0</b>`;
-  menuArea.appendChild(tot);
-
-  bindRecalc();
-  recalc();
-  menuArea.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-function itemUnit(s){
-  return s.hasAttribute("data-price")
-    ? +s.dataset.price
-    : (PRICE_TIER==="special" ? +s.dataset.s : +s.dataset.g);
-}
-function itemTax(s){
-  return s.hasAttribute("data-tax")
-    ? +s.dataset.tax
-    : (PRICE_TIER==="special" ? +s.dataset.stax : +s.dataset.gtax);
-}
-const DELIVERY_FEE=1000;
-function bindRecalc(){
-  menuArea.querySelectorAll('select[data-item]').forEach(s=>s.addEventListener("change",recalc));
-  menuArea.querySelectorAll('.pickmethod').forEach(m=>m.addEventListener("change",()=>{
-    const box=m.closest(".cat");
-    const del=m.value==="delivery";
-    const pw=box.querySelector(".pickup-wrap");
-    if(pw) pw.style.display = del ? "none" : "";
-    recalc();
-  }));
-  menuArea.querySelectorAll('.pickup').forEach(p=>p.addEventListener("change",()=>updateLocInfo(p.closest(".cat"))));
-}
-function updateLocInfo(box){
-  const sel=box.querySelector(".pickup"), el=box.querySelector("[data-locinfo]");
-  if(!el) return;
-  const name=sel.value;
-  if(!name){ el.innerHTML=""; return; }
-  const a=(LOCATIONS[name]||{}).addr;
-  el.innerHTML = `${a?`<span class="locaddr">${a}</span>`:""}<a class="locmap" href="${locMapUrl(name)}" target="_blank" rel="noopener">Googleマップで開く ↗</a>`;
-}
-function recalc(){
-  let grand=0, grandTax=0;
-  menuArea.querySelectorAll(".cat").forEach(box=>{
-    let sub=0, subTax=0;
-    box.querySelectorAll("select[data-item]").forEach(s=>{
-      const q=parseInt(s.value,10)||0, u=itemUnit(s), t=itemTax(s), line=q*u;
-      const cell=s.closest(".item").querySelector("[data-line]");
-      cell.textContent = q>0 ? yen(line) : "—";
-      sub+=line; subTax+=q*t;
-    });
-    box.querySelector("[data-subtotal]").textContent=yen(sub);
-    const stx=box.querySelector("[data-subtax]"); if(stx) stx.textContent = subTax>0 ? `（内消費税 ${yen(subTax)}）` : "";
-    // 配達料
-    let fee=0;
-    const pm=box.querySelector(".pickmethod"), fl=box.querySelector("[data-feeline]");
-    if(pm && pm.value==="delivery" && sub>0){ fee=DELIVERY_FEE; }
-    if(fl) fl.style.display = fee>0 ? "" : "none";
-    grand+=sub+fee; grandTax+=subTax;
-  });
-  const g=document.getElementById("grandTotal"); if(g) g.textContent=yen(grand);
-  const gt=document.getElementById("grandTax"); if(gt) gt.textContent = grand>0 ? `（内消費税 ${yen(grandTax)}）` : "";
-  return grand;
-}
-
-/* ==========================================================================
-   郵便番号 → 住所自動反映（zipcloud）
-   ========================================================================== */
-const zip=document.getElementById("zip");
-const zipBtn=document.getElementById("zipBtn");
-const addr=document.getElementById("address");
-
-// zipcloud を JSONP で呼び出し（CORSの影響を受けない）
-let zipReqId=0;
-function lookupZip(){
-  const code=zip.value.replace(/[^0-9]/g,"");
-  if(code.length!==7){setMsg("郵便番号は7桁でご入力ください。","err");return;}
-  zipBtn.disabled=true;zipBtn.textContent="検索中…";
-  const cb="__zipcb"+(++zipReqId);
-  let s=null;
-  const cleanup=()=>{ try{delete window[cb];}catch(_){window[cb]=undefined;} if(s&&s.parentNode)s.parentNode.removeChild(s); zipBtn.disabled=false;zipBtn.textContent="住所を自動入力"; };
-  const timer=setTimeout(()=>{ setMsg("住所の取得に失敗しました。番地とあわせて手入力でお願いします。","err"); cleanup(); },8000);
-  window[cb]=function(res){
-    clearTimeout(timer);
-    if(res&&res.results&&res.results[0]){
-      const a=res.results[0];
-      addr.value=`${a.address1}${a.address2}${a.address3}`;
-      addr.focus();
-      setMsg("住所を反映しました。番地・建物名をご入力ください。","ok");
-    }else{
-      setMsg("該当する住所が見つかりませんでした。手入力でお願いします。","err");
-    }
-    cleanup();
-  };
-  s=document.createElement("script");
-  s.src=`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${code}&callback=${cb}`;
-  s.onerror=()=>{ clearTimeout(timer); setMsg("住所の取得に失敗しました。番地とあわせて手入力でお願いします。","err"); cleanup(); };
-  document.body.appendChild(s);
-}
-zipBtn.addEventListener("click",lookupZip);
-// 7桁入力で自動反映
-zip.addEventListener("input",()=>{ if(zip.value.replace(/[^0-9]/g,"").length===7) lookupZip(); });
-
-/* ==========================================================================
-   送信
-   ========================================================================== */
-const form=document.getElementById("orderForm");
-const msg=document.getElementById("formMsg");
-const submitBtn=document.getElementById("submitBtn");
-function setMsg(t,cls){
-  msg.textContent=t;
-  msg.className="form-msg"+(cls?" "+cls:"");
-  if(cls==="err"){
-    // アニメーションを毎回リスタート＋画面内に表示
-    msg.style.animation="none"; void msg.offsetWidth; msg.style.animation="";
-    msg.scrollIntoView({behavior:"smooth",block:"center"});
-  }
-}
-
-form.addEventListener("submit",async e=>{
-  e.preventDefault();
-  setMsg("","");
-  const fd=new FormData(form);
-  // 基本項目
-  const base={
-    name:fd.get("name")?.trim(),
-    zip:fd.get("zip")?.trim(),
-    address:fd.get("address")?.trim(),
-    tel:fd.get("tel")?.trim(),
-    email:fd.get("email")?.trim(),
-    note:fd.get("note")?.trim()||"",
-    facilityId:fd.get("facility")
-  };
-  if(!base.name||!base.zip||!base.address||!base.tel||!base.email){setMsg("お客様情報の必須項目をご入力ください。","err");return;}
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(base.email)){setMsg("メールアドレスの形式をご確認ください。","err");return;}
-  if(!base.facilityId){setMsg("お申し込み施設をお選びください。","err");return;}
-  if(!document.getElementById("agree").checked){setMsg("確認のチェックを入れてください。","err");return;}
-
-  // 注文明細を収集
-  const f=FACILITIES[base.facilityId];
-  base.facility=f.name; base.fax=f.fax;
-  base.tier=PRICE_TIER; base.tierLabel=(PRICE_TIER==="special"?"特別価格（メモリード会員）":"一般価格");
-  const orders=[];
-  let itemCount=0, missingPick=false, grand=0, grandTax=0;
-  menuArea.querySelectorAll(".cat").forEach(box=>{
-    const chosen=[]; let sub=0, subTax=0;
-    box.querySelectorAll("select[data-item]").forEach(s=>{
-      const q=parseInt(s.value,10);
-      if(q>0){
-        const unit=itemUnit(s), tax=itemTax(s), line=q*unit, lineTax=q*tax;
-        sub+=line; subTax+=lineTax; itemCount+=q;
-        chosen.push({no:s.dataset.item,name:s.dataset.name,qty:q,unit,line,tax,lineTax});
-      }
-    });
-    if(chosen.length){
-      const pm=box.querySelector(".pickmethod");
-      const method=pm?pm.value:"store";
-      const isDelivery=(method==="delivery");
-      const pickup=box.querySelector(".pickup").value;
-      const pickdate=box.querySelector(".pickdate").value;
-      if(!pickdate || (!isDelivery && !pickup)) missingPick=true;
-      const fee=isDelivery?DELIVERY_FEE:0;
-      const catTitle=box.querySelector(".cat-title b").textContent;
-      orders.push({category:catTitle,items:chosen,
-        method:isDelivery?"福岡県内配達":"店頭受け取り",
-        pickup:isDelivery?"（ご住所へ配達）":pickup,
-        pickupAddr:isDelivery?"":((LOCATIONS[pickup]||{}).addr||""),
-        pickupMap:isDelivery?"":(pickup?locMapUrl(pickup):""),
-        pickdate,subtotal:sub,subtax:subTax,fee});
-      grand+=sub+fee; grandTax+=subTax;
-    }
-  });
-  if(itemCount===0){setMsg("ご注文の商品を1点以上お選びください。","err");return;}
-  if(missingPick){setMsg("お受け取り場所・お受け取り希望日をお選びください。","err");return;}
-
-  base.orders=orders;
-  base.total=grand;
-  base.totalTax=grandTax;
-  base.summary=buildSummary(base);
-
-  setMsg("テスト確認が完了しました。合計 " + yen(grand) + "。お申し込み・メール送信は行っていません。", "ok");
-  document.getElementById("testSummary").textContent=base.summary;
-  document.getElementById("testReview").hidden=false;
-  document.getElementById("testReview").scrollIntoView({behavior:"smooth",block:"center"});
-
-});
-
-function buildSummary(b){
-  const y=n=>"¥"+Number(n).toLocaleString("ja-JP");
-  let s=`【お申し込み施設】${b.facility}（FAX ${b.fax}）\n【価格区分】${b.tierLabel}\n`;
-  b.orders.forEach(o=>{
-    s+=`\n■ ${o.category}\n`;
-    o.items.forEach(it=>{ s+=`  ${it.no}. ${it.name} … ${it.qty}個 × ${y(it.unit)} = ${y(it.line)}（内消費税 ${y(it.lineTax)}）\n`; });
-    s+=`  受け取り方法：${o.method}\n  受取場所：${o.pickup}${o.pickupAddr?`（${o.pickupAddr}）`:""}\n`;
-    if(o.pickupMap) s+=`  地図：${o.pickupMap}\n`;
-    s+=`  受取希望日：${o.pickdate}\n`;
-    if(o.fee>0) s+=`  配達料：${y(o.fee)}\n`;
-    s+=`  小計：${y(o.subtotal+ (o.fee||0))}（うち商品 ${y(o.subtotal)}／内消費税 ${y(o.subtax)}）\n`;
-  });
-  s+=`\n━━━━━━━━━━━━━━\n合計金額（税込）：${y(b.total)}\n（うち内消費税：${y(b.totalTax)}／配達料は税込）\n`;
-  return s;
-}
-</script>
-<script src="./_assets/catalog.js"></script>
+<script defer src="./_assets/master.js?v=cart-test-v2"></script>
+<script defer src="./_assets/catalog.js?v=cart-test-v2"></script>
+<script defer src="./_assets/cart.js?v=cart-test-v2"></script>
+<script defer src="./_assets/postcode.js?v=cart-test-v2"></script>
+<div class="cart-dock"><span id="dockTotal">カート 0点</span><a href="#cart">カートを確認 <span aria-hidden="true">↑</span></a></div><div id="cartToast" role="status" aria-live="polite"></div>
+<dialog id="applyConfirm" aria-labelledby="applyTitle"><h2 id="applyTitle">受け取り条件を揃えますか？</h2><p id="applyMessage"></p><form method="dialog"><button value="cancel">変更しない</button><button value="apply">条件を揃える</button></form></dialog>
 </body>
 </html>

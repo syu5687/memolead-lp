@@ -14,7 +14,7 @@ const PRODUCT_INFO = {
   12:{size:'4〜5人前 / 全7品目',detail:'骨付き鶏もも、骨付き鶏むね身、手羽先、手羽元、鶏スープ、自家製ポン酢、冷凍うどん。'},
   13:{size:'4〜5人前 / 全7品目',detail:'和牛モツ、薄揚げ、ニンニクチップ、煎り胡麻、唐辛子、自家製もつ鍋スープ、ちゃんぽん麺。'}
 };
-const catalogProducts=Object.entries(FACILITIES).flatMap(([facilityId,f])=>f.categories.flatMap(c=>c.items.map(it=>({...it,facilityId,facility:f.name,category:c.key,...PRODUCT_INFO[it.no]})))).sort((a,b)=>a.no-b.no);
+const catalogProducts=Object.entries(FACILITIES).flatMap(([facilityId,f])=>f.categories.flatMap(c=>c.items.map(it=>({...it,facilityId,facility:f.name,category:c.key,dates:c.dates,pickup:c.pickup,delivery:!!c.delivery,...PRODUCT_INFO[it.no]})))).sort((a,b)=>a.no-b.no);
 const productGrid=document.getElementById('product-grid');
 catalogProducts.forEach(p=>{
   const article=document.createElement('article');
@@ -25,7 +25,7 @@ catalogProducts.forEach(p=>{
   article.innerHTML=`<div class="product-visual"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp" alt="${p.name}" width="600" height="450" loading="lazy"><span class="product-number">No. ${String(p.no).padStart(2,'0')}</span><span class="product-limit">限定 ${p.limit}${p.category==='nabe'?'セット':'個'}</span></div>
     <div class="product-body"><p class="product-size">${p.size}</p><h3>${p.name}</h3><div class="product-prices">${prices}</div>
     <p class="product-facility"><span>お申し込み施設</span>${p.facility}</p>
-    <button type="button" class="product-order" data-order="${p.no}" aria-label="${p.name}の注文欄へ">この商品の注文欄へ <span aria-hidden="true">↓</span></button>
+    <div class="add-to-cart"><label>数量<select data-addqty="${p.no}" aria-label="${p.name}を追加する数量">${Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select></label><button type="button" class="product-order" data-order="${p.no}" aria-label="${p.name}をカートに追加">カートに追加 ＋</button></div>
     <details class="product-details"><summary>献立・商品詳細を見る</summary><p>${p.detail}</p></details></div>`;
   productGrid.appendChild(article);
 });
@@ -42,20 +42,3 @@ function filterCatalog(category){
 }
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>filterCatalog(b.dataset.filter)));
 filterCatalog('osechi');
-productGrid.addEventListener('click',e=>{
-  const button=e.target.closest('[data-order]'); if(!button)return;
-  const p=catalogProducts.find(p=>p.no===Number(button.dataset.order));
-  const selected=document.querySelector('input[name="facility"]:checked');
-  const hasOrders=[...menuArea.querySelectorAll('select[data-item]')].some(s=>Number(s.value)>0);
-  if(selected&&selected.value!==p.facilityId&&hasOrders&&!window.confirm('この商品は別の施設のお取り扱いです。施設を切り替えると、入力中の数量・受け取り条件はクリアされます。切り替えますか？'))return;
-  if(!selected||selected.value!==p.facilityId){
-    const radio=document.querySelector(`input[name="facility"][value="${p.facilityId}"]`);
-    radio.checked=true; radio.dispatchEvent(new Event('change',{bubbles:true}));
-  }
-  const quantity=menuArea.querySelector(`select[data-item="${p.no}"]`);
-  document.getElementById('selection-notice').textContent=`No.${p.no} ${p.name} のお申し込み施設「${p.facility}」を選択しました。数量とお受け取り条件をご指定のうえ、お客様情報もご入力ください。`;
-  quantity.focus({preventScroll:true});quantity.closest('.item').scrollIntoView({behavior:'smooth',block:'center'});
-});
-// A changed form invalidates an earlier local-only review.
-form.addEventListener('input',()=>{document.getElementById('testReview').hidden=true;});
-form.addEventListener('change',()=>{document.getElementById('testReview').hidden=true;});
