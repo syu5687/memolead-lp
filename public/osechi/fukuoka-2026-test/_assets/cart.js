@@ -21,8 +21,8 @@ function renderCart(focus){
  <div class="cart-quantity"><label>数量<select data-field="qty" aria-label="明細${i+1}の数量">${Array.from({length:10},(_,j)=>`<option${j+1===r.qty?' selected':''}>${j+1}</option>`).join('')}</select></label><span>${yen(unit(p))} × ${r.qty}</span><strong>${yen(unit(p)*r.qty)}</strong><button type="button" data-remove="${r.id}" aria-label="明細${i+1}を削除">削除</button></div>
  <div class="cart-pick">
  ${p.delivery?`<label>受け取り方法<select data-field="method" aria-label="明細${i+1}の受け取り方法"><option value="store"${r.method==='store'?' selected':''}>店頭受け取り</option><option value="delivery"${r.method==='delivery'?' selected':''}>福岡県内配達</option></select></label>`:''}
- ${r.method==='store'?`<label>受け取り場所<select data-field="pickup" aria-label="明細${i+1}の受け取り場所">${options(p.pickup,r.pickup)}</select></label>`:'<p class="delivery-info">ご入力の住所へ配達します。<br>配達料：申込施設ごとに1,000円</p>'}
- <label>${r.method==='delivery'?'お届け':'受け取り'}日時<select data-field="date" aria-label="明細${i+1}の受け取り日時">${options(p.dates,r.date)}</select></label>
+ ${r.method==='store'?`<label>受け取り場所<select class="${r.pickup?'':'pickup-unselected'}" aria-required="true" data-field="pickup" aria-label="明細${i+1}の受け取り場所">${options(p.pickup,r.pickup)}</select></label>`:'<p class="delivery-info">ご入力の住所へ配達します。<br>配達料：申込施設ごとに1,000円</p>'}
+ <label>${r.method==='delivery'?'お届け':'受け取り'}日時<select class="${r.date?'':'pickup-unselected'}" aria-required="true" data-field="date" aria-label="明細${i+1}の受け取り日時">${options(p.dates,r.date)}</select></label>
  </div>
  ${r.pickup&&r.method==='store'?`<p class="cart-address">${LOCATIONS[r.pickup]?.addr||''} <a href="${locMapUrl(r.pickup)}" target="_blank" rel="noopener">地図を見る ↗</a></p>`:''}
  <div class="cart-row-actions"><button type="button" data-copy="${r.id}">同じ商品を別の受け取り分として追加</button></div>
