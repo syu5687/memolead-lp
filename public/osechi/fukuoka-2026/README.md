@@ -12,6 +12,7 @@ osechi/fukuoka-2026/
 │  ├─ menu_royal.webp    … ロイヤルチェスター福岡 MENU
 │  └─ menu_alcasal.webp  … アルカーサル・アヴィオ MENU
 ├─ worker.js             … Brevo送信 Cloudflare Worker
+├─ schema.sql            … 申込管理用 Cloudflare D1 schema
 ├─ wrangler.toml         … Worker設定
 └─ README.md
 ```
@@ -61,6 +62,22 @@ npx wrangler secret put BREVO_API_KEY
 - 各金額に**内消費税**を併記。数量×単価の自動計算、カテゴリ小計（内消費税）、合計金額（税込・内消費税）を表示。価格区分トグルで即時切替（初期＝一般価格）。
 - 支払締切・受取先変更期限等の注記を掲載。
 - **受け取り方法**：おせち料理のみ「店頭受け取り（無料）／福岡県内配達（＋1,000円）」を選択可。配達選択時は合計へ自動で+1,000円を加算し、受け取り場所欄を非表示にしてご住所へお届け扱いにします（クリスマス・鍋は店頭のみ）。
+
+## 申込管理画面（本番移行時）
+
+管理画面は `/public/osechi/fukuoka-2026-admin/` に配置します。共通パスワードでログインしたあと、全店舗または担当店舗を選び、カテゴリ・商品・配達／店頭受取・受取日・対応状況で絞り込めます。注文全一覧、対応状況の更新、CSV出力にも対応しています。
+
+申込データはCloudflare D1に保存します。初回だけD1を作成し、`wrangler.toml`に返された`database_id`を設定してからschemaを適用してください。
+
+```bash
+npx wrangler d1 create memolead-fukuoka-osechi
+npx wrangler d1 execute memolead-fukuoka-osechi --remote --file=schema.sql
+npx wrangler secret put BREVO_API_KEY
+npx wrangler secret put ADMIN_PASSWORD
+npx wrangler deploy
+```
+
+`ADMIN_PASSWORD`はGitHubやこのリポジトリには保存しません。管理画面APIはD1が未設定の場合に申込表示を停止しますが、既存のメール通知は維持します。
 
 ## 確認しておきたい点（お知らせください）
 - **FROM_EMAIL**：Brevoで送信認証済みのメール／ドメインをご指定ください（自動返信の到達率に必要）。

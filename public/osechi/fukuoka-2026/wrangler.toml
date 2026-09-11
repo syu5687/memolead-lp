@@ -7,6 +7,12 @@ compatibility_date = "2026-08-01"
 # 秘密情報は必ずシークレットで登録：
 #   npx wrangler secret put BREVO_API_KEY
 
+# D1を作成した後、コメントを外して発行されたdatabase_idを設定してください。
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "memolead-fukuoka-osechi"
+# database_id = "ここにD1のdatabase_id"
+
 # 毎日の稼働確認メール（UTC 00:00 = 日本時間 09:00 に1回）
 [triggers]
 crons = ["0 0 * * *"]

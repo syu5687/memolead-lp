@@ -44,11 +44,13 @@ export default {
     const allowOrigin = CONFIG.ALLOWED_ORIGINS.includes(origin) ? origin : CONFIG.ALLOWED_ORIGINS[0];
     const cors = {
       "Access-Control-Allow-Origin": allowOrigin,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
       "Vary": "Origin"
     };
     if (request.method === "OPTIONS") return new Response(null, { headers: cors });
+    const url = new URL(request.url);
+    if (url.pathname.startsWith("/admin/")) return handleAdmin(request, env, cors, url);
     if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: cors });
 
     const json = (obj, status = 200) =>
@@ -64,6 +66,12 @@ export default {
       const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
       const escUrl = (u) => String(u ?? "").replace(/&/g, "&amp;").replace(/"/g, "%22");
       const yen = (n) => "¥" + Number(n || 0).toLocaleString("ja-JP");
+      const orderId = crypto.randomUUID();
+      if (env.DB) {
+        await env.DB.prepare(`INSERT INTO orders (id, created_at, name, zip, address, tel, email, facility_id, facility, tier, total, total_tax, note, orders_json, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+          .bind(orderId, new Date().toISOString(), d.name, d.zip || "", d.address, d.tel, d.email, d.facilityId || "", d.facility, d.tierLabel || "", Number(d.total || 0), Number(d.totalTax || 0), d.note || "", JSON.stringify(d.orders || []), "未対応")
+          .run();
+      }
       // 申込データ（明細）から整形。受取場所の住所テキスト自体をGoogleマップのリンクにする
       const summaryHtml = esc(d.summary || "").replace(/\n/g, "<br>");
       const orderBlock = renderOrders(d, esc, escUrl, yen)
@@ -136,7 +144,7 @@ export default {
         });
       }
 
-      return json({ ok: adminRes.ok, autoReply: autoReplyOk, ...adminResult }, adminRes.ok ? 200 : 500);
+      return json({ ok: adminRes.ok, orderId, autoReply: autoReplyOk, ...adminResult }, adminRes.ok ? 200 : 500);
     } catch (e) {
       return json({ ok: false, error: e.message }, 500);
     }
@@ -195,4 +203,39 @@ function renderOrders(d, esc, escUrl, yen) {
   });
   h += `<div style="text-align:right;font-size:16px;font-weight:bold;color:#7c1f2a;margin-top:8px;">合計金額（税込）：${yen(d.total)} <span style="font-size:12px;color:#999;font-weight:normal;">（内消費税 ${yen(d.totalTax)}）</span></div>`;
   return h;
+}
+
+async function handleAdmin(request, env, cors, url) {
+  const json = (obj, status = 200) => new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json", ...cors } });
+  if (!env.ADMIN_PASSWORD || !isAdminAuthorized(request, env.ADMIN_PASSWORD)) return json({ ok: false, error: "管理画面の認証が必要です" }, 401);
+  if (!env.DB) return json({ ok: false, error: "管理画面のデータベースが未設定です" }, 503);
+  try {
+    if (request.method === "GET" && url.pathname === "/admin/orders") {
+      const result = await env.DB.prepare("SELECT id, created_at, name, zip, address, tel, email, facility_id, facility, tier, total, total_tax, note, orders_json, status FROM orders ORDER BY created_at DESC LIMIT 1000").all();
+      const orders = (result.results || []).map(row => ({ ...row, orders: JSON.parse(row.orders_json || "[]") }));
+      return json({ ok: true, orders });
+    }
+    const match = url.pathname.match(/^\/admin\/orders\/([^/]+)\/status$/);
+    if (request.method === "POST" && match) {
+      const body = await request.json();
+      if (!["未対応", "確認済み", "完了"].includes(body.status)) return json({ ok: false, error: "不正な対応状況です" }, 400);
+      await env.DB.prepare("UPDATE orders SET status = ? WHERE id = ?").bind(body.status, decodeURIComponent(match[1])).run();
+      return json({ ok: true });
+    }
+    return json({ ok: false, error: "Not found" }, 404);
+  } catch (e) {
+    return json({ ok: false, error: e.message }, 500);
+  }
+}
+
+function isAdminAuthorized(request, password) {
+  const header = request.headers.get("Authorization") || "";
+  if (!header.startsWith("Basic ")) return false;
+  try {
+    const decoded = atob(header.slice(6));
+    const separator = decoded.indexOf(":");
+    return separator >= 0 && decoded.slice(0, separator) === "admin" && decoded.slice(separator + 1) === password;
+  } catch (_) {
+    return false;
+  }
 }
