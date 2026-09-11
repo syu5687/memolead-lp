@@ -30,6 +30,7 @@ function renderCart(focus){
  const t=totals();
  document.getElementById('cartTotals').innerHTML=`<div class="cart-total-lines"><span>商品小計（税込）</span><b>${yen(t.subtotal)}</b><span>配達料${t.fees.size?'（'+t.fees.size+'施設分）':''}</span><b>${yen(t.fees.size*1000)}</b></div><div class="totalbar"><span>合計 ${t.quantity}点（税込）</span><b>${yen(t.total)}</b></div><p class="hint">商品代金の内消費税：${yen(t.productTax)}／配達料は税込</p>`;
  document.getElementById('dockTotal').textContent=`カート ${t.quantity}点　${yen(t.total)}`;
+ document.querySelector('.cart-dock')?.classList.toggle('has-items',cart.length>0);
  document.querySelectorAll('input[name="ptier"]').forEach(el=>el.checked=el.value===tier);
  document.querySelector('.tier-static').classList.toggle('tier-unselected',!tier);
  document.getElementById('tier-prompt').hidden=!!tier;
