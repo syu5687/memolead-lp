@@ -14,6 +14,7 @@ const PICK_5 = [...PICK_3, "グランドベルズ飯塚", "メモリードホー
 const DATES_XMAS   = ["12/23(水) 13:00〜18:00 CLOSE","12/24(木) 13:00〜18:00 CLOSE","12/25(金) 13:00〜18:00 CLOSE"];
 const DATES_OSECHI = ["12/31(木) 10:00〜13:00 CLOSE"];
 const DATES_NABE   = ["12/23(水) 13:00〜18:00 CLOSE","12/24(木) 13:00〜18:00 CLOSE","12/25(金) 13:00〜18:00 CLOSE","12/31(木) 10:00〜13:00 CLOSE"];
+const DELIVERY_TIMES = ["12:00〜13:00","13:00〜14:00","14:00〜15:00","15:00〜16:00","16:00〜17:00"];
 
 const FACILITIES = {
   garden: {
