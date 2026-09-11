@@ -46,7 +46,7 @@ productGrid.addEventListener('click',e=>{
  if(existing)existing.qty+=qty;else cart.push({id:++serial,no:p.no,qty,method:p.delivery?'':'store',pickup:'',date:'',time:''});
  invalidate();renderCart();toast(`${p.name} ${qty}点をカートに追加しました`);
 });
-cartItems.addEventListener('change',e=>{const field=e.target.dataset.field;if(!field)return;const r=cart.find(r=>r.id===Number(e.target.closest('[data-row]').dataset.row));r[field]=field==='qty'?Number(e.target.value):e.target.value;invalidate();renderCart({id:r.id,field});});
+cartItems.addEventListener('change',e=>{const field=e.target.dataset.field;if(!field)return;const r=cart.find(r=>r.id===Number(e.target.closest('[data-row]').dataset.row));r[field]=field==='qty'?Number(e.target.value):e.target.value;invalidate();renderCart();});
 cartItems.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.dataset.remove){const index=cart.findIndex(r=>r.id===Number(b.dataset.remove));cart.splice(index,1);invalidate();renderCart();const next=cartItems.querySelector('select');(next||document.getElementById('cart')).focus({preventScroll:true});toast('商品をカートから削除しました');}
