@@ -89,3 +89,5 @@ main.wrap{padding-top:20px}
 .catalog-tabs-categories button:last-child{grid-column:auto;padding:11px 3px;font-size:12px}
 .delivery-badge{display:inline-block;margin-left:12px;padding:3px 9px;border:1px solid #b51f35;border-radius:4px;color:#b51f35;font-size:11px;font-weight:700;line-height:1.3;vertical-align:middle}
 .catalog-tabs-all button:last-child,.catalog-tabs-categories button:last-child{flex:1}
+.catalog-filter-sticky{position:sticky;top:0;z-index:80;margin:0 -28px;padding:10px 28px 1px;background:#f6f2eaf2;backdrop-filter:blur(10px);box-shadow:0 3px 12px #38251914}
+@media(max-width:560px){.catalog-filter-sticky{margin-left:-20px;margin-right:-20px;padding:7px 20px 1px}.catalog-tabs-all{margin-bottom:7px}.catalog-tabs-categories{margin-bottom:7px}.catalog-tabs{gap:6px}.catalog-tabs button{min-height:52px;padding:9px 3px}.catalog-tabs-all button{min-height:43px}}
