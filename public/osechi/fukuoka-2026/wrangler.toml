@@ -12,6 +12,6 @@ binding = "DB"
 database_name = "memolead-fukuoka-osechi"
 database_id = "d8d12edd-31bc-4263-9d97-99c3597bf760"
 
-# 毎日の稼働確認メール（UTC 00:00 = 日本時間 09:00 に1回）
+# 毎日の稼働確認メール（UTC 23:00 = 日本時間 08:00 に1回）
 [triggers]
-crons = ["0 0 * * *"]
+crons = ["0 23 * * *"]
