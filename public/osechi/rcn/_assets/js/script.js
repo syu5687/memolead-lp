@@ -11,51 +11,66 @@
      const totalDisplay = document.querySelector('input[name="field_5225657_display"]'); // 表示用
      const totalHidden  = document.querySelector('input[name="field_5225657"]');        // 送信用
 
-   
+     // 早割価格の締切（この日時までは早割価格を適用）
+     const earlyPriceEndDate = new Date("2026-09-30T23:59:59");
+
+     function getBasePrice(memberValue) {
+       const now = new Date();
+       const isEarly = now <= earlyPriceEndDate;
+
+       if (memberValue === "0") {
+         // 会員
+         return isEarly ? 32000 : 34000;
+       } else if (memberValue === "1") {
+         // 非会員
+         return isEarly ? 33000 : 35000;
+       }
+       return null;
+     }
+
      function calcTotal() {
-       // 会員・非会員
-       let basePrice = 0;
-       if (memberSelect.value === "0") {
-         basePrice = 32000; // 会員
-       } else if (memberSelect.value === "1") {
-         basePrice = 33000; // 非会員
-       } else {
-         totalInput.value = "";
+       // 会員・非会員（日付に応じて早割/通常価格を自動判定）
+       const basePrice = getBasePrice(memberSelect.value);
+       if (basePrice === null) {
+         totalDisplay.value = "";
+         totalHidden.value = "";
          return;
        }
-   
+
        // 個数（value が 0〜14 なので +1 する）
        let count = parseInt(countSelect.value, 10);
        if (isNaN(count)) {
-         totalInput.value = "";
+         totalDisplay.value = "";
+         totalHidden.value = "";
          return;
        }
        count = count + 1;
-   
+
        // 受け取り方法
        if (receiveSelect.value === "") {
-         totalInput.value = "";
+         totalDisplay.value = "";
+         totalHidden.value = "";
          return;
        }
-   
+
        let total = basePrice * count;
        if (receiveSelect.value === "1") {
          total += 2000; // 郵送
        }
-   
+
        // 表示はカンマ付き
        totalDisplay.value = total.toLocaleString();
        // 送信は数値のみ
        totalHidden.value = total;// 数値
        document.querySelector('input[name="field_5231284"]').value = total.toLocaleString(); // カンマ付き
      }
-   
+
      // 変更時に計算を走らせる
      memberSelect.addEventListener("change", calcTotal);
      countSelect.addEventListener("change", calcTotal);
      receiveSelect.addEventListener("change", calcTotal);
    });
-   
+
  //////////// エラーメッセージ //////////// 
    document.addEventListener("DOMContentLoaded", function () {
      const form = document.querySelector('form[name="form1"]');
@@ -98,4 +113,3 @@
        }
      });
    });
-   
