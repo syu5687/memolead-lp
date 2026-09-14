@@ -158,7 +158,7 @@ catalogProducts.forEach(p=>{
   const prices=p.price!=null
     ? `<div><span>一般・会員共通</span><strong>${p.price.toLocaleString('ja-JP')}<small>円</small></strong></div><p class="shared">税込・共通価格</p>`
     : `<div><span>一般価格</span><strong>${p.g.toLocaleString('ja-JP')}<small>円</small></strong></div><div class="member"><span>会員特別価格</span><strong>${p.s.toLocaleString('ja-JP')}<small>円</small></strong></div>`;
-  article.innerHTML=`<div class="product-visual"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp" alt="${p.name}" width="600" height="450" loading="lazy"><span class="product-number">No. ${String(p.no).padStart(2,'0')}</span><span class="product-limit">限定 ${p.limit}${p.category==='nabe'?'セット':'個'}</span></div>
+  article.innerHTML=`<button type="button" class="product-visual" data-enlarge="${p.no}" aria-label="${p.name}の画像を拡大"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp?v=photos-20260914" alt="${p.name}" width="600" height="450" loading="lazy"><span class="product-number">No. ${String(p.no).padStart(2,'0')}</span><span class="product-limit">限定 ${p.limit}${p.category==='nabe'?'セット':'個'}</span><span class="product-zoom-hint">画像を拡大 ＋</span></button>
     <div class="product-body"><p class="product-size">${p.size}</p><h3>${p.name}</h3><div class="product-prices">${prices}</div>
     <div class="add-to-cart"><label>数量<select data-addqty="${p.no}" aria-label="${p.name}を追加する数量">${Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select></label><button type="button" class="product-order" data-order="${p.no}" aria-label="${p.name}をカートに追加">カートに追加 ＋</button></div>
     <details class="product-details"><summary>献立・商品詳細を見る</summary>${p.menus.map(group=>`<div class="menu-group"><h5>${group.title}</h5><p>${group.text}</p></div>`).join('')}</details></div>`;
@@ -186,3 +186,25 @@ function filterCatalog(category){
 }
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>filterCatalog(b.dataset.filter)));
 filterCatalog('all');
+const photoDialog=document.createElement('dialog');
+photoDialog.className='product-photo-dialog';
+photoDialog.setAttribute('aria-labelledby','product-photo-title');
+photoDialog.innerHTML='<button type="button" class="photo-close" aria-label="拡大画像を閉じる" autofocus>閉じる ×</button><h2 id="product-photo-title"></h2><img alt="">';
+document.body.appendChild(photoDialog);
+let photoScroll='';
+productGrid.addEventListener('click',event=>{
+ const trigger=event.target.closest('[data-enlarge]');
+ if(!trigger)return;
+ const p=catalogProducts.find(p=>String(p.no)===trigger.dataset.enlarge);
+ if(!p)return;
+ photoDialog.querySelector('h2').textContent=p.name;
+ const img=photoDialog.querySelector('img');
+ img.alt=p.name;
+ img.src=`./_assets/img/product-${String(p.no).padStart(2,'0')}-large.webp?v=photos-20260914`;
+ photoScroll=document.body.style.overflow;
+ document.body.style.overflow='hidden';
+ photoDialog.showModal();
+});
+photoDialog.querySelector('button').addEventListener('click',()=>photoDialog.close());
+photoDialog.addEventListener('click',event=>{if(event.target===photoDialog){const r=photoDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)photoDialog.close();}});
+photoDialog.addEventListener('close',()=>{document.body.style.overflow=photoScroll;});

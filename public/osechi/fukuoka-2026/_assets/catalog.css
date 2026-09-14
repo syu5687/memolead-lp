@@ -91,3 +91,12 @@ main.wrap{padding-top:20px}
 .catalog-tabs-all button:last-child,.catalog-tabs-categories button:last-child{flex:1}
 .catalog-filter-sticky{position:sticky;top:0;z-index:80;margin:0 -28px;padding:10px 28px 1px;background:#f6f2eaf2;backdrop-filter:blur(10px);box-shadow:0 3px 12px #38251914}
 @media(max-width:560px){.catalog-filter-sticky{margin-left:-20px;margin-right:-20px;padding:7px 20px 1px}.catalog-tabs-all{margin-bottom:7px}.catalog-tabs-categories{margin-bottom:7px}.catalog-tabs{gap:6px}.catalog-tabs button{min-height:52px;padding:9px 3px}.catalog-tabs-all button{min-height:43px}}
+/* 商品写真の拡大表示 */
+button.product-visual{display:block;width:100%;padding:0;border:0;border-radius:0;color:inherit;font:inherit;cursor:zoom-in;text-align:left}
+button.product-visual:focus-visible{outline:3px solid #7c1f2a;outline-offset:-3px}
+.product-zoom-hint{position:absolute;right:10px;bottom:10px;padding:6px 10px;border-radius:20px;background:rgba(255,255,255,.94);color:#7c1f2a;font-size:13px;font-weight:bold}
+.product-photo-dialog{box-sizing:border-box;width:min(1100px,94vw);max-width:94vw;max-height:92vh;max-height:92dvh;padding:16px;border:0;border-radius:12px;background:#fff;color:#222;overflow:auto}
+.product-photo-dialog::backdrop{background:rgba(0,0,0,.8)}
+.product-photo-dialog h2{font-size:18px;margin:4px 100px 16px 0}
+.product-photo-dialog img{display:block;max-width:100%;width:auto;max-height:74vh;max-height:74dvh;object-fit:contain;margin:auto}
+.product-photo-dialog .photo-close{position:sticky;top:0;float:right;min-height:44px;padding:8px 14px;border:1px solid #7c1f2a;border-radius:6px;background:#fff;color:#7c1f2a;cursor:pointer;font:inherit}
