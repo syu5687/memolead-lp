@@ -100,3 +100,14 @@ button.product-visual:focus-visible{outline:3px solid #7c1f2a;outline-offset:-3p
 .product-photo-dialog h2{font-size:18px;margin:4px 100px 16px 0}
 .product-photo-dialog img{display:block;max-width:100%;width:auto;max-height:74vh;max-height:74dvh;object-fit:contain;margin:auto}
 .product-photo-dialog .photo-close{position:sticky;top:0;float:right;min-height:44px;padding:8px 14px;border:1px solid #7c1f2a;border-radius:6px;background:#fff;color:#7c1f2a;cursor:pointer;font:inherit}
+
+.photo-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;clear:both}
+.photo-controls button{min-height:44px;padding:8px 12px;background:#fff;color:#7c1f2a;border:1px solid #7c1f2a;border-radius:6px;font:inherit;cursor:pointer}
+.photo-controls button:disabled{opacity:.4;cursor:default}
+.photo-scale{font-size:14px;font-variant-numeric:tabular-nums}
+.photo-help{margin:8px 0;font-size:13px;color:#555}
+.photo-viewport{position:relative;width:100%;height:60vh;height:60dvh;overflow:hidden;background:#f6f2ea;touch-action:pan-y;user-select:none}
+.product-photo-dialog .photo-viewport img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;transform-origin:center;pointer-events:none}
+.photo-viewport.is-zoomed{touch-action:none;cursor:grab}
+.photo-viewport.is-zoomed:active{cursor:grabbing}
+@media(max-width:560px){.product-photo-dialog{padding:12px}.photo-controls{gap:6px}.photo-controls button{padding:8px;font-size:14px}.photo-viewport{height:55vh;height:55dvh}}

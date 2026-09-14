@@ -189,7 +189,7 @@ filterCatalog('all');
 const photoDialog=document.createElement('dialog');
 photoDialog.className='product-photo-dialog';
 photoDialog.setAttribute('aria-labelledby','product-photo-title');
-photoDialog.innerHTML='<button type="button" class="photo-close" aria-label="拡大画像を閉じる" autofocus>閉じる ×</button><h2 id="product-photo-title"></h2><img alt="">';
+photoDialog.innerHTML='<button type="button" class="photo-close" aria-label="拡大画像を閉じる" autofocus>閉じる ×</button><h2 id="product-photo-title"></h2><div class="photo-controls"><button type="button" data-photo-zoom="in" aria-label="写真をさらに拡大">＋ 拡大</button><button type="button" data-photo-zoom="out" aria-label="写真を縮小">− 縮小</button><button type="button" data-photo-zoom="reset">元に戻す</button><span class="photo-scale" aria-live="polite">100%</span></div><p class="photo-help">拡大後、写真を1本指でなぞると移動できます。</p><div class="photo-viewport"><img alt="" draggable="false"></div>';
 document.body.appendChild(photoDialog);
 let photoScroll='';
 productGrid.addEventListener('click',event=>{
@@ -203,8 +203,48 @@ productGrid.addEventListener('click',event=>{
  img.src=`./_assets/img/product-${String(p.no).padStart(2,'0')}-large.webp?v=photos-20260914`;
  photoScroll=document.body.style.overflow;
  document.body.style.overflow='hidden';
+ resetPhoto();
  photoDialog.showModal();
 });
 photoDialog.querySelector('button').addEventListener('click',()=>photoDialog.close());
 photoDialog.addEventListener('click',event=>{if(event.target===photoDialog){const r=photoDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)photoDialog.close();}});
-photoDialog.addEventListener('close',()=>{document.body.style.overflow=photoScroll;});
+photoDialog.addEventListener('close',()=>{document.body.style.overflow=photoScroll;resetPhoto();});
+
+// 拡大した写真をPointer Eventsで移動（タッチ・マウス共通）。
+const photoViewport=photoDialog.querySelector('.photo-viewport');
+const zoomPhoto=photoViewport.querySelector('img');
+let photoScale=1,photoX=0,photoY=0,photoPointer=null;
+function paintPhoto(){
+ const w=photoViewport.clientWidth,h=photoViewport.clientHeight;
+ const ratio=zoomPhoto.naturalWidth&&zoomPhoto.naturalHeight?Math.min(w/zoomPhoto.naturalWidth,h/zoomPhoto.naturalHeight):0;
+ const maxX=Math.max(0,(zoomPhoto.naturalWidth*ratio*photoScale-w)/2);
+ const maxY=Math.max(0,(zoomPhoto.naturalHeight*ratio*photoScale-h)/2);
+ photoX=Math.max(-maxX,Math.min(maxX,photoX));photoY=Math.max(-maxY,Math.min(maxY,photoY));
+ zoomPhoto.style.transform=`translate(${photoX}px,${photoY}px) scale(${photoScale})`;
+ photoViewport.classList.toggle('is-zoomed',photoScale>1);
+ photoDialog.querySelector('.photo-scale').textContent=Math.round(photoScale*100)+'%';
+ photoDialog.querySelector('[data-photo-zoom="in"]').disabled=photoScale>=4;
+ photoDialog.querySelector('[data-photo-zoom="out"]').disabled=photoScale<=1;
+}
+function resetPhoto(){photoScale=1;photoX=0;photoY=0;photoPointer=null;paintPhoto();}
+photoDialog.querySelector('.photo-controls').addEventListener('click',event=>{
+ const button=event.target.closest('[data-photo-zoom]');if(!button)return;
+ photoPointer=null;
+ if(button.dataset.photoZoom==='reset'){resetPhoto();return;}
+ photoScale=Math.max(1,Math.min(4,photoScale+(button.dataset.photoZoom==='in'?.5:-.5)));paintPhoto();
+});
+photoViewport.addEventListener('pointerdown',event=>{
+ if(photoScale<=1||photoPointer||!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0))return;
+ photoPointer={id:event.pointerId,x:event.clientX,y:event.clientY};photoViewport.setPointerCapture(event.pointerId);
+});
+photoViewport.addEventListener('pointermove',event=>{
+ if(!photoPointer||photoPointer.id!==event.pointerId)return;
+ photoX+=event.clientX-photoPointer.x;photoY+=event.clientY-photoPointer.y;
+ photoPointer.x=event.clientX;photoPointer.y=event.clientY;paintPhoto();
+});
+for(const type of ['pointerup','pointercancel','lostpointercapture'])photoViewport.addEventListener(type,event=>{
+ if(photoPointer?.id!==event.pointerId)return;
+ photoPointer=null;if(photoViewport.hasPointerCapture(event.pointerId))photoViewport.releasePointerCapture(event.pointerId);
+});
+zoomPhoto.addEventListener('load',()=>{photoX=0;photoY=0;paintPhoto();});
+new ResizeObserver(()=>paintPhoto()).observe(photoViewport);
