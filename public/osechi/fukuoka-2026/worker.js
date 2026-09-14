@@ -7,12 +7,10 @@
  */
 
 var CONFIG = {
-  // 注文通知の宛先（担当者）。全施設まとめてこちらに届きます
+  // 施設を判定できない注文の通知先（通知漏れ防止）
   TO: "mk@emanet.jp",
-  // 全体管理者（TOと同じく、全注文内容を受信）
-  OVERALL_TO: ["mk@emanet.jp", "hashiguchi-ken@memolead.co.jp"],
   // CC（管理者・複数可）
-  CC: [],
+  CC: ["mk@emanet.jp", "hashiguchi-ken@memolead.co.jp"],
   // 施設ごとの注文通知先（該当施設の注文がある場合、その施設グループへ同じ内容を送信）
   FACILITY_EMAILS: {
     garden: ["kasahara-hiro@memolead.co.jp", "muranaka-jun@memolead.co.jp", "mimae-kazu@memolead.co.jp"],
@@ -105,20 +103,22 @@ export default {
 
       const facilityIds = [...new Set((d.orders || []).map(o => o.facilityId).filter(Boolean))];
       const facilityTargets = facilityIds.flatMap(id => CONFIG.FACILITY_EMAILS[id] || []);
-      const targets = [...new Set([...(CONFIG.OVERALL_TO || [CONFIG.TO]), ...facilityTargets])];
-      const adminResults = await Promise.all(targets.map(async (to) => {
+      const targets = [...new Set(facilityTargets.length ? facilityTargets : [CONFIG.TO])];
+      // 一括送信にして、管理者へのCCが担当者の人数分重複しないようにする。
+      const adminResults = [await (async () => {
         const adminBody = {
           sender,
-          to: [{ email: to }],
+          to: targets.map(email => ({ email })),
           subject: `${CONFIG.SUBJECT_PREFIX}${esc(d.facility)}／${esc(d.name)}様${d.total ? `（¥${Number(d.total).toLocaleString("ja-JP")}）` : ""}`,
           htmlContent: adminHtml,
           replyTo: { email: d.email, name: d.name }
         };
-        if (CONFIG.CC.length) adminBody.cc = CONFIG.CC.map((e) => ({ email: e }));
+        const cc = [...new Set(CONFIG.CC)].filter(email => !targets.includes(email));
+        if (cc.length) adminBody.cc = cc.map(email => ({ email }));
         if (CONFIG.BCC.length) adminBody.bcc = CONFIG.BCC.map((e) => ({ email: e }));
         const res = await fetch(BREVO_EMAIL, { method: "POST", headers: { "api-key": env.BREVO_API_KEY, "Content-Type": "application/json", "accept": "application/json" }, body: JSON.stringify(adminBody) });
         return { ok: res.ok, result: await res.json().catch(() => ({})) };
-      }));
+      })()];
       const adminOk = adminResults.every(r => r.ok);
       const adminResult = adminResults.find(r => !r.ok)?.result || adminResults[0]?.result || {};
 
