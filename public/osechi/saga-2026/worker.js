@@ -1,5 +1,5 @@
 /**
- * @version v0010 | 2026-09-16 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0011 | 2026-09-16 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -9,11 +9,11 @@
 var CONFIG = {
   ACCEPTING_ORDERS: true,
   // 施設を判定できない注文の通知先（通知漏れ防止）
-  TO: "mk@emanet.jp",
+  TO: ["higashijima-masa@memolead.co.jp", "kawakami-toru@memolead.co.jp", "doi-yuu@memolead.co.jp"],
   // CC（管理者・複数可）
-  CC: [],
+  CC: ["mk@emanet.jp"],
   // 施設ごとの注文通知先（該当施設の注文がある場合、その施設グループへ同じ内容を送信）
-  FACILITY_EMAILS: { saga: ["mk@emanet.jp"] },
+  FACILITY_EMAILS: { saga: ["higashijima-masa@memolead.co.jp", "kawakami-toru@memolead.co.jp", "doi-yuu@memolead.co.jp"] },
   // BCC（他の受信者に知られず通知・複数可）
   BCC: [],
   // 送信元（★ Brevoで nfz33.com を認証済み。他ドメインを使う場合は認証してから）
@@ -127,7 +127,7 @@ export default {
 
       const facilityIds = [...new Set((d.orders || []).map(o => o.facilityId).filter(Boolean))];
       const facilityTargets = facilityIds.flatMap(id => CONFIG.FACILITY_EMAILS[id] || []);
-      const targets = [...new Set(facilityTargets.length ? facilityTargets : [CONFIG.TO])];
+      const targets = [...new Set(facilityTargets.length ? facilityTargets : CONFIG.TO)];
       // 一括送信にして、管理者へのCCが担当者の人数分重複しないようにする。
       const adminResults = [await (async () => {
         const adminBody = {
