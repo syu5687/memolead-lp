@@ -1,5 +1,5 @@
 /**
- * @version v0009 | 2026-09-16 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0010 | 2026-09-16 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -68,6 +68,30 @@ export default {
       for (const k of ["name", "email", "tel", "address", "facility"]) {
         if (!d[k]) return json({ ok: false, error: `missing ${k}` }, 400);
       }
+
+      // 価格は送信値を信用せず、佐賀版の受付時刻と商品番号から再計算する。
+      const earlyOrder = Date.now() < Date.parse("2026-10-31T20:01:00+09:00");
+      const requestedTier = d.tier === "special" ? "special" : "general";
+      const priceOf = (no) => {
+        if (Number(no) === 1) return earlyOrder ? { unit: 33000, tax: 2444 } : requestedTier === "special" ? { unit: 35000, tax: 2592 } : { unit: 37000, tax: 2740 };
+        return ({ 2: { unit: 22000, tax: 1629 }, 3: { unit: 15000, tax: 1111 }, 4: { unit: 12000, tax: 888 } })[Number(no)];
+      };
+      d.tier = earlyOrder ? "early" : requestedTier;
+      d.tierLabel = earlyOrder ? "早期購入価格（一般・会員共通）" : requestedTier === "special" ? "特別価格（メモリード会員）" : "一般価格";
+      let checkedTotal = 0, checkedTax = 0;
+      for (const order of d.orders) {
+        order.subtotal = 0; order.subtax = 0; order.fee = 0;
+        for (const item of order.items || []) {
+          const price = priceOf(item.no);
+          if (!price) return json({ ok: false, error: "商品内容をご確認ください" }, 400);
+          item.qty = Math.max(1, Math.min(10, Number(item.qty) || 1));
+          item.unit = price.unit; item.tax = price.tax;
+          item.line = price.unit * item.qty; item.lineTax = price.tax * item.qty;
+          order.subtotal += item.line; order.subtax += item.lineTax;
+        }
+        checkedTotal += order.subtotal; checkedTax += order.subtax;
+      }
+      d.total = checkedTotal; d.totalTax = checkedTax;
 
       const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
       const escUrl = (u) => String(u ?? "").replace(/&/g, "&amp;").replace(/"/g, "%22");

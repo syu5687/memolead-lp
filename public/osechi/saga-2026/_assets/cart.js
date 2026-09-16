@@ -1,5 +1,5 @@
 'use strict';
-// @version v0003 | 2026-09-16 | メモリード佐賀 おせち・クリスマス
+// @version v0004 | 2026-09-16 | メモリード佐賀 おせち・クリスマス
 const form=document.getElementById('orderForm'), msg=document.getElementById('formMsg');
 const cartItems=document.getElementById('cartItems'), review=document.getElementById('testReview');
 const yen=n=>n==null?'—':'¥'+Number(n).toLocaleString('ja-JP');
@@ -10,10 +10,14 @@ try{
  const saved=JSON.parse(sessionStorage.getItem(storageKey)||'null');
  if(saved){tier=saved.tierConfirmed&&['general','special'].includes(saved.tier)?saved.tier:'';cart=(Array.isArray(saved.cart)?saved.cart:[]).slice(0,100).filter(r=>byNo(r.no)).map(r=>{const p=byNo(r.no);const deliveryDate=p.dates.map(v=>v.replace(/\s.*$/,''));return {id:++serial,no:p.no,qty:Math.min(10,Math.max(1,parseInt(r.qty)||1)),method:p.delivery&&['store','delivery'].includes(r.method)?r.method:p.delivery?'':'store',pickup:p.pickup.includes(r.pickup)?r.pickup:(p.pickup.length===1?p.pickup[0]:''),date:(p.delivery&&r.method==='delivery'?deliveryDate:p.dates).includes(r.date)?r.date:'',time:DELIVERY_TIMES.includes(r.time)?r.time:'',cake:p.cakes?.includes(r.cake)?r.cake:''};});}
 }catch(_){/* Session storage is optional. */}
+const earlyOrderActive=isEarlyOrderPeriod();
+if(earlyOrderActive)tier='early';
+const tierBox=document.querySelector('.tier-static'),tierOptions=tierBox.querySelector('.tier-opts'),tierTitle=tierBox.querySelector('.tier-title'),tierHelp=document.getElementById('tier-help');
+if(earlyOrderActive){tierBox.classList.add('early-active');tierTitle.textContent='早期購入価格を適用しています';tierOptions.hidden=true;tierHelp.innerHTML='2026年10月31日（土）20時まで、プレミアムおせちは一般・会員ともに <b>33,000円（税込）</b> です。';}
 function persist(){try{sessionStorage.setItem(storageKey,JSON.stringify({tier,cart,tierConfirmed:!!tier}));}catch(_){}}
 function invalidate(){review.hidden=true;msg.textContent='';msg.className='form-msg';}
-function unit(p){return p.price??(tier?(tier==='special'?p.s:p.g):null);}
-function tax(p){return p.tax??(tier?(tier==='special'?p.sTax:p.gTax):null);}
+function unit(p){return p.price??(earlyOrderActive&&p.e!=null?p.e:(tier?(tier==='special'?p.s:p.g):null));}
+function tax(p){return p.tax??(earlyOrderActive&&p.eTax!=null?p.eTax:(tier?(tier==='special'?p.sTax:p.gTax):null));}
 function totals(){const fees=new Set();let subtotal=0,quantity=0,productTax=0;for(const r of cart){const p=byNo(r.no);subtotal+=unit(p)*r.qty;productTax+=tax(p)*r.qty;quantity+=r.qty;if(r.method==='delivery')fees.add(p.facilityId);}return {subtotal:cart.length&&!tier?null:subtotal,quantity,productTax:cart.length&&!tier?null:productTax,fees,total:cart.length&&!tier?null:subtotal+fees.size*1000};}
 function options(values,selected){return '<option value="">選択してください</option>'+values.map(v=>`<option value="${v}"${v===selected?' selected':''}>${v}</option>`).join('');}
 function deliveryDates(values,selected){return options(values.map(v=>v.replace(/\s.*$/,'')),selected);}
@@ -70,7 +74,7 @@ form.addEventListener('submit',async e=>{
  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fd.get('email'))){setMsg('メールアドレスの形式をご確認ください。','err');return;}
  if(!document.getElementById('agree').checked){setMsg('入力内容を確認し、チェックを入れてください。','err');return;}
  const t=totals(),orders=cart.map(r=>{const p=byNo(r.no),line=unit(p)*r.qty,lineTax=tax(p)*r.qty;return {facilityId:'saga',facility:r.pickup,category:categoryNames[p.category],items:[{no:p.no,name:p.name+(r.cake?'（'+r.cake+'）':''),qty:r.qty,unit:unit(p),line,tax:tax(p),lineTax}],method:'店頭受け取り',pickup:r.pickup,pickupAddr:LOCATIONS[r.pickup]?.addr||'',pickdate:r.date,subtotal:line,subtax:lineTax,fee:0};});
- const data={source:location.href,formName:'メモリード佐賀 おせち・クリスマス2026',name:fd.get('name').trim(),zip:fd.get('zip').trim(),address:fd.get('address').trim(),tel:fd.get('tel').trim(),email:fd.get('email').trim(),note:fd.get('note')?.trim()||'',tier,tierLabel:tier==='special'?'特別価格（メモリード会員）':'一般価格',facility:orders.map(o=>o.facility).join('・'),orders,total:t.total,totalTax:t.productTax,summary:''};
+ const data={source:location.href,formName:'メモリード佐賀 おせち・クリスマス2026',name:fd.get('name').trim(),zip:fd.get('zip').trim(),address:fd.get('address').trim(),tel:fd.get('tel').trim(),email:fd.get('email').trim(),note:fd.get('note')?.trim()||'',tier,tierLabel:tier==='early'?'早期購入価格（一般・会員共通）':tier==='special'?'特別価格（メモリード会員）':'一般価格',facility:orders.map(o=>o.facility).join('・'),orders,total:t.total,totalTax:t.productTax,summary:''};
  submitBtn.disabled=true;submitBtn.textContent='送信中…';try{const r=await fetch('https://memolead-fukuoka-osechi.mk-cbe.workers.dev/saga/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await r.json();if(!r.ok||!result.ok)throw Error('status '+r.status);form.style.display='none';document.getElementById('testSummary').textContent='申込内容をメールでお送りしました。';review.hidden=false;review.scrollIntoView({behavior:'smooth',block:'start'});sessionStorage.removeItem(storageKey);}catch(err){setMsg('送信に失敗しました。時間をおいて再度お試しください。','err');submitBtn.disabled=false;submitBtn.textContent='この内容で申し込む';}}
 );
 renderCart();
