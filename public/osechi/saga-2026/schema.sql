@@ -1,4 +1,4 @@
--- Cloudflare D1: npx wrangler d1 execute memolead-fukuoka-osechi --remote --file=schema.sql
+-- Cloudflare D1: 佐賀版専用データベースへ適用
 CREATE TABLE IF NOT EXISTS saga_orders (
   id TEXT PRIMARY KEY,
   created_at TEXT NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS saga_orders (
   total INTEGER NOT NULL DEFAULT 0,
   total_tax INTEGER NOT NULL DEFAULT 0,
   note TEXT,
-  saga_orders_json TEXT NOT NULL,
+  orders_json TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT '未対応'
 );
 CREATE INDEX IF NOT EXISTS idx_saga_orders_created_at ON saga_orders(created_at DESC);

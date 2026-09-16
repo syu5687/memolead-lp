@@ -1,4 +1,5 @@
 'use strict';
+// @version v0002 | 2026-09-16 | メモリード佐賀 おせち・クリスマス
 const form=document.getElementById('orderForm'), msg=document.getElementById('formMsg');
 const cartItems=document.getElementById('cartItems'), review=document.getElementById('testReview');
 const yen=n=>n==null?'—':'¥'+Number(n).toLocaleString('ja-JP');
@@ -7,7 +8,7 @@ let cart=[],tier='',serial=0,toastTimer;
 const storageKey='saga-2026-cart-v1';
 try{
  const saved=JSON.parse(sessionStorage.getItem(storageKey)||'null');
- if(saved){tier=saved.tierConfirmed&&['general','special'].includes(saved.tier)?saved.tier:'';cart=(Array.isArray(saved.cart)?saved.cart:[]).slice(0,100).filter(r=>byNo(r.no)).map(r=>{const p=byNo(r.no);const deliveryDate=p.dates.map(v=>v.replace(/\s.*$/,''));return {id:++serial,no:p.no,qty:Math.min(10,Math.max(1,parseInt(r.qty)||1)),method:p.delivery&&['store','delivery'].includes(r.method)?r.method:p.delivery?'':'store',pickup:p.pickup.includes(r.pickup)?r.pickup:'',date:(p.delivery&&r.method==='delivery'?deliveryDate:p.dates).includes(r.date)?r.date:'',time:DELIVERY_TIMES.includes(r.time)?r.time:'',cake:p.cakes?.includes(r.cake)?r.cake:''};});}
+ if(saved){tier=saved.tierConfirmed&&['general','special'].includes(saved.tier)?saved.tier:'';cart=(Array.isArray(saved.cart)?saved.cart:[]).slice(0,100).filter(r=>byNo(r.no)).map(r=>{const p=byNo(r.no);const deliveryDate=p.dates.map(v=>v.replace(/\s.*$/,''));return {id:++serial,no:p.no,qty:Math.min(10,Math.max(1,parseInt(r.qty)||1)),method:p.delivery&&['store','delivery'].includes(r.method)?r.method:p.delivery?'':'store',pickup:p.pickup.includes(r.pickup)?r.pickup:(p.pickup.length===1?p.pickup[0]:''),date:(p.delivery&&r.method==='delivery'?deliveryDate:p.dates).includes(r.date)?r.date:'',time:DELIVERY_TIMES.includes(r.time)?r.time:'',cake:p.cakes?.includes(r.cake)?r.cake:''};});}
 }catch(_){/* Session storage is optional. */}
 function persist(){try{sessionStorage.setItem(storageKey,JSON.stringify({tier,cart,tierConfirmed:!!tier}));}catch(_){}}
 function invalidate(){review.hidden=true;msg.textContent='';msg.className='form-msg';}
@@ -22,10 +23,9 @@ function renderCart(focus){
  <div class="cart-quantity"><label>数量<select data-field="qty" aria-label="明細${i+1}の数量">${Array.from({length:10},(_,j)=>`<option${j+1===r.qty?' selected':''}>${j+1}</option>`).join('')}</select></label><span>${yen(unit(p))} × ${r.qty}</span><strong>${yen(unit(p)==null?null:unit(p)*r.qty)}</strong><button type="button" data-remove="${r.id}" aria-label="明細${i+1}を削除">削除</button></div>
  <div class="cart-pick">${p.cakes?`<label>ケーキの種類<select data-field="cake" class="${r.cake?'':'pickup-unselected'}" aria-label="明細${i+1}のケーキの種類">${options(p.cakes,r.cake)}</select></label>`:''}
  ${p.delivery?`<label>受け取り方法<select class="${r.method?'':'pickup-unselected'}" aria-required="true" data-field="method" aria-label="明細${i+1}の受け取り方法"><option value="">選択してください</option><option value="store"${r.method==='store'?' selected':''}>店頭受け取り</option><option value="delivery"${r.method==='delivery'?' selected':''}>配達</option></select></label>`:''}
- ${r.method==='store'?`<label>受け取り場所<select class="${r.pickup?'':'pickup-unselected'}" aria-required="true" data-field="pickup" aria-label="明細${i+1}の受け取り場所">${options(p.pickup,r.pickup)}</select></label>`:r.method==='delivery'?'<p class="delivery-info">ご入力の住所へ配達します。<br>配達料：申込施設ごとに1,000円<br><small>※配達時間は前後する可能性があります。</small></p>':p.delivery?'<p class="delivery-info pickup-unselected-text">受け取り方法を選択してください。</p>':''}
+ ${r.method==='store'?(p.pickup.length===1?`<div class="pickup-fixed"><span>受け取り場所</span><strong>${p.pickup[0]}</strong><small>${LOCATIONS[p.pickup[0]]?.addr||''}</small><a href="${locMapUrl(p.pickup[0])}" target="_blank" rel="noopener">Googleマップで見る ↗</a></div>`:`<label>受け取り場所<select class="${r.pickup?'':'pickup-unselected'}" aria-required="true" data-field="pickup" aria-label="明細${i+1}の受け取り場所">${options(p.pickup,r.pickup)}</select></label>`):r.method==='delivery'?'<p class="delivery-info">ご入力の住所へ配達します。<br>配達料：申込施設ごとに1,000円<br><small>※配達時間は前後する可能性があります。</small></p>':p.delivery?'<p class="delivery-info pickup-unselected-text">受け取り方法を選択してください。</p>':''}
  ${r.method==='delivery'?`<label>配達希望日<select class="${r.date?'':'pickup-unselected'}" aria-required="true" data-field="date" aria-label="明細${i+1}の配達希望日">${deliveryDates(p.dates,r.date)}</select></label><label>受け取り希望時間<select class="${r.time?'':'pickup-unselected'}" aria-required="true" data-field="time" aria-label="明細${i+1}の受け取り希望時間">${options(DELIVERY_TIMES,r.time)}</select></label>`:`<label>受け取り日時<select class="${r.date?'':'pickup-unselected'}" aria-required="true" data-field="date" aria-label="明細${i+1}の受け取り日時">${options(p.dates,r.date)}</select></label>`}
  </div>
- ${r.pickup&&r.method==='store'?`<p class="cart-address">${LOCATIONS[r.pickup]?.addr||''} <a href="${locMapUrl(r.pickup)}" target="_blank" rel="noopener">地図を見る ↗</a></p>`:''}
  <div class="cart-row-actions"><button type="button" data-copy="${r.id}">同じ商品を別の受け取り分として追加</button></div>
  </article>`;}).join(''):'<div class="cart-empty"><strong>カートに商品が入っていません</strong><p>商品一覧で数量を選び、「カートに追加」を押してください。</p><a href="#catalog">商品を見る →</a></div>';
  const t=totals();
@@ -42,15 +42,16 @@ function toast(text){const el=document.getElementById('cartToast');el.textConten
 function setMsg(text,cls){msg.textContent=text;msg.className='form-msg '+(cls||'');if(cls==='err')msg.scrollIntoView({behavior:'smooth',block:'center'});}
 productGrid.addEventListener('click',e=>{
  const b=e.target.closest('[data-order]');if(!b)return;const p=byNo(b.dataset.order),qty=Number(document.querySelector(`[data-addqty="${p.no}"]`).value);
- const existing=cart.find(r=>r.no===p.no&&!r.pickup&&!r.date&&r.method==='store'&&r.qty+qty<=10);
- if(existing)existing.qty+=qty;else cart.push({id:++serial,no:p.no,qty,method:p.delivery?'':'store',pickup:'',date:'',time:''});
+ const fixedPickup=p.pickup.length===1?p.pickup[0]:'';
+ const existing=cart.find(r=>r.no===p.no&&r.pickup===fixedPickup&&!r.date&&r.method==='store'&&r.qty+qty<=10);
+ if(existing)existing.qty+=qty;else cart.push({id:++serial,no:p.no,qty,method:p.delivery?'':'store',pickup:fixedPickup,date:'',time:''});
  invalidate();renderCart();toast(`${p.name} ${qty}点をカートに追加しました`);
 });
 cartItems.addEventListener('change',e=>{const field=e.target.dataset.field;if(!field)return;const r=cart.find(r=>r.id===Number(e.target.closest('[data-row]').dataset.row));r[field]=field==='qty'?Number(e.target.value):e.target.value;invalidate();renderCart();});
 cartItems.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.dataset.remove){const index=cart.findIndex(r=>r.id===Number(b.dataset.remove));cart.splice(index,1);invalidate();renderCart();document.getElementById('cart').focus({preventScroll:true});toast('商品をカートから削除しました');}
- if(b.dataset.copy){const r=cart.find(r=>r.id===Number(b.dataset.copy));const id=++serial;const p=byNo(r.no);cart.push({id,no:r.no,qty:1,method:p.delivery?'':'store',pickup:'',date:'',time:''});invalidate();renderCart({id,field:'qty'});cartItems.querySelector(`[data-row="${id}"]`).scrollIntoView({behavior:'smooth',block:'center'});toast('別の受け取り分を1点追加しました。場所と日時を指定してください。');}
+ if(b.dataset.copy){const r=cart.find(r=>r.id===Number(b.dataset.copy));const id=++serial;const p=byNo(r.no);cart.push({id,no:r.no,qty:1,method:p.delivery?'':'store',pickup:p.pickup.length===1?p.pickup[0]:'',date:'',time:''});invalidate();renderCart({id,field:'qty'});cartItems.querySelector(`[data-row="${id}"]`).scrollIntoView({behavior:'smooth',block:'center'});toast('別の受け取り分を1点追加しました。受け取り日時を指定してください。');}
 
 });
 document.querySelectorAll('[name="ptier"]').forEach(el=>el.addEventListener('change',()=>{tier=el.value;invalidate();renderCart();}));

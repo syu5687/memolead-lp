@@ -1,5 +1,5 @@
 /**
- * @version v0008 | 2026-08-07 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0009 | 2026-09-16 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
@@ -7,7 +7,7 @@
  */
 
 var CONFIG = {
-  ACCEPTING_ORDERS: false, // 受取条件の確認後に受付開始
+  ACCEPTING_ORDERS: true,
   // 施設を判定できない注文の通知先（通知漏れ防止）
   TO: "mk@emanet.jp",
   // CC（管理者・複数可）
