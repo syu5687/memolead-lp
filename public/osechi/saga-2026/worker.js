@@ -1,31 +1,26 @@
 /**
- * @version v0008 | 2026-08-07 | メモリード福岡 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0008 | 2026-08-07 | メモリード佐賀 おせち・クリスマス2026 申込フォーム送信Worker | Cloudflare Workers
  *
  * 既存フォームWorker（photo-wedding-form 等）と同じ構成。
  * 秘密情報は BREVO_API_KEY（Workerシークレット）のみ。通知先・送信元はこのCONFIGで管理。
  *   設定: npx wrangler secret put BREVO_API_KEY
  */
 
-import sagaWorker from '../saga-2026/worker.js';
-
 var CONFIG = {
+  ACCEPTING_ORDERS: false, // 受取条件の確認後に受付開始
   // 施設を判定できない注文の通知先（通知漏れ防止）
   TO: "mk@emanet.jp",
   // CC（管理者・複数可）
-  CC: ["mk@emanet.jp", "hashiguchi-ken@memolead.co.jp"],
+  CC: [],
   // 施設ごとの注文通知先（該当施設の注文がある場合、その施設グループへ同じ内容を送信）
-  FACILITY_EMAILS: {
-    garden: ["kasahara-hiro@memolead.co.jp", "muranaka-jun@memolead.co.jp", "mimae-kazu@memolead.co.jp"],
-    alcasal: ["yoshimura-jyun@memolead.co.jp", "sakakihara-yuu@memolead.co.jp", "avvio-keiri@memolead.co.jp", "avvio@memolead.co.jp"],
-    royal: ["gondou-yumi@memolead.co.jp", "turo-nori@memolead.co.jp", "mouri-sei@memolead.co.jp", "yoshida-fumi@memolead.co.jp"]
-  },
+  FACILITY_EMAILS: { saga: ["mk@emanet.jp"] },
   // BCC（他の受信者に知られず通知・複数可）
   BCC: [],
   // 送信元（★ Brevoで nfz33.com を認証済み。他ドメインを使う場合は認証してから）
-  FROM_NAME: "メモリード福岡",
+  FROM_NAME: "メモリード佐賀",
   FROM_EMAIL: "noreply@nfz33.com",
   // 件名の頭につける識別子
-  SUBJECT_PREFIX: "【おせち申込】",
+  SUBJECT_PREFIX: "【佐賀・おせち申込】",
   // 受付を許可するオリジン（このフォーム設置元のみ受付＝不正利用防止）
   ALLOWED_ORIGINS: [
     "https://memolead-lp-665477084949.asia-northeast1.run.app"
@@ -33,14 +28,14 @@ var CONFIG = {
   ],
   // お客様への自動返信（受付確認メール）を送る
   AUTO_REPLY: true,
-  AUTO_REPLY_SUBJECT: "【メモリード福岡】ご注文を承りました",
+  AUTO_REPLY_SUBJECT: "【メモリード佐賀】ご注文を承りました",
   // Brevoコンタクトへ登録する場合はリストIDを指定（不要なら null）
   BREVO_LIST_ID: null,
   // 毎日の稼働確認メール（Cron Trigger）の宛先・件名
   MONITOR_TO: "mk@emanet.jp",
   MONITOR_SUBJECT: "【自動稼働確認】おせち申込フォーム 正常稼働中",
   // 稼働確認メールに記載するフォームのURL
-  FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/fukuoka-2026/"
+  FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/osechi/saga-2026/"
 };
 
 var BREVO_EMAIL = "https://api.brevo.com/v3/smtp/email";
@@ -48,11 +43,6 @@ var BREVO_CONTACT = "https://api.brevo.com/v3/contacts";
 
 export default {
   async fetch(request, env) {
-    const route = new URL(request.url);
-    if (route.pathname.startsWith('/saga/')) {
-      route.pathname = route.pathname.slice('/saga'.length);
-      return sagaWorker.fetch(new Request(route, request), env);
-    }
     const origin = request.headers.get("Origin") || "";
     const allowOrigin = CONFIG.ALLOWED_ORIGINS.includes(origin) ? origin : CONFIG.ALLOWED_ORIGINS[0];
     const cors = {
@@ -69,9 +59,12 @@ export default {
     const json = (obj, status = 200) =>
       new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json", ...cors } });
 
+    if (!CONFIG.ACCEPTING_ORDERS) return json({ok:false,error:"佐賀版は受付準備中です"},503);
     try {
       if (!env.BREVO_API_KEY) return json({ ok: false, error: "BREVO_API_KEY 未設定" }, 500);
       const d = await request.json();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email || '')) return json({ok:false,error:'メールアドレスをご確認ください'},400);
+      if (!Array.isArray(d.orders) || !d.orders.length || d.orders.some(o=>o.facilityId!=='saga')) return json({ok:false,error:'佐賀版の注文内容をご確認ください'},400);
       for (const k of ["name", "email", "tel", "address", "facility"]) {
         if (!d[k]) return json({ ok: false, error: `missing ${k}` }, 400);
       }
@@ -81,7 +74,7 @@ export default {
       const yen = (n) => "¥" + Number(n || 0).toLocaleString("ja-JP");
       const orderId = crypto.randomUUID();
       if (env.DB) {
-        await env.DB.prepare(`INSERT INTO orders (id, created_at, name, zip, address, tel, email, facility_id, facility, tier, total, total_tax, note, orders_json, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+        await env.DB.prepare(`INSERT INTO saga_orders (id, created_at, name, zip, address, tel, email, facility_id, facility, tier, total, total_tax, note, orders_json, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
           .bind(orderId, new Date().toISOString(), d.name, d.zip || "", d.address, d.tel, d.email, d.facilityId || "", d.facility, d.tierLabel || "", Number(d.total || 0), Number(d.totalTax || 0), d.note || "", JSON.stringify(d.orders || []), "未対応")
           .run();
       }
@@ -105,7 +98,7 @@ export default {
           <h3 style="margin-top:20px;color:#7c1f2a;">ご注文内容</h3>
           ${orderBlock}
           ${d.note ? `<h3 style="margin-top:18px;color:#7c1f2a;">ご要望・備考</h3><div style="font-size:14px;">${esc(d.note).replace(/\n/g, "<br>")}</div>` : ""}
-          <p style="margin-top:20px;font-size:12px;color:#aaa;">送信元：おせち・クリスマス2026 ご注文フォーム</p>
+          <p style="margin-top:20px;font-size:12px;color:#aaa;">送信元：<a href="${CONFIG.FORM_URL}">佐賀 おせち・クリスマス2026 ご注文フォーム</a></p>
         </div>`;
 
       const facilityIds = [...new Set((d.orders || []).map(o => o.facilityId).filter(Boolean))];
@@ -137,7 +130,7 @@ export default {
             <p>${esc(d.name)} 様</p>
             <p>この度はご注文いただきありがとうございます。<br>以下の内容でお申し込みを承りました。担当者より改めてご連絡いたします。</p>
             ${orderBlock}
-            <p style="margin-top:16px;font-size:13px;color:#777;">※このメールは自動送信用メールアドレスです。返信はできません。<br>ご不明点は各施設までお問い合わせください。<br>株式会社メモリード ／ 福岡</p>
+            <p style="margin-top:16px;font-size:13px;color:#777;">※このメールは自動送信用メールアドレスです。返信はできません。<br>ご不明点は各施設までお問い合わせください。<br>株式会社メモリード ／ 佐賀<br><a href="${CONFIG.FORM_URL}">送信元フォーム</a></p>
           </div>`;
         const crRes = await fetch(BREVO_EMAIL, {
           method: "POST",
@@ -167,29 +160,7 @@ export default {
     }
   },
 
-  // 毎日の稼働確認（Cloudflare Cron Trigger から実行）。
-  // このメールが毎日届いていれば Worker＋Brevo送信は正常＝フォーム稼働中。
-  async scheduled(event, env, ctx) {
-    if (!env.BREVO_API_KEY) return;
-    const now = new Date().toISOString();
-    const body = {
-      sender: { name: CONFIG.FROM_NAME, email: CONFIG.FROM_EMAIL },
-      to: [{ email: CONFIG.MONITOR_TO }],
-      subject: CONFIG.MONITOR_SUBJECT,
-      htmlContent:
-        `<div style="font-family:sans-serif;line-height:1.8;color:#222;">` +
-        `<p>おせち・クリスマス2026 申込フォームの<b>メール送信機能は正常に稼働しています</b>。</p>` +
-        `<p>この自動確認メールが毎日届いていれば、Worker＋Brevo送信は正常です。<br>` +
-        `もし届かない日があれば、フォームまたは送信機能に問題がある可能性があります。</p>` +
-        `<p>フォームURL：<br><a href="${CONFIG.FORM_URL}" target="_blank" rel="noopener" style="color:#7c1f2a;">${CONFIG.FORM_URL}</a></p>` +
-        `<p style="font-size:12px;color:#888;">自動送信（稼働確認）／送信時刻 ${now} UTC</p></div>`
-    };
-    ctx.waitUntil(fetch(BREVO_EMAIL, {
-      method: "POST",
-      headers: { "api-key": env.BREVO_API_KEY, "Content-Type": "application/json", "accept": "application/json" },
-      body: JSON.stringify(body)
-    }));
-  }
+
 };
 
 // 申込データ(d.orders)から注文明細HTMLを生成。受取場所の住所を地図リンクにする。
@@ -204,7 +175,7 @@ function renderOrders(d, esc, escUrl, yen) {
       h += `<div style="font-size:14px;padding:2px 0;">${esc(it.no)}. ${esc(it.name)} … ${it.qty}個 × ${yen(it.unit)} = <b>${yen(it.line)}</b> <span style="color:#999;font-size:12px;">（内消費税 ${yen(it.lineTax)}）</span></div>`;
     });
     h += `<div style="font-size:13px;margin-top:8px;">受け取り方法：${esc(o.method || "")}</div>`;
-    const isDelivery = o.method === "福岡県内配達" || o.pickup === "（ご住所へ配達）";
+    const isDelivery = o.method === "佐賀県内配達" || o.pickup === "（ご住所へ配達）";
     if (isDelivery) {
       h += `<div style="font-size:13px;">受取場所：ご住所へ配達</div>`;
     } else {
@@ -228,7 +199,7 @@ async function handleAdmin(request, env, cors, url) {
   if (!env.DB) return json({ ok: false, error: "管理画面のデータベースが未設定です" }, 503);
   try {
     if (request.method === "GET" && url.pathname === "/admin/orders") {
-      const result = await env.DB.prepare("SELECT id, created_at, name, zip, address, tel, email, facility_id, facility, tier, total, total_tax, note, orders_json, status FROM orders ORDER BY created_at DESC LIMIT 1000").all();
+      const result = await env.DB.prepare("SELECT id, created_at, name, zip, address, tel, email, facility_id, facility, tier, total, total_tax, note, orders_json, status FROM saga_orders ORDER BY created_at DESC LIMIT 1000").all();
       const orders = (result.results || []).map(row => ({ ...row, orders: JSON.parse(row.orders_json || "[]") }));
       return json({ ok: true, orders });
     }
@@ -236,12 +207,12 @@ async function handleAdmin(request, env, cors, url) {
     if (request.method === "POST" && match) {
       const body = await request.json();
       if (!["未対応", "確認済み", "完了"].includes(body.status)) return json({ ok: false, error: "不正な対応状況です" }, 400);
-      await env.DB.prepare("UPDATE orders SET status = ? WHERE id = ?").bind(body.status, decodeURIComponent(match[1])).run();
+      await env.DB.prepare("UPDATE saga_orders SET status = ? WHERE id = ?").bind(body.status, decodeURIComponent(match[1])).run();
       return json({ ok: true });
     }
     const deleteMatch = url.pathname.match(/^\/admin\/orders\/([^/]+)$/);
     if (request.method === "DELETE" && deleteMatch) {
-      await env.DB.prepare("DELETE FROM orders WHERE id = ?").bind(decodeURIComponent(deleteMatch[1])).run();
+      await env.DB.prepare("DELETE FROM saga_orders WHERE id = ?").bind(decodeURIComponent(deleteMatch[1])).run();
       return json({ ok: true });
     }
     return json({ ok: false, error: "Not found" }, 404);

@@ -1,0 +1,10 @@
+# @version v0001 | 2026-08-07 | おせち申込フォーム キャッシュ無効化
+# このフォルダのHTMLは常に最新を取得（キャッシュ無効）。
+# ※ サーバー側で mod_headers が有効な場合に適用（無効でも 500 にならないよう IfModule で保護）。
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>

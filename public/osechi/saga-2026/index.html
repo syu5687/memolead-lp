@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- @version prod-v0024 | 2026-09-11 | メモリード佐賀 おせち・クリスマス2026 ご注文フォーム | /public/osechi/saga-2026/ -->
+<html lang="ja">
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="version" content="prod-v0024">
+<meta name="robots" content="noindex">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>おせち・クリスマス2026–2027｜メモリード佐賀</title>
+<meta name="description" content="メモリード佐賀のおせち料理・クリスマスホームパーティーセット・オードブルのご紹介とご注文フォーム。">
+<style>
+  :root{
+    --ink:#1a1714;          /* 墨 */
+    --ink-soft:#4a423b;
+    --paper:#f6f2ea;        /* 温かい生成り */
+    --paper-2:#efe8db;
+    --line:#d8cdb9;
+    --accent:#7c1f2a;       /* 深い臙脂 */
+    --accent-2:#a8894e;     /* 金泥・控えめ */
+    --ok:#2f5d3a;
+    --radius:14px;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);background:var(--paper);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium",system-ui,sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased;font-feature-settings:"palt";
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  /* ── ヘッダー ─────────────────── */
+  header.hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+  .hero .eyebrow{font-size:12px;letter-spacing:.32em;color:var(--accent-2);margin:0 0 16px}
+  .hero h1{
+    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:600;
+    font-size:clamp(26px,5.4vw,40px);line-height:1.32;margin:0 0 18px;letter-spacing:.02em;
+  }
+  .hero h1 .yr{display:block;font-size:.62em;color:var(--ink-soft);letter-spacing:.14em;margin-top:8px}
+  .hero p.lead{margin:0;color:var(--ink-soft);font-size:15px;max-width:56ch}
+  /* ── セクション ─────────────────── */
+  main{padding:40px 0 90px}
+  .step{margin:0 0 46px}
+  .step-head{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
+  .step-no{
+    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--accent);
+    font-size:15px;letter-spacing:.14em;white-space:nowrap;
+  }
+  .step-head h2{font-size:19px;margin:0;font-weight:600;letter-spacing:.03em}
+  .step-head .sub{font-size:12.5px;color:var(--ink-soft);margin-left:2px}
+  /* ── フォーム部品 ─────────────────── */
+  label.field{display:block;margin:0 0 18px}
+  .field .lb{display:flex;align-items:center;gap:9px;font-size:13.5px;margin:0 0 7px;font-weight:600}
+  .req{font-size:10.5px;color:#fff;background:var(--accent);border-radius:3px;padding:2px 6px;letter-spacing:.08em}
+  .opt{font-size:10.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:3px;padding:1px 6px}
+  input[type=text],input[type=tel],input[type=email],select,textarea{
+    width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fffdf9;
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s,box-shadow .15s;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,31,42,.10)}
+  textarea{min-height:96px;resize:vertical}
+  .hint{font-size:12px;color:var(--ink-soft);margin:6px 0 0}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row-zip{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+  .btn-zip{
+    white-space:nowrap;font:inherit;font-size:13px;font-weight:600;color:var(--accent);
+    background:#fff;border:1px solid var(--accent);border-radius:10px;padding:12px 16px;cursor:pointer;transition:.15s;
+  }
+  .btn-zip:hover{background:var(--accent);color:#fff}
+  .btn-zip:disabled{opacity:.5;cursor:default}
+  /* ── 施設選択カード ─────────────────── */
+  .facilities{display:grid;gap:12px}
+  .fac{
+    position:relative;border:1.5px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px 16px 52px;cursor:pointer;background:#fffdf9;transition:.18s;
+  }
+  .fac:hover{border-color:var(--accent-2)}
+  .fac input{position:absolute;left:18px;top:19px;width:18px;height:18px;accent-color:var(--accent)}
+  .fac .fn{display:block;font-weight:600;font-size:15px;letter-spacing:.02em}
+  .fac .fd{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  .fac.on{border-color:var(--accent);background:#fff}
+  .fac.on::after{content:"選択中";position:absolute;right:16px;top:16px;font-size:11px;color:var(--accent);letter-spacing:.08em}
+  /* ── メニュー表示＋注文 ─────────────────── */
+  #menuArea{margin-top:26px}
+  .menu-card{border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;margin:0 0 24px}
+  .menu-img{display:block;width:100%;height:auto;background:var(--paper-2)}
+  .menu-note{font-size:12px;color:var(--ink-soft);padding:11px 16px;background:var(--paper-2);border-top:1px solid var(--line)}
+  .cat{border:1px solid var(--line);border-radius:var(--radius);background:#fffdf9;padding:18px 18px 6px;margin:0 0 18px}
+  .cat-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin:0 0 4px}
+  .cat-title b{font-size:15px;font-weight:600}
+  .cat-title .tag{font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:2px 10px}
+  .cat-meta{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px}
+  .item{display:grid;grid-template-columns:1fr 84px 96px;gap:10px;align-items:center;padding:11px 0;border-top:1px dashed var(--line)}
+  .item:first-of-type{border-top:1px solid var(--line)}
+  .item .nm{font-size:14px;line-height:1.5}
+  .item .nm .no{display:inline-block;min-width:1.6em;color:var(--accent);font-weight:700;font-family:"Yu Mincho",serif;margin-right:4px}
+  .item .nm .lim{font-size:10.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:20px;padding:1px 8px;margin-left:6px;white-space:nowrap}
+  .item .nm .unit{display:inline-block;font-size:12px;color:var(--ink-soft);margin-top:3px}
+  .item .nm .unit .u-s,.item .nm .unit .u-g{white-space:nowrap}
+  .item .qtywrap{display:flex;align-items:center;gap:5px;justify-content:flex-end}
+  .item select{padding:8px 10px;font-size:15px;width:64px}
+  .item .unitlabel{font-size:11px;color:var(--ink-soft)}
+  .item .line{text-align:right;font-size:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  /* 価格区分の強調 */
+  .menu .unit .u-s{color:var(--ink-soft)} .menu .unit .u-g{color:var(--ink);font-weight:600}
+  .menu.tier-special .unit .u-s{color:var(--accent);font-weight:700} .menu.tier-special .unit .u-g{color:var(--ink-soft);font-weight:400;text-decoration:line-through}
+  .menu.tier-general .unit .u-g{color:var(--accent);font-weight:700} .menu.tier-general .unit .u-s{color:var(--ink-soft);text-decoration:line-through}
+  .tier{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:14px 16px;margin:0 0 18px}
+  .tier .lb{font-size:12.5px;font-weight:600;margin:0 0 8px}
+  .tier .tier-opt{display:inline-flex;align-items:center;gap:6px;margin-right:20px;font-size:14px;cursor:pointer}
+  .tier .tier-opt input{width:16px;height:16px;accent-color:var(--accent)}
+  /* STEP2 価格区分（独立・強調） */
+  .tier-static{border:1.5px solid var(--accent);border-radius:var(--radius);background:#fff;padding:18px 20px;box-shadow:0 2px 14px rgba(124,31,42,.06)}
+  .tier-static .tier-opts{display:flex;gap:14px;flex-wrap:wrap}
+  .tier-static .tier-opt{flex:1 1 220px;display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;background:#fffdf9;font-size:16px;font-weight:600;transition:.15s;line-height:1.35}
+  .tier-static .tier-opt:hover{border-color:var(--accent-2)}
+  .tier-static .tier-opt input{width:22px;height:22px;accent-color:var(--accent);flex:none}
+  .tier-static .tier-opt em{font-style:normal;font-size:12px;color:var(--ink-soft);font-weight:400;display:block;margin-top:1px}
+  .tier-static .tier-opt:has(input:checked){border-color:var(--accent);background:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
+  .tier-static .hint{margin-top:12px}
+  .subtotal{text-align:right;font-size:13px;color:var(--ink-soft);padding:12px 0 4px;border-top:1px solid var(--line);margin-top:8px}
+  .subtotal b{color:var(--ink);font-size:15px;margin-left:6px;font-variant-numeric:tabular-nums}
+  .totalbar{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border-radius:var(--radius);padding:16px 20px;margin:6px 0 4px}
+  .totalbar span{font-size:14px;letter-spacing:.06em}
+  .totalbar b{font-size:22px;font-family:"Yu Mincho",serif;font-variant-numeric:tabular-nums}
+  .totalbar .tb-l{display:flex;flex-direction:column}
+  .totalbar .tbtax{font-size:11.5px;opacity:.78;margin-top:2px;font-variant-numeric:tabular-nums}
+  .item .nm .unit .itax{color:var(--ink-soft);font-size:11px;white-space:nowrap}
+  .subtotal .subtax{font-size:11.5px;color:var(--ink-soft);margin-left:8px;font-variant-numeric:tabular-nums}
+  .method{margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)}
+  .method .lb{font-size:12.5px;font-weight:600;margin:0 0 6px}
+  .method .hint{margin-top:6px}
+  .locinfo{margin-top:7px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+  .locinfo .locaddr{font-size:12px;color:var(--ink-soft)}
+  .locinfo .locmap{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:20px;padding:3px 11px;white-space:nowrap}
+  .locinfo .locmap:hover{background:var(--accent);color:#fff}
+  .feeline{text-align:right;font-size:13px;color:var(--ink-soft);padding:2px 0}
+  .feeline b{color:var(--ink);margin-left:6px;font-variant-numeric:tabular-nums}
+  .notes{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-2);padding:16px 18px;margin:0 0 18px;font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+  .notes b{color:var(--ink);font-weight:600}
+  .notes ul{margin:8px 0 0;padding-left:1.1em} .notes li{margin:2px 0}
+  .cat .pick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .cat .pick .lb{font-size:12.5px;font-weight:600;margin:0 0 6px}
+  .cat .pick select,.method .pickmethod{font-size:13px}
+  @media(max-width:560px){ .row2,.cat .pick{grid-template-columns:1fr} .item{grid-template-columns:1fr 74px 80px} }
+  /* ── 送信 ─────────────────── */
+  .submit-wrap{margin-top:14px}
+  .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-soft);margin:0 0 20px}
+  .agree input{margin-top:4px;width:17px;height:17px;accent-color:var(--accent)}
+  .btn-submit{
+    width:100%;font:inherit;font-size:16px;font-weight:600;letter-spacing:.14em;color:#fff;
+    background:var(--accent);border:none;border-radius:12px;padding:17px;cursor:pointer;transition:.18s;
+  }
+  .btn-submit:hover{background:#651822}
+  .btn-submit:disabled{opacity:.55;cursor:default}
+  .form-msg{margin:14px 0 0;font-size:13.5px;text-align:center;min-height:1.2em}
+  .form-msg.err{
+    color:#fff;font-weight:700;font-size:15px;background:var(--accent);
+    border-radius:10px;padding:14px 16px;box-shadow:0 4px 16px rgba(124,31,42,.28);
+    animation:errshake .5s ease;
+  }
+  .form-msg.err::before{content:"⚠ ";}
+  .form-msg.ok{color:var(--ok);font-weight:600}
+  @keyframes errshake{
+    0%,100%{transform:translateX(0)}
+    15%{transform:translateX(-8px)} 30%{transform:translateX(8px)}
+    45%{transform:translateX(-6px)} 60%{transform:translateX(6px)}
+    75%{transform:translateX(-3px)} 90%{transform:translateX(3px)}
+  }
+  /* ── 完了画面 ─────────────────── */
+  #done{display:none;text-align:center;padding:70px 0 90px}
+  #done .mk{font-family:"Yu Mincho",serif;font-size:40px;color:var(--accent-2)}
+  #done h2{font-family:"Yu Mincho",serif;font-weight:600;font-size:24px;margin:14px 0 12px}
+  #done p{color:var(--ink-soft);font-size:14.5px}
+  .hidden{display:none!important}
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-soft);font-size:12px;text-align:center}
+  /* 文字サイズ変更（右下固定・開閉式） */
+  .fs-ctrl{position:fixed;right:14px;bottom:14px;z-index:900;display:flex;flex-direction:column;align-items:stretch;gap:7px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:14px;padding:7px;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+  .fs-ctrl .fs-toggle{font:inherit;cursor:pointer;border:0;background:transparent;color:var(--ink);border-radius:9px;padding:7px 10px;font-size:12px;font-weight:700;line-height:1;white-space:nowrap}
+  .fs-ctrl .fs-toggle::after{content:'⌄';display:inline-block;margin-left:8px;color:var(--ink-soft);transition:transform .15s}
+  .fs-ctrl.open .fs-toggle::after{transform:rotate(180deg)}
+  .fs-options{display:flex;gap:6px}
+  .fs-ctrl button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:20px;padding:6px 11px;font-weight:700;line-height:1;transition:.15s}
+  .fs-ctrl button.s{font-size:12px} .fs-ctrl button.m{font-size:14px} .fs-ctrl button.l{font-size:16px}
+  .fs-ctrl button:hover{border-color:var(--accent-2)}
+  .fs-ctrl button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  body.fs-1 header.hero, body.fs-1 main, body.fs-1 footer{zoom:1.12}
+  body.fs-2 header.hero, body.fs-2 main, body.fs-2 footer{zoom:1.25}
+  @media(max-width:560px){ .fs-ctrl{right:10px;bottom:10px;padding:5px;border-radius:12px}.fs-ctrl .fs-toggle{padding:7px 8px;font-size:11px}.fs-options{gap:4px}.fs-ctrl button{padding:6px 9px} }
+</style>
+<link rel="stylesheet" href="./_assets/catalog.css?v=saga-20260916">
+<link rel="stylesheet" href="./_assets/cart.css?v=saga-20260916">
+<link rel="stylesheet" href="./_assets/saga.css?v=20260916">
+</head>
+<body>
+
+
+
+<div class="preview-banner">受付準備中｜佐賀 おせち・クリスマス2026–2027｜ご注文フォーム</div>
+<header class="catalog-hero saga-hero"><div class="catalog-wrap hero-layout"><div class="hero-copy"><p class="catalog-eyebrow">MEMOLEAD SAGA · 2026–2027</p><h1>お正月を華やかに演出する<br>料理長こだわりの<br>おせち料理。</h1><p class="hero-intro">新年の食卓に、おせち料理。<br>クリスマスには、オードブルとケーキを囲んで。</p><a class="catalog-primary" href="#catalog">商品を見る ↓</a></div><img class="saga-hero-photo" src="./_assets/img/product-01-large.webp" alt="プレミアムおせち 3段重ね" fetchpriority="high"></div><div class="catalog-wrap saga-logos"><img src="./_assets/img/logo-garden.webp" alt="ガーデンテラス佐賀 ホテル＆リゾート"><img src="./_assets/img/logo-royal.webp" alt="ロイヤルチェスター佐賀"><img src="./_assets/img/logo-island.webp" alt="アイランドヒルズ迎賓館"></div></header>
+<div class="catalog-wrap season-info"><div><span>プレミアムおせち 早期ご購入（ご入金）</span><strong>10月31日（土）まで</strong><small>早期価格 33,000円（税込）</small></div><div><span>クリスマスのお受け取り</span><strong>12月23日・24日・25日</strong><small>店頭でのお渡しのみ</small></div><div><span>プレミアムおせち3個以上ご購入で</span><strong>レストランチケット 5,000円分</strong><small>ガーデンテラス佐賀</small></div></div><section class="catalog-wrap catalog-section" id="catalog" aria-labelledby="catalog-title">
+<div class="catalog-heading"><div><p class="catalog-eyebrow">LINEUP</p><h2 id="catalog-title">商品をお選びください</h2></div><p>表示価格はすべて税込です。<br>特別価格はメモリード会員のお客様が対象です。</p></div>
+ <div class="catalog-filter-sticky">
+ <nav class="catalog-tabs catalog-tabs-all" aria-label="全商品表示">
+  <button type="button" data-filter="all" aria-pressed="true">すべて <span>4商品</span></button>
+ </nav>
+ <nav class="catalog-tabs catalog-tabs-categories" aria-label="商品カテゴリ">
+  <button type="button" data-filter="osechi" aria-pressed="false">おせち料理 <span>2商品</span></button>
+  <button type="button" data-filter="xmas" aria-pressed="false">クリスマス <span>2商品</span></button>
+ </nav>
+ </div>
+ <p id="category-guide" class="category-guide" aria-live="polite"></p>
+ <div id="category-pickup" class="category-pickup" aria-live="polite" aria-label="受け取り可能店舗"></div>
+ <div class="catalog-grid" id="product-grid"></div>
+ <noscript>商品紹介とフォームのご利用にはJavaScriptを有効にしてください。</noscript>
+ <p class="catalog-footnote">※限定数はリーフレット掲載の販売予定数です。現在の残数ではありません。売り切れ次第終了となります。<br>※写真はイメージです。料理内容は一部変更になる場合がございます。</p>
+</section>
+<section class="catalog-wrap order-guide" aria-labelledby="guide-title">
+ <div><p class="catalog-eyebrow">HOW TO ORDER</p><h2 id="guide-title">お申し込みの前に</h2></div>
+ <div class="guide-grid"><div><b>01　商品をカートへ</b><p>おせち料理とクリスマス商品をまとめて選べます。</p></div><div><b>02　受け取り条件を確認</b><p>クリスマス商品は店頭でのお渡しのみです。セットのケーキは2種類からお選びいただけます。</p></div><div><b>03　お客様情報を入力</b><p>お申し込み後、ご入力のメールアドレスへ受付内容をお送りします。</p></div></div></section>
+<div class="form-intro wrap" id="order-start" tabindex="-1"><p class="catalog-eyebrow">ORDER FORM</p><h2>まとめて、ご注文</h2><p>カートを確認したら、お客様情報を一度だけご入力ください。</p><p id="selection-notice" aria-live="polite"></p></div>
+
+
+<main class="wrap">
+ <p class="saga-preparing">ただいま受付準備中です。商品情報をご覧いただけます。<br>お問い合わせ：<a href="tel:0952230111">0952-23-0111（ガーデンテラス佐賀）</a></p><form id="orderForm" novalidate>
+ <section class="step" id="cart" tabindex="-1" aria-labelledby="cart-title">
+ <div class="step-head"><span class="step-no">STEP 1</span><h2 id="cart-title">カート・お受け取り</h2></div>
+ <p class="hint">商品ごとに受け取り条件をご指定ください。</p>
+      <div class="tier-static tier-unselected">
+        <h3 class="tier-title" id="tier-title">価格区分をお選びください</h3>
+        <p id="tier-prompt" class="tier-prompt">選択してください</p>
+        <div class="tier-opts" role="radiogroup" aria-labelledby="tier-title" aria-describedby="tier-prompt" aria-required="true">
+          <label class="tier-opt"><input type="radio" name="ptier" value="general"><span>一般価格<em>会員ではないお客様</em></span></label>
+          <label class="tier-opt"><input type="radio" name="ptier" value="special"><span>特別価格<em>（メモリード会員）</em></span></label>
+        </div>
+        <p class="hint">メモリード会員のお客様は<b>特別価格</b>でご注文いただけます。プレミアムおせちは通常価格37,000円、会員価格35,000円です。その他の商品は共通価格です。</p>
+      </div>
+<div id="cartItems"></div>
+ <div id="cartTotals" aria-live="polite"></div>
+ 
+ <a class="continue-shopping" href="#catalog">＋ 商品を追加する</a>
+ </section>
+    <!-- STEP 2 お客様情報 -->
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 2</span><h2>お客様情報</h2></div>
+
+      <label class="field">
+        <span class="lb">お名前 <span class="req">必須</span></span>
+        <input type="text" name="name" autocomplete="name" placeholder="山田 太郎" required>
+      </label>
+
+      <label class="field">
+        <span class="lb">郵便番号 <span class="req">必須</span></span>
+        <div class="row-zip">
+          <input type="text" name="zip" id="zip" inputmode="numeric" autocomplete="postal-code" placeholder="840-0859" maxlength="8" required>
+          <button type="button" class="btn-zip" id="zipBtn">住所を自動入力</button>
+        </div>
+        <p class="hint">ハイフンあり・なしどちらでも可。入力後、自動で住所が反映されます。</p>
+      </label>
+
+      <label class="field">
+        <span class="lb">ご住所 <span class="req">必須</span></span>
+        <input type="text" name="address" id="address" autocomplete="street-address" placeholder="佐賀県佐賀市…" required>
+        <p class="hint">番地・建物名・部屋番号までご入力ください。</p>
+      </label>
+
+      <div class="row2">
+        <label class="field">
+          <span class="lb">お電話番号 <span class="req">必須</span></span>
+          <input type="tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="090-1234-5678" required>
+        </label>
+        <label class="field">
+          <span class="lb">メールアドレス <span class="req">必須</span></span>
+          <input type="email" name="email" autocomplete="email" placeholder="example@mail.jp" required>
+        </label>
+      </div>
+    </section>
+
+    <!-- STEP 3 送信 -->
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 3</span><h2>ご要望・確認</h2></div>
+      <label class="field">
+        <span class="lb">ご要望・備考 <span class="opt">任意</span></span>
+        <textarea name="note"></textarea>
+      </label>
+      <div class="notes">
+        <b>ご注文にあたって</b>
+        <ul>
+          <li>プレミアムおせちの早期価格は2026年10月31日（土）までのご購入（ご入金）が条件です。</li><li>クリスマス商品は12月23日・24日・25日の店頭でのお渡しのみです（配達はいたしかねます）。</li><li>プレミアムおせち3個以上のご購入で、ガーデンテラス佐賀のレストランチケット5,000円分をプレゼント。</li><li>金額はすべて税込です。仕入状況により内容が変わる場合がございます。写真はイメージです。</li></ul>
+      </div>
+      <div class="submit-wrap">
+        <label class="agree">
+          <input type="checkbox" id="agree">
+          <span>入力内容を確認し、注文を申し込みます。</span>
+        </label>
+        <button type="submit" class="btn-submit" id="submitBtn" disabled>受付準備中</button>
+        <p class="form-msg" id="formMsg"></p>
+      </div>
+    </section>
+</form>
+ <section id="testReview" hidden aria-live="polite"><h2>お申し込みを受け付けました</h2><p>ご入力のメールアドレスへ申込内容を送信しました。担当者より改めてご連絡いたします。</p><pre id="testSummary"></pre></section>
+</main>
+
+<footer class="wrap">
+  <div>株式会社メモリード ／ 佐賀</div>
+  <div style="margin-top:6px">お問い合わせ：ガーデンテラス佐賀 <a href="tel:0952230111">0952-23-0111</a></div>
+</footer>
+
+<!-- 文字サイズ変更（右下固定・開閉式） -->
+<div class="fs-ctrl" role="group" aria-label="文字サイズ変更">
+  <button type="button" class="fs-toggle" aria-expanded="false" aria-controls="fsOptions">文字サイズ</button>
+  <div class="fs-options" id="fsOptions" hidden>
+    <button type="button" class="s active" data-fs="0">標準</button>
+    <button type="button" class="m" data-fs="1">大</button>
+    <button type="button" class="l" data-fs="2">特大</button>
+  </div>
+</div>
+
+
+<script defer src="./_assets/master.js?v=saga-20260916"></script>
+<script defer src="./_assets/catalog.js?v=saga-20260916"></script>
+<script defer src="./_assets/cart.js?v=saga-20260916"></script>
+<script defer src="./_assets/postcode.js?v=saga-20260916"></script>
+<div class="cart-dock"><span id="dockTotal">カート 0点</span><a href="#cart">カートを確認</a></div><div id="cartToast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
