@@ -55,6 +55,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #ad
 .product-prices small{font:11px system-ui,sans-serif;margin-left:3px}
 .product-prices .member{color:var(--accent)}
 .product-prices .member strong{font-weight:600}
+.product-prices:has(.early-price){min-height:132px}.product-prices .early-price{color:var(--accent);padding-bottom:5px;margin-bottom:3px;border-bottom:1px dashed var(--line)}.product-prices .early-price strong{font-weight:700}
 .product-prices .shared{font-size:11px;color:var(--ink-soft);margin:0}
 .product-facility{font-size:11px;line-height:1.6;min-height:38px;margin:0 0 14px}
 .product-facility span{display:block;color:#756a5e;font-size:10px;margin-bottom:1px}
