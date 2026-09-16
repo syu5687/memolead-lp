@@ -1,5 +1,5 @@
 'use strict';
-// @version v0002 | 2026-09-16 | メモリード佐賀 おせち・クリスマス
+// @version v0003 | 2026-09-16 | メモリード佐賀 おせち・クリスマス
 const form=document.getElementById('orderForm'), msg=document.getElementById('formMsg');
 const cartItems=document.getElementById('cartItems'), review=document.getElementById('testReview');
 const yen=n=>n==null?'—':'¥'+Number(n).toLocaleString('ja-JP');
@@ -26,7 +26,6 @@ function renderCart(focus){
  ${r.method==='store'?(p.pickup.length===1?`<div class="pickup-fixed"><span>受け取り場所</span><strong>${p.pickup[0]}</strong><small>${LOCATIONS[p.pickup[0]]?.addr||''}</small><a href="${locMapUrl(p.pickup[0])}" target="_blank" rel="noopener">Googleマップで見る ↗</a></div>`:`<label>受け取り場所<select class="${r.pickup?'':'pickup-unselected'}" aria-required="true" data-field="pickup" aria-label="明細${i+1}の受け取り場所">${options(p.pickup,r.pickup)}</select></label>`):r.method==='delivery'?'<p class="delivery-info">ご入力の住所へ配達します。<br>配達料：申込施設ごとに1,000円<br><small>※配達時間は前後する可能性があります。</small></p>':p.delivery?'<p class="delivery-info pickup-unselected-text">受け取り方法を選択してください。</p>':''}
  ${r.method==='delivery'?`<label>配達希望日<select class="${r.date?'':'pickup-unselected'}" aria-required="true" data-field="date" aria-label="明細${i+1}の配達希望日">${deliveryDates(p.dates,r.date)}</select></label><label>受け取り希望時間<select class="${r.time?'':'pickup-unselected'}" aria-required="true" data-field="time" aria-label="明細${i+1}の受け取り希望時間">${options(DELIVERY_TIMES,r.time)}</select></label>`:`<label>受け取り日時<select class="${r.date?'':'pickup-unselected'}" aria-required="true" data-field="date" aria-label="明細${i+1}の受け取り日時">${options(p.dates,r.date)}</select></label>`}
  </div>
- <div class="cart-row-actions"><button type="button" data-copy="${r.id}">同じ商品を別の受け取り分として追加</button></div>
  </article>`;}).join(''):'<div class="cart-empty"><strong>カートに商品が入っていません</strong><p>商品一覧で数量を選び、「カートに追加」を押してください。</p><a href="#catalog">商品を見る →</a></div>';
  const t=totals();
  document.getElementById('cartTotals').innerHTML=`<div class="cart-total-lines"><span>商品小計（税込）</span><b>${yen(t.subtotal)}</b></div><div class="totalbar"><span>合計 ${t.quantity}点（税込）</span><b>${yen(t.total)}</b></div><p class="hint">商品代金の内消費税：${yen(t.productTax)}</p>`;
@@ -51,8 +50,6 @@ cartItems.addEventListener('change',e=>{const field=e.target.dataset.field;if(!f
 cartItems.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.dataset.remove){const index=cart.findIndex(r=>r.id===Number(b.dataset.remove));cart.splice(index,1);invalidate();renderCart();document.getElementById('cart').focus({preventScroll:true});toast('商品をカートから削除しました');}
- if(b.dataset.copy){const r=cart.find(r=>r.id===Number(b.dataset.copy));const id=++serial;const p=byNo(r.no);cart.push({id,no:r.no,qty:1,method:p.delivery?'':'store',pickup:p.pickup.length===1?p.pickup[0]:'',date:'',time:''});invalidate();renderCart({id,field:'qty'});cartItems.querySelector(`[data-row="${id}"]`).scrollIntoView({behavior:'smooth',block:'center'});toast('別の受け取り分を1点追加しました。受け取り日時を指定してください。');}
-
 });
 document.querySelectorAll('[name="ptier"]').forEach(el=>el.addEventListener('change',()=>{tier=el.value;invalidate();renderCart();}));
 const fsCtrl=document.querySelector('.fs-ctrl'),fsToggle=fsCtrl?.querySelector('.fs-toggle'),fsOptions=document.getElementById('fsOptions');
