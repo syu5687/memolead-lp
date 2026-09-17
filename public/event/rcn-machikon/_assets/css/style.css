@@ -1,3 +1,8 @@
+body,
+.form-area {
+  background-color: #FBEDEA; /* 薄いピンクベージュ */
+}
+
 .sub_mv {
   margin-bottom: 50px;
 }
@@ -833,7 +838,7 @@ margin-bottom: 250px;
 /* 1. ページ全体・フォームエリアの背景色を白に統一 */
   body,
   .form-area {
-    background-color:  #FAF8F5;
+    background-color:  #FBEDEA;
   }
   
   /* 2. 入力エリアの境界線をなくし、一体化させる */
@@ -866,7 +871,7 @@ margin-bottom: 250px;
    /* スマホでも全体のクリーム色背景を維持 */
    body, 
    .form-area {
-     background-color: #FAF8F5;
+     background-color: #FBEDEA;
    }
    
    /* 白いフォームカードの横幅・角丸を綺麗に保つ */
