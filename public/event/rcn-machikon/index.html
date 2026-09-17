@@ -70,29 +70,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</p>
 			
 			<div class="event-intro">
-				<h2 class="event-intro-title">街コン in NAGASAKI</h2>
+				<!-- <h2 class="event-intro-title">街コン in NAGASAKI</h2>
 				<p class="event-intro-text">
 					素敵な出会い、ここから<br>
 					おいしい料理と楽しい会話で新しいつながりを
-				</p>
+				</p> -->
 			</div>
 			<!-- ▲ ここまで追加部分 -->
 			
 			<div class="event-details">
-				<span class="event-date-strong">2026年 9月18日（金）</span>
-				<span class="event-date-strong">/ 19:00</span>
+				<span class="event-date-strong">11月2日（月）</span>
 			</div>
 			<div class="event-details">
-				<span class="event-venue">会場：ロイヤルチェスター長崎 ザ・ロウズ</span>
+				<span class="event-time">19:30〜21:30</span>
+				<span class="event-time-sub">（受付 19:00〜19:20）</span>
 			</div>
 			<div class="event-details">
-				<span class="event-price-label">お一人様 : </span>
-				<span class="event-price-value">¥11,000</span>
-				<span class="event-price-tax">(税込)</span>
+				<span class="event-venue">会場：ロイヤルチェスター長崎ホテル&リトリート</span>
 			</div>
-			<div class="event-details">
-				<span class="event-capacity-num">限定36</span>
-				<span class="event-capacity-num">名様</span>
+			
+			<div class="event-info-list">
+				<p class="info-heading">・参加費</p>
+				<p class="info-body">男性：5,000円（税込）</p>
+				<p class="info-body">女性：2,000円（税込）</p>
+			
+				<p class="info-heading">・定員</p>
+				<p class="info-body">男女：各50人ずつ</p>
+				<p class="info-body">最大：100人</p>
+			
+				<p class="info-heading">・対象年齢</p>
+				<p class="info-body">20代</p>
+				<p class="info-body">30代</p>
+				<p class="info-body">40代</p>
+			
+				<p class="info-heading">飲み放題2時間</p>
+				<p class="info-heading">ビュッフェ</p>
 			</div>
 			
 			<hr>
@@ -100,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<!-- ▼白背景エリア -->
 			<div class="form-fields">
 				<p>
-					*お名前
+					*お名前<span class="required-badge">必須</span>
 				  </p>
 				  <p>
 					姓 <input name="field_6376704_sei" type="text" placeholder="山田">
@@ -109,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				
 				  <!-- name -->
 				  <p>
-					*フリガナ
+					*フリガナ<span class="required-badge">必須</span>
 				  </p>
 				  <p>
 					姓 <input name="field_6376705_sei" type="text" placeholder="ヤマダ">
@@ -118,7 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				
 				  <!-- birth date -->
 				  <p>
-					生年月日
+					生年月日<span class="optional-badge">任意</span>
 				  </p>
 				  <p>
 					<input name="field_6376718_y" type="text" maxlength="4">年
@@ -175,26 +187,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				
 				  <!-- radio -->
 				  <p>
-					*性別
+					*性別<span class="required-badge">必須</span>
 				  </p>
-				  <p>
-					<input name="field_6376719" type="radio" value="0" >男性
-					<input name="field_6376719" type="radio" value="1" >女性
+				  <p class="gender-select">
+					<label class="gender-option">
+					  <input name="field_6376719" type="radio" value="0" class="js-gender-radio" data-price-target="price-male">
+					  <span>男性</span>
+					</label>
+					<label class="gender-option">
+					  <input name="field_6376719" type="radio" value="1" class="js-gender-radio" data-price-target="price-female">
+					  <span>女性</span>
+					</label>
 				  </p>
 				
-				  <!-- label -->
-				  <p>
-					参加費用<br>6,000円
+				  <!-- label（男性のみ表示） -->
+				  <p id="price-male" class="price-display" hidden>
+					参加費用<br>5,000円（税込）
 				  </p>
 				
-				  <!-- label -->
-				  <p>
-					参加費用<br>3,000円
+				  <!-- label（女性のみ表示） -->
+				  <p id="price-female" class="price-display" hidden>
+					参加費用<br>2,000円（税込）
 				  </p>
 				
 				  <!-- phone -->
 				  <p>
-					*電話番号
+					*電話番号<span class="required-badge">必須</span>
 				  </p>
 				  <p>
 					<input name="field_6376707" type="text" placeholder="090-0000-0000">
@@ -202,7 +220,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				
 				  <!-- email -->
 				  <p>
-					*メールアドレス
+					*メールアドレス<span class="required-badge">必須</span>
 				  </p>
 				  <p>
 					<input name="field_6376708" type="text" size="30" placeholder="info@example.com">
@@ -210,7 +228,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				
 				  <!-- textarea -->
 				  <p>
-					ご質問・ご要望など
+					ご質問・ご要望など<span class="optional-badge">任意</span>
 				  </p>
 				  <p>
 					<textarea name="field_6376709" cols="30" rows="5"  placeholder="※事前に伝えておきたいことがあればご記入ください。" ></textarea>
@@ -249,6 +267,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			slidesToShow: 1,
 			slidesToScroll: 1,
 		});
+	</script>
+
+	<!-- ▼追加：性別選択に連動して参加費を出し分け -->
+	<script>
+	(function () {
+		var radios = document.querySelectorAll('.js-gender-radio');
+		var prices = document.querySelectorAll('.price-display');
+
+		function updatePriceDisplay() {
+			// 一旦すべて非表示に戻す
+			prices.forEach(function (el) {
+				el.hidden = true;
+			});
+			// チェックされているラジオボタンに対応する参加費だけ表示
+			var checked = document.querySelector('.js-gender-radio:checked');
+			if (checked) {
+				var targetId = checked.getAttribute('data-price-target');
+				var targetEl = document.getElementById(targetId);
+				if (targetEl) {
+					targetEl.hidden = false;
+				}
+			}
+		}
+
+		radios.forEach(function (radio) {
+			radio.addEventListener('change', updatePriceDisplay);
+		});
+
+		// ページ読み込み時は非表示のまま（初期状態は何も選択されていないため）
+		updatePriceDisplay();
+	})();
 	</script>
 </body>
 </html>

@@ -64,7 +64,7 @@ margin-bottom: 250px;
   list-style-type: disc;
   list-style-position: outside;
   -webkit-padding-start: 10rem;
-		  padding-inline-start: 10rem;
+      padding-inline-start: 10rem;
   margin-top: 60px;
   margin-bottom: 85px;
 }
@@ -84,126 +84,126 @@ margin-bottom: 250px;
 }
 
   .extra .extra-btn .btn-content {
-	padding: 20px 2rem;
-	margin-top: 30px;
+  padding: 20px 2rem;
+  margin-top: 30px;
   }
   
   .extra .extra-btn .btn-red {
-	display: inline-block;
-	color: white;
-	background-color: #C56D72;
+  display: inline-block;
+  color: white;
+  background-color: #C56D72;
   }
   .extra .extra-btn > div {
-	width: 50%;
-	height: 155px;
+  width: 50%;
+  height: 155px;
   }
   .extra .extra-btn:after {
-	position: absolute;
-	content: "";
-	display: block;
-	width: 0.5px;
-	height: 195px;
-	background-color: #707070;
-	right: 0;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  content: "";
+  display: block;
+  width: 0.5px;
+  height: 195px;
+  background-color: #707070;
+  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   }
 
 
 .plan .plan-title {
-	font-size: 24px;
-	line-height: 32px;
-	margin-top: 135px;
-	margin-bottom: 55px;
-	text-align: center;
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 135px;
+  margin-bottom: 55px;
+  text-align: center;
   }
   .plan .plan-content {
-	display: flex;
-	margin-bottom: 25px;
-	justify-content: space-between;
+  display: flex;
+  margin-bottom: 25px;
+  justify-content: space-between;
   }
   
   .plan .plan-content .plan-right .right-title {
-	font-size: 16px;
-	line-height: 21px;
-	text-align: center;
-	margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  margin-bottom: 25px;
   }
   .plan .plan-content .plan-right .right-mid {
-	font-size: 18px;
-	line-height: 30px;
+  font-size: 18px;
+  line-height: 30px;
   }
   .plan .plan-content .plan-right .right-mid span {
-	font-size: 12px;
+  font-size: 12px;
   }
   .plan .plan-content .plan-right hr {
-	width: 100%;
-	height: 1px;
-	background-color: #707070;
-	margin-top: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #707070;
+  margin-top: 0;
   }
   
   
   
   .plan .plan-content .plan-right .right-content {
-	font-size: 16px;
-	line-height: 30px;
-	margin-bottom: 15px;
-	width: 20%;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  width: 20%;
   }
   
   .plan .plan-content .plan-right .right-content2 {
-	font-size: 16px;
-	line-height: 30px;
-	margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 15px;
   }
 
   
   .plan .plan-content .plan-right .plan-wrap {
-	display: flex;
-	margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
   }
   
   .plan .plan-content .plan-right .right-body {
-	font-size: 14px;
-	line-height: 30px;
-	width: 80%;
+  font-size: 14px;
+  line-height: 30px;
+  width: 80%;
   }
   
   .plan .plan-content .plan-right .right-body .cuisineTitle::before {
-	display: inline-block;
-	margin: 0 3px 0 8px;
-	width: 10px;
-	height: 10px;
-	content: '';
-	border-radius: 100%;
-	background:#c0c0c0;
+  display: inline-block;
+  margin: 0 3px 0 8px;
+  width: 10px;
+  height: 10px;
+  content: '';
+  border-radius: 100%;
+  background:#c0c0c0;
   }
   
   .plan .plan-content .plan-right .right-body .cuisineImage {
-	display: flex;
-	flex-direction: row-reverse;
-	font-size: 11px;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 11px;
   }
   
   .plan .plan-content .plan-right .right-body2 {
-	font-size: 14px;
-	line-height: 30px;
+  font-size: 14px;
+  line-height: 30px;
   }
   
   .plan .plan-content .plan-right .right-sub {
-	  font-size: 13px;
-	  line-height: 25px;
-	  margin-top: 26px;
+    font-size: 13px;
+    line-height: 25px;
+    margin-top: 26px;
   }
   
   .plan .plan-content .plan-right {
-	width: calc(50% - 20px);
+  width: calc(50% - 20px);
   }
   
   .plan .plan-content .plan-left {
-	width: calc(50% - 20px);
+  width: calc(50% - 20px);
   }
 
 /* ▼追加：サイト全体のフォント指定（洋風） */
@@ -397,6 +397,12 @@ margin-bottom: 250px;
    font-size: 24px;
  }
  
+ .event-time-sub {
+   font-size: 16px;
+   color: rgb(38, 50, 56);
+   margin-left: 8px;
+ }
+
  /* 会場・料金・定員 */
  .event-venue,
  .event-price-label {
@@ -404,24 +410,45 @@ margin-bottom: 250px;
    color: rgb(38, 50, 56);
  }
  
- .event-price-value {
+.event-price-value {
    font-size: 24px;
-   color: rgb(191, 54, 12);
+   color: #000000;
  }
  
- .event-price-tax {
+.event-price-tax {
    font-size: 18px;
-   color: rgb(191, 54, 12);
+   color: #000000;
  }
  
  .event-capacity-num {
    font-size: 24px;
-   color: rgb(211, 47, 47);
+   color: #000000;
  }
  
- .event-capacity-unit {
+.event-capacity-unit {
    font-size: 18px;
-   color: rgb(211, 47, 47);
+   color: #000000;
+ }
+ 
+ /* 参加費・定員・対象年齢などのリスト */
+ .event-info-list {
+   text-align: left;
+   margin: 20px 0;
+   color: #000000;
+ }
+ 
+ .event-info-list .info-heading {
+   font-weight: bold;
+   font-size: 18px;
+   color: #000000;
+   margin-top: 20px;
+   margin-bottom: 6px;
+ }
+ 
+ .event-info-list .info-body {
+   font-size: 16px;
+   color: #000000;
+   margin: 2px 0 2px 1em;
  }
  
  /* ==========================================
@@ -493,16 +520,106 @@ margin-bottom: 250px;
    margin-bottom: 20px;
  }
 
+/* ==========================================
+   ▼追加：性別選択（タップしやすいボタン型）
+   ========================================== */
+.form-area .gender-select {
+  display: flex;
+  gap: 12px;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.form-area .gender-option {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.form-area .gender-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.form-area .gender-option:has(input:checked) {
+  border-color: #1f3a5f;
+  background-color: #1f3a5f;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ==========================================
+   ▼追加：性別選択後に表示される参加費
+   ========================================== */
+.form-area .price-display {
+  background-color: #FBEDEA;
+  border: 1px solid #e8c9c2;
+  border-radius: 6px;
+  padding: 14px 18px !important;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f3a5f;
+  margin-top: 15px !important;
+  border-bottom: none !important;
+}
+
+/* 見出しが連続する場合（例：飲み放題2時間 → ビュッフェ）は間隔を詰める */
+.event-info-list .info-heading + .info-heading {
+  margin-top: 4px;
+}
+
+/* ==========================================
+   生年月日：年・月・日を横並びにし、
+   月日プルダウンを大きくする（統合・最優先版）
+   ========================================== */
+.form-area p:has(> input[name="field_6376718_y"]) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  column-gap: 6px !important;
+  row-gap: 8px !important;
+}
+
+.form-area input[name="field_6376718_y"] {
+  width: 80px !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+.form-area select[name="field_6376718_m"],
+.form-area select[name="field_6376718_d"] {
+  font-size: 18px !important;
+  padding: 10px 16px !important;
+  margin: 0 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  min-width: 70px !important;
+  flex: 0 0 auto !important;
+}
+
 @media only screen and (max-width: 767px) {
   .food-content {
-	padding-top: 75px;
-	padding-bottom: 50px;
+  padding-top: 75px;
+  padding-bottom: 50px;
   }
   .extra {
   margin: 30px 0 150px;
 }
   .extra .extra-title {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
   }
   .extra .extra-list {
   grid-template-columns: 100%;
@@ -513,7 +630,7 @@ margin-bottom: 250px;
   width: 80%;
   margin: auto;
   -webkit-padding-start: 0;
-		  padding-inline-start: 0;
+      padding-inline-start: 0;
   margin-top: 30px;
   margin-bottom: 40px;
 }
@@ -526,19 +643,19 @@ margin-bottom: 250px;
   height: 350px;
 }
   .extra .extra-btn .btn-content {
-	padding: 10px 2rem;
-	margin-top: 15px;
+  padding: 10px 2rem;
+  margin-top: 15px;
   }
   
   .extra .extra-btn > div {
-	width: 100%;
-	height: auto;
-	height: 100px;
+  width: 100%;
+  height: auto;
+  height: 100px;
   }
   .extra .extra-btn:after {
-	max-width: 350px;
-	width: 95%;
-	height: 1px;
+  max-width: 350px;
+  width: 95%;
+  height: 1px;
   }
 }
 
@@ -551,7 +668,7 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-content .content-title {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
   }
 }
 
@@ -560,20 +677,20 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
   }
   
   .food-detail .detail-content .restaurant-menu {
-	margin: 0 auto;
-	text-align: center;
+  margin: 0 auto;
+  text-align: center;
   }
   
   .food-detail .detail-content .restaurant-menu a{
-	background-color: #0D3246;
-	line-height: 30px;
-	text-align: center;
-	color: white;
-	padding: 15px 30px;
+  background-color: #0D3246;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  padding: 15px 30px;
   }
   
   
@@ -586,23 +703,23 @@ margin-bottom: 250px;
 
 
 .food-detail .detail-content .restaurant-menu {
-	margin: 50px auto 50px;
-	text-align: center;
+  margin: 50px auto 50px;
+  text-align: center;
 }
 
 .food-detail .detail-content .restaurant-menu a {
-	background-color: #0D3246;
-	line-height: 30px;
-	text-align: center;
-	color: white;
-	padding: 15px 40px;
+  background-color: #0D3246;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  padding: 15px 40px;
 }
 
 
 
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-top {
-	flex-direction: column-reverse;
+  flex-direction: column-reverse;
   }
 }
 .food-detail .detail-content .detail-top .left {
@@ -610,7 +727,7 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-top .left {
-	width: 100%;
+  width: 100%;
   }
 }
 .food-detail .detail-content .detail-top .left .left-title {
@@ -626,8 +743,8 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-top .left .left-content {
-	margin-top: 25px;
-	margin-bottom: 30px;
+  margin-top: 25px;
+  margin-bottom: 30px;
   }
 }
 .food-detail .detail-content .detail-top .right {
@@ -635,8 +752,8 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-top .right {
-	width: 100%;
-	margin-bottom: 30px;
+  width: 100%;
+  margin-bottom: 30px;
   }
 }
 .food-detail .detail-content .detail-bottom {
@@ -646,7 +763,7 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-bottom {
-	width: 100%;
+  width: 100%;
   }
 }
 .food-detail .detail-content .detail-bottom .bottom-content {
@@ -657,10 +774,10 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-bottom .bottom-content {
-	grid-template-columns: 100%;
-	margin: auto;
-	max-width: 405px;
-	margin-bottom: 20px;
+  grid-template-columns: 100%;
+  margin: auto;
+  max-width: 405px;
+  margin-bottom: 20px;
   }
 }
 .food-detail .detail-content .detail-bottom .bottom-content > div {
@@ -690,8 +807,8 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-detail .detail-content .detail-bottom .bottom-list {
-	width: 80%;
-	margin: auto;
+  width: 80%;
+  margin: auto;
   }
 }
 
@@ -705,7 +822,7 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-map .map-content {
-	flex-direction: column-reverse;
+  flex-direction: column-reverse;
   }
 }
 .food-map .map-content .map-left {
@@ -713,7 +830,7 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-map .map-content .map-left {
-	width: 100%;
+  width: 100%;
   }
 }
 .food-map .map-content .map-left .left-title {
@@ -731,49 +848,49 @@ margin-bottom: 250px;
 }
 @media only screen and (max-width: 767px) {
   .food-map .map-content .map-right {
-	width: 100%;
-	text-align: center;
-	margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .plan .plan-content {
-	flex-direction: column;
-	align-items: center;
+  flex-direction: column;
+  align-items: center;
   }
   
   .plan .plan-content .plan-left {
-	width: 90%;
-	text-align: center;
-	margin-bottom: 20px;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 20px;
   }
-	
+  
   .plan .plan-content .plan-left {
-	  width: 90%;
-	  text-align: center;
-	  margin-bottom: 20px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
   }
   .plan .plan-content .plan-right {
-	  width: 90%;
+    width: 90%;
   }
   .plan .plan-content .plan-right .right-sub {
-	  font-size: 13px;
-	  line-height: 18px;
-	  margin-top: 20px;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 20px;
   }
   
   .plan .plan-content .plan-right .right-content {
-	  font-size: 16px;
-	  line-height: 30px;
-	  margin-bottom: 15px;
-	  width: 40%;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    width: 40%;
   }
   
   .plan .plan-content .plan-right .right-body {
-	  font-size: 14px;
-	  line-height: 30px;
-	  width: 60%;
+    font-size: 14px;
+    line-height: 30px;
+    width: 60%;
   }
 
  /* --- 1. タイトルをスマホ1行に収める調整 --- */
