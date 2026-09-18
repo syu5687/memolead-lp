@@ -659,6 +659,10 @@ margin-bottom: 250px;
   }
 }
 
+/* 「・ドレスコード」は新しいグループの見出しなので、直前の詰め指定を上書きして間隔を戻す */
+.event-info-list .info-heading.section-break {
+  margin-top: 20px !important;
+}
 
 
 .food-content .content-title {
