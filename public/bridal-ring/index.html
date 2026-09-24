@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- @version v0001 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
+<!-- @version v0002 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0001">
+<meta name="version" content="v0002">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -92,7 +92,7 @@
   <form id="theForm" novalidate>
     <section class="step">
       <div class="step-head"><span class="step-no">STEP 1</span><h2>参加希望日時</h2></div>
-      <p class="field-note"><span>ご都合のよい枠をお選びください（複数選択可）。</span><span class="req">必須</span></p>
+      <p class="field-note"><span>ご都合のよい枠をお選びください（複数選択可）。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
       <div id="slots"></div>
     </section>
 
@@ -147,11 +147,12 @@
 const CONFIG = {
   ENDPOINT: "https://memolead-bridal-ring.mk-cbe.workers.dev/submit",
   FORM_NAME: "ブライダルリング 申込フォーム",
-  /* ★参加希望日時（ここだけ差し替え）。date=YYYY-MM-DD、times=時間枠、full=満席にする枠。
-     過ぎた日付は自動で非表示。※下記は仮の枠（未確認）。本番の日程に差し替えてから公開する。 */
+  /* ★参加希望日時（ここだけ差し替え）。date=YYYY-MM-DD、times=時間枠、full=満席にする枠。過ぎた日付は自動で非表示。 */
   SLOTS: [
-    { date: "2026-10-10", times: ["10:00〜", "13:00〜", "15:00〜"], full: [] },
-    { date: "2026-10-11", times: ["10:00〜", "13:00〜", "15:00〜"], full: [] }
+    { date: "2026-10-04", times: ["13:00〜14:00", "15:00〜16:00", "17:00〜18:00"], full: [] },
+    { date: "2026-10-10", times: ["13:00〜14:00", "15:00〜16:00", "17:00〜18:00"], full: [] },
+    { date: "2026-10-18", times: ["13:00〜14:00", "15:00〜16:00", "17:00〜18:00"], full: [] },
+    { date: "2026-10-24", times: ["13:00〜14:00", "15:00〜16:00", "17:00〜18:00"], full: [] }
   ],
   /* 結婚予定の選択肢：今月から何か月先まで出すか */
   PLAN_MONTHS: 24
