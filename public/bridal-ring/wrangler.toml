@@ -1,4 +1,4 @@
-# @version v0001 | 2026-09-24 | メモリード ブライダルリング 申込フォーム Worker
+# @version v0002 | 2026-09-24 | メモリード ブライダルリング 申込フォーム Worker
 name = "memolead-bridal-ring"
 main = "worker.js"
 compatibility_date = "2026-08-01"

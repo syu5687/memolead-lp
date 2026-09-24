@@ -1,6 +1,6 @@
 # ブライダルリング 申込フォーム
 
-- @version v0001 | 2026-09-24
+- @version v0002 | 2026-09-24（開催日程・会場を反映）
 - 配置先：`/public/bridal-ring/`
 - 公開URL（push後）：https://memolead-lp-665477084949.asia-northeast1.run.app/public/bridal-ring/
 - 構成：Cloud Run（フォーム設置）＋ Cloudflare Worker `memolead-bridal-ring` ＋ Brevo（担当者通知＋自動返信）
@@ -12,6 +12,9 @@
 | worker.js | Brevo送信Worker（担当者通知・自動返信・毎日の稼働確認メール） |
 | wrangler.toml | Worker設定（Cron=毎日JST 9:00） |
 | .htaccess | HTMLキャッシュ無効化 |
+
+## 会場
+サロン・ド・ルシェル／佐賀県佐賀市多布施2丁目15-1／TEL 0952-20-1516（フォーム上部・フッター・通知メール・自動返信に表示。住所はGoogleマップへリンク）
 
 ## 項目
 1. 参加希望日時（チェックボックス・複数可・必須）… `index.html` の `CONFIG.SLOTS` で管理
@@ -29,7 +32,7 @@ SLOTS: [
 ]
 ```
 - 過ぎた日付は自動で非表示。全日程が過ぎると「現在受付中の日程はありません。」を表示。
-- ※現在の2日程は仮の値（未確認）。公開前に必ず差し替える。
+- 反映済み日程：2026年10月4日(日)・10日(土)・18日(日)・24日(土)／各日 13:00〜・15:00〜・17:00〜（所要約1時間）
 - HTMLだけの変更なので Worker 再デプロイ不要。
 
 ## Worker デプロイ（初回のみ）

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!-- @version v0002 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
+<!-- @version v0003 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0002">
+<meta name="version" content="v0003">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>ブライダルリング お申し込みフォーム｜メモリード</title>
+<title>ブライダルリング お申し込みフォーム｜サロン・ド・ルシェル</title>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9CZ8Q4');</script>
 <style>
@@ -24,6 +24,11 @@
   .hero .eyebrow{font-size:12px;letter-spacing:.32em;color:var(--accent-2);margin:0 0 16px}
   .hero h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:600;font-size:clamp(26px,5.4vw,40px);line-height:1.32;margin:0 0 18px}
   .hero p.lead{margin:0;color:var(--ink-soft);font-size:15px;max-width:56ch}
+  .venue{margin:26px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 18px;font-size:14px}
+  .venue dt{color:var(--accent-2);font-size:12px;letter-spacing:.12em;padding-top:2px}
+  .venue dd{margin:0}
+  .venue a{color:var(--accent)}
+  footer .fv{font-family:"Yu Mincho",serif;font-size:14px;color:var(--ink);margin:0 0 4px}
   main{padding:40px 0 90px}
   .step{margin:0 0 46px}
   .step-head{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
@@ -31,7 +36,7 @@
   .step-head h2{font-size:19px;margin:0;font-weight:600}
   label.field,div.field{display:block;margin:0 0 18px}
   .field .lb{display:flex;align-items:center;gap:9px;font-size:13.5px;margin:0 0 7px;font-weight:600}
-  .req{font-size:10.5px;color:#fff;background:var(--accent);border-radius:3px;padding:2px 6px;font-weight:600}
+  .req{white-space:nowrap;flex:0 0 auto;font-size:10.5px;color:#fff;background:var(--accent);border-radius:3px;padding:2px 6px;font-weight:600}
   .opt{font-size:10.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:3px;padding:1px 6px;font-weight:400}
   input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fffdf9;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
   select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px}
@@ -86,6 +91,11 @@
   <p class="eyebrow">BRIDAL RING</p>
   <h1>ブライダルリング<br>お申し込みフォーム</h1>
   <p class="lead">ご希望の日時をお選びのうえ、必要事項をご入力ください。受付後、確認のメールをお送りします。</p>
+  <dl class="venue">
+    <dt>会場</dt><dd>サロン・ド・ルシェル</dd>
+    <dt>住所</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B5%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%89%E3%83%BB%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E5%A4%9A%E5%B8%83%E6%96%BD2%E4%B8%81%E7%9B%AE15-1" target="_blank" rel="noopener">佐賀県佐賀市多布施2丁目15-1</a></dd>
+    <dt>電話</dt><dd><a href="tel:0952201516">0952-20-1516</a></dd>
+  </dl>
 </div></header>
 
 <main class="wrap">
@@ -134,7 +144,7 @@
   <section id="done"><h2>お申し込みを承りました</h2><p>ご入力のメールアドレスへ受付確認メールをお送りしました。<br>担当者より改めてご連絡いたします。</p></section>
 </main>
 
-<footer class="wrap"><div>メモリード</div></footer>
+<footer class="wrap"><p class="fv">サロン・ド・ルシェル</p><div><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B5%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%89%E3%83%BB%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E5%A4%9A%E5%B8%83%E6%96%BD2%E4%B8%81%E7%9B%AE15-1" target="_blank" rel="noopener" style="color:inherit">佐賀県佐賀市多布施2丁目15-1</a>　TEL <a href="tel:0952201516" style="color:inherit">0952-20-1516</a></div></footer>
 
 <div class="fs-ctrl" role="group" aria-label="文字サイズ変更">
   <span class="fs-label">文字サイズ</span>

@@ -1,5 +1,5 @@
 /**
- * @version v0001 | 2026-09-24 | メモリード ブライダルリング 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0002 | 2026-09-24 | メモリード ブライダルリング 申込フォーム送信Worker | Cloudflare Workers
  *
  * フォーム(HTML)からのJSONを受け取り、Brevoで
  *   ①担当者へ通知 ②申込者へ受付確認(自動返信) ③任意でコンタクト登録。
@@ -13,14 +13,16 @@ var CONFIG = {
   TO: "mk@emanet.jp",                     // 担当者宛（★会場担当の宛先が決まったら差し替え）
   CC: [],                                 // CC（複数可）
   BCC: [],                                // BCC（複数可）
-  FROM_NAME: "メモリード",
+  FROM_NAME: "サロン・ド・ルシェル",
   FROM_EMAIL: "noreply@nfz33.com",        // ★ Brevo認証済みドメインのアドレス
   SUBJECT_PREFIX: "【ブライダルリング申込】",
   ALLOWED_ORIGINS: [                      // 受付を許可するオリジン（設置元のみ）
     "https://memolead-lp-665477084949.asia-northeast1.run.app"
   ],
-  AUTO_REPLY: true,                       // 申込者への受付確認メール
-  AUTO_REPLY_SUBJECT: "【メモリード】ブライダルリングのお申し込みを承りました",
+  AUTO_REPLY: true,
+  // 開催会場（担当者通知・自動返信に表示。住所はGoogleマップへのリンク）
+  VENUE: { name: "サロン・ド・ルシェル", address: "佐賀県佐賀市多布施2丁目15-1", tel: "0952-20-1516" },                       // 申込者への受付確認メール
+  AUTO_REPLY_SUBJECT: "【サロン・ド・ルシェル】ブライダルリングのお申し込みを承りました",
   AUTO_REPLY_NOTE: "※このメールは自動送信用メールアドレスです。返信はできません。",
   BREVO_LIST_ID: null,                    // コンタクト登録する場合のみリストID
   MONITOR_TO: "mk@emanet.jp",          // 毎日の稼働確認メール宛先
@@ -78,12 +80,22 @@ export default {
         ? `<p style="margin-top:18px;font-size:13px;color:#777;">お申し込みページ：<a href="${esc(d.source)}" style="color:#7c1f2a;">${esc(d.formName || "こちら")}</a></p>`
         : "";
 
+      const V = CONFIG.VENUE;
+      const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(V.name + " " + V.address);
+      const venueHtml = `<div style="margin-top:18px;padding:14px;border:1px solid #d8cdb9;border-radius:8px;background:#f6f2ea;font-size:14px;line-height:1.8;">
+        <div style="color:#7c1f2a;font-weight:bold;">会場</div>
+        <div>${esc(V.name)}</div>
+        <div><a href="${esc(mapUrl)}" style="color:#7c1f2a;">${esc(V.address)}</a></div>
+        <div>TEL <a href="tel:${esc(V.tel.replace(/-/g, ""))}" style="color:#7c1f2a;">${esc(V.tel)}</a></div>
+      </div>`;
+
       const adminHtml = `
         <div style="font-family:sans-serif;max-width:640px;margin:0 auto;padding:20px;color:#222;">
           <h2 style="color:#7c1f2a;border-bottom:2px solid #7c1f2a;padding-bottom:8px;">お申し込みを受信しました</h2>
           <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:12px;">${rows}</table>
           ${detail ? `<h3 style="margin-top:18px;color:#7c1f2a;">内容</h3>${detail}` : ""}
           ${d.note ? `<h3 style="margin-top:18px;color:#7c1f2a;">特に当日相談したいこと</h3><div style="font-size:14px;">${esc(d.note).replace(/\n/g, "<br>")}</div>` : ""}
+          ${venueHtml}
           ${srcAdmin}
         </div>`;
 
@@ -108,6 +120,8 @@ export default {
             <table style="width:100%;border-collapse:collapse;font-size:14px;">${rows}</table>
             ${detail}
             ${d.note ? `<p style="margin:14px 0 4px;color:#7c1f2a;font-weight:bold;">特に当日相談したいこと</p><div style="font-size:14px;">${esc(d.note).replace(/\n/g, "<br>")}</div>` : ""}
+            ${venueHtml}
+            <p style="margin-top:14px;font-size:14px;">ご不明な点や日時の変更は、上記お電話までご連絡ください。</p>
             ${srcCust}
             <p style="margin-top:16px;font-size:13px;color:#777;">${esc(CONFIG.AUTO_REPLY_NOTE)}</p>
           </div>`;
