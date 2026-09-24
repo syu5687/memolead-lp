@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- @version v0003 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
+<!-- @version v0004 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0003">
+<meta name="version" content="v0004">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -102,7 +102,7 @@
   <form id="theForm" novalidate>
     <section class="step">
       <div class="step-head"><span class="step-no">STEP 1</span><h2>参加希望日時</h2></div>
-      <p class="field-note"><span>ご都合のよい枠をお選びください（複数選択可）。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
+      <p class="field-note"><span>ご希望の枠を1つお選びください。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
       <div id="slots"></div>
     </section>
 
@@ -187,7 +187,7 @@ const slotsEl=document.getElementById("slots");
     const dl=`${dt.getMonth()+1}月${dt.getDate()}日（${WD[dt.getDay()]}）`;
     const t=s.times.map(tm=>{
       const full=(s.full||[]).includes(tm), v=`${dt.getFullYear()}年${dl} ${tm}`;
-      return `<label class="choice${full?" full":""}"><input type="checkbox" name="slots" value="${v}"${full?" disabled":""}><span class="ct">${tm}</span></label>`;
+      return `<label class="choice${full?" full":""}"><input type="radio" name="slots" value="${v}"${full?" disabled":""}><span class="ct">${tm}</span></label>`;
     }).join("");
     return `<div class="day"><p class="day-name">${dl}</p><div class="times">${t}</div></div>`;
   }).join("");
@@ -233,9 +233,9 @@ form.addEventListener("submit",async e=>{
   e.preventDefault(); setMsg("","");
   const fd=new FormData(form), g=k=>(fd.get(k)||"").toString().trim();
   const d={name:g("name"),zip:g("zip"),address:g("address"),tel:g("tel"),email:g("email"),
-    slots:fd.getAll("slots").join("\n"),weddingPlan:g("weddingPlan"),note:g("note"),
+    slots:g("slots"),weddingPlan:g("weddingPlan"),note:g("note"),
     formName:CONFIG.FORM_NAME,source:location.href};
-  if(!d.slots){setMsg("参加希望日時を1つ以上お選びください。","err");return;}
+  if(!d.slots){setMsg("参加希望日時をお選びください。","err");return;}
   if(!d.name||!d.zip||!d.address||!d.tel||!d.email){setMsg("必須項目をご入力ください。","err");return;}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){setMsg("メールアドレスの形式をご確認ください。","err");return;}
   if(!d.weddingPlan){setMsg("結婚予定をお選びください。","err");return;}

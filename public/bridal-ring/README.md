@@ -1,6 +1,6 @@
 # ブライダルリング 申込フォーム
 
-- @version v0002 | 2026-09-24（開催日程・会場を反映）
+- @version v0004 | 2026-09-24（日程は1つだけ選択に変更）
 - 配置先：`/public/bridal-ring/`
 - 公開URL（push後）：https://memolead-lp-665477084949.asia-northeast1.run.app/public/bridal-ring/
 - 構成：Cloud Run（フォーム設置）＋ Cloudflare Worker `memolead-bridal-ring` ＋ Brevo（担当者通知＋自動返信）
@@ -17,7 +17,7 @@
 サロン・ド・ルシェル／佐賀県佐賀市多布施2丁目15-1／TEL 0952-20-1516（フォーム上部・フッター・通知メール・自動返信に表示。住所はGoogleマップへリンク）
 
 ## 項目
-1. 参加希望日時（チェックボックス・複数可・必須）… `index.html` の `CONFIG.SLOTS` で管理
+1. 参加希望日時（ラジオ・1つだけ選択・必須）… `index.html` の `CONFIG.SLOTS` で管理
 2. 氏名（必須）
 3. 郵便番号＋住所（必須・郵便番号7桁で自動入力）
 4. 電話番号・メール（必須）
