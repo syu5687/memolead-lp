@@ -963,7 +963,6 @@ margin-bottom: 250px;
   }
   
   /* 2. 入力エリアの境界線をなくし、一体化させる */
-  .form-area .form-fields {
     .form-area .form-fields {
     background-color: #ffffff; /* フォーム部分の背景を白に */
     width: 100vw;              /* 画面の横幅いっぱいに広げる */
@@ -1000,6 +999,11 @@ margin-bottom: 250px;
      background-color: #ffffff;
      border-radius: 8px;
    }
+   
+  /* 3. タイトル（h1）の文字サイズ指定 */
+  .form-area h1 {
+    font-size: 30px !important; /* ★ここでお好みのサイズに調整してください */
+  }
 
 }
 /*# sourceMappingURL=style.css.map */
