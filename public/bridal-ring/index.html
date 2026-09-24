@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!-- @version v0006 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
+<!-- @version v0007 | 2026-09-24 | 指輪＆結婚相談会 申込フォーム | /public/bridal-ring/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0006">
+<meta name="version" content="v0007">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>ブライダルリング お申し込みフォーム｜サロン・ド・ルシェル</title>
+<title>指輪＆結婚相談会 お申し込みフォーム｜サロン・ド・ルシェル</title>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9CZ8Q4');</script>
 <style>
@@ -114,13 +114,14 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9CZ8Q4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="hero"><div class="wrap">
-  <p class="eyebrow">BRIDAL RING</p>
-  <h1>ブライダルリング<br>お申し込みフォーム</h1>
+  <p class="eyebrow">RING &amp; WEDDING</p>
+  <h1>指輪＆結婚相談会<br>お申し込みフォーム</h1>
   <p class="lead">ご希望の日時をお選びのうえ、必要事項をご入力ください。受付後、確認のメールをお送りします。</p>
   <dl class="venue">
     <dt>会場</dt><dd>サロン・ド・ルシェル</dd>
     <dt>住所</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B5%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%89%E3%83%BB%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E5%A4%9A%E5%B8%83%E6%96%BD2%E4%B8%81%E7%9B%AE15-1" target="_blank" rel="noopener">佐賀県佐賀市多布施2丁目15-1</a></dd>
-    <dt>電話</dt><dd><a href="tel:0952201516">0952-20-1516</a></dd>
+    <dt>電話</dt><dd><a href="tel:0952201516">0952-20-1516</a>（木曜日店休）</dd>
+    <dt>予約</dt><dd><b>参加日の前日まで</b>にお申し込みください</dd>
   </dl>
 </div></header>
 
@@ -128,7 +129,7 @@
   <form id="theForm" novalidate>
     <section class="step">
       <div class="step-head"><span class="step-no">STEP 1</span><h2>参加希望日時</h2></div>
-      <p class="field-note"><span>日付を選ぶと、時間が表示されます。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
+      <p class="field-note"><span>日付を選ぶと、時間が表示されます。所要時間は各回約1時間です。<br><b style="color:var(--accent)">ご予約は参加日の前日まで</b>承ります。</span><span class="req">必須</span></p>
       <div id="slots"></div>
       <input type="hidden" name="slots" id="slotsValue">
     </section>
@@ -137,12 +138,12 @@
       <div class="step-head"><span class="step-no">STEP 2</span><h2>お客様情報</h2></div>
       <label class="field"><span class="lb">氏名 <span class="req">必須</span></span>
         <input type="text" name="name" autocomplete="name" placeholder="山田 花子" required></label>
-      <label class="field"><span class="lb">郵便番号 <span class="req">必須</span></span>
-        <span class="row-zip"><input type="text" name="zip" id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="8" placeholder="810-0001" required>
+      <label class="field"><span class="lb">郵便番号 <span class="opt">任意</span></span>
+        <span class="row-zip"><input type="text" name="zip" id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="8" placeholder="840-0000">
         <button type="button" class="btn-zip" id="zipBtn">住所を自動入力</button></span>
         <span class="hint" style="display:block">7桁入力で住所が自動で入ります。</span></label>
-      <label class="field"><span class="lb">住所 <span class="req">必須</span></span>
-        <input type="text" name="address" id="address" autocomplete="street-address" required></label>
+      <label class="field"><span class="lb">住所 <span class="opt">任意</span></span>
+        <input type="text" name="address" id="address" autocomplete="street-address"></label>
       <div class="row2">
         <label class="field"><span class="lb">電話番号 <span class="req">必須</span></span>
           <input type="tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="090-1234-5678" required></label>
@@ -185,7 +186,7 @@
   <section id="done"><h2>お申し込みを承りました</h2><p>ご入力のメールアドレスへ受付確認メールをお送りしました。<br>担当者より改めてご連絡いたします。</p></section>
 </main>
 
-<footer class="wrap"><p class="fv">サロン・ド・ルシェル</p><div><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B5%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%89%E3%83%BB%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E5%A4%9A%E5%B8%83%E6%96%BD2%E4%B8%81%E7%9B%AE15-1" target="_blank" rel="noopener" style="color:inherit">佐賀県佐賀市多布施2丁目15-1</a>　TEL <a href="tel:0952201516" style="color:inherit">0952-20-1516</a></div></footer>
+<footer class="wrap"><p class="fv">サロン・ド・ルシェル</p><div><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B5%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%89%E3%83%BB%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E5%A4%9A%E5%B8%83%E6%96%BD2%E4%B8%81%E7%9B%AE15-1" target="_blank" rel="noopener" style="color:inherit">佐賀県佐賀市多布施2丁目15-1</a>　TEL <a href="tel:0952201516" style="color:inherit">0952-20-1516</a>（木曜日店休）</div></footer>
 
 <div class="fs-ctrl" role="group" aria-label="文字サイズ変更">
   <span class="fs-label">文字サイズ</span>
@@ -197,8 +198,9 @@
 <script>
 const CONFIG = {
   ENDPOINT: "https://memolead-bridal-ring.mk-cbe.workers.dev/submit",
-  FORM_NAME: "ブライダルリング 申込フォーム",
-  /* ★参加希望日時（ここだけ差し替え）。date=YYYY-MM-DD、times=時間枠、full=満席にする枠。過ぎた日付は自動で非表示。 */
+  FORM_NAME: "指輪＆結婚相談会 申込フォーム",
+  /* ★参加希望日時（ここだけ差し替え）。date=YYYY-MM-DD、times=時間枠、full=満席にする枠。
+     予約は参加日の前日まで：当日・過ぎた日付は自動で非表示。 */
   SLOTS: [
     { date: "2026-10-04", times: ["13:00〜14:00", "15:00〜16:00", "17:00〜18:00"], full: [] },
     { date: "2026-10-10", times: ["13:00〜14:00", "15:00〜16:00", "17:00〜18:00"], full: [] },
@@ -220,7 +222,7 @@ document.querySelectorAll('.fs-ctrl button').forEach(btn=>btn.addEventListener("
 const WD=["日","月","火","水","木","金","土"];
 const slotsEl=document.getElementById("slots"), slotsValue=document.getElementById("slotsValue");
 const today=new Date(); today.setHours(0,0,0,0);
-const DAYS=CONFIG.SLOTS.map(s=>({...s,dt:new Date(s.date+"T00:00:00")})).filter(s=>s.dt>=today);
+const DAYS=CONFIG.SLOTS.map(s=>({...s,dt:new Date(s.date+"T00:00:00")})).filter(s=>s.dt>today);   // 前日まで受付：当日の日程は表示しない
 const dayLabel=s=>`${s.dt.getFullYear()}年${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）`;
 (function renderDates(){
   if(!DAYS.length){slotsEl.innerHTML='<p class="slots-empty">現在受付中の日程はありません。</p>';return;}
@@ -293,7 +295,7 @@ form.addEventListener("submit",async e=>{
     referral:g("referral")==="その他"&&g("referralOther")?`その他（${g("referralOther")}）`:g("referral"),
     formName:CONFIG.FORM_NAME,source:location.href};
   if(!d.slots){setMsg(document.querySelector("input[name=pickDate]:checked")?"時間をお選びください。":"日付をお選びください。","err");return;}
-  if(!d.name||!d.zip||!d.address||!d.tel||!d.email){setMsg("必須項目をご入力ください。","err");return;}
+  if(!d.name||!d.tel||!d.email){setMsg("必須項目をご入力ください。","err");return;}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){setMsg("メールアドレスの形式をご確認ください。","err");return;}
   if(!d.weddingPlan){setMsg("結婚予定をお選びください。","err");return;}
   if(!d.referral){setMsg("お申し込みのきっかけをお選びください。","err");return;}

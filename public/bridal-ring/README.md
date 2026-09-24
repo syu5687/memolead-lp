@@ -1,6 +1,6 @@
 # ブライダルリング 申込フォーム
 
-- @version v0005 | 2026-09-24（日付→時間の2段選択に変更）
+- @version v0006 | 2026-09-24（申込のきっかけを追加）
 - 配置先：`/public/bridal-ring/`
 - 公開URL（push後）：https://memolead-lp-665477084949.asia-northeast1.run.app/public/bridal-ring/
 - 構成：Cloud Run（フォーム設置）＋ Cloudflare Worker `memolead-bridal-ring` ＋ Brevo（担当者通知＋自動返信）
@@ -23,6 +23,7 @@
 4. 電話番号・メール（必須）
 5. 結婚予定（ドロップダウン・必須）… 今月〜24か月先＋「◯年◯月以降」＋「未定」を自動生成
 6. 特に当日相談したいこと（任意）
+7. 申込のきっかけ（必須・1つ選択：SNS／式場の紹介／お友だちの紹介／お店からの紹介／その他。その他は内容を任意入力）
 
 ## 日程の差し替え（index.html の CONFIG.SLOTS）
 ```js
