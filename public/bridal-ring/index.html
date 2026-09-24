@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- @version v0007 | 2026-09-24 | 指輪＆結婚相談会 申込フォーム | /public/bridal-ring/ -->
+<!-- @version v0008 | 2026-09-24 | 指輪＆結婚相談会 申込フォーム | /public/bridal-ring/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0007">
+<meta name="version" content="v0008">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -61,6 +61,11 @@
   .choice.full .ct::after{content:"　満席";font-size:12px;color:var(--ink-soft);font-weight:400}
   /* 日付→時間の2段選択 */
   .pick-label{font-size:13.5px;font-weight:600;margin:0 0 10px;display:flex;align-items:baseline;gap:10px}
+  .deadline{border-left:3px solid var(--accent);background:#fbf3f2;padding:12px 16px;margin:0 0 20px;font-size:14px;line-height:1.7}
+  .deadline strong{color:var(--accent);font-size:15px}
+  .deadline .ex{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+  .dcard .cut{display:block;font-size:10.5px;color:var(--ink-soft);margin-top:6px;padding-top:6px;border-top:1px solid var(--line);white-space:nowrap}
+  .dcard:has(input:checked) .cut{color:#fff;border-top-color:rgba(255,255,255,.4)}
   .pick-label small{font-weight:400;color:var(--ink-soft);font-size:12px}
   .dates{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
   .dcard{position:relative;display:block;text-align:center;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:14px 6px 12px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
@@ -121,7 +126,7 @@
     <dt>会場</dt><dd>サロン・ド・ルシェル</dd>
     <dt>住所</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B5%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%89%E3%83%BB%E3%83%AB%E3%82%B7%E3%82%A7%E3%83%AB%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E5%A4%9A%E5%B8%83%E6%96%BD2%E4%B8%81%E7%9B%AE15-1" target="_blank" rel="noopener">佐賀県佐賀市多布施2丁目15-1</a></dd>
     <dt>電話</dt><dd><a href="tel:0952201516">0952-20-1516</a>（木曜日店休）</dd>
-    <dt>予約</dt><dd><b>参加日の前日まで</b>にお申し込みください</dd>
+    <dt>予約</dt><dd>各開催日の<b>前日まで</b>にお申し込みください</dd>
   </dl>
 </div></header>
 
@@ -129,7 +134,8 @@
   <form id="theForm" novalidate>
     <section class="step">
       <div class="step-head"><span class="step-no">STEP 1</span><h2>参加希望日時</h2></div>
-      <p class="field-note"><span>日付を選ぶと、時間が表示されます。所要時間は各回約1時間です。<br><b style="color:var(--accent)">ご予約は参加日の前日まで</b>承ります。</span><span class="req">必須</span></p>
+      <p class="field-note"><span>日付を選ぶと、時間が表示されます。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
+      <p class="deadline" id="deadlineNote"><strong>ご予約は、参加日の前日まで</strong><span class="ex" id="deadlineEx"></span></p>
       <div id="slots"></div>
       <input type="hidden" name="slots" id="slotsValue">
     </section>
@@ -223,19 +229,23 @@ const WD=["日","月","火","水","木","金","土"];
 const slotsEl=document.getElementById("slots"), slotsValue=document.getElementById("slotsValue");
 const today=new Date(); today.setHours(0,0,0,0);
 const DAYS=CONFIG.SLOTS.map(s=>({...s,dt:new Date(s.date+"T00:00:00")})).filter(s=>s.dt>today);   // 前日まで受付：当日の日程は表示しない
+const cutDate=s=>{const c=new Date(s.dt); c.setDate(c.getDate()-1); return c;};
+const cutLabel=s=>{const c=cutDate(s); return `${c.getMonth()+1}/${c.getDate()}(${WD[c.getDay()]})`;};
 const dayLabel=s=>`${s.dt.getFullYear()}年${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）`;
 (function renderDates(){
+  if(DAYS.length){const s=DAYS[0], c=cutDate(s);
+    document.getElementById("deadlineEx").textContent=`例：${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）の回は、${c.getMonth()+1}月${c.getDate()}日（${WD[c.getDay()]}）までにお申し込みください。`;}
   if(!DAYS.length){slotsEl.innerHTML='<p class="slots-empty">現在受付中の日程はありません。</p>';return;}
   slotsEl.innerHTML=`<p class="pick-label">日付</p>
     <div class="dates">${DAYS.map((s,i)=>{const w=s.dt.getDay();
-      return `<label class="dcard"><input type="radio" name="pickDate" value="${i}"><span class="m">${s.dt.getMonth()+1}月</span><span class="d">${s.dt.getDate()}</span><span class="w${w===0?" sun":w===6?" sat":""}">${WD[w]}曜日</span></label>`;}).join("")}</div>
+      return `<label class="dcard"><input type="radio" name="pickDate" value="${i}"><span class="m">${s.dt.getMonth()+1}月</span><span class="d">${s.dt.getDate()}</span><span class="w${w===0?" sun":w===6?" sat":""}">${WD[w]}曜日</span><span class="cut">${cutLabel(s)}まで</span></label>`;}).join("")}</div>
     <div id="timeBox" hidden><p class="pick-label">時間 <small id="timeFor"></small></p><div class="timelist" id="timeList"></div></div>
     <p class="picked" id="picked"></p>`;
   slotsEl.querySelectorAll('input[name=pickDate]').forEach(r=>r.addEventListener("change",()=>showTimes(+r.value)));
 })();
 function showTimes(i){
   const s=DAYS[i], box=document.getElementById("timeBox");
-  document.getElementById("timeFor").textContent=`${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）`;
+  const c=cutDate(s); document.getElementById("timeFor").textContent=`${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）　ご予約締切：${c.getMonth()+1}月${c.getDate()}日（${WD[c.getDay()]}）`;
   document.getElementById("timeList").innerHTML=s.times.map(tm=>{const full=(s.full||[]).includes(tm);
     return `<label class="tcard${full?" full":""}"><input type="radio" name="pickTime" value="${tm}"${full?" disabled":""}>${tm}</label>`;}).join("");
   document.querySelectorAll('input[name=pickTime]').forEach(r=>r.addEventListener("change",()=>{

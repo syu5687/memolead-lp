@@ -89,3 +89,15 @@ memolead-lp（/public/）内にブライダルリング専用申込フォーム�
 - GTM の `bridal_ring_submit` に `referral` パラメータを追加（GA4 でチャネル別集計に使用）
 - 必須にした理由：集計の抜けを防ぐため。離脱が増える場合は任意に戻す（確認KPI：送信完了率）
 - Worker 側は referral を必須チェックしない（反映順のズレで送信が止まらないように）
+
+## 追記 14:45 名称変更ほか（index.html v0007／worker.js v0004）
+- 名称：「ブライダルリング お申し込みフォーム」→「指輪＆結婚相談会 お申し込みフォーム」（見出し・title・フォーム名・通知件名【指輪＆結婚相談会 申込】・自動返信件名／本文・稼働確認メール件名）。英字ラベルは RING & WEDDING
+- 電話：0952-20-1516（木曜日店休）… 会場欄・フッター・通知メール・自動返信
+- 郵便番号・住所：必須 → 任意（未入力なら通知メールの行は出さない）
+- 予約締切：会場欄に「予約：参加日の前日までにお申し込みください」、STEP1 に「ご予約は参加日の前日まで承ります」を追記。当日の日程は自動で非表示（前日23:59まで選択可）。例：10/10 当日に開くと 10/18・10/24 のみ表示を確認
+- フォルダ名・URL（/public/bridal-ring/）、Worker 名、GTM イベント名 `bridal_ring_submit` は変更なし（計測の連続性とURL共有済みリンクを守るため）
+- 反映：Worker 変更あり → `npx.cmd wrangler deploy` ＋ GitHub Desktop で push
+
+## 追記 16:05 短縮URL
+- Worker `ring` を作成（public/bridal-ring/shortlink/）。https://ring.mk-cbe.workers.dev → フォームへ302転送、/sns・/line・/qr で utm 付与
+- 詳細は docs/2026-09-24_ring-shorturl.md。デプロイは `npx.cmd wrangler deploy`（shortlink フォルダで）

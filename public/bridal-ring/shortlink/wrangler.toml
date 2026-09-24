@@ -1,0 +1,4 @@
+# @version v0001 | 2026-09-24 | 指輪＆結婚相談会 短縮URL Worker
+name = "ring"                 # → https://ring.mk-cbe.workers.dev
+main = "worker.js"
+compatibility_date = "2026-08-01"
