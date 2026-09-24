@@ -1,0 +1,11 @@
+# @version v0001 | 2026-09-24 | メモリード ブライダルリング 申込フォーム Worker
+name = "memolead-bridal-ring"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+# 通知先・送信元は worker.js 冒頭の CONFIG で管理（vars 不要）。
+# 秘密情報： npx wrangler secret put BREVO_API_KEY
+
+# 毎日の稼働確認メール（UTC 00:00 = 日本時間 09:00）。不要なら [triggers] ごと削除。
+[triggers]
+crons = ["0 0 * * *"]
