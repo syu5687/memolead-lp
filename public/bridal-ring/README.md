@@ -1,6 +1,6 @@
 # 指輪＆結婚相談会 申込フォーム（旧：ブライダルリング申込フォーム）
 
-- @version v0007 | 2026-09-24（名称変更・木曜店休・住所任意・前日までの予約）
+- @version v0008 | 2026-09-24（予約締切の表示を強化）
 - 配置先：`/public/bridal-ring/`
 - 公開URL（push後）：https://memolead-lp-665477084949.asia-northeast1.run.app/public/bridal-ring/
 - 構成：Cloud Run（フォーム設置）＋ Cloudflare Worker `memolead-bridal-ring` ＋ Brevo（担当者通知＋自動返信）

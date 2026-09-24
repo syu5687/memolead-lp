@@ -1,5 +1,5 @@
 /**
- * @version v0004 | 2026-09-24 | 指輪＆結婚相談会 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0005 | 2026-09-24 | 指輪＆結婚相談会 申込フォーム送信Worker | Cloudflare Workers
  *
  * フォーム(HTML)からのJSONを受け取り、Brevoで
  *   ①担当者へ通知 ②申込者へ受付確認(自動返信) ③任意でコンタクト登録。
@@ -10,7 +10,15 @@
  */
 
 var CONFIG = {
-  TO: "mk@emanet.jp",                     // 担当者宛（★会場担当の宛先が決まったら差し替え）
+  // 管理者への通知先（全員に同じ通知が届く。互いのアドレスが見える宛先=To）
+  TO: [
+    "naoya.y@memolead.co.jp",
+    "doi-yuu@memolead.co.jp",
+    "nishino-yuu@memolead.co.jp",
+    "info@sd-leciel.com",
+    "yamamoto-jyun@memolead.co.jp",
+    "mk@emanet.jp"
+  ],
   CC: [],                                 // CC（複数可）
   BCC: [],                                // BCC（複数可）
   FROM_NAME: "サロン・ド・ルシェル",
@@ -25,7 +33,7 @@ var CONFIG = {
   AUTO_REPLY_SUBJECT: "【サロン・ド・ルシェル】指輪＆結婚相談会のお申し込みを承りました",
   AUTO_REPLY_NOTE: "※このメールは自動送信用メールアドレスです。返信はできません。",
   BREVO_LIST_ID: null,                    // コンタクト登録する場合のみリストID
-  MONITOR_TO: "mk@emanet.jp",          // 毎日の稼働確認メール宛先
+  MONITOR_TO: "mk@emanet.jp",          // 毎日の稼働確認メール宛先（管理側のみ。お店には送らない）
   MONITOR_SUBJECT: "【自動稼働確認】指輪＆結婚相談会 申込フォーム 正常稼働中",
   FORM_NAME: "指輪＆結婚相談会 申込フォーム",              // 稼働確認メール等で表示するフォーム名
   FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/bridal-ring/", // 対象フォームURL（稼働確認メールにリンク表示）
@@ -100,7 +108,7 @@ export default {
         </div>`;
 
       const adminBody = {
-        sender, to: [{ email: CONFIG.TO }],
+        sender, to: [].concat(CONFIG.TO).map((e) => ({ email: e })),
         subject: `${CONFIG.SUBJECT_PREFIX}${esc(d.name || "")}様`,
         htmlContent: adminHtml,
         replyTo: emailOk ? { email: d.email, name: d.name } : undefined
