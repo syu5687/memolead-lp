@@ -52,3 +52,32 @@ memolead-lp（/public/）内にブライダルリング専用申込フォーム�
 - 参加希望日時をチェックボックス（複数可）→ ラジオ（1つだけ選択）に変更（index.html v0004）
 - 案内文「ご希望の枠を1つお選びください。所要時間は各回約1時間です。」
 - 送信データ `slots` は1枠の文字列。Worker 変更なし（再デプロイ不要）
+
+## 追記 10:39 Worker デプロイ完了
+- `npx.cmd wrangler deploy` 成功：https://memolead-bridal-ring.mk-cbe.workers.dev（Version 1f5a147a-bebd-471b-b84c-67e28b8a0d16、Cron 0 0 * * *＝毎日JST 9:00）
+- PowerShell の実行ポリシーで `npx` が止まったため `npx.cmd` で実行
+- 次：`npx.cmd wrangler secret put BREVO_API_KEY` → curl.exe で送信テスト → GitHub Desktop で push（v0004）
+
+## 追記 10:41 本番テスト（Chrome から実フォーム送信）
+- 本番は v0004 反映済み（日程12枠・1つだけ選択・会場表示）を確認
+- フォーム送信 → 「送信に失敗しました」。Worker の応答は HTTP 500 `{"ok":false,"error":"BREVO_API_KEY 未設定"}`
+- 通信経路（フォーム→Worker、CORS）は正常。残りは APIキーのシークレット登録のみ
+- 対応：`npx.cmd wrangler secret put BREVO_API_KEY` を再実行し `Success! Uploaded secret` を確認 → `npx.cmd wrangler secret list` で BREVO_API_KEY を確認 → 再テスト
+
+## 追記 10:44 本番送信テスト 成功
+- `npx.cmd wrangler secret put BREVO_API_KEY` → Success（10:43）
+- Chrome で本番フォームから送信（10/4 13:00〜14:00・結婚予定=未定）→ Worker 応答 200 `{"ok":true,"autoReply":true}`、完了画面表示
+- Gmail（mk@emanet.jp）受信トレイに2通着信（10:44、迷惑メールではなく受信トレイ）
+  - 担当者通知「【ブライダルリング申込】テスト 太郎（動作確認）様」：全項目＋当日相談＋会場
+  - 自動返信「【サロン・ド・ルシェル】ブライダルリングのお申し込みを承りました」
+- 送信元 noreply@nfz33.com
+- 残り：通知先（会場担当の宛先）が決まれば worker.js の TO/CC を変更して `npx.cmd wrangler deploy`。GTM で `bridal_ring_submit` → GA4/広告CV 設定
+
+## 追記 10:45 日付→時間の2段選択に変更（index.html v0005）
+- 【事実】12枠を一覧表示していたため、選択肢が多く見える（ご指摘）
+- 【変更】STEP1 を「日付カード4枚（月・日・曜日）」→ 選んだ日の「時間3枠」だけを表示する2段式に変更。選択後に「ご希望：2026年10月18日（日） 15:00〜16:00」を表示
+- 日付を選び直すと時間の選択はリセット。未選択時は「日付をお選びください」「時間をお選びください」で案内
+- SPでも日付4枚・時間3枠を横一列で表示（時間は折り返しなし）
+- 送信データ `slots` の形式は従来どおり → Worker・メール本文の変更なし（再デプロイ不要）
+- 【確認KPI】フォーム到達→送信完了率。GTMで `bridal_ring_submit` 計測後に比較
+- 検証：Playwright（PC 1200px／SP 390px）で表示・選択リセット・エラー表示・送信データを確認

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- @version v0004 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
+<!-- @version v0006 | 2026-09-24 | メモリード ブライダルリング 申込フォーム | /public/bridal-ring/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0004">
+<meta name="version" content="v0006">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -59,6 +59,32 @@
   .choice:has(input:checked){border-color:var(--accent);background:#fbf3f2;box-shadow:0 0 0 2px rgba(124,31,42,.08)}
   .choice.full{opacity:.45;cursor:not-allowed}
   .choice.full .ct::after{content:"　満席";font-size:12px;color:var(--ink-soft);font-weight:400}
+  /* 日付→時間の2段選択 */
+  .pick-label{font-size:13.5px;font-weight:600;margin:0 0 10px;display:flex;align-items:baseline;gap:10px}
+  .pick-label small{font-weight:400;color:var(--ink-soft);font-size:12px}
+  .dates{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
+  .dcard{position:relative;display:block;text-align:center;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:14px 6px 12px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+  .dcard:hover{border-color:var(--accent-2)}
+  .dcard input,.tcard input{position:absolute;opacity:0;pointer-events:none}
+  .dcard .m{display:block;font-size:12px;color:var(--ink-soft);letter-spacing:.08em}
+  .dcard .d{display:block;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;line-height:1.15;font-weight:600}
+  .dcard .w{display:block;font-size:12px;margin-top:2px}
+  .dcard .w.sun{color:#a33}.dcard .w.sat{color:#2d4f7c}
+  .dcard:has(input:checked){border-color:var(--accent);background:var(--accent);color:#fff}
+  .dcard:has(input:checked) .m,.dcard:has(input:checked) .w{color:#fff}
+  .dcard:has(input:focus-visible),.tcard:has(input:focus-visible){outline:2px solid var(--accent-2);outline-offset:2px}
+  #timeBox[hidden]{display:none}
+  .timelist{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .tcard{position:relative;display:block;text-align:center;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:14px 6px;cursor:pointer;font-size:15px;font-weight:600;transition:border-color .15s,background .15s}
+  .tcard:hover{border-color:var(--accent-2)}
+  .tcard:has(input:checked){border-color:var(--accent);background:#fbf3f2;box-shadow:0 0 0 2px rgba(124,31,42,.10);color:var(--accent)}
+  .tcard.full{opacity:.45;cursor:not-allowed}
+  .tcard.full::after{content:"満席";display:block;font-size:11px;font-weight:400;color:var(--ink-soft)}
+  .picked{margin:14px 0 0;font-size:14px;color:var(--ink-soft);min-height:1.4em}
+  .picked b{color:var(--ink)}
+  .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  #refOtherBox{margin-top:12px}
+  #refOtherBox[hidden]{display:none}
   .slots-empty{font-size:14px;color:var(--ink-soft);background:var(--paper-2);border-radius:10px;padding:16px}
   .btn-submit{width:100%;font:inherit;font-size:16px;font-weight:600;letter-spacing:.14em;color:#fff;background:var(--accent);border:none;border-radius:12px;padding:17px;cursor:pointer}
   .btn-submit:hover{background:#651822}
@@ -81,7 +107,7 @@
   .fs-ctrl button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
   body.fs-1 header.hero,body.fs-1 main,body.fs-1 footer{zoom:1.12}
   body.fs-2 header.hero,body.fs-2 main,body.fs-2 footer{zoom:1.25}
-  @media(max-width:560px){.row2{grid-template-columns:1fr}.fs-ctrl .fs-label{display:none}.times{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.row2{grid-template-columns:1fr}.fs-ctrl .fs-label{display:none}.dates{gap:8px}.dcard{padding:12px 2px 10px}.dcard .d{font-size:26px}.timelist{gap:8px}.refs{grid-template-columns:1fr 1fr}.tcard{font-size:13.5px;padding:14px 2px;white-space:nowrap;letter-spacing:-.01em}}
 </style>
 </head>
 <body>
@@ -102,8 +128,9 @@
   <form id="theForm" novalidate>
     <section class="step">
       <div class="step-head"><span class="step-no">STEP 1</span><h2>参加希望日時</h2></div>
-      <p class="field-note"><span>ご希望の枠を1つお選びください。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
+      <p class="field-note"><span>日付を選ぶと、時間が表示されます。所要時間は各回約1時間です。</span><span class="req">必須</span></p>
       <div id="slots"></div>
+      <input type="hidden" name="slots" id="slotsValue">
     </section>
 
     <section class="step">
@@ -132,6 +159,20 @@
         <span class="hint" style="display:block">入籍・挙式のどちらか早い方の目安で構いません。</span></label>
       <label class="field"><span class="lb">特に当日相談したいこと <span class="opt">任意</span></span>
         <textarea name="note" placeholder="例：予算の目安、デザインの好み、刻印、サイズ直しなど"></textarea></label>
+    </section>
+
+    <section class="step">
+      <div class="step-head"><span class="step-no">STEP 4</span><h2>お申し込みのきっかけ</h2></div>
+      <p class="field-note"><span>何をご覧になってお申し込みいただきましたか。</span><span class="req">必須</span></p>
+      <div class="refs">
+        <label class="choice"><input type="radio" name="referral" value="SNS"><span class="ct">SNS</span></label>
+        <label class="choice"><input type="radio" name="referral" value="式場の紹介"><span class="ct">式場の紹介</span></label>
+        <label class="choice"><input type="radio" name="referral" value="お友だちの紹介"><span class="ct">お友だちの紹介</span></label>
+        <label class="choice"><input type="radio" name="referral" value="お店からの紹介"><span class="ct">お店からの紹介</span></label>
+        <label class="choice"><input type="radio" name="referral" value="その他"><span class="ct">その他</span></label>
+      </div>
+      <label class="field" id="refOtherBox" hidden><span class="lb">その他の内容 <span class="opt">任意</span></span>
+        <input type="text" name="referralOther" maxlength="100" placeholder="例：チラシ、雑誌、Webサイトなど"></label>
     </section>
 
     <section class="step">
@@ -175,23 +216,38 @@ document.querySelectorAll('.fs-ctrl button').forEach(btn=>btn.addEventListener("
   document.querySelectorAll('.fs-ctrl button').forEach(b=>b.classList.toggle("active",b===btn));
 }));
 
-/* 参加希望日時（チェックボックス） */
+/* 参加希望日時：日付を選ぶ → 時間を選ぶ */
 const WD=["日","月","火","水","木","金","土"];
-const slotsEl=document.getElementById("slots");
-(function renderSlots(){
-  const today=new Date(); today.setHours(0,0,0,0);
-  const days=CONFIG.SLOTS.filter(s=>new Date(s.date+"T00:00:00")>=today);
-  if(!days.length){slotsEl.innerHTML='<p class="slots-empty">現在受付中の日程はありません。</p>';return;}
-  slotsEl.innerHTML=days.map(s=>{
-    const dt=new Date(s.date+"T00:00:00");
-    const dl=`${dt.getMonth()+1}月${dt.getDate()}日（${WD[dt.getDay()]}）`;
-    const t=s.times.map(tm=>{
-      const full=(s.full||[]).includes(tm), v=`${dt.getFullYear()}年${dl} ${tm}`;
-      return `<label class="choice${full?" full":""}"><input type="radio" name="slots" value="${v}"${full?" disabled":""}><span class="ct">${tm}</span></label>`;
-    }).join("");
-    return `<div class="day"><p class="day-name">${dl}</p><div class="times">${t}</div></div>`;
-  }).join("");
+const slotsEl=document.getElementById("slots"), slotsValue=document.getElementById("slotsValue");
+const today=new Date(); today.setHours(0,0,0,0);
+const DAYS=CONFIG.SLOTS.map(s=>({...s,dt:new Date(s.date+"T00:00:00")})).filter(s=>s.dt>=today);
+const dayLabel=s=>`${s.dt.getFullYear()}年${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）`;
+(function renderDates(){
+  if(!DAYS.length){slotsEl.innerHTML='<p class="slots-empty">現在受付中の日程はありません。</p>';return;}
+  slotsEl.innerHTML=`<p class="pick-label">日付</p>
+    <div class="dates">${DAYS.map((s,i)=>{const w=s.dt.getDay();
+      return `<label class="dcard"><input type="radio" name="pickDate" value="${i}"><span class="m">${s.dt.getMonth()+1}月</span><span class="d">${s.dt.getDate()}</span><span class="w${w===0?" sun":w===6?" sat":""}">${WD[w]}曜日</span></label>`;}).join("")}</div>
+    <div id="timeBox" hidden><p class="pick-label">時間 <small id="timeFor"></small></p><div class="timelist" id="timeList"></div></div>
+    <p class="picked" id="picked"></p>`;
+  slotsEl.querySelectorAll('input[name=pickDate]').forEach(r=>r.addEventListener("change",()=>showTimes(+r.value)));
 })();
+function showTimes(i){
+  const s=DAYS[i], box=document.getElementById("timeBox");
+  document.getElementById("timeFor").textContent=`${s.dt.getMonth()+1}月${s.dt.getDate()}日（${WD[s.dt.getDay()]}）`;
+  document.getElementById("timeList").innerHTML=s.times.map(tm=>{const full=(s.full||[]).includes(tm);
+    return `<label class="tcard${full?" full":""}"><input type="radio" name="pickTime" value="${tm}"${full?" disabled":""}>${tm}</label>`;}).join("");
+  document.querySelectorAll('input[name=pickTime]').forEach(r=>r.addEventListener("change",()=>{
+    slotsValue.value=`${dayLabel(s)} ${r.value}`;
+    document.getElementById("picked").innerHTML=`ご希望：<b>${slotsValue.value}</b>`;
+  }));
+  slotsValue.value=""; document.getElementById("picked").textContent="";
+  box.hidden=false;
+}
+
+/* きっかけ：その他を選んだときだけ入力欄 */
+document.querySelectorAll('input[name=referral]').forEach(r=>r.addEventListener("change",()=>{
+  document.getElementById("refOtherBox").hidden = r.value!=="その他";
+}));
 
 /* 結婚予定（年月＋未定） */
 (function renderPlan(){
@@ -234,17 +290,19 @@ form.addEventListener("submit",async e=>{
   const fd=new FormData(form), g=k=>(fd.get(k)||"").toString().trim();
   const d={name:g("name"),zip:g("zip"),address:g("address"),tel:g("tel"),email:g("email"),
     slots:g("slots"),weddingPlan:g("weddingPlan"),note:g("note"),
+    referral:g("referral")==="その他"&&g("referralOther")?`その他（${g("referralOther")}）`:g("referral"),
     formName:CONFIG.FORM_NAME,source:location.href};
-  if(!d.slots){setMsg("参加希望日時をお選びください。","err");return;}
+  if(!d.slots){setMsg(document.querySelector("input[name=pickDate]:checked")?"時間をお選びください。":"日付をお選びください。","err");return;}
   if(!d.name||!d.zip||!d.address||!d.tel||!d.email){setMsg("必須項目をご入力ください。","err");return;}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){setMsg("メールアドレスの形式をご確認ください。","err");return;}
   if(!d.weddingPlan){setMsg("結婚予定をお選びください。","err");return;}
+  if(!d.referral){setMsg("お申し込みのきっかけをお選びください。","err");return;}
   if(!document.getElementById("agree").checked){setMsg("確認のチェックを入れてください。","err");return;}
   submitBtn.disabled=true;submitBtn.textContent="送信中…";
   try{
     const r=await fetch(CONFIG.ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
     if(!r.ok)throw new Error("status "+r.status);
-    (window.dataLayer=window.dataLayer||[]).push({event:"bridal_ring_submit",form_name:CONFIG.FORM_NAME,wedding_plan:d.weddingPlan});
+    (window.dataLayer=window.dataLayer||[]).push({event:"bridal_ring_submit",form_name:CONFIG.FORM_NAME,wedding_plan:d.weddingPlan,referral:g("referral")});
     form.style.display="none";document.getElementById("done").style.display="block";document.getElementById("done").scrollIntoView({behavior:"smooth"});
   }catch(_){setMsg("送信に失敗しました。時間をおいて再度お試しください。","err");submitBtn.disabled=false;submitBtn.textContent="この内容で申し込む";}
 });

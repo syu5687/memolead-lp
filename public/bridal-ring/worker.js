@@ -1,5 +1,5 @@
 /**
- * @version v0002 | 2026-09-24 | メモリード ブライダルリング 申込フォーム送信Worker | Cloudflare Workers
+ * @version v0003 | 2026-09-24 | メモリード ブライダルリング 申込フォーム送信Worker | Cloudflare Workers
  *
  * フォーム(HTML)からのJSONを受け取り、Brevoで
  *   ①担当者へ通知 ②申込者へ受付確認(自動返信) ③任意でコンタクト登録。
@@ -30,7 +30,7 @@ var CONFIG = {
   FORM_NAME: "ブライダルリング 申込フォーム",              // 稼働確認メール等で表示するフォーム名
   FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/bridal-ring/", // 対象フォームURL（稼働確認メールにリンク表示）
   // メール本文に必ず出す基本項目（キー: 表示ラベル）。フォームの name 属性に合わせる。
-  FIELDS: { slots: "参加希望日時", name: "氏名", zip: "郵便番号", address: "住所", tel: "電話番号", email: "メール", weddingPlan: "結婚予定" },
+  FIELDS: { slots: "参加希望日時", name: "氏名", zip: "郵便番号", address: "住所", tel: "電話番号", email: "メール", weddingPlan: "結婚予定", referral: "申込のきっかけ" },
   REQUIRED: ["name", "tel", "email", "slots", "weddingPlan"]             // 最低限の必須チェック
 };
 
