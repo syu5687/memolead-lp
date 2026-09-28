@@ -41,36 +41,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		  <p>
 			*1.結婚式に呼ぶのはどの範囲まで？
 		  </p>
-		  <p>
-			<input name="field_6400773" type="radio" value="0" >親族
-			<input name="field_6400773" type="radio" value="1" >親族+友人
-			<input name="field_6400773" type="radio" value="2" >親族+会社
-			<input name="field_6400773" type="radio" value="3" >親族+友人+会社
+		  <p class="choices">
+			<label><input name="field_6400773" type="radio" value="0" >親族</label>
+			<label><input name="field_6400773" type="radio" value="1" >親族+友人</label>
+			<label><input name="field_6400773" type="radio" value="2" >親族+会社</label>
+			<label><input name="field_6400773" type="radio" value="3" >親族+友人+会社</label>
 		  </p>
 		
 		  <!-- radio -->
 		  <p>
 			*2.結婚式で最もこだわりたい部分を1つ上げると？
 		  </p>
-		  <p>
-			<input name="field_6400784" type="radio" value="0" >披露宴会場
-			<input name="field_6400784" type="radio" value="1" >料理
-			<input name="field_6400784" type="radio" value="2" >演出
-			<input name="field_6400784" type="radio" value="3" >挙式
-			<input name="field_6400784" type="radio" value="4" >ウェディングドレス
-			<input name="field_6400784" type="radio" value="5" >アクセス
+		  <p class="choices">
+			<label><input name="field_6400784" type="radio" value="0" >披露宴会場</label>
+			<label><input name="field_6400784" type="radio" value="1" >料理</label>
+			<label><input name="field_6400784" type="radio" value="2" >演出</label>
+			<label><input name="field_6400784" type="radio" value="3" >挙式</label>
+			<label><input name="field_6400784" type="radio" value="4" >ウェディングドレス</label>
+			<label><input name="field_6400784" type="radio" value="5" >アクセス</label>
 		  </p>
 		
 		  <!-- radio -->
 		  <p>
 			*3.結婚式は誰のために挙げる？
 		  </p>
-		  <p>
-			<input name="field_6400793" type="radio" value="0" >自分のため
-			<input name="field_6400793" type="radio" value="1" >結婚相手のため
-			<input name="field_6400793" type="radio" value="2" >家族のため
-			<input name="field_6400793" type="radio" value="3" >友人のため
-			<input name="field_6400793" type="radio" value="4" >職場の人のため
+		  <p class="choices">
+			<label><input name="field_6400793" type="radio" value="0" >自分のため</label>
+			<label><input name="field_6400793" type="radio" value="1" >結婚相手のため</label>
+			<label><input name="field_6400793" type="radio" value="2" >家族のため</label>
+			<label><input name="field_6400793" type="radio" value="3" >友人のため</label>
+			<label><input name="field_6400793" type="radio" value="4" >職場の人のため</label>
 			  </p>
 			  </div>
 			
@@ -151,7 +151,99 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer>
 	<p>© Memolead All rights reserved.</p>
 </footer>
-
+<style>
+	#survey,
+	#apply {
+	  --form-accent: #8a6d4b;
+	  --form-border: #d9d4cc;
+	  --form-bg-checked: #f7f2ea;
+	}
+	
+	.choices {
+	  display: grid;
+	  gap: 8px;
+	}
+	
+	.choices label {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	  min-height: 48px;
+	  padding: 10px 14px;
+	  border: 1px solid var(--form-border);
+	  border-radius: 6px;
+	  cursor: pointer;
+	  line-height: 1.4;
+	}
+	
+	.choices label:has(input:checked) {
+	  border-color: var(--form-accent);
+	  background: var(--form-bg-checked);
+	  font-weight: bold;
+	}
+	
+	.choices input[type="radio"] {
+	  width: 20px;
+	  height: 20px;
+	  margin: 0;
+	  flex-shrink: 0;
+	  accent-color: var(--form-accent);
+	}
+	
+	#apply input[type="text"],
+	#apply select,
+	#apply textarea {
+	  font-size: 16px;
+	  padding: 10px;
+	  border: 1px solid #d9d4cc;
+	  border-radius: 6px;
+	  max-width: 100%;
+	  box-sizing: border-box;
+	}
+	
+	#apply input[name="field_6400764_sei"],
+	#apply input[name="field_6400764_mei"] {
+	  width: 8em;
+	}
+	
+	#apply input[name="field_6400769"],
+	#apply input[name="field_6400765"],
+	#apply select,
+	#apply textarea {
+	  width: 100%;
+	}
+	
+	#to-apply {
+	  display: block;
+	  width: 100%;
+	  max-width: 400px;
+	  min-height: 52px;
+	  margin: 8px auto 0;
+	  border: none;
+	  border-radius: 6px;
+	  background: #8a6d4b;
+	  color: #fff;
+	  font-size: 17px;
+	  font-weight: bold;
+	  cursor: pointer;
+	}
+	
+	#to-apply:disabled {
+	  background: #cfc8bd;
+	  cursor: not-allowed;
+	}
+	
+	#to-apply:focus-visible {
+	  outline: 3px solid #8a6d4b;
+	  outline-offset: 3px;
+	}
+	
+	#survey-note {
+	  text-align: center;
+	  font-size: 14px;
+	  color: #6b6358;
+	}
+</style>
 <script>
 (function () {
   // --- 1. 必要な要素を取得 ---
