@@ -23,14 +23,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9CZ8Q4"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
+<main>
 	<div id="content" style="display: none;">
 		<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
 		  <input type="hidden" name="key" value="2793332e370512">
-		
-		  *は必須項目です
-		
-		
 		  <div id="survey">
 			<!-- label -->
 			<p>
@@ -39,7 +35,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- radio -->
 		  <p>
-			*1.結婚式に呼ぶのはどの範囲まで？
+			1.結婚式に呼ぶのはどの範囲まで？<span class="hissu">必須</span>
 		  </p>
 		  <p class="choices">
 			<label><input name="field_6400773" type="radio" value="0" >親族</label>
@@ -50,7 +46,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- radio -->
 		  <p>
-			*2.結婚式で最もこだわりたい部分を1つ上げると？
+			2.結婚式で最もこだわりたい部分を1つ上げると？<span class="hissu">必須</span>
 		  </p>
 		  <p class="choices">
 			<label><input name="field_6400784" type="radio" value="0" >披露宴会場</label>
@@ -63,7 +59,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- radio -->
 		  <p>
-			*3.結婚式は誰のために挙げる？
+			3.結婚式は誰のために挙げる？<span class="hissu">必須</span>
 		  </p>
 		  <p class="choices">
 			<label><input name="field_6400793" type="radio" value="0" >自分のため</label>
@@ -82,7 +78,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			  <div id="apply">
 			  <!-- dropdown -->
 		  <p>
-			ご希望会場
+			ご希望会場<span class="nini">任意</span>
 		  </p>
 		  <p>
 			<select name="field_6400794">
@@ -95,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- name -->
 		  <p>
-			*名前
+			名前<span class="hissu">必須</span>
 		  </p>
 		  <p>
 			姓 <input name="field_6400764_sei" type="text" placeholder="姓">
@@ -104,7 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- text -->
 		  <p>
-			*ご年齢
+			ご年齢<span class="hissu">必須</span>
 		  </p>
 		  <p>
 			<input name="field_6400796" type="text" value="" size="3"   >
@@ -113,7 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- phone -->
 		  <p>
-			*電話番号
+			電話番号<span class="hissu">必須</span>
 		  </p>
 		  <p>
 			<input name="field_6400769" type="text" placeholder="090-0000-0000">
@@ -121,7 +117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		  <!-- email -->
 		  <p>
-			*メールアドレス
+			メールアドレス<span class="hissu">必須</span>
 		  </p>
 		  <p>
 			<input name="field_6400765" type="text" size="30" placeholder="info@example.com">
@@ -147,11 +143,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</form>
 
 	</div>
-
+</main>
 <footer>
 	<p>© Memolead All rights reserved.</p>
 </footer>
 <style>
+	main{
+		text-align: center;
+	}
+	.hissu,
+	.nini{
+		display: inline;
+		padding: 1px 4px 2px;
+		font-size: 0.8rem;
+		border-radius: 16px;
+		margin-left:0.2rem;
+	}
+	.nini{
+		background: #f5f5f5;
+		color: #9e9e9e;
+	}
+	
+	.hissu{
+		background: #E35C33;
+		color: #fff;
+	}
+
 	#survey,
 	#apply {
 	  --form-accent: #8a6d4b;
