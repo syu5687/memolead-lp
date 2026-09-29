@@ -144,12 +144,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	</div>
 </main>
-<footer>
+<footer style="text-align: center;">
 	<p>© Memolead All rights reserved.</p>
 </footer>
 <style>
-	main{
-		text-align: center;
+	form{
+		width: 100%;
+		padding: 1rem;
+		
 	}
 	.hissu,
 	.nini{
@@ -178,7 +180,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	.choices {
 	  display: grid;
-	  gap: 8px;
+	  gap: 1rem;
+	  margin: 0 auto;
+	  width: 90%;
 	}
 	
 	.choices label {
@@ -230,19 +234,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	  width: 100%;
 	}
 	
-	#to-apply {
+	#to-apply,
+	input[type="submit"] {
 	  display: block;
 	  width: 100%;
 	  max-width: 400px;
 	  min-height: 52px;
-	  margin: 8px auto 0;
+	  margin: 2rem auto 0;
 	  border: none;
 	  border-radius: 6px;
-	  background: #8a6d4b;
 	  color: #fff;
 	  font-size: 17px;
 	  font-weight: bold;
 	  cursor: pointer;
+	}
+	#to-apply{
+	  background: #8a6d4b;
+	}
+	input[type="submit"] {
+	  background: darkred;
 	}
 	
 	#to-apply:disabled {
@@ -259,6 +269,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	  text-align: center;
 	  font-size: 14px;
 	  color: #6b6358;
+	}
+	#survey p{
+		margin: 2rem 0 1rem;
 	}
 </style>
 <script>
