@@ -1,0 +1,60 @@
+/* @version v0001 | 2026-10-01 | RCI法事・法要ページ | https://rc-imari.jp/party/houji/
+   party-lp.css（共通）の後に読み込む。スコープは .rpl--houji のみ。
+   法事向けに金色を落ち着いた茶系へ（白文字とのコントラスト 5.2:1） */
+
+.rpl--houji{--rpl-gold:#7A6A55}
+.rpl--houji .rpl-btn--primary:hover{background:#635544;border-color:#635544}
+
+/* パンくず */
+.rpl-crumb{border-bottom:1px solid var(--rpl-line);font-size:12px;color:var(--rpl-sub)}
+.rpl-crumb ol{display:flex;flex-wrap:wrap;gap:4px 0;padding-top:12px;padding-bottom:12px}
+.rpl-crumb li+li::before{content:"／";margin:0 8px;color:var(--rpl-line)}
+.rpl-crumb a{text-decoration:none}
+.rpl-crumb a:hover{text-decoration:underline}
+
+/* FV：法事は静かに。画面の高さを抑え、暗幕を均一に */
+.rpl-fv--quiet{min-height:clamp(520px,44vw,640px)}
+.rpl-fv--quiet::before{background:linear-gradient(90deg,rgba(28,26,24,.88) 0%,rgba(28,26,24,.7) 50%,rgba(28,26,24,.35) 100%)}
+.rpl-fv--quiet .rpl-fv__eyebrow{letter-spacing:.2em;color:rgba(255,255,255,.75)}
+.rpl-fv--quiet .rpl-fv__offer{border-left-color:rgba(255,255,255,.5)}
+.rpl-fv--quiet .rpl-fv__offer-label{color:rgba(255,255,255,.75)}
+@media (max-width:767px){
+  .rpl-fv--quiet{min-height:560px}
+  .rpl-fv--quiet::before{background:linear-gradient(0deg,rgba(28,26,24,.92) 0%,rgba(28,26,24,.75) 55%,rgba(28,26,24,.3) 100%)}
+}
+
+/* 料金まわり */
+.rpl-h3{font-size:15px;font-weight:500;margin:32px 0 10px;padding-top:20px;border-top:1px solid var(--rpl-line)}
+.rpl-drink{font-size:14px;line-height:2}
+.rpl-mini--opt{font-size:14px;gap:8px 24px}
+.rpl-mini--opt dd{text-align:right;white-space:nowrap}
+.rpl--houji .rpl-plan__info .rpl-link{margin-top:28px}
+
+/* 祭壇・仏具 */
+.rpl-altar{padding:clamp(56px,7vw,96px) 0}
+.rpl-altar__body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.rpl-altar__body .rpl-h2{margin-bottom:0}
+.rpl-altar__body p{font-size:15px}
+@media (max-width:767px){.rpl-altar__body{grid-template-columns:1fr;gap:20px}}
+
+/* 会場（3列） */
+.rpl-venue__grid--3{grid-template-columns:repeat(3,1fr);margin-top:0}
+.rpl-venue .rpl-note-s .rpl-link{font-size:12px;margin-left:8px}
+@media (max-width:900px){.rpl-venue__grid--3{grid-template-columns:1fr 1fr}}
+@media (max-width:767px){.rpl-venue__grid--3{grid-template-columns:1fr;gap:32px}}
+
+/* 流れ */
+.rpl-flow{padding:var(--rpl-sec) 0}
+.rpl-flow__list{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,4vw,56px);border-top:1px solid var(--rpl-charcoal)}
+.rpl-flow__list li{padding:24px 0}
+.rpl-flow__list h3{font-family:var(--rpl-serif);font-weight:500;font-size:19px;margin:4px 0 8px;color:var(--rpl-charcoal)}
+.rpl-flow__list p{font-size:14px;color:var(--rpl-sub)}
+@media (max-width:767px){.rpl-flow__list{grid-template-columns:1fr}.rpl-flow__list li{border-bottom:1px solid var(--rpl-line)}}
+
+/* フォーム上の電話 */
+.rpl-contact__tel{margin:-16px 0 40px}
+.rpl-contact__tel a{display:block;font-size:24px;letter-spacing:.08em;text-decoration:none;color:var(--rpl-charcoal)}
+.rpl-contact__tel span{font-size:12px;color:var(--rpl-sub)}
+
+/* 既存のSP固定フッターをこのページでも隠す（page-id が未定のため :has で判定） */
+@media (max-width:767px){body:has(.rpl--houji .rpl-sticky) #fixedFooter{display:none!important}}
