@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- @version v2026100202 | 2026-10-02 | アルカーサル・アヴィオ 秋の味覚ディナービュッフェ（avi_beer） | https://memolead-lp-665477084949.asia-northeast1.run.app/public/event/avi_beer/ -->
+<!-- @version v2026100203 | 2026-10-02 | アルカーサル・アヴィオ 秋の味覚ディナービュッフェ（avi_beer） | https://memolead-lp-665477084949.asia-northeast1.run.app/public/event/avi_beer/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v2026100202">
+<meta name="version" content="v2026100203">
 <title>秋の味覚ディナービュッフェ＆フリードリンク｜アルカーサル・アヴィオ（福岡市東区・千早駅徒歩0分）</title>
 <meta name="description" content="アルカーサル・アヴィオ（福岡市東区水谷・千早駅より徒歩0分）の秋の味覚ディナービュッフェ。揚げたて天ぷらのライブキッチンとフリードリンク付き。2026年10月16日〜11月27日の全8日、18:00〜21:00。当日 大人6,500円（税・サ込）、前売り6,000円は10月15日まで。予約制。">
 <link rel="canonical" href="https://memolead-lp-665477084949.asia-northeast1.run.app/public/event/avi_beer/">
@@ -207,8 +207,19 @@ ul,ol{list-style:none}
 .agree{margin-top:26px;font-size:14px}
 .agree a{color:#6b4e12}
 .fm-submit{margin-top:18px}
-.fm-submit input{width:100%;min-height:60px;background:var(--ink);color:#fff;font:inherit;font-size:17px;font-weight:700;border:0;border-radius:2px;cursor:pointer;letter-spacing:.06em}
-.fm-submit input:hover{background:#3a3126}
+.fm-submit button{width:100%;min-height:60px;background:var(--ink);color:#fff;font:inherit;font-size:17px;font-weight:700;border:0;border-radius:2px;cursor:pointer;letter-spacing:.06em}
+.fm-submit button:hover{background:#3a3126}
+.fm-submit button[disabled]{opacity:.6;cursor:progress}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.test-note{background:#fff3cd;border:1px solid #c9a23a;padding:10px 12px;font-size:14px;font-weight:700;margin-bottom:22px}
+.send-err{display:none;margin-top:18px;border:2px solid var(--err);color:var(--err);padding:12px 14px;font-weight:700;font-size:14.5px;background:#fff}
+.send-err.is-on{display:block}
+.send-err a{color:var(--err)}
+.done{display:none;max-width:640px;border-top:1px solid var(--ink);padding-top:26px}
+.done.is-on{display:block}
+.done h3{font-family:var(--mincho);font-size:24px;font-weight:700;margin:0 0 14px;line-height:1.5}
+.done p{font-size:15.5px;margin-top:10px}
+.done a{font-family:var(--mincho);font-size:24px;font-weight:700;color:var(--ink);text-decoration:none;margin-left:6px}
 .after{margin-top:14px;font-size:13.5px;color:#5c564b}
 .closed{display:none;margin-top:24px;border:1px solid #8b8477;padding:16px;font-size:15px}
 
@@ -285,7 +296,7 @@ ul,ol{list-style:none}
       "@id":"https://memolead-lp-665477084949.asia-northeast1.run.app/public/event/avi_beer/#venue",
       "name":"アルカーサル・アヴィオ",
       "telephone":"+81-92-665-0077",
-      "address":{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"福岡県","addressLocality":"福岡市東区","streetAddress":"水谷2-52-8"}
+      "address":{"@type":"PostalAddress","addressCountry":"JP","postalCode":"813-0041","addressRegion":"福岡県","addressLocality":"福岡市東区","streetAddress":"水谷2-52-8"}
     },
     {
       "@type":"FoodEvent",
@@ -550,7 +561,7 @@ ul,ol{list-style:none}
       </div>
       <dl class="venue-dl">
         <div><dt>会場</dt><dd>アルカーサル・アヴィオ</dd></div>
-        <div><dt>住所</dt><dd>福岡市東区水谷2-52-8<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%BC%E3%82%B5%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%B4%E3%82%A3%E3%82%AA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E6%9D%B1%E5%8C%BA%E6%B0%B4%E8%B0%B72-52-8" target="_blank" rel="noopener" data-cta="map">Googleマップで開く</a></dd></div>
+        <div><dt>住所</dt><dd>〒813-0041 福岡市東区水谷2-52-8<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%BC%E3%82%B5%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%B4%E3%82%A3%E3%82%AA%20%E7%A6%8F%E5%B2%A1%E5%B8%82%E6%9D%B1%E5%8C%BA%E6%B0%B4%E8%B0%B72-52-8" target="_blank" rel="noopener" data-cta="map">Googleマップで開く</a></dd></div>
         <div><dt>電車</dt><dd>千早駅より徒歩0分</dd></div>
         <div><dt>お車</dt><dd>千早駅地下駐車場をご利用ください</dd></div>
         <div><dt>電話</dt><dd><a href="tel:0926650077" data-tel="access">092-665-0077</a></dd></div>
@@ -572,15 +583,16 @@ ul,ol{list-style:none}
 
     <div>
       <p class="closed" id="closedMsg">本年の開催日はすべて終了しました。ありがとうございました。</p>
-      <form class="fm" id="reserveForm" action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" enctype="multipart/form-data" accept-charset="UTF-8" novalidate>
-        <input type="hidden" name="key" value="46783b65365307">
+      <form class="fm" id="reserveForm" name="form1" novalidate>
+        <p class="test-note" id="testNote" hidden>テスト送信モードです。会場には通知されません。</p>
+        <div class="hp" aria-hidden="true"><label>このまま空欄にしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
         <p class="fm-top-err" id="topErr" role="alert">入力内容をご確認ください。赤く表示された項目があります。</p>
 
         <fieldset>
           <legend>ご希望の日時</legend>
           <div class="fd" data-f="date">
             <label for="f-date">日程<span class="req">必須</span></label>
-            <select name="field_6301230" id="f-date" required>
+            <select name="date" id="f-date" required>
               <option value="">選択してください</option>
               <option value="0" data-date="2026-10-16">10月16日（金）</option>
               <option value="1" data-date="2026-10-17">10月17日（土）</option>
@@ -596,7 +608,7 @@ ul,ol{list-style:none}
           </div>
           <div class="fd" data-f="time">
             <label for="f-time">ご来店時間<span class="req">必須</span></label>
-            <select name="field_6301231" id="f-time" required>
+            <select name="time" id="f-time" required>
               <option value="">選択してください</option>
               <option value="0">18:00</option>
               <option value="1">18:15</option>
@@ -614,32 +626,32 @@ ul,ol{list-style:none}
           <div class="ppl" style="margin-top:14px">
             <div class="fd" data-f="adult">
               <label for="f-adult">大人<span class="req">必須</span></label>
-              <div class="ppl-in"><input name="field_6301232" id="f-adult" type="text" inputmode="numeric" autocomplete="off" value="" placeholder="0" maxlength="3"><span>名様</span></div>
+              <div class="ppl-in"><input name="adult" id="f-adult" type="text" inputmode="numeric" autocomplete="off" value="" placeholder="0" maxlength="3"><span>名様</span></div>
             </div>
             <div class="fd" data-f="teen">
               <label for="f-teen">中高生</label>
-              <div class="ppl-in"><input name="field_6301233" id="f-teen" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>名様</span></div>
+              <div class="ppl-in"><input name="teen" id="f-teen" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>名様</span></div>
             </div>
             <div class="fd" data-f="kid">
               <label for="f-kid">小学生</label>
-              <div class="ppl-in"><input name="field_6301234" id="f-kid" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>名様</span></div>
+              <div class="ppl-in"><input name="kid" id="f-kid" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>名様</span></div>
             </div>
             <div class="fd" data-f="infant">
               <label for="f-infant">幼児<small>（3歳以上）</small></label>
-              <div class="ppl-in"><input name="field_6301235" id="f-infant" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>名様</span></div>
+              <div class="ppl-in"><input name="infant" id="f-infant" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>名様</span></div>
             </div>
           </div>
           <div class="fd" data-f="total" style="margin-top:0">
             <p class="err" style="margin-top:12px">人数を半角数字で入力してください（合計1名様以上）。</p>
           </div>
           <div class="sum">
-            <div class="sum-row"><label for="f-total">ご予約人数合計</label><span><input name="field_6301236" id="f-total" type="text" value="0" readonly tabindex="-1" aria-live="polite"> 名様</span></div>
+            <div class="sum-row"><label for="f-total">ご予約人数合計</label><span><input name="total" id="f-total" type="text" value="0" readonly tabindex="-1" aria-live="polite"> 名様</span></div>
             <div class="sum-row"><span>当日料金での目安</span><span><b id="estimate">0</b> 円</span></div>
             <p class="hint">目安は当日料金（税・サ込）で計算しています。前売り券をお持ちの場合は金額が異なります。</p>
           </div>
           <div class="fd" data-f="ticket">
             <label for="f-ticket">前売りチケットの枚数<span class="req">必須</span></label>
-            <div class="ppl-in"><input name="field_6301438" id="f-ticket" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>枚</span></div>
+            <div class="ppl-in"><input name="ticket" id="f-ticket" type="text" inputmode="numeric" autocomplete="off" value="0" maxlength="3"><span>枚</span></div>
             <p class="err">前売りチケットの枚数を半角数字で入力してください（無しの場合は 0）。</p>
             <p class="hint">※お持ちの方のみ。無しの場合は 0 のままで構いません。</p>
           </div>
@@ -650,41 +662,48 @@ ul,ol{list-style:none}
           <div class="fd" data-f="name">
             <span class="lb" id="lb-name">お名前<span class="req">必須</span></span>
             <div class="two-col">
-              <input name="field_6301238_sei" type="text" placeholder="姓" autocomplete="family-name" aria-labelledby="lb-name" aria-label="お名前（姓）">
-              <input name="field_6301238_mei" type="text" placeholder="名" autocomplete="given-name" aria-labelledby="lb-name" aria-label="お名前（名）">
+              <input name="sei" type="text" placeholder="姓" autocomplete="family-name" aria-labelledby="lb-name" aria-label="お名前（姓）">
+              <input name="mei" type="text" placeholder="名" autocomplete="given-name" aria-labelledby="lb-name" aria-label="お名前（名）">
             </div>
             <p class="err">お名前（姓・名）を入力してください。</p>
           </div>
           <div class="fd" data-f="kana">
             <span class="lb" id="lb-kana">ふりがな<span class="req">必須</span></span>
             <div class="two-col">
-              <input name="field_6301239_sei" type="text" placeholder="せい" aria-label="ふりがな（姓）">
-              <input name="field_6301239_mei" type="text" placeholder="めい" aria-label="ふりがな（名）">
+              <input name="kana_sei" type="text" placeholder="せい" aria-label="ふりがな（姓）">
+              <input name="kana_mei" type="text" placeholder="めい" aria-label="ふりがな（名）">
             </div>
             <p class="err">ふりがな（姓・名）を入力してください。</p>
           </div>
           <div class="fd" data-f="tel">
             <label for="f-tel">電話番号<span class="req">必須</span></label>
-            <input name="field_6301240" id="f-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="090-0000-0000">
+            <input name="tel" id="f-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="090-0000-0000">
             <p class="err">電話番号を入力してください（例：090-0000-0000）。</p>
           </div>
           <div class="fd" data-f="email">
             <label for="f-email">メールアドレス<span class="opt">任意</span></label>
-            <input name="field_6301241" id="f-email" type="email" inputmode="email" autocomplete="email" placeholder="info@example.com">
+            <input name="email" id="f-email" type="email" inputmode="email" autocomplete="email" placeholder="info@example.com">
             <p class="err">メールアドレスの形式をご確認ください（例：info@example.com）。</p>
           </div>
           <div class="fd" data-f="note">
             <label for="f-note">備考<span class="opt">任意</span></label>
-            <textarea name="field_6301242" id="f-note" rows="5" placeholder="※事前に伝えておきたい事があればご記入ください。"></textarea>
+            <textarea name="note" id="f-note" rows="5" placeholder="※事前に伝えておきたい事があればご記入ください。"></textarea>
             <p class="hint">※全角でお願いします</p>
           </div>
         </fieldset>
 
-        <p class="agree"><a href="https://www.memolead.co.jp/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>（※新しいタブで開きます）をよくお読みいただき、同意いただけましたら「確認画面へ」ボタンを押してください。</p>
-        <p class="fm-submit"><input name="submit" type="submit" value="確認画面へ"></p>
-        <p class="after">次の画面で内容を確認してから送信します。</p>
-        <input type="hidden" name="code" value="utf8">
+        <p class="agree"><a href="https://www.memolead.co.jp/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>（※新しいタブで開きます）をよくお読みいただき、同意いただけましたら「この内容で申し込む」ボタンを押してください。</p>
+        <p class="send-err" id="sendErr" role="alert">送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。お急ぎの場合はお電話（<a href="tel:0926650077" data-tel="form_error">092-665-0077</a>）でも承ります。</p>
+        <p class="fm-submit"><button type="submit" id="submitBtn">この内容で申し込む</button></p>
+        <p class="after">送信後、ご予約確認のため担当者よりお電話またはメールでご連絡いたします。メールアドレスをご入力の場合は、受付メールを自動でお送りします。</p>
+        <noscript><p class="after">フォームのご利用にはJavaScriptが必要です。お電話（092-665-0077）でも承ります。</p></noscript>
       </form>
+      <div class="done" id="done" tabindex="-1" role="status">
+        <h3>お申し込みを承りました。</h3>
+        <p>ご予約確認のため、いただいたお電話・メールアドレスへ担当者よりご連絡いたします。</p>
+        <p id="doneMail">ご入力のメールアドレスへ受付メールをお送りしました。届かない場合は、迷惑メールフォルダもご確認ください。</p>
+        <p>お急ぎの場合はお電話ください。<a href="tel:0926650077" data-tel="done">092-665-0077</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -708,7 +727,7 @@ ul,ol{list-style:none}
 
 <footer class="ft">
   <div class="wrap">
-    <p>アルカーサル・アヴィオ　福岡市東区水谷2-52-8　TEL 092-665-0077</p>
+    <p>アルカーサル・アヴィオ　〒813-0041 福岡市東区水谷2-52-8　TEL 092-665-0077</p>
     <p>掲載内容は2026年10月2日時点の情報です。</p>
     <p>copyright © memolead all right reserved.</p>
   </div>
@@ -720,7 +739,7 @@ ul,ol{list-style:none}
 </div>
 
 <script>
-/** @version v2026100202 | 2026-10-02 | アルカーサル・アヴィオ 秋の味覚ディナービュッフェ（avi_beer） */
+/** @version v2026100203 | 2026-10-02 | アルカーサル・アヴィオ 秋の味覚ディナービュッフェ（avi_beer） */
 (function () {
   'use strict';
   window.dataLayer = window.dataLayer || [];
@@ -784,12 +803,12 @@ ul,ol{list-style:none}
   }
   function q(name) { return form.querySelector('[name="' + name + '"]'); }
   var F = {
-    date: q('field_6301230'), time: q('field_6301231'),
-    adult: q('field_6301232'), teen: q('field_6301233'), kid: q('field_6301234'), infant: q('field_6301235'),
-    total: q('field_6301236'), ticket: q('field_6301438'),
-    sei: q('field_6301238_sei'), mei: q('field_6301238_mei'),
-    ksei: q('field_6301239_sei'), kmei: q('field_6301239_mei'),
-    tel: q('field_6301240'), email: q('field_6301241')
+    date: q('date'), time: q('time'),
+    adult: q('adult'), teen: q('teen'), kid: q('kid'), infant: q('infant'),
+    total: q('total'), ticket: q('ticket'),
+    sei: q('sei'), mei: q('mei'),
+    ksei: q('kana_sei'), kmei: q('kana_mei'),
+    tel: q('tel'), email: q('email')
   };
   var PRICE = { adult: 6500, teen: 3000, kid: 2000, infant: 500 };
   var PPL = ['adult', 'teen', 'kid', 'infant'];
@@ -836,11 +855,19 @@ ul,ol{list-style:none}
     if (started) return; started = true;
     push({ event: 'form_start', form_id: 'avi_beer_reserve' });
   });
+  var ENDPOINT = 'https://memolead-avi-beer.mk-cbe.workers.dev/';
+  var IS_TEST = /[?&]test=1(&|$)/.test(location.search);
+  if (IS_TEST) document.getElementById('testNote').hidden = false;
+  var sending = false;
+  function optText(sel) { return sel.options[sel.selectedIndex].text.replace(/\s*終了$/, '').trim(); }
   form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) return;
     var bad = validate();
     var top = document.getElementById('topErr');
+    var sendErr = document.getElementById('sendErr');
+    sendErr.classList.remove('is-on');
     if (bad.length) {
-      e.preventDefault();
       top.classList.add('is-on');
       push({ event: 'form_error', form_id: 'avi_beer_reserve', error_fields: bad.join(',') });
       var first = form.querySelector('.fd.is-err');
@@ -852,7 +879,39 @@ ul,ol{list-style:none}
       return;
     }
     top.classList.remove('is-on');
-    push({ event: 'form_confirm_click', form_id: 'avi_beer_reserve', party_size: parseInt(F.total.value, 10) || 0 });
+    var n = function (k) { return parseInt(F[k].value, 10) || 0; };
+    var d = {
+      date: optText(F.date), time: optText(F.time),
+      adult: n('adult'), teen: n('teen'), kid: n('kid'), infant: n('infant'), ticket: n('ticket'),
+      name: F.sei.value.trim() + ' ' + F.mei.value.trim(),
+      kana: F.ksei.value.trim() + ' ' + F.kmei.value.trim(),
+      tel: F.tel.value, email: F.email.value, note: q('note').value,
+      website: q('website').value,
+      source: location.origin + location.pathname
+    };
+    if (IS_TEST) d.test = true;
+    var total = d.adult + d.teen + d.kid + d.infant;
+    var yen = d.adult * PRICE.adult + d.teen * PRICE.teen + d.kid * PRICE.kid + d.infant * PRICE.infant;
+    var btn = document.getElementById('submitBtn');
+    sending = true; btn.disabled = true; btn.textContent = '送信中…';
+    push({ event: 'form_confirm_click', form_id: 'avi_beer_reserve', party_size: total });
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok && j.ok === true, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error((res.j && res.j.error) || 'send failed');
+        push({ event: 'form_submit', form_id: 'avi_beer_reserve', party_size: total, value: yen, currency: 'JPY', event_date: d.date, is_test: IS_TEST });
+        form.style.display = 'none';
+        var done = document.getElementById('done');
+        document.getElementById('doneMail').style.display = res.j.autoReply ? '' : 'none';
+        done.classList.add('is-on');
+        done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        done.focus({ preventScroll: true });
+      })
+      .catch(function (err) {
+        sending = false; btn.disabled = false; btn.textContent = 'この内容で申し込む';
+        sendErr.classList.add('is-on');
+        push({ event: 'form_send_error', form_id: 'avi_beer_reserve', error_message: String((err && err.message) || '').slice(0, 80) });
+      });
   });
   form.addEventListener('change', function (e) {
     var p = e.target.closest ? e.target.closest('.fd.is-err') : null;
