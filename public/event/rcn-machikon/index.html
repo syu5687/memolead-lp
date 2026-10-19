@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<link rel="stylesheet" href="./_assets/js/wow/css/libs/animate.css">
 	<link rel="stylesheet" type="text/css" href="./_assets/js/slick/slick.css?1">
 	<link rel="stylesheet" type="text/css" href="./_assets/js/slick/slick-theme.css?1">
-	<link rel="stylesheet" type="text/css" href="./_assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="./_assets/css/style.css?v2">
 	<!-- 切り離したカスタムCSSの読み込み -->
 	<link rel="stylesheet" type="text/css" href="./_assets/css/custom.css">
 
@@ -110,6 +110,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<p class="info-body">指定なし</p>
 			</div>
 			
+		<!-- ▼追加：女性満員のお知らせ（一番最初に目に入る位置） -->
+		<div class="sold-out-banner">
+			<div class="sold-out-banner-body">
+				<span class="sold-out-banner-title">女性 満員御礼</span>
+				<span class="sold-out-banner-text">女性のお申し込みが定員に達したため、女性の受付を終了いたしました。<br>たくさんのお申し込みをいただき、誠にありがとうございます。<br>なお、男性のお申し込みは引き続き受け付けております。<br></span>
+			</div>
+		</div>
+			
 			<hr>
 		 
 			<!-- ▼白背景エリア -->
@@ -188,20 +196,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</select>日
 				  </p>
 				
-				  <!-- radio -->
-				  <p>
+				<!-- radio -->
+				<p>
 					*性別<span class="required-badge">必須</span>
-				  </p>
-				  <p class="gender-select">
+				</p>
+				<p class="gender-select">
 					<label class="gender-option">
 					  <input name="field_6376719" type="radio" value="0" class="js-gender-radio" data-price-target="price-male">
 					  <span>男性</span>
 					</label>
-					<label class="gender-option">
-					  <input name="field_6376719" type="radio" value="1" class="js-gender-radio" data-price-target="price-female">
-					  <span>女性</span>
+					<label class="gender-option is-soldout">
+					  <input name="field_6376719" type="radio" value="1" class="js-gender-radio" data-price-target="price-female" disabled>
+					  <span>女性（満員）</span>
 					</label>
-				  </p>
+				</p>
+				
+				<!-- ▼追加：性別欄のすぐ下にも念押しの一文 -->
+				<p class="gender-soldout-caption">※女性は満員のため、現在お申し込みいただけません</p>
 				
 				  <!-- label（男性のみ表示） -->
 				  <p id="price-male" class="price-display" hidden>
