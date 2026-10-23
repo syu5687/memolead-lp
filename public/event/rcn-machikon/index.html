@@ -11,9 +11,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>ロイヤルチェスター長崎ホテル&リトリート｜街コン〜in NAGASAKI〜</title>
-	<meta property="og:title" content="ロイヤルチェスター長崎ホテル&リトリート｜街コン〜in NAGASAKI〜"/>
-	<meta property="og:description" content="ロイヤルチェスター長崎ホテル&リトリート｜街コン〜in NAGASAKI〜"/>
+	<title>【満員御礼】ロイヤルチェスター長崎ホテル&リトリート｜街コン〜in NAGASAKI〜</title>
+	<meta property="og:title" content="【満員御礼】ロイヤルチェスター長崎ホテル&リトリート｜街コン〜in NAGASAKI〜"/>
+	<meta property="og:description" content="ロイヤルチェスター長崎ホテル&リトリート｜街コン〜in NAGASAKI〜は定員に達したため、受付を終了いたしました。"/>
 	<meta property="og:image" content="./_assets//img/lp/"/>
 	<link rel="stylesheet" type="text/css" href="./_assets/css/common.css?v8">
 	<link rel="stylesheet" type="text/css" href="./_assets/css/index.css?v10">
@@ -25,29 +25,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<!-- 切り離したカスタムCSSの読み込み -->
 	<link rel="stylesheet" type="text/css" href="./_assets/css/custom.css">
 
+	<!-- ▼追加：満員御礼表示用 -->
+	<style>
+	.fully-booked {
+		margin: 24px auto;
+		padding: 24px 16px;
+		max-width: 560px;
+		border: 2px solid #b8322a;
+		background: #fff;
+		text-align: center;
+		box-sizing: border-box;
+	}
+	.fully-booked-title {
+		display: block;
+		font-size: 28px;
+		font-weight: bold;
+		color: #b8322a;
+		letter-spacing: 0.1em;
+		margin-bottom: 12px;
+	}
+	.fully-booked-text {
+		display: block;
+		font-size: 15px;
+		line-height: 1.8;
+		color: #333;
+	}
+	.closed-notice {
+		margin: 24px auto;
+		padding: 20px 16px;
+		max-width: 560px;
+		background: #f2f2f2;
+		color: #555;
+		text-align: center;
+		font-size: 15px;
+		line-height: 1.8;
+		box-sizing: border-box;
+	}
+	@media (max-width: 480px) {
+		.fully-booked-title { font-size: 24px; }
+		.fully-booked-text, .closed-notice { font-size: 14px; }
+	}
+	</style>
+
 	<script type="text/javascript" src="./_assets/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/jquery.fancybox.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/slick/slick.min.js"></script>
 	<script type="text/javascript" src="./_assets/js/script.js"></script>
-	<script type="text/javascript">
-	$(function(){
-		$('a[href^=#]').click(function(){
-			var speed = 500;
-			var href= $(this).attr("href");
-			var target = $(href == "#" || href == "" ? 'html' : href);
-			var position = target.offset().top;
-			$("html, body").animate({scrollTop:position}, speed, "swing");
-			return false;
-		});
-	});
-	
-	$('[data-fancybox]').fancybox({
-		vimeo : {
-			controls : 0,
-			showinfo : 0
-		}
-	});
-	</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -55,263 +78,237 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-	<!-- フォームメーラー -->
 	<div class="form-area">
+		<h1 class="main-title">ロイヤルチェスター長崎<br>ホテル&リトリート</h1>
+
+		<div class="event-title-sub">
+			<h2 class="event-title-sub">街コン<br>in NAGASAKI</h2>
+		</div>
+
+		<!-- ▼変更：満員御礼（ページを開いて最初に目に入る位置） -->
+		<div class="fully-booked">
+			<span class="fully-booked-title">満員御礼</span>
+			<span class="fully-booked-text">
+				おかげさまで定員に達したため、<br>
+				お申し込みの受付を終了いたしました。<br>
+				たくさんのお申し込みをいただき、誠にありがとうございました。
+			</span>
+		</div>
+
+		<p>
+			<img src="./_assets/img/machikon.png" class="fr-fic fr-dib" alt="街コンin NAGASAKI ロイヤルチェスター長崎ホテル&リトリート">
+		</p>
+
+		<!-- ▼開催概要（ご予約済みの方の確認用に残しています） -->
+		<div class="event-details">
+			<span class="event-date-strong">11月2日（月）</span>
+		</div>
+		<div class="event-details">
+			<span class="event-time">19:30〜21:30</span>
+			<span class="event-time-sub">（受付 19:00〜19:20）</span>
+		</div>
+		<div class="event-details">
+			<span class="event-venue">会場：ロイヤルチェスター長崎ホテル&リトリート</span>
+		</div>
+
+		<div class="event-info-list">
+			<p class="info-heading">・参加費</p>
+			<p class="info-body">男性：5,000円（税込）</p>
+			<p class="info-body">女性：2,000円（税込）</p>
+
+			<p class="info-heading">・定員</p>
+			<p class="info-body">男女：各50人ずつ</p>
+			<p class="info-body">最大：100人</p>
+
+			<p class="info-heading">・対象年齢</p>
+			<p class="info-body">20代</p>
+			<p class="info-body">30代</p>
+			<p class="info-body">40代</p>
+
+			<p class="info-heading">飲み放題2時間</p>
+			<p class="info-heading">ビュッフェ</p>
+
+			<p class="info-heading section-break">・ドレスコード</p>
+			<p class="info-body">指定なし</p>
+		</div>
+
+		<hr>
+
+		<!-- ▼変更：申込フォームを削除し、受付終了の案内に差し替え -->
+		<div class="closed-notice">
+			本イベントのお申し込み受付は終了しました。<br>
+			ご予約済みのお客様は、当日の受付時間（19:00〜19:20）にお越しください。
+		</div>
+
+		<!-- ▼申込フォーム（満員のため一時停止中／再開時は下の「START」〜「END」の行を削除）
+		START
+
+		[注意] HTMLコメントは入れ子にできないため、フォーム内のコメントは［ ］表記に置き換えています。
+
 		<form action="https://business.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" ENCTYPE="multipart/form-data" accept-charset="UTF-8">
 			<input type="hidden" name="key" value="2d52ccf3369199">
-			<h1 class="main-title">ロイヤルチェスター長崎<br>ホテル&リトリート</h1>
-			
-			<div class="event-title-sub">
-				<h2 class="event-title-sub">街コン<br>in NAGASAKI</h2>
-			</div>
-			
-			<p>
-				<img src="./_assets/img/machikon.png" class="fr-fic fr-dib" alt="街コンin NAGASAKI ロイヤルチェスター長崎ホテル&リトリート">
-			</p>
-			
-			<div class="event-intro">
-				<!-- <h2 class="event-intro-title">街コン in NAGASAKI</h2>
-				<p class="event-intro-text">
-					素敵な出会い、ここから<br>
-					おいしい料理と楽しい会話で新しいつながりを
-				</p> -->
-			</div>
-			<!-- ▲ ここまで追加部分 -->
-			
-			<div class="event-details">
-				<span class="event-date-strong">11月2日（月）</span>
-			</div>
-			<div class="event-details">
-				<span class="event-time">19:30〜21:30</span>
-				<span class="event-time-sub">（受付 19:00〜19:20）</span>
-			</div>
-			<div class="event-details">
-				<span class="event-venue">会場：ロイヤルチェスター長崎ホテル&リトリート</span>
-			</div>
-			
-			<div class="event-info-list">
-				<p class="info-heading">・参加費</p>
-				<p class="info-body">男性：5,000円（税込）</p>
-				<p class="info-body">女性：2,000円（税込）</p>
-			
-				<p class="info-heading">・定員</p>
-				<p class="info-body">男女：各50人ずつ</p>
-				<p class="info-body">最大：100人</p>
-			
-				<p class="info-heading">・対象年齢</p>
-				<p class="info-body">20代</p>
-				<p class="info-body">30代</p>
-				<p class="info-body">40代</p>
-			
-				<p class="info-heading">飲み放題2時間</p>
-				<p class="info-heading">ビュッフェ</p>
-				
-				<p class="info-heading section-break">・ドレスコード</p>
-				<p class="info-body">指定なし</p>
-			</div>
-			
-		<!-- ▼追加：女性満員のお知らせ（一番最初に目に入る位置） -->
-		<div class="sold-out-banner">
-			<div class="sold-out-banner-body">
-				<span class="sold-out-banner-title">女性 満員御礼</span>
-				<span class="sold-out-banner-text">女性のお申し込みが定員に達したため、女性の受付を終了いたしました。<br>たくさんのお申し込みをいただき、誠にありがとうございます。<br>なお、男性のお申し込みは引き続き受け付けております。<br></span>
-			</div>
-		</div>
-			
-			<hr>
-		 
-			<!-- ▼白背景エリア -->
+
+			［白背景エリア］
 			<div class="form-fields">
 				<p>
 					*お名前<span class="required-badge">必須</span>
-				  </p>
-				  <p>
+				</p>
+				<p>
 					姓 <input name="field_6376704_sei" type="text" placeholder="山田">
 					名 <input name="field_6376704_mei" type="text" placeholder="花子">
-				  </p>
-				
-				  <!-- name -->
-				  <p>
+				</p>
+
+				［フリガナ］
+				<p>
 					*フリガナ<span class="required-badge">必須</span>
-				  </p>
-				  <p>
+				</p>
+				<p>
 					姓 <input name="field_6376705_sei" type="text" placeholder="ヤマダ">
 					名 <input name="field_6376705_mei" type="text" placeholder="ハナコ">
-				  </p>
-				
-				  <!-- birth date -->
-				 <p>
-				   *生年月日<span class="required-badge">必須</span>
-				 </p>
-				  <p>
+				</p>
+
+				［生年月日］
+				<p>
+					*生年月日<span class="required-badge">必須</span>
+				</p>
+				<p>
 					<input name="field_6376718_y" type="text" maxlength="4">年
 					<select name="field_6376718_m">
-					  <option value="">--</option>
-					  <option value="01">1</option>
-					  <option value="02">2</option>
-					  <option value="03">3</option>
-					  <option value="04">4</option>
-					  <option value="05">5</option>
-					  <option value="06">6</option>
-					  <option value="07">7</option>
-					  <option value="08">8</option>
-					  <option value="09">9</option>
-					  <option value="10">10</option>
-					  <option value="11">11</option>
-					  <option value="12">12</option>
+						<option value="">--</option>
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
 					</select>月
 					<select name="field_6376718_d">
-					  <option value="">--</option>
-					  <option value="01">1</option>
-					  <option value="02">2</option>
-					  <option value="03">3</option>
-					  <option value="04">4</option>
-					  <option value="05">5</option>
-					  <option value="06">6</option>
-					  <option value="07">7</option>
-					  <option value="08">8</option>
-					  <option value="09">9</option>
-					  <option value="10">10</option>
-					  <option value="11">11</option>
-					  <option value="12">12</option>
-					  <option value="13">13</option>
-					  <option value="14">14</option>
-					  <option value="15">15</option>
-					  <option value="16">16</option>
-					  <option value="17">17</option>
-					  <option value="18">18</option>
-					  <option value="19">19</option>
-					  <option value="20">20</option>
-					  <option value="21">21</option>
-					  <option value="22">22</option>
-					  <option value="23">23</option>
-					  <option value="24">24</option>
-					  <option value="25">25</option>
-					  <option value="26">26</option>
-					  <option value="27">27</option>
-					  <option value="28">28</option>
-					  <option value="29">29</option>
-					  <option value="30">30</option>
-					  <option value="31">31</option>
+						<option value="">--</option>
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
 					</select>日
-				  </p>
-				
-				<!-- radio -->
+				</p>
+
+				［性別］
 				<p>
 					*性別<span class="required-badge">必須</span>
 				</p>
 				<p class="gender-select">
 					<label class="gender-option">
-					  <input name="field_6376719" type="radio" value="0" class="js-gender-radio" data-price-target="price-male">
-					  <span>男性</span>
+						<input name="field_6376719" type="radio" value="0" class="js-gender-radio" data-price-target="price-male">
+						<span>男性</span>
 					</label>
-					<label class="gender-option is-soldout">
-					  <input name="field_6376719" type="radio" value="1" class="js-gender-radio" data-price-target="price-female" disabled>
-					  <span>女性（満員）</span>
+					<label class="gender-option">
+						<input name="field_6376719" type="radio" value="1" class="js-gender-radio" data-price-target="price-female">
+						<span>女性</span>
 					</label>
 				</p>
-				
-				<!-- ▼追加：性別欄のすぐ下にも念押しの一文 -->
-				<p class="gender-soldout-caption">※女性は満員のため、現在お申し込みいただけません</p>
-				
-				  <!-- label（男性のみ表示） -->
-				  <p id="price-male" class="price-display" hidden>
+
+				［男性のみ表示］
+				<p id="price-male" class="price-display" hidden>
 					参加費用<br>5,000円（税込）
-				  </p>
-				
-				  <!-- label（女性のみ表示） -->
-				  <p id="price-female" class="price-display" hidden>
+				</p>
+
+				［女性のみ表示］
+				<p id="price-female" class="price-display" hidden>
 					参加費用<br>2,000円（税込）
-				  </p>
-				
-				  <!-- phone -->
-				  <p>
+				</p>
+
+				［電話番号］
+				<p>
 					*電話番号<span class="required-badge">必須</span>
-				  </p>
-				  <p>
+				</p>
+				<p>
 					<input name="field_6376707" type="text" placeholder="090-0000-0000">
-				  </p>
-				
-				  <!-- email -->
-				  <p>
+				</p>
+
+				［メールアドレス］
+				<p>
 					*メールアドレス<span class="required-badge">必須</span>
-				  </p>
-				  <p>
+				</p>
+				<p>
 					<input name="field_6376708" type="text" size="30" placeholder="info@example.com">
-				  </p>
-				
-				  <!-- textarea -->
-				  <p>
+				</p>
+
+				［ご質問・ご要望］
+				<p>
 					ご質問・ご要望など<span class="optional-badge">任意</span>
-				  </p>
-				  <p>
-					<textarea name="field_6376709" cols="30" rows="5"  placeholder="※事前に伝えておきたいことがあればご記入ください。" ></textarea>
-				  </p>
-				
-				
-				
-				  <p>
+				</p>
+				<p>
+					<textarea name="field_6376709" cols="30" rows="5" placeholder="※事前に伝えておきたいことがあればご記入ください。"></textarea>
+				</p>
+
+				<p>
 					<input name="submit" type="submit" value="確認画面へ">
-				  </p>
+				</p>
 			</div>
-			<!-- ▲白背景エリア -->
-		 
+			［白背景エリアここまで］
+
 			<input type="hidden" name="code" value="utf8">
 		</form>
+
+		［性別選択に連動して参加費を出し分けるスクリプト］
+		<script>
+		(function () {
+			var radios = document.querySelectorAll('.js-gender-radio');
+			var prices = document.querySelectorAll('.price-display');
+			function updatePriceDisplay() {
+				prices.forEach(function (el) { el.hidden = true; });
+				var checked = document.querySelector('.js-gender-radio:checked');
+				if (checked) {
+					var targetEl = document.getElementById(checked.getAttribute('data-price-target'));
+					if (targetEl) { targetEl.hidden = false; }
+				}
+			}
+			radios.forEach(function (radio) {
+				radio.addEventListener('change', updatePriceDisplay);
+			});
+			updatePriceDisplay();
+		})();
+		</script>
+
+		END
+		▲申込フォームここまで -->
 	</div>
-		
+
 	<script src="./_assets/js/wow/dist/wow.min.js"></script>
 	<script type="text/javascript">
 		new WOW().init();
-		$(window).scroll(function(){
-			if( $(window).scrollTop() == 0) {
-				new WOW().init();
-			}
-		});
-	</script>
-		
-	<script>
-		$('.slides').slick({
-			dots: true,
-			infinite: true,
-			arrows: true,
-			autoplay: true,
-			speed: 1000,
-			autoplaySpeed: 3000,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-		});
-	</script>
-
-	<!-- ▼追加：性別選択に連動して参加費を出し分け -->
-	<script>
-	(function () {
-		var radios = document.querySelectorAll('.js-gender-radio');
-		var prices = document.querySelectorAll('.price-display');
-
-		function updatePriceDisplay() {
-			// 一旦すべて非表示に戻す
-			prices.forEach(function (el) {
-				el.hidden = true;
-			});
-			// チェックされているラジオボタンに対応する参加費だけ表示
-			var checked = document.querySelector('.js-gender-radio:checked');
-			if (checked) {
-				var targetId = checked.getAttribute('data-price-target');
-				var targetEl = document.getElementById(targetId);
-				if (targetEl) {
-					targetEl.hidden = false;
-				}
-			}
-		}
-
-		radios.forEach(function (radio) {
-			radio.addEventListener('change', updatePriceDisplay);
-		});
-
-		// ページ読み込み時は非表示のまま（初期状態は何も選択されていないため）
-		updatePriceDisplay();
-	})();
 	</script>
 </body>
 </html>
