@@ -37,7 +37,7 @@ const FACILITIES = {
         items:[
           {no:9,  name:"和洋風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:150},
           {no:10, name:"和洋風プレミアムおせち", s:48000, sTax:3555, g:50000, gTax:3703, limit:10},
-          {no:11, name:"お菓子おせち", s:5000, sTax:370, g:6000, gTax:444, limit:30}
+          {no:11, name:"お菓子おせち", s:5000, sTax:370, g:6000, gTax:444, limit:30, soldOut:true}
         ]}
     ]
   },

@@ -154,13 +154,13 @@ const catalogProducts=Object.entries(FACILITIES).flatMap(([facilityId,f])=>f.cat
 const productGrid=document.getElementById('product-grid');
 catalogProducts.forEach(p=>{
   const article=document.createElement('article');
-  article.className='product-card'; article.dataset.category=p.category; article.dataset.product=p.no;
+  article.className='product-card'+(p.soldOut?' is-sold-out':''); article.dataset.category=p.category; article.dataset.product=p.no;
   const prices=p.price!=null
     ? `<div><span>一般・会員共通</span><strong>${p.price.toLocaleString('ja-JP')}<small>円</small></strong></div><p class="shared">税込・共通価格</p>`
     : `<div><span>一般価格</span><strong>${p.g.toLocaleString('ja-JP')}<small>円</small></strong></div><div class="member"><span>会員特別価格</span><strong>${p.s.toLocaleString('ja-JP')}<small>円</small></strong></div>`;
-  article.innerHTML=`<button type="button" class="product-visual" data-enlarge="${p.no}" aria-label="${p.name}の画像を拡大"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp?v=photos-20260914" alt="${p.name}" width="600" height="450" loading="lazy"><span class="product-number">No. ${String(p.no).padStart(2,'0')}</span><span class="product-limit">限定 ${p.limit}${p.category==='nabe'?'セット':'個'}</span><span class="product-zoom-hint">画像を拡大 ＋</span></button>
+  article.innerHTML=`<button type="button" class="product-visual" data-enlarge="${p.no}" aria-label="${p.name}の画像を拡大"><img src="./_assets/img/product-${String(p.no).padStart(2,'0')}.webp?v=photos-20260914" alt="${p.name}" width="600" height="450" loading="lazy"><span class="product-number">No. ${String(p.no).padStart(2,'0')}</span><span class="product-limit">限定 ${p.limit}${p.category==='nabe'?'セット':'個'}</span>${p.soldOut?'<span class="product-sold-out">売り切れ</span>':'<span class="product-zoom-hint">画像を拡大 ＋</span>'}</button>
     <div class="product-body"><p class="product-size">${p.size}</p><h3>${p.name}</h3><div class="product-prices">${prices}</div>
-    <div class="add-to-cart"><label>数量<select data-addqty="${p.no}" aria-label="${p.name}を追加する数量">${Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select></label><button type="button" class="product-order" data-order="${p.no}" aria-label="${p.name}をカートに追加">カートに追加 ＋</button></div>
+    ${p.soldOut?'<p class="sold-out-message" role="status">売り切れ</p>':`<div class="add-to-cart"><label>数量<select data-addqty="${p.no}" aria-label="${p.name}を追加する数量">${Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select></label><button type="button" class="product-order" data-order="${p.no}" aria-label="${p.name}をカートに追加">カートに追加 ＋</button></div>`}
     <details class="product-details"><summary>献立・商品詳細を見る</summary>${p.menus.map(group=>`<div class="menu-group"><h5>${group.title}</h5><p>${group.text}</p></div>`).join('')}</details></div>`;
   productGrid.appendChild(article);
 });

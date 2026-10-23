@@ -7,7 +7,7 @@ let cart=[],tier='',serial=0,toastTimer;
 const storageKey='fukuoka-2026-cart-preview-v2';
 try{
  const saved=JSON.parse(sessionStorage.getItem(storageKey)||'null');
- if(saved){tier=saved.tierConfirmed&&['general','special'].includes(saved.tier)?saved.tier:'';cart=(Array.isArray(saved.cart)?saved.cart:[]).slice(0,100).filter(r=>byNo(r.no)).map(r=>{const p=byNo(r.no);const deliveryDate=p.dates.map(v=>v.replace(/\s.*$/,''));return {id:++serial,no:p.no,qty:Math.min(10,Math.max(1,parseInt(r.qty)||1)),method:p.delivery&&['store','delivery'].includes(r.method)?r.method:'',pickup:p.pickup.includes(r.pickup)?r.pickup:'',date:(p.delivery&&r.method==='delivery'?deliveryDate:p.dates).includes(r.date)?r.date:'',time:DELIVERY_TIMES.includes(r.time)?r.time:''};});}
+ if(saved){tier=saved.tierConfirmed&&['general','special'].includes(saved.tier)?saved.tier:'';cart=(Array.isArray(saved.cart)?saved.cart:[]).slice(0,100).filter(r=>byNo(r.no)&&!byNo(r.no).soldOut).map(r=>{const p=byNo(r.no);const deliveryDate=p.dates.map(v=>v.replace(/\s.*$/,''));return {id:++serial,no:p.no,qty:Math.min(10,Math.max(1,parseInt(r.qty)||1)),method:p.delivery&&['store','delivery'].includes(r.method)?r.method:'',pickup:p.pickup.includes(r.pickup)?r.pickup:'',date:(p.delivery&&r.method==='delivery'?deliveryDate:p.dates).includes(r.date)?r.date:'',time:DELIVERY_TIMES.includes(r.time)?r.time:''};});}
 }catch(_){/* Session storage is optional. */}
 function persist(){try{sessionStorage.setItem(storageKey,JSON.stringify({tier,cart,tierConfirmed:!!tier}));}catch(_){}}
 function invalidate(){review.hidden=true;msg.textContent='';msg.className='form-msg';}
@@ -41,7 +41,7 @@ function renderCart(focus){
 function toast(text){const el=document.getElementById('cartToast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);}
 function setMsg(text,cls){msg.textContent=text;msg.className='form-msg '+(cls||'');if(cls==='err')msg.scrollIntoView({behavior:'smooth',block:'center'});}
 productGrid.addEventListener('click',e=>{
- const b=e.target.closest('[data-order]');if(!b)return;const p=byNo(b.dataset.order),qty=Number(document.querySelector(`[data-addqty="${p.no}"]`).value);
+ const b=e.target.closest('[data-order]');if(!b)return;const p=byNo(b.dataset.order);if(!p||p.soldOut){toast('この商品は売り切れです');return;}const qty=Number(document.querySelector(`[data-addqty="${p.no}"]`).value);
  const existing=cart.find(r=>r.no===p.no&&!r.pickup&&!r.date&&r.method==='store'&&r.qty+qty<=10);
  if(existing)existing.qty+=qty;else cart.push({id:++serial,no:p.no,qty,method:p.delivery?'':'store',pickup:'',date:'',time:''});
  invalidate();renderCart();toast(`${p.name} ${qty}点をカートに追加しました`);
