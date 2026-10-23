@@ -36,7 +36,7 @@ var CONFIG = {
   AUTO_REPLY_SUBJECT: "【メモリード福岡】ご注文を承りました",
   // Brevoコンタクトへ登録する場合はリストIDを指定（不要なら null）
   BREVO_LIST_ID: null,
-  // 毎日の稼働確認メール（Cron Trigger）の宛先・件名
+  // 毎週の稼働確認メール（Cron Trigger）の宛先・件名
   MONITOR_TO: "mk@emanet.jp",
   MONITOR_SUBJECT: "【自動稼働確認】おせち申込フォーム 正常稼働中",
   // 稼働確認メールに記載するフォームのURL
@@ -167,8 +167,8 @@ export default {
     }
   },
 
-  // 毎日の稼働確認（Cloudflare Cron Trigger から実行）。
-  // このメールが毎日届いていれば Worker＋Brevo送信は正常＝フォーム稼働中。
+  // 毎週の稼働確認（Cloudflare Cron Trigger から実行）。
+  // このメールが毎週届いていれば Worker＋Brevo送信は正常＝フォーム稼働中。
   async scheduled(event, env, ctx) {
     if (!env.BREVO_API_KEY) return;
     const now = new Date().toISOString();
@@ -179,8 +179,8 @@ export default {
       htmlContent:
         `<div style="font-family:sans-serif;line-height:1.8;color:#222;">` +
         `<p>おせち・クリスマス2026 申込フォームの<b>メール送信機能は正常に稼働しています</b>。</p>` +
-        `<p>この自動確認メールが毎日届いていれば、Worker＋Brevo送信は正常です。<br>` +
-        `もし届かない日があれば、フォームまたは送信機能に問題がある可能性があります。</p>` +
+        `<p>この自動確認メールが毎週届いていれば、Worker＋Brevo送信は正常です。<br>` +
+        `もし届かない週があれば、フォームまたは送信機能に問題がある可能性があります。</p>` +
         `<p>フォームURL：<br><a href="${CONFIG.FORM_URL}" target="_blank" rel="noopener" style="color:#7c1f2a;">${CONFIG.FORM_URL}</a></p>` +
         `<p style="font-size:12px;color:#888;">自動送信（稼働確認）／送信時刻 ${now} UTC</p></div>`
     };
