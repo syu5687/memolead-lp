@@ -27,7 +27,7 @@ const FACILITIES = {
         dates:DATES_XMAS, pickup:PICK_3,
         items:[
           {no:1, name:"ローストビーフとローストチキンの盛り合わせ", price:11000, tax:814, limit:15},
-          {no:2, name:"野菜ソムリエの星降るオードブル", price:11000, tax:814, limit:15},
+          {no:2, name:"野菜ソムリエの星降るオードブル", price:11000, tax:814, limit:15, soldOut:true},
           {no:3, name:"イタリアハムとチーズ盛り合わせ 乾杯セット", price:11000, tax:814, limit:15},
           {no:5, name:"ホワイトノエル（クリスマスケーキ）", price:5000, tax:370, limit:30},
           {no:6, name:"ノエル ショコラ ビジュー（ガトーケーキ）", price:5000, tax:370, limit:30}
@@ -36,7 +36,7 @@ const FACILITIES = {
         dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
         items:[
           {no:9,  name:"和洋風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:150},
-          {no:10, name:"和洋風プレミアムおせち", s:48000, sTax:3555, g:50000, gTax:3703, limit:10},
+          {no:10, name:"和洋風プレミアムおせち", s:48000, sTax:3555, g:50000, gTax:3703, limit:10, soldOut:true},
           {no:11, name:"お菓子おせち", s:5000, sTax:370, g:6000, gTax:444, limit:30, soldOut:true}
         ]}
     ]
