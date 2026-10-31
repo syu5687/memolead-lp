@@ -55,7 +55,7 @@ const FACILITIES = {
         items:[ {no:7, name:"和風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:320} ]},
       { key:"nabe", title:"鍋セット", tag:"12/23・24・25 ／ 12/31", time:"クリスマス 13:00〜18:00／大晦日 10:00〜13:00",
         dates:DATES_NABE, pickup:PICK_3,
-        items:[ {no:12, name:"博多水炊き", s:7000, sTax:518, g:8000, gTax:592, limit:30}, {no:13, name:"博多もつ鍋", s:7000, sTax:518, g:8000, gTax:592, limit:30} ]}
+        items:[ {no:12, name:"博多水炊き", s:7000, sTax:518, g:8000, gTax:592, limit:30}, {no:13, name:"博多もつ鍋", s:7000, sTax:518, g:8000, gTax:592, limit:30, soldOut:true} ]}
     ]
   },
   alcasal: {
