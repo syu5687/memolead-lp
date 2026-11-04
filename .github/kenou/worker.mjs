@@ -1,4 +1,4 @@
-// @version v0004 | 2026-11-04 | メモリード県央イベント申込
+// @version v0005 | 2026-11-04 | メモリード県央イベント申込
 const ORIGIN='https://memolead-lp-665477084949.asia-northeast1.run.app';
 const FORM_URL=ORIGIN+'/public/_form/sougi/kenou.html';
 const EVENTS={'2026-11-13':'ききつメモリードホール','2026-11-19':'諫早メモリードホール','2026-11-25':'メモリードホール片町','2026-11-26':'メモリードホール片町','2026-11-27':'メモリードホール片町','2026-11-28':'メモリードホール片町','2026-11-29':'メモリードホール片町'};
@@ -25,7 +25,7 @@ export default {async fetch(request,env){
  const headers={'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Vary':'Origin'};
  if(origin===ORIGIN)headers['Access-Control-Allow-Origin']=origin;
  const reply=(status,data)=>new Response(JSON.stringify(data),{status,headers});
- if(url.pathname==='/health'&&request.method==='GET')return reply(200,{ok:true,version:'v0004'});
+ if(url.pathname==='/health'&&request.method==='GET')return reply(200,{ok:true,version:'v0005'});
  if(origin!==ORIGIN)return reply(403,{error:'origin'});
  if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{...headers,'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type','Access-Control-Max-Age':'600'}});
  const ip=request.headers.get('CF-Connecting-IP')||'unknown';
@@ -48,8 +48,16 @@ export default {async fetch(request,env){
  const isTest=env.TEST_BCC==='true'&&d.fullName==='公開動作テスト（申込ではありません）';
  const payload={sender:{email:env.SENDER_EMAIL,name:'メモリード イベント受付'},to:env.NOTIFICATION_TO.split(',').map(email=>({email:email.trim()})),subject:`${isTest?'【公開動作テスト・申込ではありません】':'【イベント参加申込】'}${d.eventDate} ${EVENTS[d.eventDate]}`,textContent:rows.map(([k,v])=>`${k}：${v}`).join('\n')+'\n送信元フォーム：'+FORM_URL,htmlContent:`<h2>${isTest?'公開動作テスト（実際の申込ではありません）':'イベント参加申込を受け付けました'}</h2><table>${rows.map(([k,v])=>`<tr><th style="text-align:left;vertical-align:top">${esc(k)}</th><td style="white-space:pre-wrap">${esc(v)}</td></tr>`).join('')}</table><p><a href="${FORM_URL}">送信元フォーム</a></p>`,headers:{IdempotencyKey:d.requestId},tags:['kenou-event',isTest?'launch-test':'application']};
  if(isTest&&env.TEST_BCC_EMAIL)payload.bcc=[{email:env.TEST_BCC_EMAIL}];
+ if(d.email){
+  const confirmationRows=rows.filter(([label])=>['受付番号','日程','会場','時間帯','お名前'].includes(label));
+  const intro=d.fullName+' 様\n\nメモリードのイベントにお申し込みいただき、ありがとうございます。\n以下の内容でお申し込みを受け付けました。';
+  const closing='このメールはお申し込み受付時に自動送信しています。\nお心当たりのない場合は、このメールを破棄してください。';
+  const applicant={to:[{email:d.email,name:d.fullName}],subject:'【メモリード】イベント参加申込を受け付けました',textContent:intro+'\n\n'+confirmationRows.map(([k,v])=>k+'：'+v).join('\n')+'\n\n'+closing+'\n申込フォーム：'+FORM_URL,htmlContent:'<p>'+esc(d.fullName)+' 様</p><p>メモリードのイベントにお申し込みいただき、ありがとうございます。<br>以下の内容でお申し込みを受け付けました。</p><table>'+confirmationRows.map(([k,v])=>'<tr><th style="text-align:left;vertical-align:top">'+esc(k)+'</th><td>'+esc(v)+'</td></tr>').join('')+'</table><p>このメールはお申し込み受付時に自動送信しています。<br>お心当たりのない場合は、このメールを破棄してください。</p><p><a href="'+FORM_URL+'">申込フォーム</a></p>'};
+  const admin={to:payload.to};if(payload.bcc)admin.bcc=payload.bcc;
+  payload.messageVersions=[admin,applicant];delete payload.to;delete payload.bcc;
+ }
  const mail=await fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:{'api-key':env.BREVO_API_KEY,'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(15000)});
- const result=await mail.json();if(!mail.ok){console.error('mail_error',mail.status,result.code);return reply(502,{error:'mail'});}
+ const result=await mail.json();if(!mail.ok&&!(result.code==='duplicate_parameter'&&/idempotency key.*already been processed/i.test(result.message||''))){console.error('mail_error',mail.status,result.code);return reply(502,{error:'mail'});}
  return reply(200,{ok:true,receipt:d.requestId});
  }catch{return reply(503,{error:'temporarily_unavailable'});}
 }};
