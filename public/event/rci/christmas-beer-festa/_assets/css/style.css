@@ -201,10 +201,7 @@ margin-bottom: 250px;
 	width: calc(50% - 20px);
   }
   
-html,
-  body {
-    background-color: #D5BE9B;
-  }
+
 
 @media only screen and (max-width: 767px) {
   .food-content {
