@@ -1,4 +1,4 @@
-// @version v0003 | 2026-11-04 | メモリード県央イベント申込
+// @version v0004 | 2026-11-04 | メモリード県央イベント申込
 const ORIGIN='https://memolead-lp-665477084949.asia-northeast1.run.app';
 const FORM_URL=ORIGIN+'/public/_form/sougi/kenou.html';
 const EVENTS={'2026-11-13':'ききつメモリードホール','2026-11-19':'諫早メモリードホール','2026-11-25':'メモリードホール片町','2026-11-26':'メモリードホール片町','2026-11-27':'メモリードホール片町','2026-11-28':'メモリードホール片町','2026-11-29':'メモリードホール片町'};
@@ -11,7 +11,7 @@ export function validate(d){
  for(const [k,max] of Object.entries(fields))if(typeof d[k]!=='string'||d[k].length>max||(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(d[k])))return false;
  if(!EVENTS[d.eventDate]||!TIMES.includes(d.timeSlot)||!d.fullName.trim()||!d.address.trim()||!d.token||!/^[ァ-ヶー・\s]+$/.test(d.kana))return false;
  if(d.email&& !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email))return false;
- if(d.postalCode&&!/^\d{3}-?\d{4}$/.test(d.postalCode))return false;
+ if(!/^\d{3}-?\d{4}$/.test(d.postalCode))return false;
  if(!/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(d.requestId))return false;
  const now=new Date(Date.now()+9*3600000).toISOString().slice(0,10),y=Number(d.birthYear),m=Number(d.birthMonth),day=Number(d.birthDay);
  if(!d.birthYear&&!d.birthMonth&&!d.birthDay)return d.eventDate>=now;
@@ -25,7 +25,7 @@ export default {async fetch(request,env){
  const headers={'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Vary':'Origin'};
  if(origin===ORIGIN)headers['Access-Control-Allow-Origin']=origin;
  const reply=(status,data)=>new Response(JSON.stringify(data),{status,headers});
- if(url.pathname==='/health'&&request.method==='GET')return reply(200,{ok:true,version:'v0003'});
+ if(url.pathname==='/health'&&request.method==='GET')return reply(200,{ok:true,version:'v0004'});
  if(origin!==ORIGIN)return reply(403,{error:'origin'});
  if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{...headers,'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type','Access-Control-Max-Age':'600'}});
  const ip=request.headers.get('CF-Connecting-IP')||'unknown';
