@@ -21,6 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./_assets/css/form.css">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -136,6 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  </div>
 
 	  <div class="submit">
+		  <div class="cf-turnstile" data-sitekey="【Turnstileのサイトキー】" data-action="winter_beer" data-appearance="interaction-only"></div>
 		<p class="submit__error" id="submitError" role="alert"></p>
 		<button type="submit" class="btn" id="submitBtn">この内容で申し込む</button>
 		<p class="submit__note">送信後、受付完了メールが届きます。</p>
@@ -157,20 +159,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </footer>
 
 <script>
-/* =============================================================
-   冬ビア 応募フォーム
-   ※ 日付・時間・料金を変更したら、サーバー側の設定
-	 （winter-beer-api.js の CONFIG）も同じ内容にそろえてください。
-   ============================================================= */
 (function () {
   'use strict';
 
   var CONFIG = {
-	endpoint: '/api/winter-beer/apply',
-	// 前売り券料金（大人1名・税込）。未定なら null
+	// 冬ビア用 Cloudflare Worker のURL + /api/submit
+	endpoint: 'https://【WorkerのURL】/api/submit',
 	advanceTicketPrice: null,
 	maxPerCategory: 20,
-	// dates が空なら、その月のカレンダーから自由に選べます
 	months: [
 	  { key: '2027-01', label: '1月', dates: [], times: ['17:00〜', '18:30〜', '20:00〜'] },
 	  { key: '2027-02', label: '2月', dates: [], times: ['17:00〜', '18:30〜', '20:00〜'] }
@@ -192,6 +188,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   var submitError = document.getElementById('submitError');
   var counts = {};
   var started = false;
+  var requestId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
 
   function push(ev, params) {
 	window.dataLayer = window.dataLayer || [];
@@ -199,32 +196,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	for (var k in params) o[k] = params[k];
 	window.dataLayer.push(o);
   }
-
   function yen(n) { return n.toLocaleString('ja-JP') + '円'; }
+  function weekday(iso) { var p = iso.split('-'); return '日月火水木金土'.charAt(new Date(+p[0], +p[1] - 1, +p[2]).getDay()); }
+  function lastDay(key) { var p = key.split('-'); return new Date(+p[0], +p[1], 0).getDate(); }
 
-  function weekday(iso) {
-	var p = iso.split('-');
-	return '日月火水木金土'.charAt(new Date(+p[0], +p[1] - 1, +p[2]).getDay());
-  }
-
-  function lastDay(key) {
-	var p = key.split('-');
-	return new Date(+p[0], +p[1], 0).getDate();
-  }
-
-  // ---- 料金表示 ----
   var priceText = document.querySelector('[data-price-text]');
-  if (priceText && CONFIG.advanceTicketPrice) {
-	priceText.textContent = '大人1名 ' + yen(CONFIG.advanceTicketPrice) + '（税込）';
-  }
+  if (priceText && CONFIG.advanceTicketPrice) priceText.textContent = '大人1名 ' + yen(CONFIG.advanceTicketPrice) + '（税込）';
 
   // ---- 希望の月 ----
   CONFIG.months.forEach(function (m) {
 	var label = document.createElement('label');
 	label.className = 'month';
-	label.innerHTML =
-	  '<input type="checkbox" name="month" value="' + m.key + '">' +
-	  '<span class="month__box"><span class="month__name">' + m.label + '</span></span>';
+	label.innerHTML = '<input type="checkbox" name="month" value="' + m.key + '"><span class="month__box"><span class="month__name">' + m.label + '</span></span>';
 	monthChoices.appendChild(label);
 
 	var box = document.createElement('fieldset');
@@ -232,36 +215,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	box.id = 'detail-' + m.key;
 	box.hidden = true;
 
-	var dateHtml;
-	if (m.dates.length) {
-	  dateHtml = '<select class="input" id="date-' + m.key + '" name="date-' + m.key + '">' +
-		'<option value="">日付を選択</option>' +
-		m.dates.map(function (d) {
-		  var p = d.split('-');
-		  return '<option value="' + d + '">' + (+p[1]) + '月' + (+p[2]) + '日（' + weekday(d) + '）</option>';
-		}).join('') + '</select>';
-	} else {
-	  dateHtml = '<input class="input" type="date" id="date-' + m.key + '" name="date-' + m.key + '"' +
-		' min="' + m.key + '-01" max="' + m.key + '-' + lastDay(m.key) + '">';
-	}
+	var dateHtml = m.dates.length
+	  ? '<select class="input" id="date-' + m.key + '" name="date-' + m.key + '"><option value="">日付を選択</option>' +
+		m.dates.map(function (d) { var p = d.split('-'); return '<option value="' + d + '">' + (+p[1]) + '月' + (+p[2]) + '日（' + weekday(d) + '）</option>'; }).join('') + '</select>'
+	  : '<input class="input" type="date" id="date-' + m.key + '" name="date-' + m.key + '" min="' + m.key + '-01" max="' + m.key + '-' + lastDay(m.key) + '">';
 
 	var timeHtml = m.times.map(function (t, i) {
-	  return '<label class="chip"><input type="radio" name="time-' + m.key + '" value="' + t + '"' +
-		(i === 0 ? ' id="time-' + m.key + '"' : '') + '><span>' + t + '</span></label>';
+	  return '<label class="chip"><input type="radio" name="time-' + m.key + '" value="' + t + '"' + (i === 0 ? ' id="time-' + m.key + '"' : '') + '><span>' + t + '</span></label>';
 	}).join('');
 
 	box.innerHTML =
 	  '<legend class="field__label">' + m.label + 'のご希望</legend>' +
-	  '<div class="sub">' +
-		'<label class="sub__label" for="date-' + m.key + '">希望の予約日 <span class="req">必須</span></label>' +
-		dateHtml +
-		'<p class="field__error" data-error="date_' + m.key + '"></p>' +
-	  '</div>' +
-	  '<div class="sub">' +
-		'<p class="sub__label">ご希望の時間 <span class="req">必須</span></p>' +
-		'<div class="chips">' + timeHtml + '</div>' +
-		'<p class="field__error" data-error="time_' + m.key + '"></p>' +
-	  '</div>';
+	  '<div class="sub"><label class="sub__label" for="date-' + m.key + '">希望の予約日 <span class="req">必須</span></label>' + dateHtml +
+	  '<p class="field__error" data-error="date_' + m.key + '"></p></div>' +
+	  '<div class="sub"><p class="sub__label">ご希望の時間 <span class="req">必須</span></p><div class="chips">' + timeHtml + '</div>' +
+	  '<p class="field__error" data-error="time_' + m.key + '"></p></div>';
 	monthDetails.appendChild(box);
   });
 
@@ -277,8 +245,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	var row = document.createElement('div');
 	row.className = 'person';
 	row.innerHTML =
-	  '<span class="person__label">' + p.label +
-		(p.note ? '<small>' + p.note + '</small>' : '') + '</span>' +
+	  '<span class="person__label">' + p.label + (p.note ? '<small>' + p.note + '</small>' : '') + '</span>' +
 	  '<div class="stepper">' +
 		'<button type="button" class="stepper__btn" data-step="-1" data-key="' + p.key + '" aria-label="' + p.label + 'を1名減らす">−</button>' +
 		'<input class="stepper__num" type="number" inputmode="numeric" min="0" max="' + CONFIG.maxPerCategory + '" value="0" id="people-' + p.key + '" data-key="' + p.key + '" aria-label="' + p.label + 'の人数">' +
@@ -297,21 +264,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	renderTotal();
 	clearError('people');
   }
-
   function renderTotal() {
 	var total = 0;
 	for (var k in counts) total += counts[k];
 	var text = total ? '合計 ' + total + '名' : '';
-	if (total && CONFIG.advanceTicketPrice && counts.adult) {
-	  text += '　前売り券（大人 ' + counts.adult + '名）' + yen(CONFIG.advanceTicketPrice * counts.adult);
-	}
+	if (total && CONFIG.advanceTicketPrice && counts.adult) text += '　前売り券（大人 ' + counts.adult + '名）' + yen(CONFIG.advanceTicketPrice * counts.adult);
 	peopleTotal.textContent = text;
   }
-
   peopleRows.addEventListener('click', function (e) {
 	var b = e.target.closest('[data-step]');
-	if (!b) return;
-	setCount(b.dataset.key, counts[b.dataset.key] + Number(b.dataset.step));
+	if (b) setCount(b.dataset.key, counts[b.dataset.key] + Number(b.dataset.step));
   });
   peopleRows.addEventListener('change', function (e) {
 	if (e.target.dataset.key) setCount(e.target.dataset.key, e.target.value);
@@ -320,7 +282,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // ---- エラー表示 ----
   function showError(key, msg) {
 	var el = form.querySelector('[data-error="' + key + '"]');
-	if (!el) return;
+	if (!el) { submitError.textContent = msg; return; }
 	el.textContent = msg;
 	var field = el.closest('.field, .sub');
 	if (field) field.classList.add('is-error');
@@ -337,7 +299,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	form.querySelectorAll('.is-error').forEach(function (el) { el.classList.remove('is-error'); });
 	submitError.textContent = '';
   }
-
   form.addEventListener('input', function (e) {
 	if (!started) { started = true; push('form_start', {}); }
 	var n = e.target.name || '';
@@ -350,28 +311,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	if (n.indexOf('time-') === 0) clearError('time_' + n.slice(5));
   });
 
-  // ---- 入力チェック（ブラウザ側。サーバー側でも同じチェックをします） ----
-  var KANA = /^[ァ-ヶー　 ]+$/;
+  // ---- 入力チェック ----
+  var KANA = /^[ァ-ヶー・\s]+$/;
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  var TEL = /^[0-9０-９\-－ ]{10,15}$/;
-
-  function toKatakana(s) {
-	return s.replace(/[ぁ-ゖ]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) + 0x60); });
-  }
+  function normPhone(s) { return s.normalize('NFKC').replace(/[\s()（）－‐‑‒–—―ー-]/g, ''); }
+  function toKatakana(s) { return s.replace(/[ぁ-ゖ]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) + 0x60); }); }
 
   function collect() {
 	var fd = new FormData(form);
 	var data = {
-	  website: fd.get('website') || '',
-	  name: (fd.get('name') || '').trim(),
+	  fullName: (fd.get('name') || '').trim(),
 	  kana: toKatakana((fd.get('kana') || '').trim()),
 	  org: (fd.get('org') || '').trim(),
 	  email: (fd.get('email') || '').trim(),
-	  tel: (fd.get('tel') || '').trim(),
+	  phone: (fd.get('tel') || '').trim(),
 	  referral: (fd.get('referral') || '').trim(),
-	  note: (fd.get('note') || '').trim(),
+	  notes: (fd.get('note') || '').trim(),
 	  reservations: [],
-	  people: Object.assign({}, counts)
+	  people: Object.assign({}, counts),
+	  requestId: requestId,
+	  token: (window.turnstile && turnstile.getResponse()) || fd.get('cf-turnstile-response') || ''
 	};
 	fd.getAll('month').forEach(function (key) {
 	  data.reservations.push({ month: key, date: fd.get('date-' + key) || '', time: fd.get('time-' + key) || '' });
@@ -391,11 +350,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	for (var k in d.people) total += d.people[k];
 	if (!total) e.people = '人数を入力してください';
 	else if (!d.people.adult) e.people = '大人の方を1名以上含めてください';
-	if (!d.name) e.name = 'お名前を入力してください';
+	if (!d.fullName) e.name = 'お名前を入力してください';
 	if (!d.kana) e.kana = 'フリガナを入力してください';
 	else if (!KANA.test(d.kana)) e.kana = 'フリガナはカタカナで入力してください';
 	if (!EMAIL.test(d.email)) e.email = 'メールアドレスを正しく入力してください';
-	if (!TEL.test(d.tel)) e.tel = '電話番号を正しく入力してください（ハイフンありでも可）';
+	if (!/^0\d{9,10}$/.test(normPhone(d.phone))) e.tel = '電話番号を正しく入力してください（ハイフンありでも可）';
+	if (!d.token) e.turnstile = '確認中です。数秒待ってからもう一度送信してください。';
 	return e;
   }
 
@@ -419,19 +379,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  push('form_error', { error_fields: Object.keys(errors).join(',') });
 	  return;
 	}
-
 	submitBtn.disabled = true;
 	submitBtn.textContent = '送信しています…';
 
-	fetch(CONFIG.endpoint, {
-	  method: 'POST',
-	  headers: { 'Content-Type': 'application/json' },
-	  body: JSON.stringify(data)
-	})
+	fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
 	  .then(function (res) { return res.json().then(function (j) { return { status: res.status, body: j }; }); })
 	  .then(function (r) {
 		if (r.body && r.body.ok) {
-		  document.getElementById('receiptNo').textContent = r.body.receiptNo || '';
+		  document.getElementById('receiptNo').textContent = r.body.receipt || '';
 		  form.hidden = true;
 		  var done = document.getElementById('done');
 		  done.hidden = false;
@@ -444,16 +399,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		  });
 		  return;
 		}
-		if (r.body && r.body.errors) {
-		  for (var k in r.body.errors) showError(k, r.body.errors[k]);
-		  focusFirstError();
-		}
-		throw new Error((r.body && r.body.message) || '入力内容をご確認ください。');
+		var msg = {
+		  rate_limit: '短時間に送信が続いています。少し時間をおいてお試しください。',
+		  verification: '確認に失敗しました。もう一度送信してください。',
+		  invalid: '入力内容をご確認ください。'
+		}[r.body && r.body.error];
+		throw new Error(msg || '送信できませんでした。時間をおいて再度お試しいただくか、ホテルまでお電話ください。');
 	  })
 	  .catch(function (err) {
 		submitError.textContent = err && err.message && err.message !== 'Failed to fetch'
 		  ? err.message
 		  : '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
+		if (window.turnstile) turnstile.reset();
 		submitBtn.disabled = false;
 		submitBtn.textContent = 'この内容で申し込む';
 	  });
