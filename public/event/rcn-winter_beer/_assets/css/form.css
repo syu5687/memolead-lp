@@ -289,3 +289,11 @@ select.input { appearance: none; padding-right: 40px; background: var(--field) u
 .notice p { margin: 0; }
 .notice__title { margin-bottom: 4px !important; font-size: 14px; font-weight: 700; color: var(--beer-dark); }
 .notice strong { color: var(--beer-dark); }
+
+
+/* 注意事項 */
+.note-head { margin: 0 0 2px; font-size: 14px; font-weight: 700; }
+.note-head + .note-list { margin-bottom: 10px; }
+.note-list { margin: 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.7; }
+.note-list li { position: relative; padding-left: 1em; }
+.note-list li::before { content: "・"; position: absolute; left: 0; }
