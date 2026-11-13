@@ -46,14 +46,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	 <img src="./_assets/img/winter-beer.png" alt="冬ビア 2027 チラシ" width="1200" height="1697" loading="eager">
    </figure>
 
-  <!-- 説明・ご案内 -->
-  <section class="guide" aria-labelledby="guide-title">
-	<!-- <h2 id="guide-title" class="sec-title">ご案内</h2> -->
-	<!-- <div class="guide__body">
-	  <p>【ここに冬ビアの説明文を入れてください】</p>
-	  <p>お申し込み後、ご入力いただいたメールアドレスに受付完了メールをお送りします。予約の確定は、後日あらためてご連絡いたします。</p>
-	  <p>応募多数の場合は、ご希望の日時に添えないことがあります。あらかじめご了承ください。</p>
-	</div> -->
+ <!-- 説明・ご案内 -->
+   <section class="guide" aria-labelledby="guide-title">
+	 <div class="notice">
+	   <p class="notice__title" id="guide-title">チケットのご購入について</p>
+	   <p>チケットの購入は<strong>12月1日</strong>より、<strong>ロイヤルチェスター長崎 インフォメーション</strong>にて承ります。</p>
+	 </div>
+	 
 	<dl class="guide__info">
 	  <div><dt>開催月</dt><dd>2027年1月・2月</dd></div>
 	  <div><dt>会場</dt><dd>ロイヤルチェスター長崎ホテル&amp;リトリート</dd></div>
@@ -181,21 +180,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'use strict';
 
   var CONFIG = {
-	// 冬ビア用 Cloudflare Worker のURL + /api/submit
-	endpoint: 'https://rcn-winter-beer.nagata-714.workers.dev/api/submit',
-	advanceTicketPrice: null,
-	maxPerCategory: 20,
-	months: [
-	  { key: '2027-01', label: '1月', dates: [], times: ['17:00〜', '18:30〜', '20:00〜'] },
-	  { key: '2027-02', label: '2月', dates: [], times: ['17:00〜', '18:30〜', '20:00〜'] }
-	],
-	people: [
-	  { key: 'adult', label: '大人', note: '前売り券対象' },
-	  { key: 'junior', label: '中高生', note: '' },
-	  { key: 'child', label: '小学生', note: '' },
-	  { key: 'infant', label: '未就学児', note: '' }
-	]
-  };
+	  // 冬ビア用 Cloudflare Worker のURL + /api/submit
+	  endpoint: 'https://rcn-winter-beer.nagata-714.workers.dev/api/submit',
+	  advanceTicketPrice: null,
+	  maxPerCategory: 20,
+	  months: [
+		{ key: '2027-01', label: '1月', dates: ['2027-01-14', '2027-01-17', '2027-01-24', '2027-01-28', '2027-01-29', '2027-01-31'], times: ['17:00〜', '18:30〜', '20:00〜'] },
+		{ key: '2027-02', label: '2月', dates: ['2027-02-05', '2027-02-07', '2027-02-11', '2027-02-12', '2027-02-14', '2027-02-21', '2027-02-22', '2027-02-23', '2027-02-25', '2027-02-26'], times: ['17:00〜', '18:30〜', '20:00〜'] }
+	  ],
+	  people: [
+		{ key: 'adult', label: '大人', note: '前売り券対象' },
+		{ key: 'junior', label: '中高生', note: '' },
+		{ key: 'child', label: '小学生', note: '' },
+		{ key: 'infant', label: '未就学児', note: '' }
+	  ]
+	};
 
   var form = document.getElementById('applyForm');
   var monthChoices = document.getElementById('monthChoices');
