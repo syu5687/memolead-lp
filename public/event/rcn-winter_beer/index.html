@@ -85,7 +85,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  <!-- 人数 -->
 	  <fieldset class="field" data-field="people">
 		<legend class="field__label">人数 <span class="req">必須</span></legend>
-		<p class="field__help">前売り券料金は<strong>大人のみ</strong>です。中高生・小学生・未就学児の料金は当日のご案内となります。</p>
 		<div class="people" id="peopleRows"></div>
 		<p class="people__total" id="peopleTotal" aria-live="polite"></p>
 		<p class="field__error" data-error="people"></p>
@@ -211,41 +210,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   if (priceText && CONFIG.advanceTicketPrice) priceText.textContent = '大人1名 ' + yen(CONFIG.advanceTicketPrice) + '（税込）';
 
   // ---- 希望の月 ----
-  CONFIG.months.forEach(function (m) {
-	var label = document.createElement('label');
-	label.className = 'month';
-	if (e.target.name !== 'month') return;
-	CONFIG.months.forEach(function (m) { document.getElementById('detail-' + m.key).hidden = (m.key !== e.target.value); });
-	monthChoices.appendChild(label);
-
-	var box = document.createElement('fieldset');
-	box.className = 'field month-detail';
-	box.id = 'detail-' + m.key;
-	box.hidden = true;
-
-	var dateHtml = m.dates.length
-	  ? '<select class="input" id="date-' + m.key + '" name="date-' + m.key + '"><option value="">日付を選択</option>' +
-		m.dates.map(function (d) { var p = d.split('-'); return '<option value="' + d + '">' + (+p[1]) + '月' + (+p[2]) + '日（' + weekday(d) + '）</option>'; }).join('') + '</select>'
-	  : '<input class="input" type="date" id="date-' + m.key + '" name="date-' + m.key + '" min="' + m.key + '-01" max="' + m.key + '-' + lastDay(m.key) + '">';
-
-	var timeHtml = m.times.map(function (t, i) {
-	  return '<label class="chip"><input type="radio" name="time-' + m.key + '" value="' + t + '"' + (i === 0 ? ' id="time-' + m.key + '"' : '') + '><span>' + t + '</span></label>';
-	}).join('');
-
-	box.innerHTML =
-	  '<legend class="field__label">' + m.label + 'のご希望</legend>' +
-	  '<div class="sub"><label class="sub__label" for="date-' + m.key + '">希望の予約日 <span class="req">必須</span></label>' + dateHtml +
-	  '<p class="field__error" data-error="date_' + m.key + '"></p></div>' +
-	  '<div class="sub"><p class="sub__label">ご希望の時間 <span class="req">必須</span></p><div class="chips">' + timeHtml + '</div>' +
-	  '<p class="field__error" data-error="time_' + m.key + '"></p></div>';
-	monthDetails.appendChild(box);
-  });
-
-  monthChoices.addEventListener('change', function (e) {
-	if (e.target.name !== 'month') return;
-	document.getElementById('detail-' + e.target.value).hidden = !e.target.checked;
-	clearError('months');
-  });
+	CONFIG.months.forEach(function (m) {
+	  var label = document.createElement('label');
+	  label.className = 'month';
+	  label.innerHTML = '<input type="radio" name="month" value="' + m.key + '"><span class="month__box"><span class="month__name">' + m.label + '</span></span>';
+	  monthChoices.appendChild(label);
+  
+	  var box = document.createElement('fieldset');
+	  box.className = 'field month-detail';
+	  box.id = 'detail-' + m.key;
+	  box.hidden = true;
+  
+	  var dateHtml = m.dates.length
+		? '<select class="input" id="date-' + m.key + '" name="date-' + m.key + '"><option value="">日付を選択</option>' +
+		  m.dates.map(function (d) { var p = d.split('-'); return '<option value="' + d + '">' + (+p[1]) + '月' + (+p[2]) + '日（' + weekday(d) + '）</option>'; }).join('') + '</select>'
+		: '<input class="input" type="date" id="date-' + m.key + '" name="date-' + m.key + '" min="' + m.key + '-01" max="' + m.key + '-' + lastDay(m.key) + '">';
+  
+	  var timeHtml = m.times.map(function (t, i) {
+		return '<label class="chip"><input type="radio" name="time-' + m.key + '" value="' + t + '"' + (i === 0 ? ' id="time-' + m.key + '"' : '') + '><span>' + t + '</span></label>';
+	  }).join('');
+  
+	  box.innerHTML =
+		'<legend class="field__label">' + m.label + 'のご希望</legend>' +
+		'<div class="sub"><label class="sub__label" for="date-' + m.key + '">希望の予約日 <span class="req">必須</span></label>' + dateHtml +
+		'<p class="field__error" data-error="date_' + m.key + '"></p></div>' +
+		'<div class="sub"><p class="sub__label">ご希望の時間 <span class="req">必須</span></p><div class="chips">' + timeHtml + '</div>' +
+		'<p class="field__error" data-error="time_' + m.key + '"></p></div>';
+	  monthDetails.appendChild(box);
+	});
+  
+	monthChoices.addEventListener('change', function (e) {
+	  if (e.target.name !== 'month') return;
+	  CONFIG.months.forEach(function (m) { document.getElementById('detail-' + m.key).hidden = (m.key !== e.target.value); });
+	  clearError('months');
+	});
 
   // ---- 人数 ----
   CONFIG.people.forEach(function (p) {
