@@ -267,3 +267,12 @@ select.input { appearance: none; padding-right: 40px; background: var(--field) u
   cursor: pointer;
 }
 .btn-back:disabled { opacity: .5; cursor: default; }
+
+
+/* 料金一覧 */
+.guide__info dd { flex: 1; min-width: 0; }
+.price-note { margin: 0 0 4px; font-size: 14px; color: var(--ink-soft); }
+.price-list { max-width: 18em; margin: 0; padding: 0; list-style: none; }
+.price-list li { display: flex; justify-content: space-between; gap: 16px; padding: 3px 0; border-bottom: 1px dotted var(--line); }
+.price-list li:last-child { border-bottom: 0; }
+.price-list li span:last-child { font-weight: 700; white-space: nowrap; }
