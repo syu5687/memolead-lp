@@ -75,7 +75,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  <!-- 希望の月 -->
 	  <fieldset class="field" data-field="months">
 		<legend class="field__label">希望の月 <span class="req">必須</span></legend>
-		<p class="field__help">両方の月を選ぶこともできます。</p>
 		<div class="months" id="monthChoices"></div>
 		<p class="field__error" data-error="months"></p>
 	  </fieldset>
@@ -215,7 +214,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   CONFIG.months.forEach(function (m) {
 	var label = document.createElement('label');
 	label.className = 'month';
-	label.innerHTML = '<input type="checkbox" name="month" value="' + m.key + '"><span class="month__box"><span class="month__name">' + m.label + '</span></span>';
+	if (e.target.name !== 'month') return;
+	CONFIG.months.forEach(function (m) { document.getElementById('detail-' + m.key).hidden = (m.key !== e.target.value); });
 	monthChoices.appendChild(label);
 
 	var box = document.createElement('fieldset');
