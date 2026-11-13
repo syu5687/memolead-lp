@@ -205,9 +205,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  { key: '2027-01', label: '1月', dates: ['2027-01-14', '2027-01-17', '2027-01-24', '2027-01-28', '2027-01-29', '2027-01-31'] },
 	  { key: '2027-02', label: '2月', dates: ['2027-02-05', '2027-02-07', '2027-02-11', '2027-02-12', '2027-02-14', '2027-02-21', '2027-02-22', '2027-02-23', '2027-02-25', '2027-02-26'] }
 	],
-	advanceEnd: '2027-01-13', // 前売り券の表示終了日（この日の23:59まで表示）
 	people: [
-	  { key: 'adult', label: '大人', note: '前売り券対象' },
+	  { key: 'adult', label: '大人', note: '' },
 	  { key: 'junior', label: '中高生', note: '' },
 	  { key: 'child', label: '小学生', note: '' },
 	  { key: 'infant', label: '未就学児', note: '' }
@@ -263,8 +262,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   });
 
   // ---- 人数 ----
-  var today = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
-	if (CONFIG.advanceEnd && today > CONFIG.advanceEnd) CONFIG.people[0].note = '';
   CONFIG.people.forEach(function (p) {
 	counts[p.key] = 0;
 	var row = document.createElement('div');
