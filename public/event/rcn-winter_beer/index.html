@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./_assets/css/form.css">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -137,12 +137,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  </div>
 
 	  <div class="submit">
-		  <div class="cf-turnstile" data-sitekey="0x4AAAAAAF—xHspJhr88Dya" data-action="winter_beer" data-appearance="interaction-only"></div>
+		  <div class="cf-turnstile" data-sitekey="0x4AAAAAAF--xHspJhr88Dya" data-action="winter_beer" data-appearance="interaction-only"></div>
 		<p class="submit__error" id="submitError" role="alert"></p>
-		<button type="submit" class="btn" id="submitBtn">この内容で申し込む</button>
-		<p class="submit__note">送信後、受付完了メールが届きます。</p>
-	  </div>
+		<button type="submit" class="btn" id="submitBtn">入力内容を確認する</button>
+		<p class="submit__note">次の画面で入力内容をご確認いただけます。</p>
+		</div>
 	</form>
+	
+	<!-- 入力内容の確認 -->
+	<div class="confirm" id="confirm" hidden tabindex="-1">
+	  <p class="confirm__lead">入力内容をご確認のうえ、「この内容で申し込む」を押してください。</p>
+	  <dl class="guide__info confirm__list" id="confirmList"></dl>
+	  <div class="submit">
+		<p class="submit__error" id="confirmError" role="alert"></p>
+		<button type="button" class="btn" id="sendBtn">この内容で申し込む</button>
+		<button type="button" class="btn-back" id="backBtn">入力画面に戻る</button>
+	  </div>
+	</div>
 
 	<!-- 送信完了 -->
 	<div class="done" id="done" hidden tabindex="-1">
@@ -367,54 +378,102 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	if (input) setTimeout(function () { input.focus({ preventScroll: true }); }, 300);
   }
 
-  // ---- 送信 ----
-  form.addEventListener('submit', function (ev) {
-	ev.preventDefault();
-	clearAll();
-	var data = collect();
-	var errors = validate(data);
-	if (Object.keys(errors).length) {
-	  for (var k in errors) showError(k, errors[k]);
-	  focusFirstError();
-	  push('form_error', { error_fields: Object.keys(errors).join(',') });
-	  return;
-	}
-	submitBtn.disabled = true;
-	submitBtn.textContent = '送信しています…';
-
-	fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-	  .then(function (res) { return res.json().then(function (j) { return { status: res.status, body: j }; }); })
-	  .then(function (r) {
-		if (r.body && r.body.ok) {
-		  document.getElementById('receiptNo').textContent = r.body.receipt || '';
-		  form.hidden = true;
-		  var done = document.getElementById('done');
-		  done.hidden = false;
-		  done.focus();
-		  done.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		  push('form_submit', {
-			months: data.reservations.map(function (x) { return x.month; }).join(','),
-			adult: data.people.adult,
-			people_total: data.people.adult + data.people.junior + data.people.child + data.people.infant
-		  });
-		  return;
-		}
-		var msg = {
-		  rate_limit: '短時間に送信が続いています。少し時間をおいてお試しください。',
-		  verification: '確認に失敗しました。もう一度送信してください。',
-		  invalid: '入力内容をご確認ください。'
-		}[r.body && r.body.error];
-		throw new Error(msg || '送信できませんでした。時間をおいて再度お試しいただくか、ホテルまでお電話ください。');
-	  })
-	  .catch(function (err) {
-		submitError.textContent = err && err.message && err.message !== 'Failed to fetch'
-		  ? err.message
-		  : '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
-		if (window.turnstile) turnstile.reset();
-		submitBtn.disabled = false;
-		submitBtn.textContent = 'この内容で申し込む';
+  // ---- 確認画面 ----
+	var confirmBox = document.getElementById('confirm');
+	var confirmList = document.getElementById('confirmList');
+	var confirmError = document.getElementById('confirmError');
+	var sendBtn = document.getElementById('sendBtn');
+	var backBtn = document.getElementById('backBtn');
+	var pending = null;
+  
+	function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+	function jpDate(iso) { var p = iso.split('-'); return (+p[0]) + '年' + (+p[1]) + '月' + (+p[2]) + '日（' + weekday(iso) + '）'; }
+  
+	function renderConfirm(d) {
+	  var rows = [];
+	  d.reservations.forEach(function (r) {
+		var m = CONFIG.months.filter(function (x) { return x.key === r.month; })[0];
+		rows.push([m.label + 'のご希望', jpDate(r.date) + ' ' + r.time]);
 	  });
-  });
+	  rows.push(['人数', CONFIG.people.map(function (p) { return p.label + ' ' + d.people[p.key] + '名'; }).join(' / ')]);
+	  if (CONFIG.advanceTicketPrice && d.people.adult) rows.push(['前売り券（大人のみ）', yen(CONFIG.advanceTicketPrice * d.people.adult)]);
+	  rows.push(['お名前', d.fullName], ['フリガナ', d.kana], ['団体名', d.org || '—'], ['メールアドレス', d.email], ['電話番号', d.phone], ['ご紹介', d.referral || '—'], ['ご質問・ご要望', d.notes || '—']);
+	  confirmList.innerHTML = rows.map(function (r) { return '<div><dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]).replace(/\n/g, '<br>') + '</dd></div>'; }).join('');
+	}
+  
+	function show(el) {
+	  [form, confirmBox, document.getElementById('done')].forEach(function (x) { x.hidden = (x !== el); });
+	  el.focus && el.focus({ preventScroll: true });
+	  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+  
+	// 入力画面 →「入力内容を確認する」
+	form.addEventListener('submit', function (ev) {
+	  ev.preventDefault();
+	  clearAll();
+	  var data = collect();
+	  var errors = validate(data);
+	  delete errors.turnstile; // 確認は送信時に行う
+	  if (Object.keys(errors).length) {
+		for (var k in errors) showError(k, errors[k]);
+		focusFirstError();
+		push('form_error', { error_fields: Object.keys(errors).join(',') });
+		return;
+	  }
+	  pending = data;
+	  renderConfirm(data);
+	  confirmError.textContent = '';
+	  show(confirmBox);
+	  push('form_confirm', {});
+	});
+  
+	// 確認画面 →「入力画面に戻る」
+	backBtn.addEventListener('click', function () { show(form); });
+  
+	// 確認画面 →「この内容で申し込む」
+	sendBtn.addEventListener('click', function () {
+	  if (!pending) return;
+	  confirmError.textContent = '';
+	  pending.token = (window.turnstile && turnstile.getResponse()) || pending.token || '';
+	  if (!pending.token) {
+		confirmError.textContent = '確認中です。数秒待ってからもう一度押してください。';
+		return;
+	  }
+	  var data = pending;
+	  sendBtn.disabled = true;
+	  backBtn.disabled = true;
+	  sendBtn.textContent = '送信しています…';
+  
+	  fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+		.then(function (res) { return res.json().then(function (j) { return { status: res.status, body: j }; }); })
+		.then(function (r) {
+		  if (r.body && r.body.ok) {
+			document.getElementById('receiptNo').textContent = r.body.receipt || '';
+			show(document.getElementById('done'));
+			push('form_submit', {
+			  months: data.reservations.map(function (x) { return x.month; }).join(','),
+			  adult: data.people.adult,
+			  people_total: data.people.adult + data.people.junior + data.people.child + data.people.infant
+			});
+			return;
+		  }
+		  var msg = {
+			rate_limit: '短時間に送信が続いています。少し時間をおいてお試しください。',
+			verification: '確認に失敗しました。もう一度「この内容で申し込む」を押してください。',
+			invalid: '入力内容に誤りがあります。「入力画面に戻る」からご確認ください。'
+		  }[r.body && r.body.error];
+		  throw new Error(msg || '送信できませんでした。時間をおいて再度お試しいただくか、ホテルまでお電話ください。');
+		})
+		.catch(function (err) {
+		  confirmError.textContent = err && err.message && err.message !== 'Failed to fetch'
+			? err.message
+			: '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
+		  if (window.turnstile) { turnstile.reset(); pending.token = ''; }
+		  sendBtn.disabled = false;
+		  backBtn.disabled = false;
+		  sendBtn.textContent = 'この内容で申し込む';
+		});
+	});
 })();
 </script>
 </body>

@@ -247,3 +247,23 @@ select.input { appearance: none; padding-right: 40px; background: var(--field) u
 @media (min-width: 768px) {
   .wrap { padding: 48px 56px 56px; margin-top: 20px; }
 }
+
+
+/* 入力内容の確認画面 */
+.confirm:focus { outline: none; }
+.confirm__lead { margin: 0 0 12px; }
+.confirm__list dt { flex-basis: 7.5em; }
+.confirm__list dd { overflow-wrap: anywhere; }
+.btn-back {
+  display: block;
+  margin: 14px auto 0;
+  padding: 8px 16px;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.btn-back:disabled { opacity: .5; cursor: default; }
