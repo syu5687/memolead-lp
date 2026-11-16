@@ -26,10 +26,10 @@ const FACILITIES = {
       { key:"xmas", title:"クリスマス商品", tag:"12/23・24・25", time:"13:00〜18:00 CLOSE",
         dates:DATES_XMAS, pickup:PICK_3,
         items:[
-          {no:1, name:"ローストビーフとローストチキンの盛り合わせ", price:11000, tax:814, limit:15},
+          {no:1, name:"ローストビーフとローストチキンの盛り合わせ", price:11000, tax:814, limit:15, soldOut:true},
           {no:2, name:"野菜ソムリエの星降るオードブル", price:11000, tax:814, limit:15, soldOut:true},
-          {no:3, name:"イタリアハムとチーズ盛り合わせ 乾杯セット", price:11000, tax:814, limit:15},
-          {no:5, name:"ホワイトノエル（クリスマスケーキ）", price:5000, tax:370, limit:30},
+          {no:3, name:"イタリアハムとチーズ盛り合わせ 乾杯セット", price:11000, tax:814, limit:15, soldOut:true},
+          {no:5, name:"ホワイトノエル（クリスマスケーキ）", price:5000, tax:370, limit:30, soldOut:true},
           {no:6, name:"ノエル ショコラ ビジュー（ガトーケーキ）", price:5000, tax:370, limit:30, soldOut:true}
         ]},
       { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
