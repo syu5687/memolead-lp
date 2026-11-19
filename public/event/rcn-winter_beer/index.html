@@ -201,6 +201,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	endpoint: 'https://rcn-winter-beer.nagata-714.workers.dev/api/submit',
 	advanceTicketPrice: null,
 	maxPerCategory: 20,
+	// 選べる時間（1月・2月共通）
+	times: ['18:30', '19:00'],
 	months: [
 	  { key: '2027-01', label: '1月', dates: ['2027-01-14', '2027-01-17', '2027-01-24', '2027-01-28', '2027-01-29', '2027-01-31'] },
 	  { key: '2027-02', label: '2月', dates: ['2027-02-05', '2027-02-07', '2027-02-11', '2027-02-12', '2027-02-14', '2027-02-21', '2027-02-22', '2027-02-23', '2027-02-25', '2027-02-26'] }
@@ -248,10 +250,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	var dateHtml = '<select class="input" id="date-' + m.key + '" name="date-' + m.key + '"><option value="">日付を選択してください</option>' +
 	  m.dates.map(function (d) { var p = d.split('-'); return '<option value="' + d + '">' + (+p[1]) + '月' + (+p[2]) + '日（' + weekday(d) + '）</option>'; }).join('') + '</select>';
 
+	var timeHtml = CONFIG.times.map(function (t) {
+	  return '<label class="chip"><input type="radio" name="time-' + m.key + '" value="' + t + '"><span>' + t + '〜</span></label>';
+	}).join('');
+
 	box.innerHTML =
 	  '<legend class="field__label">' + m.label + 'のご希望</legend>' +
 	  '<div class="sub"><label class="sub__label" for="date-' + m.key + '">希望の予約日 <span class="req">必須</span></label>' + dateHtml +
-	  '<p class="field__error" data-error="date_' + m.key + '"></p></div>';
+	  '<p class="field__error" data-error="date_' + m.key + '"></p></div>' +
+	  '<div class="sub"><p class="sub__label">ご希望の時間 <span class="req">必須</span></p><div class="chips">' + timeHtml + '</div>' +
+	  '<p class="field__error" data-error="time_' + m.key + '"></p></div>';
 	monthDetails.appendChild(box);
   });
 
@@ -325,7 +333,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	if (!started) { started = true; push('form_start', {}); }
 	var n = e.target.name || '';
 	if (n.indexOf('date-') === 0) clearError('date_' + n.slice(5));
+	else if (n.indexOf('time-') === 0) clearError('time_' + n.slice(5));
 	else clearError(n);
+  });
+  form.addEventListener('change', function (e) {
+	var n = e.target.name || '';
+	if (n.indexOf('time-') === 0) clearError('time_' + n.slice(5));
   });
 
   // ---- 入力チェック ----
@@ -350,7 +363,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  token: (window.turnstile && turnstile.getResponse()) || fd.get('cf-turnstile-response') || ''
 	};
 	fd.getAll('month').forEach(function (key) {
-	  data.reservations.push({ month: key, date: fd.get('date-' + key) || '' });
+	  data.reservations.push({ month: key, date: fd.get('date-' + key) || '', time: fd.get('time-' + key) || '' });
 	});
 	return data;
   }
@@ -361,6 +374,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	d.reservations.forEach(function (r) {
 	  var m = CONFIG.months.filter(function (x) { return x.key === r.month; })[0];
 	  if (!r.date || r.date.indexOf(r.month) !== 0) e['date_' + r.month] = m.label + 'の希望の予約日を選んでください';
+	  if (!r.time) e['time_' + r.month] = 'ご希望の時間を選んでください';
 	});
 	var total = 0;
 	for (var k in d.people) total += d.people[k];
@@ -397,7 +411,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	var rows = [];
 	d.reservations.forEach(function (r) {
 	  var m = CONFIG.months.filter(function (x) { return x.key === r.month; })[0];
-	  rows.push([m.label + 'のご希望', jpDate(r.date)]);
+	  rows.push([m.label + 'のご希望', jpDate(r.date) + ' ' + r.time + '〜']);
 	});
 	rows.push(['人数', CONFIG.people.map(function (p) { return p.label + ' ' + d.people[p.key] + '名'; }).join(' / ')]);
 	if (CONFIG.advanceTicketPrice && d.people.adult) rows.push(['前売り券（大人のみ）', yen(CONFIG.advanceTicketPrice * d.people.adult)]);
