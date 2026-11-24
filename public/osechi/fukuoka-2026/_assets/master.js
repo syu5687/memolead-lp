@@ -35,7 +35,7 @@ const FACILITIES = {
       { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
         dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
         items:[
-          {no:9,  name:"和洋風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:150},
+          {no:9,  name:"和洋風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:150, soldOut:true},
           {no:10, name:"和洋風プレミアムおせち", s:48000, sTax:3555, g:50000, gTax:3703, limit:10, soldOut:true},
           {no:11, name:"お菓子おせち", s:5000, sTax:370, g:6000, gTax:444, limit:30, soldOut:true}
         ]}
@@ -49,7 +49,7 @@ const FACILITIES = {
     categories:[
       { key:"xmas", title:"クリスマス商品", tag:"12/23・24・25", time:"13:00〜18:00 CLOSE",
         dates:DATES_XMAS, pickup:PICK_3,
-        items:[ {no:4, name:"クリスマスオードブル", price:11000, tax:814, limit:30} ]},
+        items:[ {no:4, name:"クリスマスオードブル", price:11000, tax:814, limit:30, soldOut:true} ]},
       { key:"osechi", title:"おせち料理", tag:"12/31", time:"10:00〜13:00 CLOSE",
         dates:DATES_OSECHI, pickup:PICK_5, delivery:true,
         items:[ {no:7, name:"和風おせち 3段重", s:28000, sTax:2074, g:29000, gTax:2148, limit:320} ]},
