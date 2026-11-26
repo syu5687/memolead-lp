@@ -1,0 +1,7 @@
+/* カップリングパーティー応募フォーム専用（form.css の後に読み込む） */
+/* 生年月日（年・月・日のセレクト） */
+.birth { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.birth .input { width: auto; flex: 1 1 0; min-width: 5.5em; }
+.birth__unit { flex: none; }
+.policy-note { font-size: .85rem; line-height: 1.7; margin: 0 0 12px; }
+.policy-note a { text-decoration: underline; }
