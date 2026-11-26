@@ -5,3 +5,14 @@
 .birth__unit { flex: none; }
 .policy-note { font-size: .85rem; line-height: 1.7; margin: 0 0 12px; }
 .policy-note a { text-decoration: underline; }
+
+/* 背景：淡いベージュピンク */
+html, body { background-color: #f6e8e4; }
+
+/* ヘッダー：ロゴを左上に */
+.site-head { display: flex; justify-content: flex-start; align-items: center; text-align: left; }
+.site-head__logo { margin: 0; line-height: 0; }
+.site-head__logo img { display: block; height: 40px; width: auto; }
+@media (max-width: 600px) {
+  .site-head__logo img { height: 32px; }
+}
