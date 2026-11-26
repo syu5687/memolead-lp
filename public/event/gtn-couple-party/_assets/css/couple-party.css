@@ -1,5 +1,5 @@
 /* カップリングパーティー応募フォーム専用（form.css の後に読み込む） */
-/* 生年月日 */
+/* 生年月日（年・月・日のセレクト） */
 fieldset[data-field="birth"] { min-width: 0; }
 .birth { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
 .birth .input { width: auto; flex: 1 1 0; min-width: 0; }
@@ -17,4 +17,38 @@ html, body { background-color: #f6e8e4; }
 .site-head__logo img { display: block; height: 40px; width: auto; }
 @media (max-width: 600px) {
   .site-head__logo img { height: 32px; }
+}
+
+/* =========================================
+   スマホのみ（幅600px以下）：読みやすさの調整
+   ========================================= */
+@media (max-width: 600px) {
+  /* 白いパネルを広く使う（左右の余白を減らす） */
+  .wrap { margin-left: 8px; margin-right: 8px; padding-left: 18px; padding-right: 18px; border-radius: 18px; }
+
+  /* 文字の間隔を詰めて、行の途中で折り返しにくくする */
+  .wrap * { letter-spacing: .03em; }
+
+  /* タイトル：1行に収める */
+  .wrap .intro__title { font-size: 1.7rem; letter-spacing: .04em; line-height: 1.4; }
+  .wrap .intro__sub { font-size: .95rem; }
+
+  /* お申し込みの流れ（枠） */
+  .wrap .notice { padding: 16px 18px; }
+  .wrap .notice p { font-size: .95rem; line-height: 1.8; }
+
+  /* ご案内の表：見出しを上、内容を下に縦並び */
+  .wrap .guide__info { padding: 4px 18px; }
+  .wrap .guide__info > div { display: block; padding: 14px 0; }
+  .wrap .guide__info dt { margin: 0 0 4px; font-size: .85rem; }
+  .wrap .guide__info dd { margin: 0; font-size: .98rem; line-height: 1.75; }
+  .wrap .guide__info .price-list { max-width: 100%; }
+  .wrap .guide__info .note-list li { line-height: 1.7; }
+
+  /* 入力欄の補足文を少し離す */
+  .wrap .field__help { margin-top: 6px; }
+
+  /* 生年月日：年の欄を広く、プルダウンを細く */
+  .wrap .birth .birth__year { flex: 1.5 1 0; padding-left: 12px; padding-right: 8px; }
+  .wrap .birth select.input { padding-left: 12px; padding-right: 26px; }
 }
