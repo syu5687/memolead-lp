@@ -1,41 +1,73 @@
 :root{
-  --ink:#222; --ink-soft:#555; --paper:#fff; --paper-2:#f6f4ef;
-  --line:#d9d4c8; --accent:#b5121b; --accent-2:#a8894e; --ok:#2f5d3a; --maxw:640px;
+  --ink:#222; --ink-soft:#555; --paper:#fff;
+  --frame:#b8ab8b; --bar:#e5e5e5; --step-on:#4e4540; --line:#ccc;
+  --accent:#d96b74; --accent-dark:#c2525c; --gray-btn:#ccc; --maxw:760px;
+  --serif:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
 }
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);background:var(--paper);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium",system-ui,sans-serif;line-height:1.75;font-feature-settings:"palt"}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-.entry{background:var(--paper-2);padding:56px 0 72px}
-.entry h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:600;font-size:clamp(24px,6vw,30px);text-align:center;margin:0 0 6px}
-.entry .lead{text-align:center;font-size:14px;color:var(--ink-soft);margin:0 0 30px}
-label.field,div.field{display:block;margin:0 0 22px}
-.field .lb{display:flex;align-items:center;gap:9px;font-size:14px;margin:0 0 8px;font-weight:600}
-.req{white-space:nowrap;flex:0 0 auto;font-size:10.5px;color:#fff;background:var(--accent);border-radius:3px;padding:2px 6px;font-weight:600}
-input[type=text],input[type=tel]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 14px}
-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(181,18,27,.12)}
-.hint{display:block;font-size:12px;color:var(--ink-soft);margin:6px 0 0}
-.plans{display:grid;gap:10px}
-.plan{position:relative;display:flex;align-items:center;gap:14px;border:2px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s}
-.plan:hover{border-color:var(--accent-2)}
-.plan input{width:20px;height:20px;accent-color:var(--accent);flex:0 0 auto;margin:0}
-.plan .tag{display:inline-block;font-size:11.5px;color:#fff;background:var(--accent-2);border-radius:3px;padding:1px 8px;margin:0 0 4px}
-.plan .pt{display:block;font-size:15px;font-weight:600;line-height:1.5}
-.plan:has(input:checked){border-color:var(--accent);background:#fdf3f3}
-.plan:has(input:focus-visible){outline:2px solid var(--accent-2);outline-offset:2px}
-.agree{display:flex;gap:10px;align-items:center;justify-content:center;font-size:14px;margin:6px 0 22px}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--serif);line-height:1.75;font-feature-settings:"palt"}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.entry{padding:40px 0 64px}
+.fbox{background:var(--frame);border-radius:14px;padding:0 14px 14px}
+.fbox-title{margin:0;padding:22px 0 18px;color:#fff;text-align:center;font-weight:600;font-size:clamp(20px,5vw,26px);letter-spacing:.08em}
+.fbox-in{background:#fff;border-radius:4px;overflow:hidden}
+.steps{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--bar);padding:18px 12px}
+.steps-lb{font-size:15px;margin-right:6px}
+.steps-no{display:grid;place-items:center;width:56px;height:40px;background:#fff;font-size:22px;border-radius:3px;transition:background .2s,color .2s}
+.steps-no.is-on{background:var(--step-on);color:#fff}
+.steps-note{font-size:13px;margin-left:8px}
+#theForm{padding:24px 18px 28px}
+.panel[hidden]{display:none}
+.lb{display:flex;align-items:center;gap:10px;font-size:15px;margin:0 0 10px}
+.req{white-space:nowrap;font-size:11px;color:#fff;background:var(--accent);border-radius:3px;padding:2px 7px;line-height:1.5}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 14px}
+.plan{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;border:2px solid var(--line);border-radius:6px;background:#fff;padding:14px 10px 16px;cursor:pointer;text-align:center;transition:border-color .15s,background .15s,box-shadow .15s}
+.plan:hover{border-color:var(--frame)}
+.plan input{position:absolute;opacity:0;pointer-events:none}
+.plan-img{display:block;width:100%;aspect-ratio:3/2;background:#e9e6df;overflow:hidden}
+.plan-img img{width:100%;height:100%;object-fit:cover}
+.plan-tag{display:inline-block;font-size:12px;color:#fff;background:var(--frame);border-radius:2px;padding:0 10px}
+.plan-tt{font-size:14.5px;line-height:1.6}
+.plan--both{grid-column:1 / -1;justify-self:center;width:min(100%,320px);min-height:96px;justify-content:center}
+.plan:has(input:checked){border-color:var(--accent);background:#fdf2f3;box-shadow:0 0 0 2px rgba(217,107,116,.25)}
+.plan:has(input:checked)::after{content:"✓";position:absolute;top:-10px;right:-10px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:15px;font-family:sans-serif}
+.plan:has(input:focus-visible){outline:3px solid var(--step-on);outline-offset:2px}
+.ticket-note{text-align:center;font-size:12.5px;color:var(--ink-soft);margin:0 0 22px}
+.picked{margin:0 0 20px;padding:10px 14px;background:#f6f4ef;border-radius:4px;font-size:14px}
+.field{display:block;margin:0 0 22px}
+input[type=text],input[type=tel]{width:100%;font-family:sans-serif;font-size:16px;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:3px;padding:12px 14px}
+input[type=text]:focus,input[type=tel]:focus{outline:none;border-color:var(--frame)}
+.hint{display:block;font-size:12.5px;color:var(--ink-soft);margin:6px 0 0}
+.agree{display:flex;gap:10px;align-items:center;justify-content:center;font-size:14px;margin:4px 0 24px}
 .agree input{width:20px;height:20px;accent-color:var(--accent);margin:0}
-.agree a{color:var(--accent)}
-.btn-submit{display:block;width:100%;max-width:400px;margin:0 auto;font:inherit;font-size:17px;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--accent);border:none;border-radius:40px;padding:18px;cursor:pointer}
-.btn-submit:hover{background:#8f0e15}
-.btn-submit:disabled{opacity:.55;cursor:default}
-.ticket-note{text-align:center;font-size:12.5px;color:var(--ink-soft);margin:12px 0 0}
-.form-msg{margin:14px 0 0;font-size:13.5px;text-align:center;min-height:1.2em}
+.agree a{color:#1a4fc4}
+.btns{display:flex;justify-content:center;gap:16px}
+.btn{font-family:var(--serif);font-size:20px;letter-spacing:.1em;color:#fff;border:none;border-radius:6px;padding:16px 0;width:min(100%,300px);cursor:pointer;transition:background .15s}
+.btns--two .btn{width:min(50%,240px)}
+.btn-main{background:var(--accent)}
+.btn-main:hover{background:var(--accent-dark)}
+.btn-main:disabled{opacity:.55;cursor:default}
+.btn-back{background:var(--gray-btn)}
+.btn-back:hover{background:#b8b8b8}
+.form-msg{margin:16px 0 0;font-size:14px;text-align:center}
 .form-msg:empty{display:none}
-.form-msg.err{color:#fff;font-weight:700;font-size:15px;background:var(--accent);border-radius:10px;padding:14px 16px;box-shadow:0 4px 16px rgba(181,18,27,.28);animation:errshake .5s ease}
+.form-msg.err{color:#fff;font-weight:700;background:var(--accent-dark);border-radius:6px;padding:12px 16px;animation:errshake .5s ease;font-family:sans-serif}
 .form-msg.err::before{content:"⚠ "}
 @keyframes errshake{0%,100%{transform:translateX(0)}15%{transform:translateX(-8px)}30%{transform:translateX(8px)}45%{transform:translateX(-6px)}60%{transform:translateX(6px)}75%{transform:translateX(-3px)}90%{transform:translateX(3px)}}
-#done{display:none;background:#fff;border-radius:12px;padding:36px 22px;text-align:center}
-#done h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:600;font-size:22px;margin:0 0 14px}
+#done{display:none;padding:40px 20px 44px;text-align:center}
+#done:focus{outline:none}
+#done h3{font-weight:600;font-size:22px;margin:0 0 16px}
 #done p{color:var(--ink-soft);font-size:14.5px;margin:0 0 8px}
-footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:12px;text-align:center}
+footer{padding:26px 0;color:var(--ink-soft);font-size:12px;text-align:center}
 footer a{color:inherit}
+@media(max-width:560px){
+  .steps{gap:8px;padding:14px 8px}
+  .steps-no{width:44px;height:34px;font-size:18px}
+  .steps-note{font-size:12px;margin-left:4px}
+  #theForm{padding:20px 12px 24px}
+  .plans{gap:10px}
+  .plan{padding:10px 8px 12px}
+  .plan-tt{font-size:13px}
+  .btn{font-size:18px}
+}
