@@ -1,5 +1,5 @@
 /**
- * @version v0001 | 2026-11-26 | アミュプラザくまもと リニューアルキャンペーン 応募フォーム送信Worker | Cloudflare Workers
+ * @version v0002 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン 応募フォーム送信Worker（受付前ロック追加） | Cloudflare Workers
  *
  * 既存フォームWorker（bridal-ring 等）と同じ構成。
  * フォーム(HTML)からのJSONを受け取り、Brevoで
@@ -7,14 +7,18 @@
  * 応募フォームでメールアドレスを聞かないため、自動返信は送らない。
  * さらに毎日1回、稼働確認メールを送る(Cron Trigger)。
  *
- * 秘密情報は BREVO_API_KEY のみ： npx wrangler secret put BREVO_API_KEY
+ * 秘密情報： npx wrangler secret put BREVO_API_KEY
+ *           npx wrangler secret put TEST_KEY（受付前のテスト送信用の合言葉）
  * 通知先・送信元・文言はこの CONFIG で管理（vars 不要）。
  */
 
 var CONFIG = {
+  // ★受付スイッチ。false の間は「テスト用の合言葉（TEST_KEY）付きの送信」以外はすべて拒否する。
+  //   受付開始日に true にして npx wrangler deploy する。
+  OPEN: false,
   // 管理者への通知先（全員に同じ通知が届く。互いのアドレスが見える宛先=To）
   TO: [
-    "mk@emanet.jp"                        // ★ 会場の担当者アドレスを追記
+    "matsufuji@emanet.jp"                        // ★ 会場の担当者アドレスを追記
   ],
   CC: [],                                 // CC（複数可）
   BCC: [],                                // BCC（複数可）
@@ -32,9 +36,9 @@ var CONFIG = {
     both: "両方に応募する"
   },
   // 抽選用にBrevoのリストへ貯める場合のみ、プレゼントごとのリストID（数字）を指定（不要なら null）
-  // 「両方に応募する」は両方のリストに入る。ショッピングチケットは全応募者が対象なので2つのリストの合算で抽選する。
+  // 「両方に応募する」は両方のリストに入る。
   BREVO_LISTS: { wedding: null, public: null },
-  MONITOR_TO: "mk@emanet.jp",          // 毎日の稼働確認メール宛先（管理側のみ。お店には送らない）
+  MONITOR_TO: "emaweb@emanet.jp",          // 毎日の稼働確認メール宛先（管理側のみ。お店には送らない）
   MONITOR_SUBJECT: "【自動稼働確認】AMUキャンペーン 応募フォーム 正常稼働中",
   FORM_NAME: "アミュプラザくまもと リニューアルキャンペーン 応募フォーム",
   FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/ftk-amu/",
@@ -63,6 +67,9 @@ export default {
     try {
       if (!env.BREVO_API_KEY) return json({ ok: false, error: "BREVO_API_KEY 未設定" }, 500);
       const d = await request.json();
+      // 受付前ロック：OPEN が false の間は、合言葉が一致する送信だけ通す（確認用に開いた人からは送信できない）
+      const isTest = !CONFIG.OPEN;
+      if (isTest && (!env.TEST_KEY || d.testKey !== env.TEST_KEY)) return json({ ok: false, error: "closed" }, 403);
       for (const k of CONFIG.REQUIRED) if (!d[k]) return json({ ok: false, error: `missing ${k}` }, 400);
 
       // 画面のチェックを通らずに直接送られる場合に備え、サーバー側でも値を確かめる
@@ -115,7 +122,7 @@ export default {
       const adminBody = {
         sender, to: [].concat(CONFIG.TO).map((e) => ({ email: e })),
         // 件名はテキストなのでエスケープ不要。改行だけ取り除いて件名崩れを防ぐ
-        subject: `${CONFIG.SUBJECT_PREFIX}${name.replace(/[\r\n]/g, " ")}様／${planLabel}${listOk === false ? "（※リスト登録失敗）" : ""}`,
+        subject: `${isTest ? "【テスト送信】" : ""}${CONFIG.SUBJECT_PREFIX}${name.replace(/[\r\n]/g, " ")}様／${planLabel}${listOk === false ? "（※リスト登録失敗）" : ""}`,
         htmlContent: adminHtml
       };
       if (CONFIG.CC.length) adminBody.cc = CONFIG.CC.map((e) => ({ email: e }));

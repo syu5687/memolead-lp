@@ -1,4 +1,4 @@
-// @version v0009 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン LP スクリプト（TOPスライダー・サンクスページ遷移・追従ボタン・LINE・パネル式フォーム） | /public/ftk-amu/_assets/js/script.js
+// @version v0010 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン LP スクリプト（受付前ロック対応・TOPスライダー・サンクスページ遷移・追従ボタン・パネル式フォーム） | /public/ftk-amu/_assets/js/script.js
 
 const CONFIG = {
   ENDPOINT: "https://memolead-ftk-amu.mk-cbe.workers.dev/submit",
@@ -136,7 +136,9 @@ form.addEventListener("submit",async e=>{
   // 全角数字を半角にし、ハイフン等を除いた数字だけにする（Workerでも同じ処理をする）
   const tel=g("tel").replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xfee0)).replace(/[^\d]/g,"");
   const d={plan:g("plan"),name:g("name"),tel,agree:document.getElementById("agree").checked,
-    formName:CONFIG.FORM_NAME,source:location.href};
+    formName:CONFIG.FORM_NAME,source:location.href.split("?")[0],
+    // 受付開始前のテスト送信用：URLに ?test=合言葉 があるときだけ一緒に送る（合言葉の判定はWorker側）
+    testKey:new URLSearchParams(location.search).get("test")||""};
   if(!d.plan){showStep(1);setMsg("ご希望のプランをお選びください。","err");return;}
   if(!d.name){setMsg("お名前をご入力ください。","err");return;}
   if(!/^0\d{9,10}$/.test(tel)){setMsg("電話番号をご確認ください。","err");return;}
@@ -145,7 +147,12 @@ form.addEventListener("submit",async e=>{
   submitBtn.disabled=true;submitBtn.textContent="送信中…";
   try{
     const r=await fetch(CONFIG.ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
-    if(!r.ok)throw new Error("status "+r.status);
+    if(!r.ok){
+      const res=await r.json().catch(()=>({}));
+      // 受付開始前（Worker の OPEN が false）に送信された場合。エラーではないので、案内文だけ出してボタンを戻す
+      if(r.status===403&&res.error==="closed"){setMsg("ただいま受付開始前のため、送信できません。受付開始までお待ちください。","err");submitBtn.disabled=false;submitBtn.textContent="送信";return;}
+      throw new Error("status "+r.status);
+    }
     // GTMで generate_lead／広告CVのトリガーにするカスタムイベント（名前・電話番号は送らない）
     // サンクスページで「本当に送信した人だけ」計測するための印（直接アクセスや再読み込みでは数えない）
     try{sessionStorage.setItem("amu_submitted",d.plan);}catch(_){}

@@ -68,6 +68,12 @@ TOP（FV）・撮影2択（2か所）・会場紹介の写真は、4秒ごとに
   広告のCVは `amu_thanks_view` か `amu_campaign_submit` の **どちらか一方** に設定する（両方だと二重計上）。
 - CSS・JSはLP本体と共通（../_assets/）。
 
+## 受付前ロック（worker.js の CONFIG.OPEN）
+- `OPEN: false`（現在）：合言葉（Cloudflareのシークレット `TEST_KEY`）付きの送信だけ受け付ける。確認用に普通のURLで開いた人が送信しても「受付開始前のため送信できません」と表示され、メールもデータも残らない（判定はWorker側）。
+- テスト送信：ページURLの末尾に `?test=合言葉` を付けて開き、送信する。通知メールの件名に【テスト送信】が付く。
+- 受付開始日：`OPEN: true` に変更 → `CONFIG.TO` に担当者アドレスを追加 → `npx wrangler deploy`。HTML・JSの変更やpushは不要。
+- 合言葉の登録・変更：`npx wrangler secret put TEST_KEY`
+
 ## CONFIG（_assets/js/script.js 冒頭）
 | 項目 | 内容 |
 |---|---|
