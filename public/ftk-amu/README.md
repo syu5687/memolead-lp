@@ -54,12 +54,19 @@ TOP（FV）・撮影2択（2か所）・会場紹介の写真は、4秒ごとに
 
 | 場所 | 1枚目（既存） | 2〜4枚目 |
 |---|---|---|
-| TOP（FV）※ラインなし・3枚 | fv.webp | fv-2.webp・fv-3.webp（文字・帯の位置は1枚目と完全にそろえる） |
+| TOP（FV）※ラインなし・3枚 | fv-photo-1.webp（写真のみ） | fv-photo-2.webp・fv-photo-3.webp（写真のみ・751×1199） |
 | アミュプラザくまもとでの前撮り | wedding-photo1.webp | wedding-photo1-2.webp 〜 -4.webp |
 | 熊本エリアでのロケーションフォト | wedding-photo2.webp | wedding-photo2-2.webp 〜 -4.webp |
 | 会場紹介 | venue.webp | venue-2.webp 〜 -4.webp |
 
 切り替え間隔は `_assets/js/script.js` の `SLIDE_MS`（ミリ秒）。
+
+## TOP（FV）のレイヤー構成（v0010〜）
+- 写真レイヤー：`_assets/img/slider/fv-photo-1〜3.webp`（写真のみ）がフェードで切り替わる。
+- 装飾レイヤー：`_assets/img/fv-overlay.webp`（透過。緑の斜め影・キャッチ・プレゼント帯・さらに帯）を写真の上に固定で重ねる。751×1203。
+- 文字・帯の修正は fv-overlay だけ書き出し直せばよい（イラレから透過PNGで書き出し → WebPに変換）。写真の追加・差し替えは写真だけ。
+- 応募ボタンはHTMLで最前面。ボタン用の余白（さらに帯の下）は装飾レイヤーの位置で決まる。
+- 旧ファイル（slider/fv.webp・fv-2.webp・fv-3.webp・fv-overlay.png）は未使用。
 
 ## サンクスページ（thanks/index.html）
 - URL：/public/ftk-amu/thanks/ 。送信成功後に `./thanks/?plan=wedding|public|both` へ移動（noindex）。

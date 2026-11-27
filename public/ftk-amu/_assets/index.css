@@ -175,3 +175,7 @@ body[data-page="thanks"] .ft{padding-bottom:30px}
 body[data-page="thanks"] .thanks{padding:40px 16px 36px}
 body[data-page="thanks"] .thanks-tt{font-size:min(24px,5.4vw)}
 body[data-page="thanks"] .thanks-lead{font-size:min(14px,3.2vw)}
+.fv-stage{position:relative}
+.fv-overlay{position:relative;z-index:1;width:100%;pointer-events:none}
+.fv-slider{position:absolute;inset:0;z-index:0}
+.fade-slider.fv-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
