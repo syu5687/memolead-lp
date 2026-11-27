@@ -150,7 +150,7 @@ form.addEventListener("submit",async e=>{
     if(!r.ok){
       const res=await r.json().catch(()=>({}));
       // 受付開始前（Worker の OPEN が false）に送信された場合。エラーではないので、案内文だけ出してボタンを戻す
-      if(r.status===403&&res.error==="closed"){setMsg("ただいま受付開始前のため、送信できません。受付開始までお待ちください。","err");submitBtn.disabled=false;submitBtn.textContent="送信";return;}
+      if(r.status===403&&res.error==="closed"){setMsg("ただいま調整中のため、送信できません。受付開始までお待ちください。","err");submitBtn.disabled=false;submitBtn.textContent="送信";return;}
       throw new Error("status "+r.status);
     }
     // GTMで generate_lead／広告CVのトリガーにするカスタムイベント（名前・電話番号は送らない）
