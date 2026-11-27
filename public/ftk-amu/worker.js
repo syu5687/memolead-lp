@@ -18,7 +18,7 @@ var CONFIG = {
   OPEN: false,
   // 管理者への通知先（全員に同じ通知が届く。互いのアドレスが見える宛先=To）
   TO: [
-    "matsufuji@emanet.jp"                        // ★ 会場の担当者アドレスを追記
+    "emaweb@emanet.jp"                        // ★ 会場の担当者アドレスを追記
   ],
   CC: [],                                 // CC（複数可）
   BCC: [],                                // BCC（複数可）
@@ -38,7 +38,7 @@ var CONFIG = {
   // 抽選用にBrevoのリストへ貯める場合のみ、プレゼントごとのリストID（数字）を指定（不要なら null）
   // 「両方に応募する」は両方のリストに入る。
   BREVO_LISTS: { wedding: null, public: null },
-  MONITOR_TO: "emaweb@emanet.jp",          // 毎日の稼働確認メール宛先（管理側のみ。お店には送らない）
+  MONITOR_TO: "matsufuji@emanet.jp",          // 毎日の稼働確認メール宛先（管理側のみ。お店には送らない）
   MONITOR_SUBJECT: "【自動稼働確認】AMUキャンペーン 応募フォーム 正常稼働中",
   FORM_NAME: "アミュプラザくまもと リニューアルキャンペーン 応募フォーム",
   FORM_URL: "https://memolead-lp-665477084949.asia-northeast1.run.app/public/ftk-amu/",

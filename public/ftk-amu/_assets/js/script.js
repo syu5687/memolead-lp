@@ -29,7 +29,7 @@ document.querySelectorAll(".js-cta").forEach(a=>a.addEventListener("click",()=>t
      （画像がまだ用意されていなくても崩れない。1枚しかなければ切り替えもラインも出さない）
    - 4秒ごとに自動で切り替え。画面外にある間とタブが裏にある間は止める（無駄な処理を減らすため）
    - ラインのタップ・左右スワイプでも切り替えられる */
-const SLIDE_MS=4000;
+const SLIDE_MS=2500;
 document.querySelectorAll("[data-slider]").forEach((root,idx)=>{
   let slides=[root.querySelector("img")], cur=0, timer=null, visible=false, started=false;
   const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
