@@ -169,3 +169,9 @@ input[type=text]:focus,input[type=tel]:focus{outline:none;border-color:var(--fra
 .thanks-plan{margin:0 0 26px;padding:12px 14px;background:#f6f4ef;font-size:14px}
 .thanks-plan:empty{display:none}
 .thanks-back{display:inline-block;font-family:var(--sans);font-size:13px;color:var(--ink-soft)}
+body[data-page="thanks"]{display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100svh;padding:24px 16px;box-sizing:border-box}
+body[data-page="thanks"] .lp{width:100%;margin:0;border-radius:6px}
+body[data-page="thanks"] .ft{padding-bottom:30px}
+body[data-page="thanks"] .thanks{padding:40px 16px 36px}
+body[data-page="thanks"] .thanks-tt{font-size:min(24px,5.4vw)}
+body[data-page="thanks"] .thanks-lead{font-size:min(14px,3.2vw)}
