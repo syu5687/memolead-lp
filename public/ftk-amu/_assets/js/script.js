@@ -3,15 +3,13 @@
 const CONFIG = {
   ENDPOINT: "https://memolead-ftk-amu.mk-cbe.workers.dev/submit",
   FORM_NAME: "アミュプラザくまもと リニューアルキャンペーン 応募フォーム",
-  /* ★プライバシーポリシーのURL（決まったら差し替え） */
-  PRIVACY_URL: "#",
   /* ★公式LINEの友だち追加URL（決まったら差し替え） */
   LINE_URL: "#",
   /* ★応募締切（決まったら差し替え。「応募の流れ」に表示される） */
   DEADLINE: "●●●●年●月●日"
 };
-// URLや締切はここ（CONFIG）だけで管理し、ページ内の該当箇所すべてに反映する（書き換え漏れを防ぐため）
-document.querySelectorAll("#privacyLink, .js-privacy").forEach(a=>a.href=CONFIG.PRIVACY_URL);
+// LINEのURLや締切はここ（CONFIG）だけで管理し、ページ内の該当箇所すべてに反映する（書き換え漏れを防ぐため）
+// ※プライバシーポリシーのURLは変わらないため、HTMLに直接書いている
 document.querySelectorAll(".js-line").forEach(a=>{
   a.href=CONFIG.LINE_URL;
   a.addEventListener("click",()=>track({event:"amu_line_click"}));
