@@ -49,17 +49,24 @@ STEP 2（上部に選んだプランを表示。「戻る」でSTEP 1へ・選�
 サイズは目安（縦は多少前後してよい）。縦が変わる場合は index.html の該当 `<img>` の `width` `height` も合わせる（読み込み時のガタつき防止）。
 
 ## フェードスライダー（v0007〜）
-会場紹介・撮影2択（2か所）・公開挙式の写真は、4秒ごとにフェードで切り替わる。下部のライン（タップ）と左右スワイプでも操作可。
+TOP（FV）・撮影2択（2か所）・会場紹介の写真は、4秒ごとにフェードで切り替わる（前の写真の上に次の写真を重ねる方式）。公開挙式は1枚固定（_assets/img/public-photo.webp）。下部のライン（タップ）と左右スワイプでも操作可。
 画像を **同じサイズ** で書き出し、次の名前で `_assets/img/slider/` に置くだけで自動的に追加される（ない番号は無視。1枚だけなら切り替えなし）。
 
 | 場所 | 1枚目（既存） | 2〜4枚目 |
 |---|---|---|
+| TOP（FV）※ラインなし・3枚 | fv.webp | fv-2.webp・fv-3.webp（文字・帯の位置は1枚目と完全にそろえる） |
 | アミュプラザくまもとでの前撮り | wedding-photo1.webp | wedding-photo1-2.webp 〜 -4.webp |
 | 熊本エリアでのロケーションフォト | wedding-photo2.webp | wedding-photo2-2.webp 〜 -4.webp |
-| 公開挙式 | public-photo.webp | public-photo-2.webp 〜 -4.webp |
 | 会場紹介 | venue.webp | venue-2.webp 〜 -4.webp |
 
 切り替え間隔は `_assets/js/script.js` の `SLIDE_MS`（ミリ秒）。
+
+## サンクスページ（thanks/index.html）
+- URL：/public/ftk-amu/thanks/ 。送信成功後に `./thanks/?plan=wedding|public|both` へ移動（noindex）。
+- 応募内容（プラン）・公式LINE友だち追加ボタン（応募条件③）・当選連絡の案内を表示。〔○月○日〕〔発信番号〕は要差し替え。
+- 計測：フォームから送信して来た場合だけ `amu_thanks_view`（plan）を送る（直接アクセス・再読み込みでは送らない）。
+  広告のCVは `amu_thanks_view` か `amu_campaign_submit` の **どちらか一方** に設定する（両方だと二重計上）。
+- CSS・JSはLP本体と共通（../_assets/）。
 
 ## CONFIG（_assets/js/script.js 冒頭）
 | 項目 | 内容 |

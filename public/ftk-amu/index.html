@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- @version v0008 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン LP | /public/ftk-amu/ -->
+<!-- @version v0009 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン LP | /public/ftk-amu/ -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="version" content="v0008">
+<meta name="version" content="v0009">
 <meta name="robots" content="noindex">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -13,8 +13,8 @@
 <meta name="description" content="アミュプラザくまもと リニューアルキャンペーン企画。前撮り or ロケーションフォト付きの結婚式、アミュひろばでの公開挙式、ショッピングチケットが抽選で当たります。応募は30秒。">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KG9CZ8Q4');</script>
-<link rel="preload" as="image" href="./_assets/img/fv.webp" fetchpriority="high">
-<link rel="stylesheet" href="./_assets/index.css?v=v0007">
+<link rel="preload" as="image" href="./_assets/img/slider/fv.webp" fetchpriority="high">
+<link rel="stylesheet" href="./_assets/index.css?v=v0009">
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG9CZ8Q4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -29,7 +29,12 @@
 </header>
 
 <section class="fv" aria-label="キャンペーン概要">
-  <h1 class="fv-h1"><img src="./_assets/img/fv.webp" alt="結婚式をプレゼント。熊本の人気スポットや思い出の場所で、一生残るウェディング写真を。抽選20組 前撮りorロケーションフォト付き結婚式プレゼント／抽選1組 アミュひろばでの公開挙式プレゼント／さらに アミュプラザくまもと ショッピングチケット 20万円分3組・10万円分10組" width="751" height="1203" fetchpriority="high" decoding="async"></h1>
+  <h1 class="sr-only">結婚式をプレゼント。熊本の人気スポットや思い出の場所で、一生残るウェディング写真を。抽選20組 前撮りorロケーションフォト付き結婚式プレゼント／抽選1組 アミュひろばでの公開挙式プレゼント／さらに アミュプラザくまもと ショッピングチケット 20万円分3組・10万円分10組</h1>
+  <div class="fade-slider fv-slider" data-slider data-dots="off">
+    <img class="is-active" src="./_assets/img/slider/fv.webp" alt="" width="751" height="1203" fetchpriority="high" decoding="async">
+    <img data-src="./_assets/img/slider/fv-2.webp" alt="" width="751" height="1203" decoding="async">
+    <img data-src="./_assets/img/slider/fv-3.webp" alt="" width="751" height="1203" decoding="async">
+  </div>
   <div class="fv-cta"><a class="btn-cta js-cta" href="#form" data-placement="fv">プレゼントキャンペーンに<br><b>応募する</b></a></div>
 </section>
 
@@ -84,12 +89,7 @@
     </ul>
     <dl class="date-box"><dt>挙式日</dt><dd>2027<small>年</small>4<small>月</small>4<small>日</small><span class="dow">日</span></dd></dl>
     <figure class="shot">
-      <div class="fade-slider" data-slider>
-        <img class="is-active" src="./_assets/img/slider/public-photo.webp" alt="アミュプラザくまもとの前に立つ新郎新婦" width="841" height="595" loading="lazy" decoding="async">
-        <img data-src="./_assets/img/slider/public-photo-2.webp" alt="" width="841" height="595" decoding="async">
-        <img data-src="./_assets/img/slider/public-photo-3.webp" alt="" width="841" height="595" decoding="async">
-        <img data-src="./_assets/img/slider/public-photo-4.webp" alt="" width="841" height="595" decoding="async">
-      </div>
+      <img src="./_assets/img/public-photo.webp" alt="アミュプラザくまもとの前に立つ新郎新婦" width="841" height="595" loading="lazy" decoding="async">
     </figure>
   </div>
 </section>
@@ -159,13 +159,12 @@
               <span class="plan-tag">抽選20組</span>
               <span class="plan-tt"><span class="ib">前撮り or</span> <span class="ib">ロケーション</span><span class="ib">フォト付き</span><br><span class="ib">結婚式</span><span class="ib">プレゼント</span></span></label>
             <label class="plan"><input type="radio" name="plan" value="public">
-              <span class="plan-img"><img src="./_assets/img/plan-public.jpg" alt="" width="1121" height="793" loading="lazy"></span>
+              <span class="plan-img"><img src="./_assets/img/plan-public.jpg" alt="" width="600" height="424" loading="lazy"></span>
               <span class="plan-tag">抽選1組</span>
               <span class="plan-tt"><span class="ib">アミュひろばでの</span><br><span class="ib">公開挙式</span><span class="ib">プレゼント</span></span></label>
             <label class="plan plan--both"><input type="radio" name="plan" value="both">
               <span class="plan-tt">両方に応募する</span></label>
           </div>
-          <p class="ticket-note">※アミュプラザくまもと ショッピングチケットは、応募者全員が抽選の対象です。</p>
           <div class="btns"><button type="button" class="btn btn-main" id="nextBtn">進む</button></div>
         </div>
 
@@ -185,10 +184,6 @@
         <p class="form-msg" id="formMsg"></p>
       </form>
 
-      <section id="done" tabindex="-1">
-        <h3>ご応募ありがとうございました</h3>
-        <p>当選された方には、ザ・フォレストテラス熊本の担当者からお電話でご連絡します。</p>
-      </section>
     </div>
   </div>
 </section>
@@ -205,6 +200,6 @@
   <a class="btn-cta btn-cta--fixed js-cta" href="#form" data-placement="fixed" tabindex="-1">プレゼントキャンペーンに<b>応募する</b></a>
 </div>
 
-<script defer src="./_assets/js/script.js?v=v0007"></script>
+<script defer src="./_assets/js/script.js?v=v0009"></script>
 </body>
 </html>
