@@ -48,6 +48,19 @@ STEP 2（上部に選んだプランを表示。「戻る」でSTEP 1へ・選�
 
 サイズは目安（縦は多少前後してよい）。縦が変わる場合は index.html の該当 `<img>` の `width` `height` も合わせる（読み込み時のガタつき防止）。
 
+## フェードスライダー（v0007〜）
+会場紹介・撮影2択（2か所）・公開挙式の写真は、4秒ごとにフェードで切り替わる。下部のライン（タップ）と左右スワイプでも操作可。
+画像を **同じサイズ** で書き出し、次の名前で `_assets/img/slider/` に置くだけで自動的に追加される（ない番号は無視。1枚だけなら切り替えなし）。
+
+| 場所 | 1枚目（既存） | 2〜4枚目 |
+|---|---|---|
+| アミュプラザくまもとでの前撮り | wedding-photo1.webp | wedding-photo1-2.webp 〜 -4.webp |
+| 熊本エリアでのロケーションフォト | wedding-photo2.webp | wedding-photo2-2.webp 〜 -4.webp |
+| 公開挙式 | public-photo.webp | public-photo-2.webp 〜 -4.webp |
+| 会場紹介 | venue.webp | venue-2.webp 〜 -4.webp |
+
+切り替え間隔は `_assets/js/script.js` の `SLIDE_MS`（ミリ秒）。
+
 ## CONFIG（_assets/js/script.js 冒頭）
 | 項目 | 内容 |
 |---|---|

@@ -1,4 +1,4 @@
-// @version v0003 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン LP スクリプト（LP骨組み・追従ボタン・LINE・パネル式フォーム） | /public/ftk-amu/_assets/js/script.js
+// @version v0007 | 2026-11-27 | アミュプラザくまもと リニューアルキャンペーン LP スクリプト（フェードスライダー・追従ボタン・LINE・パネル式フォーム） | /public/ftk-amu/_assets/js/script.js
 
 const CONFIG = {
   ENDPOINT: "https://memolead-ftk-amu.mk-cbe.workers.dev/submit",
@@ -23,6 +23,51 @@ function track(obj){(window.dataLayer=window.dataLayer||[]).push(obj);}
 
 // 応募ボタンのクリック計測。どの位置のボタン（FV／中間／追従）から押されたかを placement で区別する
 document.querySelectorAll(".js-cta").forEach(a=>a.addEventListener("click",()=>track({event:"amu_cta_click",placement:a.dataset.placement})));
+
+/* フェードスライダー（会場紹介・撮影2択・公開挙式の写真）
+   - 2枚目以降は data-src に書いておき、スライダーが画面に近づいたときに「実在する画像だけ」読み込む
+     （画像がまだ用意されていなくても崩れない。1枚しかなければ切り替えもラインも出さない）
+   - 4秒ごとに自動で切り替え。画面外にある間とタブが裏にある間は止める（無駄な処理を減らすため）
+   - ラインのタップ・左右スワイプでも切り替えられる */
+const SLIDE_MS=4000;
+document.querySelectorAll("[data-slider]").forEach((root,idx)=>{
+  let slides=[root.querySelector("img")], cur=0, timer=null, visible=false, started=false;
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 画像が実際に読み込めるかを確かめる（ないファイルはスライドから外す）
+  const probe=img=>new Promise(res=>{const t=new Image();t.onload=()=>{img.src=img.dataset.src;res(img);};t.onerror=()=>{img.remove();res(null);};t.src=img.dataset.src;});
+
+  const show=n=>{
+    cur=(n+slides.length)%slides.length;
+    slides.forEach((s,i)=>s.classList.toggle("is-active",i===cur));
+    root.querySelectorAll(".fs-dot").forEach((d,i)=>{d.classList.toggle("is-on",i===cur);d.setAttribute("aria-current",i===cur?"true":"false");});
+  };
+  const stop=()=>{clearInterval(timer);timer=null;};
+  const play=()=>{stop(); if(!reduce&&visible&&slides.length>1&&!document.hidden) timer=setInterval(()=>show(cur+1),SLIDE_MS);};
+
+  const build=async()=>{
+    const found=await Promise.all([...root.querySelectorAll("img[data-src]")].map(probe));
+    slides=slides.concat(found.filter(Boolean));
+    if(slides.length<2) return;
+    const dots=document.createElement("div"); dots.className="fs-dots";
+    slides.forEach((_,i)=>{const b=document.createElement("button");b.type="button";b.className="fs-dot";b.setAttribute("aria-label",`${i+1}枚目の写真を表示`);b.addEventListener("click",()=>{show(i);play();});dots.appendChild(b);});
+    root.appendChild(dots); show(0);
+    // 複数のスライダーが同じタイミングで切り替わらないよう、開始を少しずつずらす
+    setTimeout(play, idx*700);
+  };
+
+  // スワイプ（横に40px以上動かしたら前後へ）
+  let x0=null;
+  root.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;},{passive:true});
+  root.addEventListener("touchend",e=>{if(x0===null||slides.length<2)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play();}});
+
+  new IntersectionObserver(([e])=>{
+    visible=e.isIntersecting;
+    if(visible&&!started){started=true;build();}
+    visible?play():stop();
+  },{rootMargin:"200px 0px"}).observe(root);
+  document.addEventListener("visibilitychange",()=>document.hidden?stop():play());
+});
 
 /* 追従ボタン：FVのボタンが画面から消えたら表示し、応募フォームが見えている間は隠す（フォームの送信ボタンと重ねないため） */
 (()=>{
